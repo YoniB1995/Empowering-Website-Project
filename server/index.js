@@ -12,3 +12,9 @@ const name="michal";
 const server = "server12";
 const name="michal 2"
 const name = "Nati Dese 1";
+
+
+function yoniB () {
+    conse name = "yoni";
+}
+
