@@ -4,5 +4,4 @@ const hana = 'Karhana';
 
 const name = 'michal';
 const server = 'server12';
-
 const name1 = 'michal 2 ';
