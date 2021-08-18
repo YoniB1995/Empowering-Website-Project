@@ -3,6 +3,7 @@ const yoni = "yoni";
 const lior = "lior 10 "
 const hana = "Karhana";
 const name="michal"
+const hana="hanaA";
 const name="asi alena"
 const fname= "beniy"
 
