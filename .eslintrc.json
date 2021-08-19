@@ -7,7 +7,6 @@
         "no-unused-vars":"off",
         "no-console":"off",
         "eqeqeq":"warn",
-        "no-magic-numbers":"error",
         "no-multi-spaces":"error",
         "complexity":"error",
         "no-loop-func":"warn",
