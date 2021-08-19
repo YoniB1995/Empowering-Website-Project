@@ -9,7 +9,7 @@ const ImageSlider = ({}) => {
 
   setTimeout(() => {
     setCurrent(current === length - 1 ? 0 : current + 1);
-  }, 2000);
+  }, 4000);
 
   return (
     <section className="slider">
