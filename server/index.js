@@ -1,7 +1,7 @@
 const express;
 const kineret;
 const yoni = "yoni";
-const lior = "lior 10 "
+const lior = "lior 9 "
 const hana = "Karhana";
 const branch = "lior branch"
 <<<<<<< HEAD
