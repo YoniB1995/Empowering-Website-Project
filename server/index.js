@@ -3,6 +3,7 @@ const kineret;
 const yoni = "yoni";
 const lior = "lior 9 "
 const hana = "Karhana";
+<<<<<<< HEAD
 const branch = "lior branch"
 <<<<<<< HEAD
 =======
@@ -22,3 +23,7 @@ function yoniB () {
     conse name = "yoni";
 }
 
+=======
+const name="michal";
+const yuda = "for beni";
+>>>>>>> f8a0d2243cb9177bf35602e35f89fb83abe0c3d0
