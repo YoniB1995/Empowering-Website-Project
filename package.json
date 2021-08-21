@@ -19,21 +19,27 @@
     "axios": "^0.21.1",
     "concurrently": "^6.2.1",
     "cors": "^2.8.5",
+    "dompurify": "^2.3.1",
     "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "jsdom": "^17.0.0",
+    "mailchimp-api-v3": "^1.15.0",
+    "marked": "^3.0.0",
+    "method-override": "^3.0.0",
     "mongoose": "^5.13.7",
     "nodemon": "^2.0.12",
-    "mailchimp-api-v3": "^1.15.0"
+    "slugify": "^1.6.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "prettier": "^2.3.2",
-    "eslint-config-node": "^4.1.0",
-    "eslint-plugin-node": "^11.1.0"
+    "prettier": "^2.3.2"
   },
   "engines": {
     "node": "14.x"
