@@ -1,4 +1,5 @@
 import React from "react"
+import "./Programs.css"
 
 const Programs = ()=>{
 
