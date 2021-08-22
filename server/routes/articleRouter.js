@@ -1,5 +1,6 @@
 const express = require('express');
 const articleModel = require('../models/article')
+const {} = require('../controllers/articleController')
 const router = express.Router();
 
 router.get('/new',(req,res)=> {
@@ -10,7 +11,7 @@ router.get('/new',(req,res)=> {
 router.get('/all',async (req,res)=> {
     const article = await articleModel.find({})
     // res.render('articles/new',{article:article})
-    res.send(article)
+    res.json(article)
 })
 
 router.get('/edit/:id', async (req,res)=> {
