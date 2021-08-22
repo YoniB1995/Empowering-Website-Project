@@ -1,27 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-import Card from './componnets/features/card/Card';
+import "./App.css";
+import Card from "./componnets/features/card/Card";
+import ImageSlider from "./componnets/features/Slider/imageSlider";
+import LoginForm from "./componnets/Forms/LoginForm";
+import ForgotPasswordForm from "./componnets/Forms/ForgotPasswordForm";
+import {BrowserRouter as Router , Route , Link , Switch} from 'react-router-dom';
 
+import Input from "./componnets/features/Input/Input";
 function App() {
   return (
     <>
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-      <Card />
+    <Router>
+      <Input />
+              <Link to="/login"><button>Go to Login</button></Link>
+
+      <Switch>
+        <Route exact path ="/" />
+        <Route  path ="/login" component={LoginForm} />
+        <Route  path ="/forgotpass" component={ForgotPasswordForm} />
+
+      </Switch>
+      {/* <ImageSlider /> */}
+      {/* <Card /> */}
+    </Router>
     </>
   );
 }
