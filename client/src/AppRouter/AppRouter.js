@@ -4,8 +4,9 @@ import { Switch, Route } from "react-router-dom";
 import Card from "../componnets/features/card/Card";
 import ImageSlider from "../componnets/features/Slider/imageSlider";
 import LoginForm from "../componnets/features/Forms/LoginForm";
-import ForgotPasswordForm from "../componnets/features/Forms/ForgotPasswordForm";
-import Input from "../componnets/features/Input/Input";
+import ArticleDetails from "../componnets/features/Admin/ArticleDetails/ArticleDetails";
+import EditArticles from "../componnets/features/Admin/EditArticles/EditArticles";
+import NewArticles from "../componnets/features/Admin/NewArticles/NewArticles";
 
 import Home from "../componnets/pages/Home/Home";
 import Programs from "../componnets/pages/Programs/Programs";
@@ -14,6 +15,7 @@ import Store from "../componnets/pages/Store/Store";
 import Newsletter from "../componnets/pages/Newsletter/Newsletter";
 import ContactUs from "../componnets/pages/ContactUs/ContactUs";
 import AboutUs from "../componnets/pages/AboutUs/AboutUs";
+import Articles from "../componnets/features/Articles/Articles";
 
 const AppRouter = () => {
   return (
@@ -30,6 +32,12 @@ const AppRouter = () => {
         <Route path="/Newsletter" component={Newsletter} />
         <Route path="/ContactUs" component={ContactUs} />
         <Route path="/AboutUs" component={AboutUs} />
+        <Route path="/Articles" component={Articles} />
+        
+        <Route path="/Admin/ArticleDetails" component={ArticleDetails} />
+        <Route path="/Admin/EditArticles" component={EditArticles} />
+        <Route path="/Admin/NewArticles" component={NewArticles} />
+
       </Switch>
     </div>
   );
