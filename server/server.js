@@ -1,17 +1,17 @@
-require('dotenv').config();
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
 
 const app = express();
-const cors = require('cors');
-const db = require('./db/db');
+const cors = require("cors");
+const db = require("./db/db");
 
 app.use(express.json()); // JSON יכולת לקרוא ולהציג מידע מ
 app.use(express.urlencoded({ extended: true })); // params יכולת לשלוף מידע מ
 app.use(cors());
 
-const newsLetterRouter = require('./routes/newsLetterRouter');
+const newsLetterRouter = require("./routes/newsLetterRouter");
 
-app.use('/form', newsLetterRouter);
+app.use("/form", newsLetterRouter);
 
 const PORT = process.env.PORT || 5000;
 
