@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const adminModel = require('../models/admin');
 
 const getAllAdmins = async (req, res) => {

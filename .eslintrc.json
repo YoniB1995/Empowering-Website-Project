@@ -26,6 +26,7 @@
         "implicit-arrow-linebreak":"error",
         "prefer-destructuring":"warn",
         "template-curly-spacing":"warn",
-        "linebreak-style":"off"
+        "linebreak-style":"off",
+        "new-cap":"off"
     }
 }

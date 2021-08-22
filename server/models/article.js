@@ -1,50 +1,52 @@
+/* eslint-disable func-names */
 const marked = require('marked');
-const slugify = require('slugify')
+const slugify = require('slugify');
 const mongoose = require('mongoose');
-const createDomPurify = require('dompurify')
-const { JSDOM } = require('jsdom')
-const dompurify = createDomPurify(new JSDOM().window) 
+const createDomPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+
+const dompurify = createDomPurify(new JSDOM().window);
 
 const articleSchema = new mongoose.Schema({
-    title:{
-        type:String,
-        required:true
-    },
-    description:{
-        type:String,
-        required:true
-    },
-    markdown:{
-        type:String,
-        required:true
-    },
-    createdAt:{
-        type:Date,
-        default : Date.now
-    },
-    slug:{
-        type: String,
-        required:true,
-        unique:true
-    },
-    sanitizedHtml: {
-        type:String,
-        required:true
-    }
-})
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  markdown: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  sanitizedHtml: {
+    type: String,
+    required: true,
+  },
+});
 
-articleSchema.pre('validate', function(next){
-    if (this.title) {
-        this.slug = slugify(this.title,{lower:true, strict:true})
-    }
+articleSchema.pre('validate', function (next) {
+  if (this.title) {
+    this.slug = slugify(this.title, { lower: true, strict: true });
+  }
 
-    if(this.markdown){
-        this.sanitizedHtml = dompurify.sanitize(marked(this.markdown))
-    }
+  if (this.markdown) {
+    this.sanitizedHtml = dompurify.sanitize(marked(this.markdown));
+  }
 
-    next()
-})
+  next();
+});
 
-const articleModel = mongoose.model('article',articleSchema)
+const articleModel = mongoose.model('article', articleSchema);
 
 module.exports = articleModel;
