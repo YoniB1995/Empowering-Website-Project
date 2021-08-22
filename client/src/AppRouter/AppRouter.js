@@ -15,7 +15,9 @@ import Store from "../componnets/pages/Store/Store";
 import Newsletter from "../componnets/pages/Newsletter/Newsletter";
 import ContactUs from "../componnets/pages/ContactUs/ContactUs";
 import AboutUs from "../componnets/pages/AboutUs/AboutUs";
+
 import Articles from "../componnets/features/Articles/Articles";
+import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 
 const AppRouter = () => {
   return (
@@ -23,7 +25,7 @@ const AppRouter = () => {
       <ImageSlider />
       <Card />
       <LoginForm />
-
+      <WorkersCards />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/Programs" component={Programs} />
