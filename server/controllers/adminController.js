@@ -4,7 +4,7 @@ const getAllAdmins = async (req,res) =>{
     try{
         const admins = await adminModel.find({});
 
-        res.json(products);
+        res.json(admins);
     } catch(error){
         console.log(error);
         res.status(500).json({message:"Server Error"});
@@ -25,10 +25,11 @@ const getAdminById = async (req,res) =>{
 const registerAdmin = async (req,res) => {
     const {username,email,password} = req.body;
     try{
-        const user = await userModel.create({
+        const user = await adminModel.create({
             username,email,password
         })
-        console.log(user)
+        // console.log(user)
+        res.json(user)
 
     } catch(error){
         console.log(error);
@@ -39,7 +40,7 @@ const registerAdmin = async (req,res) => {
 const deleteAdmin = async (req,res) => {
     const {username} = req.body;
     try{
-        const user = await userModel.deleteById(req.params.username === username && req.params.username)
+        const user = await adminModel.deleteById(req.params.username === username && req.params.username)
 
         if(!user) {
             console.log("there isnt a username like this name")
