@@ -1,6 +1,6 @@
 import "./Form.css";
-import Input from "../features/Input/Input";
-import Button from "../features/Button/Button";
+import Input from "../Input/Input";
+import Button from "../Button/Button";
 
 const LoginForm = () => {
   return (
