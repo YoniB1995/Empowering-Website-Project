@@ -3,29 +3,26 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Form.css";
 import '../features/Input/Input.css'
 import '../features/Button/Button.css'
-import Input from "../features/Input/Input";
 import Button from "../features/Button/Button";
 import { Link } from "react-router-dom";
 import {registerAdmin} from '../../service/admin-service'
-import { ConnectionStates } from "mongoose";
 
 export default function LoginForm() {
   
-
-  const [user, setUser] = useState([]);
+  const [article, setUser] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setUser({ ...article, [name]: value });
   };
 
-  const saveAdmin = (params) => {
+  const editArticle = (params) => {
     params.preventDefault()
     const data = {
-      username: user.username,
-      email: user.email,
-      password: user.password,
+      title: article.title,
+      description: article.description,
+      markdown: article.markdown,
     };
     console.log(data)
     registerAdmin(data)
@@ -33,30 +30,30 @@ export default function LoginForm() {
 
   }
   return (
-    <form class="login-form" onSubmit={saveAdmin}>
+    <form class="login-form" onSubmit={editArticle}>
       <div class="login-form__content">
-        <div class="login-form__header">Login to your account</div>
+        <div class="login-form__header">Edit your article</div>
         <input className="login-form__input"
           type="text"
-          name="username"
-          placeholder="username"
-          userValue={user.username}
+          name="title"
+          placeholder="title"
+          value={article.title}
           required
           onChange={handleInputChange}
         />
         <input className="login-form__input"
-          type="email"
-          name="email"
+          type="text"
+          name="description"
           placeholder="email"
-          userValue={user.email}
+          value={article.description}
           required
           onChange={handleInputChange}
         />
         <input className="login-form__input"
           type="password"
-          name="password"
-          placeholder="Password"
-          userValue={user.password}
+          name="markdown"
+          placeholder="markdown"
+          value={article.markdown}
           required
           onChange={handleInputChange}
         />
@@ -64,7 +61,7 @@ export default function LoginForm() {
           className="form-button"
           type="submit"
           text="Login"
-          func={saveAdmin}
+          func={editArticle}
         />
 
         {/* <div>

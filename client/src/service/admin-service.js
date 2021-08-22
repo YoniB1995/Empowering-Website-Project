@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const API =process.env.NODE_ENV === 'production'? `https://yonib.herokuapp.com`:'http://localhost:5000';
 
 // const getAllAdmins = async (req,res) =>{
@@ -43,7 +44,7 @@ const deleteAdmin = async (req,res) => {
         const user = await fetch(`${API}/movies/all`)
 
         if(!user) {
-            console.log("there isnt a username like this name")
+            console.log("there isn't a username like this name")
         }
 
         console.log(user)
