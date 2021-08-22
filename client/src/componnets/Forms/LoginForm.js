@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./Form.css";
+import '../features/Input/Input.css'
+import '../features/Button/Button.css'
 import Input from "../features/Input/Input";
 import Button from "../features/Button/Button";
 import { Link } from "react-router-dom";
@@ -26,7 +28,6 @@ export default function LoginForm() {
     };
     console.log(data)
     registerAdmin(data)
-    .then((res)=>{alert(res.message)})
 
 
   }
@@ -34,31 +35,38 @@ export default function LoginForm() {
     <form class="login-form" onSubmit={saveAdmin}>
       <div class="login-form__content">
         <div class="login-form__header">Login to your account</div>
-        <Input
+        <input className="login-form__input"
           type="text"
           name="username"
           placeholder="username"
+          userValue={user.username}
+          required
           onChange={handleInputChange}
         />
-        <Input
+        <input className="login-form__input"
           type="email"
           name="email"
           placeholder="email"
+          userValue={user.email}
+          required
           onChange={handleInputChange}
         />
-        <Input
+        <input className="login-form__input"
           type="password"
           name="password"
           placeholder="Password"
+          userValue={user.password}
+          required
           onChange={handleInputChange}
         />
         <Button
           className="form-button"
           type="submit"
           text="Login"
+          func={saveAdmin}
         />
 
-        <div>
+        {/* <div>
           Testing Input:
           <form>
           <input type="text" name='username' value={user.username} onChange={handleInputChange} />
@@ -68,7 +76,7 @@ export default function LoginForm() {
           <input type="password" name='password' value={user.password} onChange={handleInputChange} />
           <button type="button" onClick={saveAdmin}>Register!</button>
           </form>
-        </div>
+        </div> */}
         <div class="login-form__links">
           <a class="login-form__link" href="./">
             <div>

@@ -4,7 +4,7 @@ const {getAllAdmins , getAdminById , registerAdmin, deleteAdmin } = require('../
 
 router.get('/',getAllAdmins)
 router.get('/:id',getAdminById)
-router.post('/',registerAdmin)
+router.post('/',registerAdmin) // redirect route to /login
 router.delete('/:username',deleteAdmin)
 
 
