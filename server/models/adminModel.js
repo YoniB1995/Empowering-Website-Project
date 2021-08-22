@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-const joi = require('joi');
-
 const Schema = mongoose.schema();
 
 const adminSchema = new Schema({
