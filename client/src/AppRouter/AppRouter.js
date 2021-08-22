@@ -3,8 +3,8 @@ import { Switch, Route } from "react-router-dom";
 
 import Card from "../componnets/features/card/Card";
 import ImageSlider from "../componnets/features/Slider/imageSlider";
-import LoginForm from "../componnets/Forms/LoginForm";
-import ForgotPasswordForm from "../componnets/Forms/ForgotPasswordForm";
+import LoginForm from "../componnets/features/Forms/LoginForm";
+import ForgotPasswordForm from "../componnets/features/Forms/ForgotPasswordForm";
 import Input from "../componnets/features/Input/Input";
 
 import Home from "../componnets/pages/Home/Home";
