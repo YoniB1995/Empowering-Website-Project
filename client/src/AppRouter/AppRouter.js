@@ -18,11 +18,9 @@ import AboutUs from "../componnets/pages/AboutUs/AboutUs";
 const AppRouter = () => {
   return (
     <div>
-      <Input />
       <ImageSlider />
       <Card />
       <LoginForm />
-      <ForgotPasswordForm />
 
       <Switch>
         <Route exact path="/" component={Home} />
