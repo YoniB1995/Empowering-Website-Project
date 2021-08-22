@@ -3,9 +3,10 @@ import { Switch, Route } from "react-router-dom";
 
 import Card from "../componnets/features/card/Card";
 import ImageSlider from "../componnets/features/Slider/imageSlider";
-import LoginForm from "../componnets/Forms/LoginForm";
-import ForgotPasswordForm from "../componnets/Forms/ForgotPasswordForm";
-import Input from "../componnets/features/Input/Input";
+import LoginForm from "../componnets/features/Forms/LoginForm";
+import ArticleDetails from "../componnets/features/Admin/ArticleDetails/ArticleDetails";
+import EditArticles from "../componnets/features/Admin/EditArticles/EditArticles";
+import NewArticles from "../componnets/features/Admin/NewArticles/NewArticles";
 
 import Home from "../componnets/pages/Home/Home";
 import Programs from "../componnets/pages/Programs/Programs";
@@ -15,15 +16,16 @@ import Newsletter from "../componnets/pages/Newsletter/Newsletter";
 import ContactUs from "../componnets/pages/ContactUs/ContactUs";
 import AboutUs from "../componnets/pages/AboutUs/AboutUs";
 
+import Articles from "../componnets/features/Articles/Articles";
+import WorkersCards from "../componnets/features/workersCards/WorkersCards";
+
 const AppRouter = () => {
   return (
     <div>
-      <Input />
       <ImageSlider />
       <Card />
       <LoginForm />
-      <ForgotPasswordForm />
-
+      <WorkersCards />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/Programs" component={Programs} />
@@ -32,6 +34,12 @@ const AppRouter = () => {
         <Route path="/Newsletter" component={Newsletter} />
         <Route path="/ContactUs" component={ContactUs} />
         <Route path="/AboutUs" component={AboutUs} />
+        <Route path="/Articles" component={Articles} />
+        
+        <Route path="/Admin/ArticleDetails" component={ArticleDetails} />
+        <Route path="/Admin/EditArticles" component={EditArticles} />
+        <Route path="/Admin/NewArticles" component={NewArticles} />
+
       </Switch>
     </div>
   );
