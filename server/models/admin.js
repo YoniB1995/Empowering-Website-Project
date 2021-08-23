@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable new-cap */
 const mongoose = require('mongoose');
 
@@ -18,7 +19,6 @@ const adminSchema = new schema({
     require: [true, 'Please provide a email'],
     unique: true,
     match: [
-      // eslint-disable-next-line no-useless-escape
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email',
     ],
   },
