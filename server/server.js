@@ -1,12 +1,12 @@
 /* eslint-disable import/order */
 require('dotenv').config();
 const express = require('express');
-
+const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const articleModel = require('./models/article');
 
 const app = express();
-const cors = require('cors');
+
 const db = require('./db/db');
 const methodOverride = require('method-override');
 
@@ -21,9 +21,10 @@ app.use(cors());
 const adminRouter = require('./routes/adminRoutes');
 const articlesRouter = require('./routes/articleRouter');
 const newsLetterRouter = require('./routes/newsLetterRouter');
+const productRouter = require('./routes/productRouter');
 
 app.use('/form', newsLetterRouter);
-app.use('/login', articlesRouter);
+app.use('/articles', articlesRouter);
 app.use('/admin', adminRouter);
 
 app.get('/', async (req, res) => {
@@ -33,4 +34,3 @@ app.get('/', async (req, res) => {
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
-app.use('/articles', articlesRouter);

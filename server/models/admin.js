@@ -1,5 +1,5 @@
-/* eslint-disable new-cap */
 /* eslint-disable no-useless-escape */
+/* eslint-disable new-cap */
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema;
@@ -12,7 +12,7 @@ const adminSchema = new schema({
     type: String,
     require: [true, 'Please provide a password'],
     minlength: 6,
-    select: true,
+    select: false,
   },
   email: {
     type: String,
@@ -21,10 +21,6 @@ const adminSchema = new schema({
     match: [
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email',
     ],
-  },
-  date: {
-    type: Date,
-    default: Date.now,
   },
 });
 

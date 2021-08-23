@@ -1,3 +1,5 @@
+/* eslint-disable new-cap */
+
 const ArticleModel = require('../models/article');
 
 const createNewArticle = async (req, res) => {
