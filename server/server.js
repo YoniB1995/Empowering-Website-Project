@@ -1,7 +1,7 @@
 /* eslint-disable import/order */
 require('dotenv').config();
 const express = require('express');
-
+const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const articleModel = require('./models/article');
 
@@ -34,4 +34,3 @@ app.get('/', async (req, res) => {
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 
-app.use('/articles', articlesRouter);

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from "react";
-import "./Form.css";
+import "../../componnets/features/Forms/Form.css";
 import '../features/Input/Input.css'
 import '../features/Button/Button.css'
 import Button from "../features/Button/Button";

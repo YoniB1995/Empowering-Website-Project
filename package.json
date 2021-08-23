@@ -24,24 +24,14 @@
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-<<<<<<< HEAD
-    "jsdom": "^17.0.0",
-    "jsonwebtoken": "^8.5.1",
+    "joi": "^17.4.2",
     "mailchimp-api-v3": "^1.15.0",
     "marked": "^3.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.7",
     "nodemon": "^2.0.12",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
+    "react-icons": "^4.2.0",
     "slugify": "^1.6.0"
-=======
-    "mailchimp-api-v3": "^1.15.0",
-    "joi": "^17.4.2",
-    "mongoose": "^5.13.7",
-    "nodemon": "^2.0.12",
-    "react-icons": "^4.2.0"
->>>>>>> 463119fc6748ba7d488dd4401ba396e2c72e8433
   },
   "devDependencies": {
     "eslint": "^7.32.0",

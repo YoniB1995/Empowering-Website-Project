@@ -7,6 +7,7 @@ import LoginForm from "../componnets/features/Forms/LoginForm";
 import ArticleDetails from "../componnets/features/Admin/ArticleDetails/ArticleDetails";
 import EditArticles from "../componnets/features/Admin/EditArticles/EditArticles";
 import NewArticles from "../componnets/features/Admin/NewArticles/NewArticles";
+import ArticleEditor from "../componnets/Forms/ArticleEditor";
 
 import Home from "../componnets/pages/Home/Home";
 import Programs from "../componnets/pages/Programs/Programs";
@@ -19,12 +20,12 @@ import AboutUs from "../componnets/pages/AboutUs/AboutUs";
 import Articles from "../componnets/features/Articles/Articles";
 import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 
-const AppRouter = () => {
+export default function AppRouter () {
   return (
     <div>
       <ImageSlider />
       <Card />
-      <LoginForm />
+      {/* <LoginForm /> */}
       <WorkersCards />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -39,10 +40,10 @@ const AppRouter = () => {
         <Route path="/Admin/ArticleDetails" component={ArticleDetails} />
         <Route path="/Admin/EditArticles" component={EditArticles} />
         <Route path="/Admin/NewArticles" component={NewArticles} />
+        <Route path="/Admin/ArticleEditor" component={ArticleEditor} />
 
       </Switch>
     </div>
   );
 };
 
-export default AppRouter;
