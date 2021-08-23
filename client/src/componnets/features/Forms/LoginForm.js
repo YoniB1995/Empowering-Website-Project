@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from "react";
 import "./Form.css";
 <<<<<<< HEAD:client/src/componnets/Forms/LoginForm.js
