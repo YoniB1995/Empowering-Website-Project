@@ -1,9 +1,10 @@
 import React from "react";
+import "../Slider/slider.css"
 import ImgSliderData from "./imgSliderData";
 import { Carousel } from "antd";
 import "antd/dist/antd.css";
 
-const ImgSlider = () => {
+const ImageSlider = () => {
   return (
     <Carousel autoplay className="slider-container">
       {ImgSliderData.map((slide) => (
@@ -14,4 +15,4 @@ const ImgSlider = () => {
     </Carousel>
   );
 };
-export default ImgSlider;
+export default ImageSlider;
