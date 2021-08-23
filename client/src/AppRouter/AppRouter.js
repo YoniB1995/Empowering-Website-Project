@@ -20,7 +20,6 @@ import ProfileCard from "../componnets/features/Profile-card/Profile-card";
 const AppRouter = () => {
   return (
     <div>
-      <ImageSlider />
       <Card />
       <LoginForm />
       <ForgotPasswordForm />

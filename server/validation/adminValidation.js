@@ -2,8 +2,8 @@ const joi = require('joi');
 
 exports.validContactUs = (bodyData) => {
   const joiSchema = joi.object({
-    password: joi.string().min().max().require(),
-    email: joi.string().min().max().require(),
+    password: joi.string().min().max().required(),
+    email: joi.string().min().max().required(),
   });
   return joiSchema.validate(bodyData);
 };
