@@ -5,7 +5,7 @@ const { CONNECTION_URL } = process.env;
 mongoose.connect(CONNECTION_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex:true
+  useCreateIndex: true,
 })
   .then(() => console.log('mongoose connect successed'))
   .catch((err) => console.log('err:', err));
