@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./Form.css";
-<<<<<<< HEAD:client/src/componnets/Forms/LoginForm.js
 import '../features/Input/Input.css'
 import '../features/Button/Button.css'
 import Input from "../features/Input/Input";
@@ -8,10 +7,6 @@ import Button from "../features/Button/Button";
 import { Link } from "react-router-dom";
 import {registerAdmin} from '../../service/admin-service'
 import { ConnectionStates } from "mongoose";
-=======
-import Input from "../Input/Input";
-import Button from "../Button/Button";
->>>>>>> 463119fc6748ba7d488dd4401ba396e2c72e8433:client/src/componnets/features/Forms/LoginForm.js
 
 export default function LoginForm() {
   

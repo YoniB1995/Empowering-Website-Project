@@ -18,10 +18,12 @@ import AboutUs from "../componnets/pages/AboutUs/AboutUs";
 
 import Articles from "../componnets/features/Articles/Articles";
 import WorkersCards from "../componnets/features/workersCards/WorkersCards";
+import { NavBar } from "../componnets/features/NavBar/NavBar";
 
 const AppRouter = () => {
   return (
     <div>
+      <NavBar/>
       <ImageSlider />
       <Card />
       <LoginForm />
@@ -35,7 +37,6 @@ const AppRouter = () => {
         <Route path="/ContactUs" component={ContactUs} />
         <Route path="/AboutUs" component={AboutUs} />
         <Route path="/Articles" component={Articles} />
-        
         <Route path="/Admin/ArticleDetails" component={ArticleDetails} />
         <Route path="/Admin/EditArticles" component={EditArticles} />
         <Route path="/Admin/NewArticles" component={NewArticles} />
