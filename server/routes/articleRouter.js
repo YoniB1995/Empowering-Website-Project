@@ -4,27 +4,14 @@
 /* eslint-disable no-unused-expressions */
 const express = require('express');
 const articleModel = require('../models/article');
-const {} = require('../controllers/articleController');
 
 const router = express.Router();
-
-// articles/new
-// router.get('/new', (req, res) => {
-//   res.render('articles/new', { article: new articleModel() });
-// });
 
 // articles/all
 router.get('/all', async (req, res) => {
   const article = await articleModel.find({});
   // res.render('articles/new',{article:article})
   res.json(article);
-});
-
-// articles/:slug
-router.get('/:slug', async (req, res) => {
-  const article = await articleModel.findOne({ slug: req.params.slug });
-  article === null && res.redirect('/');
-  res.render('articles/show', { article });
 });
 
 // articles/
@@ -85,3 +72,16 @@ function saveArticleAndRedirect(path) {
 }
 
 module.exports = router;
+
+// Do not delete / touch - yoni
+// articles/:slug
+// router.get('/:slug', async (req, res) => {
+//   const article = await articleModel.findOne({ slug: req.params.slug });
+//   article === null && res.redirect('/');
+//   res.render('articles/show', { article });
+// });
+
+// articles/new
+// router.get('/new', (req, res) => {
+//   res.render('articles/new', { article: new articleModel() });
+// });

@@ -10,11 +10,10 @@ import {getAllArticles,editArticle,deleteArticle,addArticle} from '../../service
 const API =process.env.NODE_ENV === 'production'? `https://yonib.herokuapp.com`:'http://localhost:5000';
 
 export default function ArticleEditor(req,res) {
-  const [articlesID,setArticlesID] = useState([])
+  const [articlesID,setArticlesID] = useState([]);
   const [article, setArticle] = useState([]);
-  const [submitted, setSubmitted] = useState(false);
+  const [articles,setArticles] = useState([]);
 
-  const [articles,setArticles] = useState([])
 
   useEffect(()=>{
       getAllArticles().then((res) => res.json() ).then(result => setArticles(result) )
@@ -29,7 +28,6 @@ export default function ArticleEditor(req,res) {
 
   const updateArticle =  (params) => {
     const ids = articles.map((type,i) => type.title === article.title && setArticlesID(type._id) );
-    console.log(articlesID)
     params.preventDefault()
     const data = {
       id:articlesID,
@@ -66,7 +64,11 @@ export default function ArticleEditor(req,res) {
       <div class="login-form__content">
         <div class="login-form__header">Edit your article</div>
         <h2>Type your title to edit </h2>
-
+        <div style={{textAlign:"right"}}>
+        <h4>בשביל לעדכן יש לרשום את שם הכותרת של המאמר</h4>
+        <h4>ADD בשביל להוסיף מאמר יש למלא את הפרטים וללחוץ </h4>
+        <h4>בשביל למחוק יש לרשום את שם הכותרת של המאמר</h4>
+        </div>
         <input className="login-form__input"
           type="text"
           placeholder="title"
@@ -123,8 +125,9 @@ export default function ArticleEditor(req,res) {
         </div>
       </div>
     </form>
-    <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
-    <h2>Articles Lists & ID </h2>
+    <h2 style={{textAlign:"center"}}>Articles Lists & ID </h2>
+    <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"row",flexWrap:"wrap"}}>
+    
     {articles.map((type,i) => {
     return (<div style={{border:"1px solid black"}}>
     <tr>
