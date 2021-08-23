@@ -1,15 +1,6 @@
 import "./Form.css";
-<<<<<<< HEAD:client/src/componnets/Forms/ForgotPasswordForm.js
-import Input from "../features/Input/Input";
-import Button from "../features/Button/Button";
-import {Link } from 'react-router-dom';
-import React, {useState} from 'react'
-import {getAllArticles} from '../../service/article-service'
-
-=======
 import Input from "../Input/Input";
 import Button from "../Button/Button";
->>>>>>> main:client/src/componnets/features/Forms/ForgotPasswordForm.js
 const ForgotPasswordForm = () => {
   const [one,setOne] = useState('')
   const [articles,setArticles] = useState([])
