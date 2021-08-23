@@ -5,7 +5,8 @@ import Button from "../features/Button/Button";
 import {Link } from 'react-router-dom';
 import React, {useState} from 'react'
 import {getAllArticles} from '../../service/article-service'
-
+import LoginForm from './LoginForm'
+ 
 const ForgotPasswordForm = () => {
   const [one,setOne] = useState('')
   const [articles,setArticles] = useState([])
@@ -25,7 +26,10 @@ const ForgotPasswordForm = () => {
         </div>
       </div>
     </form>
-    {articles.map((article,key)=> <div key={key} style={{border:"1px solid black",margin:"5px"}}>{article.description}</div>)}
+    {articles.map((article,key)=> <div key={key} style={{border:"1px solid black",margin:"5px"}}>{article.description} <br></br> {article._id} <Link to={`edit/${article._id}`} ><button>To Edit Article</button></Link>
+      
+      </div> )}
+      
     </>
   );
 };

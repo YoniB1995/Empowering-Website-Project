@@ -9,22 +9,15 @@ const {} = require('../controllers/articleController');
 const router = express.Router();
 
 // articles/new
-router.get('/new', (req, res) => {
-  res.render('articles/new', { article: new articleModel() });
-});
+// router.get('/new', (req, res) => {
+//   res.render('articles/new', { article: new articleModel() });
+// });
 
 // articles/all
 router.get('/all', async (req, res) => {
   const article = await articleModel.find({});
   // res.render('articles/new',{article:article})
   res.json(article);
-});
-
-//  articles/edit
-router.get('/edit/:id', async (req, res) => {
-  const article = await articleModel.findById(req.params.id);
-  // res.render('articles/edit', { article });
-  res.send(article);
 });
 
 // articles/:slug
@@ -35,13 +28,13 @@ router.get('/:slug', async (req, res) => {
 });
 
 // articles/
-router.post('/', async (req, res, next) => {
+router.post('/new', async (req, res, next) => {
   req.article = new articleModel();
   next();
 }, saveArticleAndRedirect('new'));
 
-// articles/test/
-router.put('/test/:id', async (req, res, next) => {
+// articles/edit/
+router.put('/edit/:id', async (req, res, next) => {
   const oldArticle = await new articleModel({
     _id: req.params.id,
     title: req.body.title,
@@ -64,15 +57,13 @@ router.put('/test/:id', async (req, res, next) => {
 });
 
 // articles/:id
-router.put('/:id', async (req, res, next) => {
-  req.article = await articleModel.findById(req.params.id);
-  next();
-}, saveArticleAndRedirect('new'));
-
-// articles/:id
 router.delete('/:id', async (req, res) => {
-  await articleModel.findByIdAndDelete(req.params.id);
-  res.redirect('/');
+  try {
+    await articleModel.findByIdAndDelete(req.params.id);
+    res.send({ success: true, message: 'article deleted' });
+  } catch (error) {
+    res.status(400).json({ success: false, message: 'ERROR' });
+  }
 });
 
 function saveArticleAndRedirect(path) {
