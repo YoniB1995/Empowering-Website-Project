@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  color: rgb(161, 110, 75);
+}
+.navBar {
+  background-color: rgb(252, 241, 230);
+  text-decoration: none;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.navBarLinks {
+  height: 100px;
+  background-color: rgb(252, 241, 230);
+  font-size: 18px;
+  padding: 7px 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  top: 5px;
+  float: right;
+}
+.donationsBtn{
+  border-radius: 4px solid;
+  background-color: rgb(244, 215, 192);
+  margin-right: 25px;
+}

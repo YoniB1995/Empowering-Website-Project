@@ -9,7 +9,6 @@ const ImageSlider = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
     console.log(current);
   };
-
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
     console.log(current)
@@ -32,7 +31,6 @@ const ImageSlider = () => {
           );
         })}
       </div>
-
       <button id="prev" onClick={prevSlide}>
         &lt;
       </button>
@@ -47,6 +45,5 @@ const ImageSlider = () => {
     </div>
   );
 };
-
 
 export default ImageSlider;
