@@ -61,10 +61,15 @@ export default function ArticleEditor(req, res) {
     deleteArticle(data);
   };
 
-  const insertArticle = async (params) => {
-    const ids = await articles.map(
-      (type, i) => type.title === article.title && setArticlesID(type._id)
-    );
+
+  //const insertArticle = async (params) => {
+    //const ids = await articles.map(
+     // (type, i) => type.title === article.title && setArticlesID(type._id)
+    //);
+
+  const insertArticle = async  (params) => {
+    // const ids = await articles.map((type,i) => type.title === article.title && setArticlesID(type._id) );
+
     const data = {
       title: article.title,
       description: article.description,

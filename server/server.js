@@ -1,13 +1,17 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable import/order */
 require('dotenv').config();
 const express = require('express');
+
 const cors = require('cors');
+
 const PORT = process.env.PORT || 5000;
-const articleModel = require('./models/article');
+const articleModel = require('./models/adminModel');
 
 const app = express();
 
-const db = require('./db/db');
+const db = require('./db');
 const methodOverride = require('method-override');
 
 app.set('view engine', 'ejs');
@@ -33,4 +37,3 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
-
