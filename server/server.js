@@ -3,11 +3,11 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
-const articleModel = require('./models/article');
+const articleModel = require('./models/articleModel');
 
 const app = express();
 
-const db = require('./db/db');
+const db = require('./db');
 const methodOverride = require('method-override');
 
 app.set('view engine', 'ejs');
