@@ -11,6 +11,7 @@ const getAllProducts = async (req, res) => {
   }
 };
 
+
 const createProduct = async (req, res) => {
   try {
     const products = await productModel.insertMany(productInfo);
