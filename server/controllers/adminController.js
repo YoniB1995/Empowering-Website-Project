@@ -1,5 +1,39 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-undef */
+/* eslint-disable consistent-return */
 /* eslint-disable max-len */
-const adminModel = require('../models/admin');
+const bcrypt = require('bcrypt');
+const { validAdmin } = require('../validation/adminValidation');
+
+const adminModel = require('../models/adminModel');
+
+async function logIn(req, res) {
+  try {
+    const validBody = validAdmin(req.body.user);
+    if (validBody.error) {
+      return res.status(400).json(validBody.error.details[0].message);
+    }
+    const user = await adminModel.findOne(
+      { email: req.body.user.email },
+      (error) => {
+        if (error) throw error;
+      },
+    );
+    if (!user) {
+      res.json({ msg: 'Email not found' });
+    }
+    const PassValid = await bcrypt.compare(req.body.user.password, user.password);
+    if (!PassValid) {
+      return res.json({ msg: 'password worng found' });
+    }
+    // const newToken = genToken(user.id);
+    user.password = '****';
+    res.json({ user });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 const getAllAdmins = async (req, res) => {
   try {
@@ -24,16 +58,21 @@ const getAdminById = async (req, res) => {
 };
 
 const registerAdmin = async (req, res) => {
-  const { username, email, password } = req.body;
   try {
-    const user = await adminModel.create({
-      username, email, password,
+    await bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(req.body.user.password, salt, (error, hash) => {
+        if (error) throw error;
+        req.body.user.password = hash;
+        adminModel.create(req.body.user, (err, result) => {
+          if (err) throw err;
+          result.password = '*********';
+          res.json(result);
+        });
+      });
     });
-    // console.log(user)
-    res.json(user);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: 'Server Error' });
+  } catch (err) {
+    console.log(err);
+    res.json({ msg: 'Email already in system order another problem' });
   }
 };
 
@@ -58,4 +97,5 @@ module.exports = {
   getAdminById,
   registerAdmin,
   deleteAdmin,
+  logIn,
 };

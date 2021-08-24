@@ -25,11 +25,9 @@ import Footer from "../componnets/features/Footer/Footer";
 export default function AppRouter() {
   return (
     <div>
-      <NavBar />
-      <ImageSlider />
-      <Card />
-      <WorkersCards />
-      <Footer />
+    <NavBar/>
+    <Home/>
+    <Footer/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/Programs" component={Programs} />

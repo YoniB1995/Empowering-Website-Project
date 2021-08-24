@@ -10,7 +10,7 @@ const WorkersCards = () => {
       >
         <div className="page-header">
           <h1>
-            workers
+            הצוות שלנו
             <br />
             <small>designed by yuda</small>
           </h1>
@@ -29,7 +29,8 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-christopher-walken.jpg"
+                    style={{ width: "100%" }}
+                    src="https://images.pexels.com/photos/5940856/pexels-photo-5940856.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   />
                 </div>
                 <div className="mc-description">
@@ -63,7 +64,8 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-sean-penn.jpg"
+                    style={{ width: "100%", height: "100%" }}
+                    src="https://images.pexels.com/photos/7173023/pexels-photo-7173023.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500S"
                   />
                 </div>
                 <div className="mc-description">
@@ -98,7 +100,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-clint-eastwood.jpg"
+                    src="https://images.unsplash.com/photo-1602795361100-78bd8eb6c2a2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fGJsYWNrJTIwZ2lybCUyMHNtaWxpbmd8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                   />
                 </div>
                 <div className="mc-description">
@@ -132,7 +134,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-dustin-hoffman.jpg"
+                    src="https://images.pexels.com/photos/1995130/pexels-photo-1995130.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   />
                 </div>
                 <div className="mc-description">
@@ -165,8 +167,9 @@ const WorkersCards = () => {
               <div className="mc-content">
                 <div className="img-container">
                   <img
+                    style={{ width: "100%", height: "100%" }}
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-edward-norton.jpg"
+                    src="https://images.pexels.com/photos/8380029/pexels-photo-8380029.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   />
                 </div>
                 <div className="mc-description">
@@ -200,7 +203,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-michael-caine.jpg"
+                    src="https://images.pexels.com/photos/3727513/pexels-photo-3727513.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   />
                 </div>
                 <div className="mc-description">
@@ -221,7 +224,7 @@ const WorkersCards = () => {
               </div>
             </article>
           </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
+          {/* <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Light-Blue">
               <h2>
                 <span>Harvey Keitel</span>
@@ -229,8 +232,9 @@ const WorkersCards = () => {
                   <i className="fa fa-fw fa-star"></i>
                   Pulp Fiction
                 </strong>
-              </h2>
-              <div className="mc-content">
+              </h2> */}
+          {/* <div className="restOfCard"> */}
+          {/* <div className="mc-content">
                 <div className="img-container">
                   <img
                     className="img-responsive"
@@ -668,9 +672,9 @@ const WorkersCards = () => {
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
                 <a className="fa fa-fw fa-google-plus"></a>
-              </div>
-            </article>
-          </div>
+              </div> */}
+          {/* </article> */}
+          {/* </div> */}
         </div>
       </section>
     </>

@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-=======
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable new-cap */
->>>>>>> yoni-branch
+
 const ArticleModel = require('../models/article');
 
 const createNewArticle = async (req, res) => {
