@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-import React, { useState, useEffect, useContext } from "react";
-import "./Form.css";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
-=======
 // /* eslint-disable no-unused-vars */
 // import React, { useState, useEffect, useContext } from "react";
 // import "./Form.css";
 // import Input from "../Input/Input";
 // import Button from "../Button/Button";
->>>>>>> main
 
 // export default function LoginForm() {
-  
 
 //   const [user, setUser] = useState([]);
 //   const [submitted, setSubmitted] = useState(false);
@@ -31,7 +23,6 @@ import Button from "../Button/Button";
 //     };
 //     console.log(data)
 //     registerAdmin(data)
-
 
 //   }
 //   return (
