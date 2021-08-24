@@ -1,6 +1,9 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable import/order */
 require('dotenv').config();
 const express = require('express');
+
 const cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
