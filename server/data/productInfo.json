@@ -1,7 +1,7 @@
 [
   {
       "header":"חולצות",
-      "descripation":"empowering womans",
+      "description":"empowering women",
       "quantity":5,
       "img":"",
       "price":12.5,
@@ -9,7 +9,7 @@
   },
   {
     "header":"ספלי תה",
-    "descripation":"empowering womans",
+    "description":"empowering women",
     "quantity":5,
     "img":"",
     "price":12.5,
@@ -17,7 +17,7 @@
 },
 {
     "header":"מדבקות לרכב",
-    "descripation":"empowering womans",
+    "description":"empowering women",
     "quantity":5,
     "img":"",
     "price":12.5,

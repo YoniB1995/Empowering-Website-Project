@@ -11,5 +11,5 @@ exports.validProduct = (bodyData) => {
     price: joi.number().required(),
     variants: joi.string().required(),
   });
-  return joiSchema.validate(bodyData, productSchema);
+  return joiSchema.validate(bodyData);
 };
