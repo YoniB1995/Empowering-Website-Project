@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-shadow */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-undef */
@@ -6,6 +7,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { validAdmin } = require('../validation/adminValidation');
+const ErrorResponse = require('../utils/errorResponse');
 const adminModel = require('../models/adminModel');
 const { genToken } = require('../middleware/token');
 
@@ -23,11 +25,11 @@ const getTokenAndConfig = async (req, res) => {
   }
 };
 
-const logIn = async (req, res) => {
+async function logIn(req, res, next) {
   try {
     const validBody = validAdmin(req.body.user);
     if (validBody.error) {
-      return res.status(400).json(validBody.error.details[0].message);
+      return next(new ErrorResponse(`${validBody.error.details[0].message}`, 400));
     }
     const user = await adminModel.findOne(
       { email: req.body.user.email },
@@ -43,7 +45,7 @@ const logIn = async (req, res) => {
       user.password,
     );
     if (!PassValid) {
-      return res.json({ msg: 'password worng found' });
+      return next(new ErrorResponse('Wrong Password !', 401));
     }
     user.password = '****';
     let adminToken = genToken(user.id);
@@ -52,31 +54,31 @@ const logIn = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
-const getAllAdmins = async (req, res) => {
+const getAllAdmins = async (req, res, next) => {
   try {
     const admins = await adminModel.find({});
 
     res.json(admins);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: 'Server Error' });
+    return next(new ErrorResponse('Server Error !', 500));
   }
 };
 
-const getAdminById = async (req, res) => {
+const getAdminById = async (req, res, next) => {
   try {
     const admin = await adminModel.findById(req.params.id);
 
     res.json(adminModel);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: 'Server Error' });
+    return next(new ErrorResponse('Server Error !', 500));
   }
 };
 
-const registerAdmin = async (req, res) => {
+const registerAdmin = async (req, res, next) => {
   try {
     await bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(req.body.user.password, salt, (error, hash) => {
@@ -91,11 +93,11 @@ const registerAdmin = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.json({ msg: 'Email already in system order another problem' });
+    return next(new ErrorResponse('Email already in system order another problem', 301));
   }
 };
 
-const deleteAdmin = async (req, res) => {
+const deleteAdmin = async (req, res, next) => {
   const { username } = req.body;
   try {
     const user = await adminModel.deleteById(
@@ -103,13 +105,13 @@ const deleteAdmin = async (req, res) => {
     );
 
     if (!user) {
-      console.log('there isnt a username like this name');
+      return next(new ErrorResponse('there isn`t a username like this name', 301));
     }
 
     console.log(user);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: 'Server Error' });
+    return next(new ErrorResponse('Server Error !', 500));
   }
 };
 

@@ -7,7 +7,7 @@ const express = require('express');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
-const articleModel = require('./models/adminModel');
+const articleModel = require('./models/articleModel');
 
 const app = express();
 
