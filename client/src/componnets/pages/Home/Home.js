@@ -15,7 +15,7 @@ const Home = () => {
       <WorkersCards />
       {/* <hr /> */}
       <div className="hazon">
-        <img src="./eye.png" style={{ width: "50px" }} />
+        <img src="./eye.png" style={{ width: "50px",position:"absolute" }} />
 
         <h1> החזון שלנו</h1>
         <h3 style={{ lineHeight: "1.8" }}>

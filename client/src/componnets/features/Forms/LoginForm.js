@@ -5,7 +5,6 @@
 // import Button from "../Button/Button";
 
 // export default function LoginForm() {
-  
 
 //   const [user, setUser] = useState([]);
 //   const [submitted, setSubmitted] = useState(false);
@@ -24,7 +23,6 @@
 //     };
 //     console.log(data)
 //     registerAdmin(data)
-
 
 //   }
 //   return (
