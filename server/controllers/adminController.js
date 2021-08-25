@@ -25,7 +25,7 @@ const getTokenAndConfig = async (req, res) => {
   }
 };
 
-async function logIn(req, res, next) {
+const logIn = async (req, res) => {
   try {
     const validBody = validAdmin(req.body.user);
     if (validBody.error) {
@@ -54,7 +54,7 @@ async function logIn(req, res, next) {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const getAllAdmins = async (req, res, next) => {
   try {
