@@ -32,7 +32,7 @@ const getAllArticles = async (req, res, next) => {
 
 const editArticle = async (req, res, next) => {
   const oldArticle = await new articleModel({
-    _id: req.params.id,
+    _id: req.body.id,
     title: req.body.title,
     description: req.body.description,
     markdown: req.body.markdown,
