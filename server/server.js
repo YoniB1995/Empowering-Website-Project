@@ -1,7 +1,11 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable import/order */
 require('dotenv').config();
 const express = require('express');
+
 const cors = require('cors');
+
 const PORT = process.env.PORT || 5000;
 const articleModel = require('./models/articleModel');
 
@@ -33,4 +37,3 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
-
