@@ -3,7 +3,7 @@
 /* eslint-disable no-empty-pattern */
 /* eslint-disable no-unused-expressions */
 const express = require('express');
-const articleModel = require('../models/article');
+const articleModel = require('../models/articleModel');
 
 const router = express.Router();
 

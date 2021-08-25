@@ -4,11 +4,26 @@
 /* eslint-disable consistent-return */
 /* eslint-disable max-len */
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { validAdmin } = require('../validation/adminValidation');
-
 const adminModel = require('../models/adminModel');
+const { genToken } = require('../middleware/token');
 
-async function logIn(req, res) {
+const getTokenAndConfig = async (req, res) => {
+  let token = req.header('x-api-key');
+  if (!token) {
+    res.status(401).json({ msg: ' you must send token' });
+  }
+  try {
+    let decodeToken = jwt.verify(token, 'asalefDeveloper');
+    let user = await adminModel.findOne({ _id: decodeToken.id });
+    res.json({ massage: 'all ok', user });
+  } catch (error) {
+    res.status(401).json({ massage: 'token invalid or expired' });
+  }
+};
+
+const logIn = async (req, res) => {
   try {
     const validBody = validAdmin(req.body.user);
     if (validBody.error) {
@@ -23,17 +38,21 @@ async function logIn(req, res) {
     if (!user) {
       res.json({ msg: 'Email not found' });
     }
-    const PassValid = await bcrypt.compare(req.body.user.password, user.password);
+    const PassValid = await bcrypt.compare(
+      req.body.user.password,
+      user.password,
+    );
     if (!PassValid) {
       return res.json({ msg: 'password worng found' });
     }
-    // const newToken = genToken(user.id);
     user.password = '****';
-    res.json({ user });
+    let adminToken = genToken(user.id);
+    localStorage.setItem({ token: adminToken });
+    res.json({ token: adminToken, user });
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const getAllAdmins = async (req, res) => {
   try {
@@ -79,7 +98,9 @@ const registerAdmin = async (req, res) => {
 const deleteAdmin = async (req, res) => {
   const { username } = req.body;
   try {
-    const user = await adminModel.deleteById(req.params.username === username && req.params.username);
+    const user = await adminModel.deleteById(
+      req.params.username === username && req.params.username,
+    );
 
     if (!user) {
       console.log('there isnt a username like this name');
@@ -98,4 +119,5 @@ module.exports = {
   registerAdmin,
   deleteAdmin,
   logIn,
+  getTokenAndConfig,
 };
