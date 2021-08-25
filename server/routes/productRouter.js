@@ -4,6 +4,6 @@ const productController = require('../controllers/productController');
 productRouter.get('/', productController.getAllProducts);
 productRouter.post('/createProduct', productController.createProduct);
 productRouter.delete('/deleteProduct', productController.deleteProduct);
-productRouter.put('/updateName', productController.updateProductName);
+productRouter.put('/updateProduct', productController.updateProduct);
 
 module.exports = productRouter;
