@@ -4,11 +4,7 @@
 /* eslint-disable no-unused-expressions */
 const express = require('express');
 const articleModel = require('../models/articleModel');
-<<<<<<< HEAD
 const articleController = require('../controllers/articleController');
-=======
->>>>>>> main
-
 const router = express.Router();
 
 // articles/all
