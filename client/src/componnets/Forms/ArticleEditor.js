@@ -68,7 +68,9 @@ export default function ArticleEditor(req, res) {
     //);
 
   const insertArticle = async  (params) => {
+
     // const ids = await articles.map((type,i) => type.title === article.title && setArticlesID(type._id) );
+
 
     const data = {
       title: article.title,

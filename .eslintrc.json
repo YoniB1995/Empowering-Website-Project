@@ -28,6 +28,7 @@
         "template-curly-spacing":"warn",
         "linebreak-style":"off",
         "new-cap":"off",
-        "prefer-const":"off"
+        "prefer-const":"off",
+        "consistent-return":"off"
     }
 }
