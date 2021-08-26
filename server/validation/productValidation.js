@@ -2,7 +2,7 @@ const joi = require('joi');
 
 const productSchema = require('../models/productModel');
 
-exports.validProduct = (bodyData) => {
+exports.validProduct = (productData) => {
   const joiSchema = joi.object({
     title: joi.string().min(2).max(255).required(),
     descripation: joi.string().min(2).max(255).required(),
@@ -11,5 +11,5 @@ exports.validProduct = (bodyData) => {
     price: joi.number().required(),
     variants: joi.string().required(),
   });
-  return joiSchema.validate(bodyData, productSchema);
+  return joiSchema.validate(productData);
 };
