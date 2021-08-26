@@ -26,11 +26,14 @@ const adminRouter = require('./routes/adminRoutes');
 const articlesRouter = require('./routes/articleRouter');
 const newsLetterRouter = require('./routes/newsLetterRouter');
 const productRouter = require('./routes/productRouter');
+const contactUsRouter = require('./routes/contactUsRouter');
 
 app.use('/form', newsLetterRouter);
 app.use('/articles', articlesRouter);
 app.use('/admin', adminRouter);
 app.use('/product', productRouter);
+app.use('/contactUs', contactUsRouter);
+
 app.get('/', async (req, res) => {
   const articles = await articleModel.find().sort({ createdAt: 'desc' });
   res.render('articles/index', { articles });

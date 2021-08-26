@@ -5,9 +5,11 @@ const isRequestValid = (req, res, next) => {
     title, descripation, quantity, price, variants,
   } = req.body;
   if (!title || !descripation || !quantity || !price || !variants) {
-    console.log('you dont know ');
-    return res.status(400).json({ error: 'your field is empty' });
+    console.log('Hey Im middleware between post request ');
+    res.send('one of your fields is empty');
+    return;
   }
+  next();
 };
 
 module.exports = isRequestValid;

@@ -15,7 +15,8 @@ const getAllProducts = async (req, res, next) => {
 const createProduct = async (req, res, next) => {
   try {
     const products = await productModel.insertMany(req.body);
-    res.status(200).json('delete product success');
+    console.log(products);
+    res.status(200).json('added product success');
   } catch (e) {
     console.log('cannot add product to the store products');
     return next(new ErrorResponse('Cannot add product to the store products', 500));

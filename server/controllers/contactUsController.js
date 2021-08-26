@@ -1,19 +1,20 @@
 const contactUsModel = require('../models/contactUsModel');
+const ErrorResponse = require('../utils/errorResponse');
 
 const createContactInformation = async (req, res) => {
   try {
     const contactInformation = await contactUsModel.insertMany(req.body);
-    res.status(200).send(contactInformation);
   } catch (e) {
     console.log('failed to add contactInformation ');
-    res.status(400).send({ error: 'failed to add contactInformation ' });
+    ErrorResponse(400, 'failed to add contactInformation');
+    // res.status(400).send({ error: 'failed to add contactInformation ' });
   }
 };
 
 const getAllContactInformation = async (req, res) => {
   try {
     const contactInformation = await contactUsModel.find({});
-    res.status(200).send(contactInformation);
+    res.status(200).send('contactInformation');
   } catch (e) {
     console.log('failed to add contact information ');
     res.status(400).send({ error: 'failed to add contact information ' });
@@ -40,7 +41,7 @@ const deleteContactInformation = async (req, res) => {
   }
 };
 
-module.export = {
+module.exports = {
   createContactInformation,
   getAllContactInformation,
   updateContactInformation,
