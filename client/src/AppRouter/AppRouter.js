@@ -42,10 +42,7 @@ export default function AppRouter() {
           <Link to="/Admin/ArticleEditor"> Admin ArticleEditor</Link>
         </li>
       </ul>
-      <ImageSlider />
-      <Card />
-      {/* <LoginForm /> */}
-      {/* <WorkersCards /> */}
+    
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/WorkersCards" component={WorkersCards} />

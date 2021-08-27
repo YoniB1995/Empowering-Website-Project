@@ -5,42 +5,21 @@
 const express = require('express');
 const articleModel = require('../models/articleModel');
 
+const articleController = require('../controllers/articleController');
+
 const router = express.Router();
 
 // articles/all
-router.get('/all', async (req, res) => {
-  const article = await articleModel.find({});
-  // res.render('articles/new',{article:article})
-  res.json(article);
-});
+router.get('/all', articleController.getAllArticles);
 
 // articles/
 router.post('/new', async (req, res, next) => {
-  req.article = new articleModel();
-  next();
+  articleController.createNewArticle;
 }, saveArticleAndRedirect('new'));
 
 // articles/edit/
 router.put('/edit/:id', async (req, res, next) => {
-  const oldArticle = await new articleModel({
-    _id: req.params.id,
-    title: req.body.title,
-    description: req.body.description,
-    markdown: req.body.markdown,
-  });
-  articleModel.updateOne({ _id: req.params.id }, oldArticle).then(
-    () => {
-      res.status(201).json({
-        message: 'Thing updated successfully!',
-      });
-    },
-  ).catch(
-    (error) => {
-      res.status(400).json({
-        error,
-      });
-    },
-  );
+
 });
 
 // articles/:id
@@ -62,26 +41,11 @@ function saveArticleAndRedirect(path) {
 
     try {
       article = await article.save();
-      // res.redirect(`/articles/${article.slug}`);
       res.send(article);
     } catch (error) {
-      // res.render(`articles/${path}`, { article });
       res.send({ success: false, error: error.message });
     }
   });
 }
 
 module.exports = router;
-
-// Do not delete / touch - yoni
-// articles/:slug
-// router.get('/:slug', async (req, res) => {
-//   const article = await articleModel.findOne({ slug: req.params.slug });
-//   article === null && res.redirect('/');
-//   res.render('articles/show', { article });
-// });
-
-// articles/new
-// router.get('/new', (req, res) => {
-//   res.render('articles/new', { article: new articleModel() });
-// });

@@ -95,12 +95,11 @@ const Footer = () => {
         <div class="content">
           <div class="left box">
             <div class="upper">
-              <div class="topic">About us</div>
-              <p>CodingLab is a channel where you can learn HTML,
-              CSS, and also JavaScript along with creative CSS Animations and Effects.</p>
+              <div class="topic">אודות</div>
+              <p>אודות אודות אודות אודות אודות אודות </p>
             </div>
             <div class="lower">
-              <div class="topic">Contact us</div>
+              <div class="topic">צרו איתנו קשר</div>
               <div class="phone">
                 <a href="#"><i class="fas fa-phone-volume"></i>+007 9089 6767</a>
               </div>
@@ -110,19 +109,19 @@ const Footer = () => {
             </div>
           </div>
           <div class="middle box">
-            <div class="topic">Our Services</div>
-            <div><a href="#">Web Design, Development</a></div>
-            <div><a href="#">Web UX Design, Reasearch</a></div>
-            <div><a href="#">Web User Interface Design</a></div>
-            <div><a href="#">Theme Development, Design</a></div>
-            <div><a href="#">Mobile Application Design</a></div>
-            <div><a href="#">Wire raming  Prototyping</a></div>
+            <div class="topic">השירותים שלנו</div>
+            <div><a href="#"> 1 השירות שירות שירות </a></div>
+            <div><a href="#">2 השירות שירות שירות</a></div>
+            <div><a href="#">3 השירות שירות שירות</a></div>
+            <div><a href="#">4 השירות שירות שירות</a></div>
+            <div><a href="#">5 השירות שירות שירות</a></div>
+            <div><a href="#">6 השירות שירות שירות</a></div>
           </div>
           <div class="right box">
-            <div class="topic">Join Our Newsletter</div>
+            <div class="topic">להצטרף לניוזלטר שלנו</div>
             <form action="#">
-              <input type="text" placeholder="Enter email address" id="newsletter-input" />
-              <input type="submit" name="" value="Send"/>
+              <input type="text" placeholder="איימל" id="newsletter-input" />
+              <input type="submit" name="" value="שלח"/>
               <div class="media-icons">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>

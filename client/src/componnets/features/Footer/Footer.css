@@ -11,7 +11,9 @@ footer {
   /* position: fixed; */
   bottom: 0;
   left: 0;
-  background: #bb906d;
+  background: #f7e7de;
+  color: #2b2b2b;
+  direction: rtl;
 }
 footer .content {
   max-width: 1350px;
@@ -23,7 +25,7 @@ footer .content {
 }
 footer .content p,
 a {
-  color: #fff;
+  color: #2b2b2b;
 }
 footer .content .box {
   width: 33%;
@@ -32,7 +34,7 @@ footer .content .box {
 footer .content .topic {
   font-size: 22px;
   font-weight: 600;
-  color: #fff;
+  color: #444444;
   margin-bottom: 16px;
 }
 footer .content p {
@@ -59,15 +61,15 @@ footer .content .right input[type="text"] {
   border-radius: 5px;
   padding-left: 10px;
   font-size: 17px;
-  border: 2px solid #222222;
-  color: whit;
+  border: 2px solid #444444;
+  color: white;
 }
 footer .content .right input[type="submit"] {
   height: 42px;
   width: 100%;
   font-size: 18px;
-  color: #d9d9d9;
-  background: #e6bc98;
+  color: #222222;
+  background: #efdada;
   outline: none;
   border-radius: 5px;
   letter-spacing: 1px;
@@ -76,8 +78,8 @@ footer .content .right input[type="submit"] {
   border: 2px solid#e6bc98;
   transition: all 0.3s ease-in-out;
 }
-#newsletter-input::placeholder{
-    color:#C9CCD5;
+#newsletter-input::placeholder {
+  color: #c9ccd5;
 }
 .content .right input[type="submit"]:hover {
   background: none;
@@ -91,12 +93,12 @@ footer .content .media-icons a {
   text-align: center;
   line-height: 43px;
   border-radius: 5px;
-  border: 2px solid #222222;
+  border: 2px solid #444444;
   margin: 30px 5px 0 0;
   transition: all 0.3s ease;
 }
 .content .media-icons a:hover {
-  border-color: #e6bc98;
+  border-color: #e1e5ea;
 }
 footer .bottom {
   width: 100%;

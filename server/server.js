@@ -7,7 +7,7 @@ const express = require('express');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
-const articleModel = require('./models/adminModel');
+const articleModel = require('./models/articleModel');
 
 const app = express();
 
@@ -26,10 +26,13 @@ const adminRouter = require('./routes/adminRoutes');
 const articlesRouter = require('./routes/articleRouter');
 const newsLetterRouter = require('./routes/newsLetterRouter');
 const productRouter = require('./routes/productRouter');
+const contactUsRouter = require('./routes/contactUsRouter');
 
 app.use('/form', newsLetterRouter);
 app.use('/articles', articlesRouter);
 app.use('/admin', adminRouter);
+app.use('/product', productRouter);
+app.use('/contactUs', contactUsRouter);
 
 app.get('/', async (req, res) => {
   const articles = await articleModel.find().sort({ createdAt: 'desc' });
