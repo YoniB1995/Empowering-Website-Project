@@ -1,4 +1,4 @@
-.login-form__input {
+.input {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
@@ -9,10 +9,10 @@
   transition: border-color 0.5s;
 }
 
-.login-form__input:focus {
+.input:focus {
   border-color: #e6bc98;
 }
 
-.login-form__input::placeholder {
+.pinput::placeholder {
   color: #aaaaaa;
 }

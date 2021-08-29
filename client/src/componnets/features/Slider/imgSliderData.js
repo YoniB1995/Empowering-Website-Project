@@ -5,8 +5,7 @@ const ImgSliderData = [
   },
   {
     image:
-    "https://static.wixstatic.com/media/0a44f6_c03ca1051d674d7ba19be52df17855d7~mv2.jpg/v1/fill/w_1899,h_585,al_c,q_85,usm_0.66_1.00_0.01/0a44f6_c03ca1051d674d7ba19be52df17855d7~mv2.webp",
-
+      "https://static.wixstatic.com/media/0a44f6_c03ca1051d674d7ba19be52df17855d7~mv2.jpg/v1/fill/w_1899,h_585,al_c,q_85,usm_0.66_1.00_0.01/0a44f6_c03ca1051d674d7ba19be52df17855d7~mv2.webp",
   },
   {
     image:
