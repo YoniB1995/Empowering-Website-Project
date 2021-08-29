@@ -4,7 +4,6 @@
   --text-color-hover: #4c5656;
   --box-shadow-color: rgba(255, 215, 97, 0.48);
 }
-
 .credentialing {
   --bg-color: #b8f9d3;
   --bg-color-light: #e2fced;
@@ -54,7 +53,7 @@
 
 .card:hover .circle {
   border-color: var(--bg-color-light);
-  background: var(--bg-color);
+  /* background: var(--bg-color); */
 }
 
 .card:hover .circle:after {
