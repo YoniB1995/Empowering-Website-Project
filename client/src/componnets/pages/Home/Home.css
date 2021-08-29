@@ -1,22 +1,20 @@
-<<<<<<< HEAD
-.home{
-    text-align: center;
-    margin: 5%;
-    color: rgb(161, 110, 75);
-    font-size: 18px;
+.home {
+  text-align: center;
+  margin: 5%;
+  color: rgb(161, 110, 75);
+  font-size: 18px;
 }
-.homeBtn{
-    padding: 10px;
-    color: #ffffff;
-    font-weight: bold;
-    background: #bb906d;
-    width: 18%;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
+.homeBtn {
+  padding: 10px;
+  color: #ffffff;
+  font-weight: bold;
+  background: #bb906d;
+  width: 18%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-=======
 .home-first-section {
   background-color: #f7f2ec;
   padding: 20px;
@@ -91,4 +89,3 @@
   height: 60vh;
   background-color: #e8dbcf;
 }
->>>>>>> 729ffe675b0a32eb8816822f43b17e16f7dbf71c
