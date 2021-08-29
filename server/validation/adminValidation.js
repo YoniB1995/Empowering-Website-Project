@@ -1,9 +1,12 @@
 const joi = require('joi');
 
-exports.validContactUs = (bodyData) => {
+const adminSchema = require('../models/adminModel');
+
+exports.validAdmin = (adminData) => {
   const joiSchema = joi.object({
-    password: joi.string().min().max().require(),
-    email: joi.string().min().max().require(),
+    password: joi.string().min(2).max(99).required(),
+    email: joi.string().min(4).max(99).required()
+      .email(),
   });
-  return joiSchema.validate(bodyData);
+  return joiSchema.validate(adminData, adminSchema);
 };
