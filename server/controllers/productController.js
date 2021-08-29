@@ -4,49 +4,60 @@ const ErrorResponse = require('../utils/errorResponse');
 const getAllProducts = async (req, res, next) => {
   try {
     const products = await productModel.find({});
-    res.status(200).json(products);
+    console.log(products);
+    res.status(200).json({ products });
   } catch (e) {
-    console.log('cannot find list of products');
+    console.log('products list not found');
     next(new ErrorResponse('server error', 400));
-    // res.status(400).json({ error: 'server error' });
+  }
+};
+
+const getProduct = async (req, res, next) => {
+  try {
+    const product = await productModel.findById(req.params.id);
+    console.log(product);
+    res.status(200).json({ product });
+  } catch (e) {
+    console.log('product not found');
+    next(new ErrorResponse('server error', 400));
   }
 };
 
 const createProduct = async (req, res, next) => {
   try {
-    const products = await productModel.insertMany(req.body);
-    console.log(products);
-    res.status(200).json('added product success');
+    const insertProduct = await productModel.insertMany(req.body);
+    console.log(insertProduct);
+    res.status(200).json({ insertProduct });
   } catch (e) {
     console.log('cannot add product to the store products');
-    return next(new ErrorResponse('Cannot add product to the store products', 500));
-    // res.status(400).json({ error: 'server error' });
+    next(new ErrorResponse('server error', 500));
   }
 };
 
 const deleteProduct = async (req, res, next) => {
   try {
-    const deletedProduct = await productModel.findByIdAndDelete();
-    res.status(200).json({ productsList: deletedProduct });
-    console.log('delete product');
+    const deletedProduct = await productModel.findByIdAndDelete(req.params.id);
+    console.log(deletedProduct);
+    res.status(200).json({ deletedProduct });
   } catch (e) {
     console.log('cannot delete product from the data base');
-    res.status(400).json({ error: 'server error' });
+    next(new ErrorResponse('server error', 500));
   }
 };
 
-const updateProduct = async (req, res) => {
+const updateProduct = async (req, res, next) => {
   try {
-    const product = await productModel.findByIdAndUpdate(req.params.id, req.body);
-    res.status(200).json(product);
+    const updatedproduct = await productModel.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json({ updatedproduct });
   } catch (e) {
     console.log('cannot found product ');
-    res.status(400).json({ error: 'server error' });
+    next(new ErrorResponse('server error', 500));
   }
 };
 
 module.exports = {
   getAllProducts,
+  getProduct,
   createProduct,
   deleteProduct,
   updateProduct,
