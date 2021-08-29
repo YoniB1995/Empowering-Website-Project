@@ -1,7 +1,7 @@
 import "./Input.css";
 
 const Input = (props) => {
-const {type,name,placeholder}=props;
+const {type,name,placeholder,handleChange}=props;
 
   return (
     <input
@@ -9,6 +9,7 @@ const {type,name,placeholder}=props;
       type={type}
       name={name}
       placeholder={placeholder}
+      onChange={handleChange}
     />
   );
 };
