@@ -22,6 +22,8 @@ import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 import { getAllArticles } from "../service/article-service";
 import Article from "../componnets/features/Article/Article";
 
+import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
+
 export default function AppRouter() {
   return (
     <div>
@@ -44,6 +46,7 @@ export default function AppRouter() {
       </ul>
       <ImageSlider />
       <Card />
+      <FormsTemporary />
       {/* <LoginForm /> */}
       {/* <WorkersCards /> */}
       <Switch>

@@ -49,7 +49,7 @@ const logIn = async (req, res) => {
     }
     user.password = '****';
     let adminToken = genToken(user.id);
-    localStorage.setItem({ token: adminToken });
+    // localStorage.setItem({ token: adminToken });
     res.json({ token: adminToken, user });
   } catch (error) {
     console.log(error);
