@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
-const API =process.env.NODE_ENV === 'production'? `https://yonib.herokuapp.com`:'http://localhost:5000';
+const API =
+  process.env.NODE_ENV === "production"
+    ? `https://yonib.herokuapp.com`
+    : "http://localhost:5000";
 
 // const getAllAdmins = async (req,res) =>{
 //     try{
@@ -24,37 +27,58 @@ const API =process.env.NODE_ENV === 'production'? `https://yonib.herokuapp.com`:
 //     }
 // }
 
+const loginAdmin = (user) => {
+  const options = {
+    method: "POST",
+    body: JSON.stringify(user),
+    headers: { "Content-Type": "application/json" },
+  };
+  try {
+    return fetch(`${API}/admin/logIn`, options)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const registerAdmin = async (admin) => {
-    const options = {
-        method: "POST",
-        body:JSON.stringify(admin),
-        headers:{'Content-Type': 'application/json'}
-    }
-    try {
-        return await fetch(`${API}/admin`,options)
-            .then((res) => { return res.json() })
-    } catch (error) {
-        console.log(error);
-    }
-}
+  const options = {
+    method: "POST",
+    body: JSON.stringify(admin),
+    headers: { "Content-Type": "application/json" },
+  };
+  try {
+    return await fetch(`${API}/admin`, options).then((res) => {
+      return res.json();
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-const deleteAdmin = async (req,res) => {
-    const {username} = req.body;
-    try{
-        const user = await fetch(`${API}/movies/all`)
+const deleteAdmin = async (req, res) => {
+  const { username } = req.body;
+  try {
+    const user = await fetch(`${API}/movies/all`);
 
-        if(!user) {
-            console.log("there isn't a username like this name")
-        }
-
-        console.log(user)
-    } catch(error){
-        console.log(error);
-        res.status(500).json({message:"Server Error"});
+    if (!user) {
+      console.log("there isn't a username like this name");
     }
-}
+
+    console.log(user);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
 
 module.exports = {
-    registerAdmin,
-    deleteAdmin
-}
+  registerAdmin,
+  deleteAdmin,
+  loginAdmin,
+};
