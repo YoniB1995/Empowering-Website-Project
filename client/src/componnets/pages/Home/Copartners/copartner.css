@@ -1,0 +1,9 @@
+.copartnerMain{
+    background-color: #F7F2EC;
+    margin: auto;
+}
+.copartnerMain img{
+    width: 100px;
+    height: 100px;
+    margin-left: 20%;
+}

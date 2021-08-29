@@ -8,7 +8,6 @@ import ArticleDetails from "../componnets/features/Admin/ArticleDetails/ArticleD
 import EditArticles from "../componnets/features/Admin/EditArticles/EditArticles";
 import NewArticles from "../componnets/features/Admin/NewArticles/NewArticles";
 import ArticleEditor from "../componnets/Forms/ArticleEditor";
-
 import Home from "../componnets/pages/Home/Home";
 import Programs from "../componnets/pages/Programs/Programs";
 import Donations from "../componnets/pages/Donations/Donations";
@@ -16,17 +15,22 @@ import Store from "../componnets/pages/Store/Store";
 import Newsletter from "../componnets/pages/Newsletter/Newsletter";
 import ContactUs from "../componnets/pages/ContactUs/ContactUs";
 import AboutUs from "../componnets/pages/AboutUs/AboutUs";
-
+import NavBar from '../componnets/features/NavBar/NavBar'
 import Articles from "../componnets/features/Articles/Articles";
 import WorkersCards from "../componnets/features/workersCards/WorkersCards";
+import ProgramCards from "../componnets/features/Program cards/ProgramCards";
+import SliderStore from "../componnets/features/Slider/SliderStore";
+
 
 export default function AppRouter () {
   return (
     <div>
+      <NavBar/>
       <ImageSlider />
-      <Card />
+      <ProgramCards/> 
       {/* <LoginForm /> */}
-      <WorkersCards />
+       {/* <WorkersCards />  */}
+      {/* <SliderStore/> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/Programs" component={Programs} />

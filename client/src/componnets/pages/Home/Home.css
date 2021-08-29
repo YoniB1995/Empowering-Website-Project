@@ -1,0 +1,17 @@
+.home{
+    text-align: center;
+    margin: 5%;
+    color: rgb(161, 110, 75);
+    font-size: 18px;
+}
+.homeBtn{
+    padding: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    background: #bb906d;
+    width: 18%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

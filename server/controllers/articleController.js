@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 /* eslint-disable new-cap */
->>>>>>> yoni-branch
 const ArticleModel = require('../models/article');
 
 const createNewArticle = async (req, res) => {
@@ -12,7 +9,6 @@ const createNewArticle = async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 };
-
 const getAllArticles = async (req, res) => {
   try {
     const article = await ArticleModel.find({});
@@ -23,7 +19,6 @@ const getAllArticles = async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 };
-
 const editArticle = async (req, res) => {
   try {
     const article = await ArticleModel.findById(req.params.id);
@@ -33,7 +28,6 @@ const editArticle = async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 };
-
 const deleteArticle = async (req, res) => {
   try {
     await ArticleModel.findByIdAndDelete(req.params.id);
