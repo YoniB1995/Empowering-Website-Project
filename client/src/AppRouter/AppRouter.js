@@ -22,6 +22,8 @@ import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 import { getAllArticles } from "../service/article-service";
 import Article from "../componnets/features/Article/Article";
 
+import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
+
 export default function AppRouter() {
   return (
     <div>
@@ -42,7 +44,11 @@ export default function AppRouter() {
           <Link to="/Admin/ArticleEditor"> Admin ArticleEditor</Link>
         </li>
       </ul>
-    
+      <ImageSlider />
+      <Card />
+      <FormsTemporary />
+      {/* <LoginForm /> */}
+      {/* <WorkersCards /> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/WorkersCards" component={WorkersCards} />
