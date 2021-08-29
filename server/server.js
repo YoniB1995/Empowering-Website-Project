@@ -1,13 +1,17 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 /* eslint-disable import/order */
 require('dotenv').config();
 const express = require('express');
+
 const cors = require('cors');
+
 const PORT = process.env.PORT || 5000;
-const articleModel = require('./models/article');
+const articleModel = require('./models/articleModel');
 
 const app = express();
 
-const db = require('./db/db');
+const db = require('./db');
 const methodOverride = require('method-override');
 
 app.set('view engine', 'ejs');
@@ -22,10 +26,13 @@ const adminRouter = require('./routes/adminRoutes');
 const articlesRouter = require('./routes/articleRouter');
 const newsLetterRouter = require('./routes/newsLetterRouter');
 const productRouter = require('./routes/productRouter');
+const contactUsRouter = require('./routes/contactUsRouter');
 
 app.use('/form', newsLetterRouter);
 app.use('/articles', articlesRouter);
 app.use('/admin', adminRouter);
+app.use('/product', productRouter);
+app.use('/contactUs', contactUsRouter);
 
 app.get('/', async (req, res) => {
   const articles = await articleModel.find().sort({ createdAt: 'desc' });
@@ -33,4 +40,3 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
-
