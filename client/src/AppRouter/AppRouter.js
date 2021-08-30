@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, Router } from "react-router-dom";
 
 import ArticleDetails from "../componnets/features/Admin/ArticleDetails/ArticleDetails";
 import EditArticles from "../componnets/features/Admin/EditArticles/EditArticles";
@@ -53,6 +53,7 @@ export default function AppRouter() {
         <Route path="/AboutUs" component={AboutUs} />
         <Route path="/Articles" component={Articles} />
         <Route path="/Article/:id" component={Article} />
+        <Route path="/form" component={FormsTemporary}/>
 
         <Route path="/Admin/ArticleDetails" component={ArticleDetails} />
         <Route path="/Admin/EditArticles/:id" component={EditArticles} />
