@@ -653,21 +653,6 @@ const WorkersCards = () => {
                     src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-morgan-freeman.jpg"
                   />
                 </div>
-                <div className="mc-description">
-                  Freeman has received Academy Award nominations for his
-                  performances in Street Smart, Driving Miss Daisy, The
-                  Shawshank Redemption and Invictus ...
-                </div>
-              </div>
-              <a className="mc-btn-action">
-                <i className="fa fa-bars"></i>
-              </a>
-              <div className="mc-footer">
-                <h4>Social</h4>
-                <a className="fa fa-fw fa-facebook"></a>
-                <a className="fa fa-fw fa-twitter"></a>
-                <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
               </div>
             </article>
           </div>

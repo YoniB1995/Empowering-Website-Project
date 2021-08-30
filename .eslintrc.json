@@ -29,6 +29,7 @@
         "linebreak-style":"off",
         "new-cap":"off",
         "prefer-const":"off",
-        "consistent-return":"off"
+        "consistent-return":"off",
+        "max-len":"warn"
     }
 }

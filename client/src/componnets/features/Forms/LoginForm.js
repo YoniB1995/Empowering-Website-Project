@@ -60,7 +60,7 @@
 //           func={saveAdmin}
 //         />
 
-//         {/* <div>
+//         <div>
 //           Testing Input:
 //           <form>
 //           <input type="text" name='username' value={user.username} onChange={handleInputChange} />
@@ -70,7 +70,7 @@
 //           <input type="password" name='password' value={user.password} onChange={handleInputChange} />
 //           <button type="button" onClick={saveAdmin}>Register!</button>
 //           </form>
-//         </div> */}
+//         </div>
 //         <div class="login-form__links">
 //           <a class="login-form__link" href="./">
 //             <div>

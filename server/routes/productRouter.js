@@ -3,11 +3,13 @@ const productController = require('../controllers/productController');
 const isRequestValid = require('../middleware/isRequestValid');
 
 productRouter.get('/', productController.getAllProducts);
+productRouter.get('/:id', productController.getProduct);
+
 // middleware to check if request body is empty
 productRouter.post('/createProduct', isRequestValid);
 productRouter.post('/createProduct', productController.createProduct);
 
-productRouter.delete('/deleteProduct', productController.deleteProduct);
+productRouter.delete('/deleteProduct/:id', productController.deleteProduct);
 productRouter.put('/updateProduct/:id', productController.updateProduct);
 
 module.exports = productRouter;

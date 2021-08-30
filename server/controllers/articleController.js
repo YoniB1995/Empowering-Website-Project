@@ -61,7 +61,6 @@ const editArticle = async (req, res, next) => {
     res.status(500).json({ message: 'Server Error' });
   }
 };
-
 const deleteArticle = async (req, res) => {
   try {
     await articleModel.findByIdAndDelete(req.params.id);

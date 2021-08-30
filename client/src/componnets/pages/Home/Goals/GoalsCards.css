@@ -1,0 +1,29 @@
+.main{
+    background-color: #f8f7f5;
+    text-align: center;
+}
+.whiteCard{
+    font-family: 'Secular One', sans-serif;
+    background-color: #FFFFFF;
+    margin: 2%;
+    padding: 15px ;
+}
+.pinkCard{
+    background-color: #F7E7DE;
+    margin: 2%;
+    padding: 15px ;
+}
+.span{
+    text-align: end;
+    font-size: 22px;
+}
+h1{
+    text-align: center;
+}
+i{
+    color: black;
+    margin: 5px;
+}
+.goalsHeader{
+    color: rgb(161, 110, 75);
+}

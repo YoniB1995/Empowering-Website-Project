@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 
-import Card from "../componnets/features/card/Card";
-import ImageSlider from "../componnets/features/Slider/imageSlider";
-import LoginForm from "../componnets/features/Forms/LoginForm";
 import ArticleDetails from "../componnets/features/Admin/ArticleDetails/ArticleDetails";
 import EditArticles from "../componnets/features/Admin/EditArticles/EditArticles";
 import NewArticles from "../componnets/features/Admin/NewArticles/NewArticles";
 import ArticleEditor from "../componnets/Forms/ArticleEditor";
-
 import Home from "../componnets/pages/Home/Home";
 import Programs from "../componnets/pages/Programs/Programs";
 import Donations from "../componnets/pages/Donations/Donations";
@@ -16,16 +12,20 @@ import Store from "../componnets/pages/Store/Store";
 import Newsletter from "../componnets/pages/Newsletter/Newsletter";
 import ContactUs from "../componnets/pages/ContactUs/ContactUs";
 import AboutUs from "../componnets/pages/AboutUs/AboutUs";
-
 import Articles from "../componnets/features/Articles/Articles";
 import WorkersCards from "../componnets/features/workersCards/WorkersCards";
-import { getAllArticles } from "../service/article-service";
 import Article from "../componnets/features/Article/Article";
+import NavBar from "../componnets/features/NavBar/NavBar";
+
+import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
+import Footer from "../componnets/features/Footer/Footer";
 
 export default function AppRouter() {
   return (
     <div>
-      <ul
+    
+
+      {/* <ul
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -41,11 +41,7 @@ export default function AppRouter() {
         <li>
           <Link to="/Admin/ArticleEditor"> Admin ArticleEditor</Link>
         </li>
-      </ul>
-      <ImageSlider />
-      <Card />
-      {/* <LoginForm /> */}
-      {/* <WorkersCards /> */}
+      </ul> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/WorkersCards" component={WorkersCards} />
