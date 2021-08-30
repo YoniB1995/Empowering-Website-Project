@@ -9,28 +9,10 @@ const articleController = require('../controllers/articleController');
 
 const router = express.Router();
 
-// articles/all
 router.get('/all', articleController.getAllArticles);
-
-// articles/
-router.post('/new', async (req, res, next) => {
-  articleController.createNewArticle;
-}, saveArticleAndRedirect('new'));
-
-// articles/edit/
-router.put('/edit/:id', async (req, res, next) => {
-
-});
-
-// articles/:id
-router.delete('/:id', async (req, res) => {
-  try {
-    await articleModel.findByIdAndDelete(req.params.id);
-    res.send({ success: true, message: 'article deleted' });
-  } catch (error) {
-    res.status(400).json({ success: false, message: 'ERROR' });
-  }
-});
+router.post('/new', articleController.createNewArticle, saveArticleAndRedirect('new'));
+router.put('/edit/:id', articleController.editArticle);
+router.delete('/:id', articleController.deleteArticle);
 
 function saveArticleAndRedirect(path) {
   return (async (req, res) => {
