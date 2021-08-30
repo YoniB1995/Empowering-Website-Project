@@ -2,7 +2,7 @@ import React from 'react'
 import './copartner.css'
 import "animate.css"
 
-export default function Copartner() {
+const Copartner =() =>{
     return (
         <div className="copartnerMain">
             <hr></hr>
@@ -15,3 +15,4 @@ export default function Copartner() {
         
     )
 }
+export default  Copartner;

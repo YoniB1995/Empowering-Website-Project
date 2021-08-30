@@ -12,6 +12,7 @@ import "animate.css";
 import Vision from "./vision/Vision";
 import { FaArrowDown } from "react-icons/fa";
 import "animate.css";
+import Copartner from "./Copartners/Copartners";
 const Home = () => {
   return (
     <div>
@@ -40,10 +41,11 @@ const Home = () => {
         </div>
       </div>
       <div className="home-second-section">
-        <h3>הצוות שלנו </h3>
-        {/* <WorkersCards /> */}
+        <WorkersCards/>
       </div>
       <Vision />
+      <GoalsCards />
+      <Copartner/>
     </div>
   );
 };
