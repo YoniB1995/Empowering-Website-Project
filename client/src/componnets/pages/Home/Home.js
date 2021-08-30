@@ -1,18 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import "./Home.css";
-import Button from "../../features/Button/Button";
-import GoalsCards from "./Goals/GoalsCards";
-import Copartners from "./Copartners/Copartners";
-
-const Home = () => {
-    return (
-        <div>
-        </div>
-    )
-}
-export default Home;
-=======
 import ImageSlider from "../../features/Slider/ImageSlider";
 import Card from "../../features/card/Card";
 import WorkersCards from "../../features/workersCards/WorkersCards";
@@ -24,6 +10,8 @@ import Vision from "./vision/Vision";
 import { FaArrowDown } from "react-icons/fa";
 
 import "animate.css";
+import GoalsCards from "./Goals/GoalsCards";
+import Copartner from "./Copartners/Copartners";
 const Home = () => {
   return (
     <div>
@@ -52,10 +40,11 @@ const Home = () => {
         </div>
       </div>
       <div className="home-second-section">
-        <h3>הצוות שלנו </h3>
-        {/* <WorkersCards /> */}
+        <WorkersCards/>
       </div>
       <Vision />
+      <GoalsCards/>
+      <Copartner/>
 
       {/* <div className="hazon">
         <img
@@ -90,4 +79,3 @@ const Home = () => {
 };
 
 export default Home;
->>>>>>> 729ffe675b0a32eb8816822f43b17e16f7dbf71c

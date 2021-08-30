@@ -253,6 +253,7 @@
 .material-card.mc-active .mc-content {
   padding-top: 5.6em;
 }
+
 @media screen and (max-width: 767px) {
   .material-card.mc-active .mc-content {
     position: relative;

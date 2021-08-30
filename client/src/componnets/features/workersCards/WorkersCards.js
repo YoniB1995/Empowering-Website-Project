@@ -10,16 +10,16 @@ const WorkersCards = () => {
       >
         <div className="page-header">
           <h1>
-            workers
+            הצוות שלנו
             <br />
-            <small>designed by yuda</small>
+            {/* <small>designed by yuda</small> */}
           </h1>
         </div>
         <div className="row active-with-click">
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Red">
               <h2>
-                <span>Christopher Walken</span>
+                <span>רחלי טדסה מלכאי</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
                   The Deer Hunter
@@ -29,20 +29,18 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-christopher-walken.jpg"
+                    src="Racheli1.jpg"
                   />
                 </div>
                 <div className="mc-description">
-                  He has appeared in more than 100 films and television shows,
-                  including The Deer Hunter, Annie Hall, The Prophecy trilogy,
-                  The Dogs of War ...
+                טדסה מלכאי – מנהלת קורס פיתוח ורכזת בוגרים בעמותת טק קריירה, שמכשירה יוצאי אתיופיה להשתלבות בעולם ההייטק – פתחה את הקבוצה אחרי ההפגנה הראשונה של יוצאי אתיופיה ב-2015, בשאיפה להעצים נשים אתיופיות שסובלות מאפליה כפולה. "מבחינתי, הדבר שהכי חשוב לשנות כרגע בישראל זה הגזענות, העניין של קבלת האחר", אומרת טדסה מלכאי. "הייתי מצפה ממדינה שעברה שואה, שחרטה על דגלה את 'ואהבת לרעך כמוך', להתנהג אחרת. בפועל יש קושי גדול לקבל את האחר. זה מתחיל מזה שעל מרקע הטלוויזיה אין גיוון של צבע. מה אלמד את ילדיי, כשהם לא רואים גיוון במסך שבו הם צופים? זה מחלחל אליהם. הם מבינים שמשהו לא תקין, ולא מבינים למה הם לא רואים את עצמם. ואם עוסקים בנושא של אברה מנגיסטו, מבינים שחיי אדם שחור שווים פחות מחיי אדם לבן".
                 </div>
               </div>
               <a className="mc-btn-action">
                 <i className="fa fa-bars"></i>
               </a>
               <div className="mc-footer">
-                <h4>Social</h4>
+                <h4>מנהלת העמותה</h4>
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
@@ -53,7 +51,7 @@ const WorkersCards = () => {
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Pink">
               <h2>
-                <span>Sean Penn</span>
+                <span>lorem lorem</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
                   Mystic River
@@ -63,7 +61,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-sean-penn.jpg"
+                    src="https://images.pexels.com/photos/5668875/pexels-photo-5668875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                   />
                 </div>
                 <div className="mc-description">
@@ -88,7 +86,7 @@ const WorkersCards = () => {
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Purple">
               <h2>
-                <span>Clint Eastwood</span>
+                <span>lorem lorem</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
                   Million Dollar Baby
@@ -98,7 +96,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-clint-eastwood.jpg"
+                    src="https://images.pexels.com/photos/3714743/pexels-photo-3714743.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   />
                 </div>
                 <div className="mc-description">
@@ -290,38 +288,7 @@ const WorkersCards = () => {
             </article>
           </div>
           <div className="col-md-4 col-sm-6 col-xs-12">
-            <article className="material-card Teal">
-              <h2>
-                <span>Jeff Bridges</span>
-                <strong>
-                  <i className="fa fa-fw fa-star"></i>
-                  The Big Lebowski
-                </strong>
-              </h2>
-              <div className="mc-content">
-                <div className="img-container">
-                  <img
-                    className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-jeff-bridges.jpg"
-                  />
-                </div>
-                <div className="mc-description">
-                  He comes from a well-known acting family and began his
-                  televised acting in 1958 as a child with his father, Lloyd
-                  Bridges, and brother, Beau, on television's Sea Hunt ...
-                </div>
-              </div>
-              <a className="mc-btn-action">
-                <i className="fa fa-bars"></i>
-              </a>
-              <div className="mc-footer">
-                <h4>Social</h4>
-                <a className="fa fa-fw fa-facebook"></a>
-                <a className="fa fa-fw fa-twitter"></a>
-                <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
-              </div>
-            </article>
+ 
           </div>
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Green">

@@ -20,32 +20,16 @@ import Articles from "../componnets/features/Articles/Articles";
 import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 import { getAllArticles } from "../service/article-service";
 import Article from "../componnets/features/Article/Article";
-
 import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
+import NavBar from '../componnets/features/NavBar/NavBar'
 
 export default function AppRouter() {
   return (
     <div>
-      <ul
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "1000px",
-        }}
-      >
-        <li>
-          <Link to="/WorkersCards">WorkersCards</Link>
-        </li>
-        <li>
-          <Link to="/Articles">Articles</Link>
-        </li>
-        <li>
-          <Link to="/Admin/ArticleEditor"> Admin ArticleEditor</Link>
-        </li>
-      </ul>
+      {/* <NavBar />
       <ImageSlider />
       <Card />
-      <FormsTemporary />
+      <FormsTemporary /> */}
       {/* <LoginForm /> */}
       {/* <WorkersCards /> */}
       <Switch>

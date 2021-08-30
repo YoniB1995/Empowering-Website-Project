@@ -15,5 +15,4 @@ const OurTeam=()=>{
 </div>
     )
 }
-
 export default OurTeam;
