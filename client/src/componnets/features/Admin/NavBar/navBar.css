@@ -5,11 +5,13 @@
   list-style: none;
   box-sizing: border-box;
   color: rgb(161, 110, 75);
+  font-family: 'Varela Round', sans-serif;
+  color: black;
 }
 .navBar {
-  background-color: rgb(252, 241, 230);
+  /* background-color: rgb(252, 241, 230);
   text-decoration: none;
-  overflow: hidden;
+  overflow: hidden; */
   /* position: sticky;
   top: 0;
   z-index: 1; */

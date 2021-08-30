@@ -1,6 +1,7 @@
 .main{
     background-color: #f8f7f5;
     text-align: center;
+    margin: 15px;
 }
 .whiteCard{
     font-family: 'Secular One', sans-serif;
@@ -15,7 +16,7 @@
 }
 .span{
     text-align: end;
-    font-size: 22px;
+    font-size: 18px;
 }
 h1{
     text-align: center;
@@ -24,6 +25,6 @@ i{
     color: black;
     margin: 5px;
 }
-.goalsHeader{
+/* .goalsHeader{
     color: rgb(161, 110, 75);
-}
+} */

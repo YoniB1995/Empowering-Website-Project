@@ -13,6 +13,7 @@ import Vision from "./vision/Vision";
 import { FaArrowDown } from "react-icons/fa";
 import "animate.css";
 import Copartner from "./Copartners/Copartners";
+import SliderStore from "../../features/Slider/SliderStore";
 const Home = () => {
   return (
     <div>
@@ -45,7 +46,8 @@ const Home = () => {
       </div>
       <Vision />
       <GoalsCards />
-      <Copartner/>
+      {/* <Copartner/> */}
+      <SliderStore />
     </div>
   );
 };
