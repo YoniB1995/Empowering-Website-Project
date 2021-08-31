@@ -1,46 +1,24 @@
 import React from 'react';
 import './card.css';
 
-const Card = () => {
+const Card = (props) => {
+  const {title , icon} = props;
   return (
     <>
       <div
         style={{
           display: 'flex',
           justifyContent: 'space-evenly',
+          flexWrap:'wrap',
           margin: '20px 0',
         }}
       >
         <a href='#' className='card education'>
           <div className='overlay'></div>
           <div className='circle'>
-            <i className='fas fa-hands-helping'></i>
+          <i className={icon}></i>
           </div>
-          <h3>מתנדבים</h3>
-        </a>
-
-        <a href='#' className='card education'>
-          <div className='overlay'></div>
-          <div className='circle'>
-            <i className='fas fa-donate'></i>
-          </div>
-          <h3>תורמים</h3>
-        </a>
-
-        <a href='#' className='card education'>
-          <div className='overlay'></div>
-          <div className='circle'>
-            <i className='fas fa-users'></i>
-          </div>
-          <h3>בוגרים</h3>
-        </a>
-
-        <a href='#' className='card education'>
-          <div className='overlay'></div>
-          <div className='circle'>
-            <i className='fas fa-user-tie'></i>
-          </div>
-          <h3>מעסיקים</h3>
+          <h3>{title}</h3>
         </a>
       </div>
     </>
@@ -48,3 +26,5 @@ const Card = () => {
 };
 
 export default Card;
+
+
