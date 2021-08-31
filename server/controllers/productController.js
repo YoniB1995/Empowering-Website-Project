@@ -5,7 +5,7 @@ const getAllProducts = async (req, res, next) => {
   try {
     const products = await productModel.find({});
     console.log(products);
-    res.status(200).json({ products });
+    res.render('products/index', { products });
   } catch (e) {
     console.log('products list not found');
     next(new ErrorResponse('server error', 400));
