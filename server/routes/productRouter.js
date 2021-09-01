@@ -11,5 +11,6 @@ productRouter.post('/createProduct', productController.createProduct);
 
 productRouter.delete('/deleteProduct/:id', productController.deleteProduct);
 productRouter.put('/updateProduct/:id', productController.updateProduct);
+// from updateProduct ejs render
 
 module.exports = productRouter;

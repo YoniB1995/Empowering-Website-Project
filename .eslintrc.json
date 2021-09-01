@@ -1,9 +1,10 @@
 {
     "extends": [
-        "airbnb-base"   
+        "airbnb-base", "prettier"  
     ],
-    "plugins": ["prettier"],
+    
     "rules": {
+        
         "no-unused-vars":"off",
         "no-console":"off",
         "eqeqeq":"warn",
@@ -31,5 +32,6 @@
         "prefer-const":"off",
         "consistent-return":"off",
         "max-len":"warn"
+        
     }
 }
