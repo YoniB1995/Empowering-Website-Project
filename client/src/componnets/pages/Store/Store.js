@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import "./Store.css";
-import Card from '../../features/card/Card'
+import Card from '../../features/card/Card';
+import {getAllProducts} from '../../../service/store-service';
 
-const API =
-  process.env.NODE_ENV === "production"
-    ? `https://yonib.herokuapp.com`
-    : "http://localhost:5000";
+
 
 const Store = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/product`)
+    getAllProducts()
       .then((res) => res.json())
       .then((result) => {
         setProducts(result.products);
