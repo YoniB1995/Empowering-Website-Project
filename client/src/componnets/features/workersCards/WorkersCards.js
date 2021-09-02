@@ -27,13 +27,21 @@ const WorkersCards = () => {
               </h2>
               <div className="mc-content">
                 <div className="img-container">
-                  <img
-                    className="img-responsive"
-                    src="Racheli1.jpg"
-                  />
+                  <img className="img-responsive" src="Racheli1.jpg" />
                 </div>
                 <div className="mc-description">
-                טדסה מלכאי – מנהלת קורס פיתוח ורכזת בוגרים בעמותת טק קריירה, שמכשירה יוצאי אתיופיה להשתלבות בעולם ההייטק – פתחה את הקבוצה אחרי ההפגנה הראשונה של יוצאי אתיופיה ב-2015, בשאיפה להעצים נשים אתיופיות שסובלות מאפליה כפולה. "מבחינתי, הדבר שהכי חשוב לשנות כרגע בישראל זה הגזענות, העניין של קבלת האחר", אומרת טדסה מלכאי. "הייתי מצפה ממדינה שעברה שואה, שחרטה על דגלה את 'ואהבת לרעך כמוך', להתנהג אחרת. בפועל יש קושי גדול לקבל את האחר. זה מתחיל מזה שעל מרקע הטלוויזיה אין גיוון של צבע. מה אלמד את ילדיי, כשהם לא רואים גיוון במסך שבו הם צופים? זה מחלחל אליהם. הם מבינים שמשהו לא תקין, ולא מבינים למה הם לא רואים את עצמם. ואם עוסקים בנושא של אברה מנגיסטו, מבינים שחיי אדם שחור שווים פחות מחיי אדם לבן".
+                  טדסה מלכאי – מנהלת קורס פיתוח ורכזת בוגרים בעמותת טק קריירה,
+                  שמכשירה יוצאי אתיופיה להשתלבות בעולם ההייטק – פתחה את הקבוצה
+                  אחרי ההפגנה הראשונה של יוצאי אתיופיה ב-2015, בשאיפה להעצים
+                  נשים אתיופיות שסובלות מאפליה כפולה. "מבחינתי, הדבר שהכי חשוב
+                  לשנות כרגע בישראל זה הגזענות, העניין של קבלת האחר", אומרת טדסה
+                  מלכאי. "הייתי מצפה ממדינה שעברה שואה, שחרטה על דגלה את 'ואהבת
+                  לרעך כמוך', להתנהג אחרת. בפועל יש קושי גדול לקבל את האחר. זה
+                  מתחיל מזה שעל מרקע הטלוויזיה אין גיוון של צבע. מה אלמד את
+                  ילדיי, כשהם לא רואים גיוון במסך שבו הם צופים? זה מחלחל אליהם.
+                  הם מבינים שמשהו לא תקין, ולא מבינים למה הם לא רואים את עצמם.
+                  ואם עוסקים בנושא של אברה מנגיסטו, מבינים שחיי אדם שחור שווים
+                  פחות מחיי אדם לבן".
                 </div>
               </div>
               <a className="mc-btn-action">
@@ -44,10 +52,10 @@ const WorkersCards = () => {
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
               </div>
             </article>
           </div>
+
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Pink">
               <h2>
@@ -79,7 +87,39 @@ const WorkersCards = () => {
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
+              </div>
+            </article>
+          </div>
+          <div className="col-md-4 col-sm-6 col-xs-12">
+            <article className="material-card Deep-Purple">
+              <h2>
+                <span>Dustin Hoffman</span>
+                <strong>
+                  <i className="fa fa-fw fa-star"></i>
+                  Kramer vs. Kramer
+                </strong>
+              </h2>
+              <div className="mc-content">
+                <div className="img-container">
+                  <img
+                    className="img-responsive"
+                    src="https://images.pexels.com/photos/3714743/pexels-photo-3714743.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                  />
+                </div>
+                <div className="mc-description">
+                  He has been known for his versatile portrayals of antiheroes
+                  and vulnerable characters.[3] He won the Academy Award for
+                  Kramer vs. Kramer in 1979 ...
+                </div>
+              </div>
+              <a className="mc-btn-action">
+                <i className="fa fa-bars"></i>
+              </a>
+              <div className="mc-footer">
+                <h4>Social</h4>
+                <a className="fa fa-fw fa-facebook"></a>
+                <a className="fa fa-fw fa-twitter"></a>
+                <a className="fa fa-fw fa-linkedin"></a>
               </div>
             </article>
           </div>
@@ -113,44 +153,10 @@ const WorkersCards = () => {
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
               </div>
             </article>
           </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
-            <article className="material-card Deep-Purple">
-              <h2>
-                <span>Dustin Hoffman</span>
-                <strong>
-                  <i className="fa fa-fw fa-star"></i>
-                  Kramer vs. Kramer
-                </strong>
-              </h2>
-              <div className="mc-content">
-                <div className="img-container">
-                  <img
-                    className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-dustin-hoffman.jpg"
-                  />
-                </div>
-                <div className="mc-description">
-                  He has been known for his versatile portrayals of antiheroes
-                  and vulnerable characters.[3] He won the Academy Award for
-                  Kramer vs. Kramer in 1979 ...
-                </div>
-              </div>
-              <a className="mc-btn-action">
-                <i className="fa fa-bars"></i>
-              </a>
-              <div className="mc-footer">
-                <h4>Social</h4>
-                <a className="fa fa-fw fa-facebook"></a>
-                <a className="fa fa-fw fa-twitter"></a>
-                <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
-              </div>
-            </article>
-          </div>
+
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Indigo">
               <h2>
@@ -164,7 +170,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-edward-norton.jpg"
+                    src="https://images.pexels.com/photos/5668875/pexels-photo-5668875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                   />
                 </div>
                 <div className="mc-description">
@@ -181,7 +187,6 @@ const WorkersCards = () => {
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
               </div>
             </article>
           </div>
@@ -198,7 +203,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-michael-caine.jpg"
+                    src="https://images.pexels.com/photos/5668875/pexels-photo-5668875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                   />
                 </div>
                 <div className="mc-description">
@@ -215,11 +220,10 @@ const WorkersCards = () => {
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
               </div>
             </article>
           </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
+          {/* <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Light-Blue">
               <h2>
                 <span>Harvey Keitel</span>
@@ -232,7 +236,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-harvey-keitel.jpg"
+                    src="https://images.pexels.com/photos/3727458/pexels-photo-3727458.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   />
                 </div>
                 <div className="mc-description">
@@ -249,11 +253,10 @@ const WorkersCards = () => {
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
               </div>
             </article>
-          </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
+          </div> */}
+          {/* <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Cyan">
               <h2>
                 <span>Jack Nicholson</span>
@@ -266,7 +269,7 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-jack-nicholson.jpg"
+                    src="https://images.pexels.com/photos/1181725/pexels-photo-1181725.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   />
                 </div>
                 <div className="mc-description">
@@ -283,40 +286,42 @@ const WorkersCards = () => {
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
-                <a className="fa fa-fw fa-google-plus"></a>
               </div>
             </article>
-          </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
- 
-          </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
-          </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
-          </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
-          </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
-          </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
-            <article className="material-card Blue-Grey">
+          </div> */}
+          {/* <div className="col-md-4 col-sm-6 col-xs-12">
+            <article className="material-card Cyan">
               <h2>
-                <span>Morgan Freeman</span>
+                <span>Jack Nicholson</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
-                  Glory
+                  The Shining
                 </strong>
               </h2>
               <div className="mc-content">
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://material-cards.s3-eu-west-1.amazonaws.com/thumb-morgan-freeman.jpg"
+                    src="https://images.pexels.com/photos/1181725/pexels-photo-1181725.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                   />
                 </div>
+                <div className="mc-description">
+                  Throughout his career, Nicholson has portrayed unique and
+                  challenging roles, many of which include dark portrayals of
+                  excitable, neurotic and psychopathic characters ...
+                </div>
+              </div>
+              <a className="mc-btn-action">
+                <i className="fa fa-bars"></i>
+              </a>
+              <div className="mc-footer">
+                <h4>Social</h4>
+                <a className="fa fa-fw fa-facebook"></a>
+                <a className="fa fa-fw fa-twitter"></a>
+                <a className="fa fa-fw fa-linkedin"></a>
               </div>
             </article>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
