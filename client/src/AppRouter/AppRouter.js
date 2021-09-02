@@ -8,10 +8,11 @@ import ArticleEditor from "../componnets/Forms/ArticleEditor";
 import Home from "../componnets/pages/Home/Home";
 import Programs from "../componnets/pages/Programs/Programs";
 import Donations from "../componnets/pages/Donations/Donations";
-import Store from "../componnets/pages/Store/Store";
+import Store from '../componnets/pages/Store/Store';
 import Newsletter from "../componnets/pages/Newsletter/Newsletter";
 import ContactUs from "../componnets/pages/ContactUs/ContactUs";
 import AboutUs from "../componnets/pages/AboutUs/AboutUs";
+import RegistrasionForm from "../componnets/features/Forms/Registration";
 import Articles from "../componnets/features/Articles/Articles";
 import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 import Article from "../componnets/features/Article/Article";
@@ -23,8 +24,6 @@ import Footer from "../componnets/features/Footer/Footer";
 export default function AppRouter() {
   return (
     <div>
-    
-
       {/* <ul
         style={{
           display: "flex",
