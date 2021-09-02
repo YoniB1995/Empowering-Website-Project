@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Store.css";
 import Card from '../../features/card/Card';
 import {getAllProducts} from '../../../service/store-service';
+import {Link} from 'react-router-dom';
 
 
 
@@ -20,7 +21,7 @@ const Store = () => {
   return (
     <div className="store-div">
       {products.map((product) => {
-        return <Card icon={product.price} title={product.title} />;
+        return <Link to={`/Product/${product._id}`}><Card icon={product.price} title={product.title} /></Link>;
       })}
     </div>
   );
