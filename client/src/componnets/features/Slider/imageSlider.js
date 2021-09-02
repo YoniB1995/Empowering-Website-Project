@@ -15,7 +15,7 @@ const ImageSlider = () => {
               // eslint-disable-next-line jsx-a11y/alt-text
               <img
                 src="https://images.pexels.com/photos/1010079/pexels-photo-1010079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                id="img-slide"
+                id="img-slide" alt=""
               />
             </div>
           ))}
