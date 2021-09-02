@@ -11,12 +11,20 @@ import Vision from "./vision/Vision";
 import { FaArrowDown } from "react-icons/fa";
 import "animate.css";
 import Copartner from "./Copartners/Copartners";
+import SliderStore from "../../features/Slider/SliderStore";
+import { useEffect } from "react";
+import WOW from "wowjs";
 const Home = () => {
+  useEffect(() => {
+    new WOW.WOW({
+      live: false,
+    }).init();
+  }, []);
   return (
     <div>
       <div className="home-first-section">
         <ImageSlider />
-        <div className="about-us">
+        <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
           <p>
             <br /> העצמה נשית אתיופית, עידוד ייעוץ ומילגות להשכלה גבוהה לנשים,
@@ -27,6 +35,21 @@ const Home = () => {
             {" "}
             ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה מינית,
             <br /> נשים הסובלות מאלימות
+          </p>
+          <p>
+            <br /> העצמה נשית אתיופית, עידוד ייעוץ ומילגות להשכלה גבוהה לנשים,
+            הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה,
+            <br />
+          </p>
+          <p>
+            <br /> העצמה נשית אתיופית, עידוד ייעוץ ומילגות להשכלה גבוהה לנשים,
+            הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה,
+            <br />
+          </p>
+          <p>
+            <br /> העצמה נשית אתיופית, עידוד ייעוץ ומילגות להשכלה גבוהה לנשים,
+            הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה,
+            <br />
           </p>
         </div>
       </div>
@@ -39,11 +62,12 @@ const Home = () => {
         </div>
       </div>
       <div className="home-second-section">
-        <WorkersCards/>
+        <WorkersCards />
       </div>
       <Vision />
       <GoalsCards />
-      <Copartner/>
+      {/* <Copartner/> */}
+      <SliderStore />
     </div>
   );
 };
