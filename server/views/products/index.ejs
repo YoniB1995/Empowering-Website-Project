@@ -23,6 +23,7 @@
 
 <body>
     <div class="container">
+        <a href="/product/ejs/new-product" class="btn btn-success"> יצירת מוצר חדש</a>
         <% if(products.length> 0) {
             products.map(product => { %>
 
@@ -35,7 +36,7 @@
                     <p class="card-text">
                         <%= product.descripation %>
                     </p>
-                    <a href="product/<%=product._id%>" class="btn btn-primary">Buy</a>
+                    <a href="product/id/<%=product._id%>" class="btn btn-primary">Buy</a>
                 </div>
             </div>
             <% }) %>
