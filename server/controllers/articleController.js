@@ -1,10 +1,9 @@
 /* eslint-disable new-cap */
-const ArticleModel = require("../models/articleModel");
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable consistent-return */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 /* eslint-disable new-cap */
+
 const articleModel = require("../models/articleModel");
 const ErrorResponse = require("../utils/errorResponse");
 
