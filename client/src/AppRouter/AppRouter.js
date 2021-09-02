@@ -17,6 +17,7 @@ import Articles from "../componnets/features/Articles/Articles";
 import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 import Article from "../componnets/features/Article/Article";
 import NavBar from "../componnets/features/NavBar/NavBar";
+import Product from '../componnets/pages/Product/Product';
 
 import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
 import Footer from "../componnets/features/Footer/Footer";
@@ -47,6 +48,8 @@ export default function AppRouter() {
         <Route path="/Programs" component={Programs} />
         <Route path="/Donations" component={Donations} />
         <Route path="/Store" component={Store} />
+        <Route path="/Product/:id" component={Product} />
+
         <Route path="/Newsletter" component={Newsletter} />
         <Route path="/ContactUs" component={ContactUs} />
         <Route path="/AboutUs" component={AboutUs} />
