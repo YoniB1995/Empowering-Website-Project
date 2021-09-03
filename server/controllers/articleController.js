@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-/* eslint-disable no-underscore-dangle */
-=======
 /* eslint-disable new-cap */
->>>>>>> 5153c87d7f675d8a5413dfe8e70e10b3892d0345
 /* eslint-disable consistent-return */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 /* eslint-disable new-cap */
-<<<<<<< HEAD
-const articleModel = require('../models/articleModel');
-const ErrorResponse = require('../utils/errorResponse');
-=======
 
 const articleModel = require("../models/articleModel");
 const ErrorResponse = require("../utils/errorResponse");
->>>>>>> 5153c87d7f675d8a5413dfe8e70e10b3892d0345
 
 const createNewArticle = async (req, res, next) => {
   req.article = new articleModel();
