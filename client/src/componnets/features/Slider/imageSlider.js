@@ -11,6 +11,7 @@ const ImageSlider = () => {
         <div className="container-frame-cube"></div>
         <Carousel autoplay>
           {ImgSliderData.map((slide) => (
+            // eslint-disable-next-line react/jsx-no-comment-textnodes
             <div>
               // eslint-disable-next-line jsx-a11y/alt-text
               <img
