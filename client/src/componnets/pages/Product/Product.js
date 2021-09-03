@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from "react-router-dom";
 import {useState,useEffect} from 'react';
 import {getAllProducts} from '../../../service/store-service';
+import './Product.css';
 
 
 
@@ -10,6 +11,7 @@ const { id } = useParams();
 
 const [products, setProducts] = useState([]);
 const [filteredProducts,setFilteredProducts] = useState([]);
+const [like,setLike] = useState(0);
 
 useEffect(() => {
   getAllProducts()
@@ -21,10 +23,14 @@ useEffect(() => {
      })
 }, [products]);
 
+const likesCounter = ()=>{
+    setLike(like+1);
+}
+
 
 
 return(
-    <>
+    <div className="product-div">
         {filteredProducts.map((product)=>{
             return(
             <>
@@ -34,11 +40,12 @@ return(
             <h2>product price : {product.price}</h2>
             <h2>product quantity : {product.quantity}</h2>
             <h2>product variants : {product.variants}</h2>
-            <img src={product.img}/>
+            <button onClick={likesCounter}>אהבתי</button>
+            likes:{like}
 
             </>)
         })}
-        </>
+        </div>
 )
 
 }

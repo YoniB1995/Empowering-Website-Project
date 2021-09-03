@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Store.css";
-import Card from '../../features/card/Card';
+import ProductCard from '../../features/card/ProductCard';
 import {getAllProducts} from '../../../service/store-service';
 import {Link} from 'react-router-dom';
 
@@ -21,7 +21,7 @@ const Store = () => {
   return (
     <div className="store-div">
       {products.map((product) => {
-        return <Link to={`/Product/${product._id}`}><Card icon={product.price} title={product.title} /></Link>;
+        return <Link to={`/Product/${product._id}`}><ProductCard title={product.title} price={product.price} quantity={product.quantity}/></Link>;
       })}
     </div>
   );
