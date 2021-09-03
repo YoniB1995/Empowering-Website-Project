@@ -3,7 +3,7 @@ import './GoalsCards.css'
 import GoalsData from './GoalsData';
 import CardTwo from '../../../features/card/CardTwo';
 
-export default function GoalsCards() {
+const GoalsCards =()=> {
     return (<div className="main">
         <h1 className="goalsHeader">מטרות</h1> {
             GoalsData.map((data, key) => {
@@ -24,3 +24,4 @@ export default function GoalsCards() {
 
     )
 }
+export default GoalsCards;
