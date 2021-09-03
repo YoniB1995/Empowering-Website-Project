@@ -1,8 +1,9 @@
 import React from "react";
-import "../Slider/slider.css";
 import ImgSliderData from "./imgSliderData";
 import { Carousel } from "antd";
 import "antd/dist/antd.css";
+import "../Slider/slider.css";
+
 
 const ImageSlider = () => {
   return (
@@ -11,12 +12,7 @@ const ImageSlider = () => {
         <div className="container-frame-cube"></div>
         <Carousel autoplay>
           {ImgSliderData.map((slide) => (
-            <div>
-              <img
-                src="https://images.pexels.com/photos/1010079/pexels-photo-1010079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                id="img-slide"
-              />
-            </div>
+            <img src={slide.image} id="img-slide" />
           ))}
         </Carousel>
       </div>
