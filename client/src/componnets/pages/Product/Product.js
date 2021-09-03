@@ -19,12 +19,12 @@ useEffect(() => {
     let newProductArray = products.filter((product)=>{ return product._id === id});
     setFilteredProducts(newProductArray); 
      })
-}, []);
+}, [products]);
 
 
 
 return(
-    <div>
+    <>
         {filteredProducts.map((product)=>{
             return(
             <>
@@ -38,7 +38,7 @@ return(
 
             </>)
         })}
-        </div>
+        </>
 )
 
 }
