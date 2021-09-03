@@ -39,6 +39,8 @@ const loginAdmin = (user) => {
         return res.json();
       })
       .then((data) => {
+        localStorage.setItem("token",data.token);
+       
         console.log(data);
       });
   } catch (error) {
