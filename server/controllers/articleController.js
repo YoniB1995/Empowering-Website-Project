@@ -70,12 +70,7 @@ const editArticle = async (req, res, next) => {
       res.status(400).json({
         error,
       });
-<<<<<<< HEAD
-    },
-  );
-=======
     });
->>>>>>> 5153c87d7f675d8a5413dfe8e70e10b3892d0345
   try {
     const article = await articleModel.findById(req.params.id);
     res.render("articles/edit", { article });
