@@ -1,0 +1,13 @@
+.contact-form{
+    height: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    margin-left: 39%;
+    background-color: rgb(246, 246, 246);
+    border-radius: 35px;
+    padding: 17px;
+}
