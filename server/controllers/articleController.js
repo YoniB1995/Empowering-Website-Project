@@ -7,8 +7,8 @@ const articleModel = require('../models/articleModel');
 const ErrorResponse = require('../utils/errorResponse');
 
 const createNewArticle = async (req, res, next) => {
-  req.article = new articleModel();
   try {
+    req.article = new articleModel();
     res.render('articles/new', { article: new articleModel() });
   } catch (error) {
     console.log(error);
@@ -18,11 +18,11 @@ const createNewArticle = async (req, res, next) => {
 };
 
 const getAllArticles = async (req, res, next) => {
-  const article = await articleModel.find({});
-  if (!article) {
-    return next(new ErrorResponse('Please provide article details to publish', 400));
-  }
   try {
+    const article = await articleModel.find({});
+    if (!article) {
+      return next(new ErrorResponse('Please provide article details to publish', 400));
+    }
     res.render('articles/new', { article });
   } catch (error) {
     console.log(error);
@@ -58,16 +58,16 @@ const editArticle = async (req, res, next) => {
     res.render('articles/edit', { article });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: 'Server Error' });
+    return next(new ErrorResponse('Server Error', 500));
   }
 };
-const deleteArticle = async (req, res) => {
+const deleteArticle = async (req, res, next) => {
   try {
     await articleModel.findByIdAndDelete(req.params.id);
     res.send({ success: true, message: 'article deleted' });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: 'Server Error' });
+  return next(new ErrorResponse('Server Error', 500));
   }
 };
 
