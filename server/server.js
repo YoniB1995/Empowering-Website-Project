@@ -27,12 +27,14 @@ const articlesRouter = require('./routes/articleRouter');
 const newsLetterRouter = require('./routes/newsLetterRouter');
 const productRouter = require('./routes/productRouter');
 const contactUsRouter = require('./routes/contactUsRouter');
+const teamRouter = require('./routes/teamRouter');
 
 app.use('/form', newsLetterRouter);
 app.use('/articles', articlesRouter);
 app.use('/admin', adminRouter);
 app.use('/product', productRouter);
 app.use('/contactUs', contactUsRouter);
+app.use('/team', teamRouter);
 
 
 // app.get('/', async (req, res) => {
