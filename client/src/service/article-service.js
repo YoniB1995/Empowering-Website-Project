@@ -2,10 +2,10 @@
 /* eslint-disable no-undef */
 const API =
   process.env.NODE_ENV === "production"
-    ? `https://yonib.herokuapp.com`
+    ? `https://empowering-women-web.herokuapp.com/`
     : "http://localhost:5000";
 
-const getAllArticles = async (req, res) => {
+export const getAllArticles = async (req, res) => {
   try {
     return await fetch(`${API}/articles/all`);
   } catch (error) {
@@ -14,7 +14,7 @@ const getAllArticles = async (req, res) => {
   }
 };
 
-const addArticle = async (articleData) => {
+export const addArticle = async (articleData) => {
   const options = {
     method: "POST",
     body: JSON.stringify(articleData),
@@ -27,7 +27,7 @@ const addArticle = async (articleData) => {
   }
 };
 
-const editArticle = async (articleData) => {
+export const editArticle = async (articleData) => {
   const options = {
     method: "PUT",
     body: JSON.stringify(articleData),
@@ -40,7 +40,7 @@ const editArticle = async (articleData) => {
   }
 };
 
-const deleteArticle = async (articleData) => {
+export const deleteArticle = async (articleData) => {
   const options = {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
@@ -52,9 +52,3 @@ const deleteArticle = async (articleData) => {
   }
 };
 
-module.exports = {
-  addArticle,
-  getAllArticles,
-  editArticle,
-  deleteArticle,
-};
