@@ -34,6 +34,7 @@ app.use('/admin', adminRouter);
 app.use('/product', productRouter);
 app.use('/contactUs', contactUsRouter);
 
+
 app.get('/', async (req, res) => {
   const articles = await articleModel.find().sort({ createdAt: 'desc' });
   res.render('articles/index', { articles });
