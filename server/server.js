@@ -4,13 +4,8 @@
 require("dotenv").config();
 const express = require("express");
 
-<<<<<<< HEAD
-const cors = require("cors");
-
-=======
 const cors = require('cors');
 const path = require('path')
->>>>>>> main
 const PORT = process.env.PORT || 5000;
 const articleModel = require("./models/articleModel");
 
@@ -32,12 +27,17 @@ const articlesRouter = require('./routes/articleRouter');
 const newsLetterRouter = require('./routes/newsLetterRouter');
 const productRouter = require('./routes/productRouter');
 const contactUsRouter = require('./routes/contactUsRouter');
+const userRouter = require('./routes/userRouter');
 
 app.use('/form', newsLetterRouter);
 app.use('/articles', articlesRouter);
 app.use('/admin', adminRouter);
 app.use('/product', productRouter);
 app.use('/contactUs', contactUsRouter);
+app.use('/user', userRouter);
+
+
+
 
 
 // app.get('/', async (req, res) => {

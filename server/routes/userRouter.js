@@ -2,13 +2,13 @@ const express = require("express");
 const userController = require("../controllers/userController");
 const newsLetterController = require("../controllers/newsLetterController");
 
-const router = express.Router();
+const userRouter = express.Router();
 
-router.get("/getUsers", userController.getUsers);
-router.post(
+userRouter.get("/getUsers", userController.getUsers);
+userRouter.post(
 	"/createUser",
 	userController.createUser,
 	newsLetterController.createMember
 );
 
-module.exports = router;
+module.exports = userRouter;
