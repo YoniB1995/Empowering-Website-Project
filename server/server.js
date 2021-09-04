@@ -39,7 +39,7 @@ app.get('/', async (req, res) => {
   res.render('articles/index', { articles });
 });
 
-if (process.env.NODE_ENV === 'production'){ // NODE_ENV משתנה סביבה מובנה
+if (process.env.NODE_ENV === 'production'){ //NODE_ENV משתנה סביבה מובנה
     app.use(express.static(path.join(__dirname,'../client/build')))
     app.get('*',(req,res)=>{
         res.sendFile(path.join(__dirname, '../client/build','index.html'))
