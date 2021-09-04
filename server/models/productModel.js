@@ -9,6 +9,7 @@ const productSchema = new Schema({
 	quantity: Number,
 	price: Number,
 	variants: String,
+	like: Number,
 });
 
 const productModel = mongoose.model("product", productSchema);

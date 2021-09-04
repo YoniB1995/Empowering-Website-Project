@@ -73,10 +73,32 @@ const updateProductAndRender = async (req, res, next) => {
 	}
 };
 
+const getEjsProducts = async (req, res, next) => {
+	try {
+		const products = await productModel.find({});
+		res.render("products/index", { products });
+	} catch (e) {
+		console.log("cannot found product ");
+		next(new ErrorResponse("server error", 500));
+	}
+};
+
+const getEjsProduct = async (req, res, next) => {
+	try {
+		const product = await productModel.findById(req.params.id);
+		res.render("products/selected-product", { product });
+	} catch (e) {
+		console.log("cannot found product ");
+		next(new ErrorResponse("server error", 500));
+	}
+};
+
 module.exports = {
 	getAllProducts,
 	getProduct,
 	createProduct,
 	deleteProduct,
 	updateProduct,
+	getEjsProducts,
+	getEjsProduct,
 };

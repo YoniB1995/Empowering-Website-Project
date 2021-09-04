@@ -13,6 +13,10 @@ productRouter.delete("/deleteProduct/:id", productController.deleteProduct);
 productRouter.put("/updateProduct/:id", productController.updateProduct);
 // from updateProduct ejs render
 
+productRouter.get("/ejs/getEjsProducts", productController.getEjsProducts);
+
+productRouter.get("/ejs/getEjsProducts/:id", productController.getEjsProduct);
+
 productRouter.get("/ejs/new-product", (req, res) => {
 	res.render("products/new-product", { chosenProduct: req.body });
 });
