@@ -1,6 +1,6 @@
 const joi = require('joi');
 
-exports.validContactUs = (bodyData) => {
+exports.validteam = (bodyData) => {
   const joiSchema = joi.object({
     email: joi.string().min().max().required(),
     inquiry: joi.string().min().max().required(),
