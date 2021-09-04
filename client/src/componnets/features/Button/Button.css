@@ -1,0 +1,15 @@
+.form-button{
+  padding: 10px;
+  color: #ffffff;
+  font-weight: bold;
+  background: #bb906d;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-button:active {
+  background: #bb906d;
+}

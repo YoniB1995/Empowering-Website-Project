@@ -1,0 +1,39 @@
+.slider-img-section {
+  margin-top: 30px;
+}
+.slider-container {
+  position: relative;
+  width: 600px;
+  height: 800px;
+  background-color: #f8f7f5;
+  padding: 30px 20px 0px 20px;
+}
+
+.container-frame-cube {
+  position: absolute;
+  width: 130px;
+  height: 35px;
+  background-color: #798777;
+  opacity: 1;
+  margin-top: 0px;
+  margin-left: 40%;
+}
+#img-slide {
+  margin-top: 20px;
+  height: 700px;
+  padding: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.ant-carousel .slick-dots li button {
+  padding: 10px;
+  border-radius: 100%;
+  margin-top: 20px;
+  background: grey;
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background: #efdada;
+  padding: 10px;
+  border-radius: 100%;
+}
