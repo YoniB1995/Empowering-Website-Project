@@ -4,8 +4,13 @@
 require("dotenv").config();
 const express = require("express");
 
+<<<<<<< HEAD
 const cors = require("cors");
 
+=======
+const cors = require('cors');
+const path = require('path')
+>>>>>>> main
 const PORT = process.env.PORT || 5000;
 const articleModel = require("./models/articleModel");
 
@@ -22,23 +27,33 @@ app.use(express.urlencoded({ extended: false })); // params יכולת לשלו�
 app.use(methodOverride("_method"));
 app.use(cors());
 
-const adminRouter = require("./routes/adminRoutes");
-const articlesRouter = require("./routes/articleRouter");
-const newsLetterRouter = require("./routes/newsLetterRouter");
-const productRouter = require("./routes/productRouter");
-const contactUsRouter = require("./routes/contactUsRouter");
-const userRouter = require("./routes/userRouter");
+const adminRouter = require('./routes/adminRoutes');
+const articlesRouter = require('./routes/articleRouter');
+const newsLetterRouter = require('./routes/newsLetterRouter');
+const productRouter = require('./routes/productRouter');
+const contactUsRouter = require('./routes/contactUsRouter');
 
-app.use("/form", newsLetterRouter);
-app.use("/articles", articlesRouter);
-app.use("/admin", adminRouter);
-app.use("/product", productRouter);
-app.use("/contactUs", contactUsRouter);
-app.use("/user", userRouter);
+app.use('/form', newsLetterRouter);
+app.use('/articles', articlesRouter);
+app.use('/admin', adminRouter);
+app.use('/product', productRouter);
+app.use('/contactUs', contactUsRouter);
 
-app.get("/", async (req, res) => {
-	const articles = await articleModel.find().sort({ createdAt: "desc" });
-	res.render("articles/index", { articles });
-});
+
+// app.get('/', async (req, res) => {
+//   const articles = await articleModel.find().sort({ createdAt: 'desc' });
+//   res.render('articles/index', { articles });
+// });
+
+if (process.env.NODE_ENV === 'production'){ //NODE_ENV משתנה סביבה מובנה
+    app.use(express.static(path.join(__dirname,'../client/build')))
+    app.get('*',(req,res)=>{
+        res.sendFile(path.join(__dirname, '../client/build','index.html'))
+    });
+} else {
+    app.get('/', (req,res) =>{
+        res.send("Api running")
+    })
+}
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

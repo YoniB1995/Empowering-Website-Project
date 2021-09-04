@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+// /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from "react";
 import "../../componnets/features/Forms/Form.css";
 import "../features/Input/Input.css";
@@ -10,13 +10,13 @@ import {
   getAllArticles,
   editArticle,
   deleteArticle,
-  addArticle,
+  addArticle
 } from "../../service/article-service";
 import "./ArticleEditor.css";
 
 const API =
   process.env.NODE_ENV === "production"
-    ? `https://yonib.herokuapp.com`
+    ? `https://empowering-women-web.herokuapp.com/`
     : "http://localhost:5000";
 
 export default function ArticleEditor(req, res) {
@@ -77,7 +77,7 @@ export default function ArticleEditor(req, res) {
       description: article.description,
       markdown: article.markdown,
     };
-    addArticle(data);
+    // addArticle(data);
   };
 
   return (
