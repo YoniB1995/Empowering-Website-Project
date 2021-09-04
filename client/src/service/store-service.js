@@ -3,7 +3,7 @@ const API =
     ? `https://yonib.herokuapp.com`
     : "http://localhost:5000";
 
-const getAllProducts = async (req, res) => {
+export const getAllProducts = async (req, res) => {
   try {
     return await fetch(`${API}/product`);
   } catch (error) {
@@ -13,4 +13,3 @@ const getAllProducts = async (req, res) => {
 };
 
 
-module.exports = { getAllProducts };

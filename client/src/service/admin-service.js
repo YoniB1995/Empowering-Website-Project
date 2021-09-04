@@ -27,7 +27,7 @@ const API =
 //     }
 // }
 
-const loginAdmin = (user) => {
+export const loginAdmin = (user) => {
   const options = {
     method: "POST",
     body: JSON.stringify(user),
@@ -46,7 +46,7 @@ const loginAdmin = (user) => {
   }
 };
 
-const registerAdmin = async (admin) => {
+export const registerAdmin = async (admin) => {
   const options = {
     method: "POST",
     body: JSON.stringify(admin),
@@ -61,7 +61,7 @@ const registerAdmin = async (admin) => {
   }
 };
 
-const deleteAdmin = async (req, res) => {
+export const deleteAdmin = async (req, res) => {
   const { username } = req.body;
   try {
     const user = await fetch(`${API}/movies/all`);
@@ -77,8 +77,4 @@ const deleteAdmin = async (req, res) => {
   }
 };
 
-module.exports = {
-  registerAdmin,
-  deleteAdmin,
-  loginAdmin,
-};
+
