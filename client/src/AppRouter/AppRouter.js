@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route, Link, Router } from "react-router-dom";
+import React, { useContext } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { ProtectedRoute } from "./ProtectedRoute";
+import {AuthContext} from "../contexts/AuthContextProvider";
+
+
 
 import ArticleDetails from "../componnets/features/Admin/ArticleDetails/ArticleDetails";
 import EditArticles from "../componnets/features/Admin/EditArticles/EditArticles";
@@ -12,31 +16,21 @@ import Store from "../componnets/pages/Store/Store";
 import Newsletter from "../componnets/pages/Newsletter/Newsletter";
 import ContactUs from "../componnets/pages/ContactUs/ContactUs";
 import AboutUs from "../componnets/pages/AboutUs/AboutUs";
-import RegistrasionForm from "../componnets/features/Forms/Registration";
+// import RegistrasionForm from "../componnets/features/Forms/Registration";
 import Articles from "../componnets/features/Articles/Articles";
 import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 import Article from "../componnets/features/Article/Article";
-import NavBar from "../componnets/features/NavBar/NavBar";
 import Product from "../componnets/pages/Product/Product";
 
 import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
-import Footer from "../componnets/features/Footer/Footer";
+import Logout from "../componnets/features/Forms/FormsTemporary/Logout"
 
-export default function AppRouter() {
+export default function AppRouter  () {
+  const { userClearLocalStorage } = useContext(AuthContext);
 
-  const isAuth = !!localStorage.getItem("token");
 
-  let routes = null
-
-  if (isAuth) {
-    routes = (
-      <Switch>
-        <Route path="/Admin/ArticleDetails" component={ArticleDetails} />
-        <Route path="/Admin/EditArticles/:id" component={EditArticles} />
-        <Route path="/Admin/NewArticles" component={NewArticles} />
-        <Route path="/Admin/ArticleEditor" component={ArticleEditor} />
-      </Switch>
-    );
+  if (userClearLocalStorage) {
+    return <Redirect to="/logout" />;
   }
 
   return (
@@ -54,9 +48,22 @@ export default function AppRouter() {
         <Route path="/AboutUs" component={AboutUs} />
         <Route path="/Articles" component={Articles} />
         <Route path="/Article/:id" component={Article} />
+
         <Route path="/form" component={FormsTemporary} />
-        {routes}
+        <ProtectedRoute path="/logout" component={Logout}/>
+
+        <ProtectedRoute
+          path="/Admin/ArticleDetails"
+          component={ArticleDetails}
+        />
+        <ProtectedRoute
+          path="/Admin/EditArticles/:id"
+          component={EditArticles}
+        />
+        <ProtectedRoute path="/Admin/NewArticles" component={NewArticles} />
+        <ProtectedRoute path="/Admin/ArticleEditor" component={ArticleEditor} />
       </Switch>
     </div>
   );
-}
+};
+

@@ -11,11 +11,10 @@ const ImageSlider = () => {
         <div className="container-frame-cube"></div>
         <Carousel autoplay>
           {ImgSliderData.map((slide) => (
-           
             <div>
               <img
                 src="https://images.pexels.com/photos/1010079/pexels-photo-1010079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                id="img-slide" alt=""
+                id="img-slide"
               />
             </div>
           ))}
