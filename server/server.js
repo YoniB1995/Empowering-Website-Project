@@ -35,10 +35,10 @@ app.use('/product', productRouter);
 app.use('/contactUs', contactUsRouter);
 
 
-app.get('/', async (req, res) => {
-  const articles = await articleModel.find().sort({ createdAt: 'desc' });
-  res.render('articles/index', { articles });
-});
+// app.get('/', async (req, res) => {
+//   const articles = await articleModel.find().sort({ createdAt: 'desc' });
+//   res.render('articles/index', { articles });
+// });
 
 if (process.env.NODE_ENV === 'production'){ //NODE_ENV משתנה סביבה מובנה
     app.use(express.static(path.join(__dirname,'../client/build')))
