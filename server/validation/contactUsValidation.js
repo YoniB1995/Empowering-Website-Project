@@ -1,10 +1,17 @@
 const joi = require('joi');
 
+const adminSchema = require('../models/adminModel');
+
+
 exports.validContactUs = (bodyData) => {
   const joiSchema = joi.object({
-    email: joi.string().min().max().required(),
-    inquiry: joi.string().min().max().required(),
-    content: joi.string().min().max().required(),
+    fullname: joi.string().min().max().required(),
+    role: joi.string().min().max().required(),
+    image: joi.string().min().max().required(),
+    image: joi.string().min().max().required(),
+    iscompleted:joi.boolean(),
+    notes: joi.string().min().max()
+
   });
   return joiSchema.validate(bodyData);
 };

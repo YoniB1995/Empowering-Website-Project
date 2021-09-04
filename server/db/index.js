@@ -1,17 +1,22 @@
+require('dotenv').config()
 const mongoose = require("mongoose");
 
-const {
-  CONNECTION_URL = "mongodb+srv://empowering2021:EMpower1234@cluster0.mwn5e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-} = process.env;
 
-mongoose
-  .connect(CONNECTION_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
-  .then(() => console.log("mongoose connect successed"))
-  .catch((err) => console.log("err:", err));
+const connectDB = async () => {
+        await mongoose.connect(process.env.CONNECTION_URL,{
+            useNewUrlParser:true,
+            useUnifiedTopology:true,
+            useCreateIndex:true,
+            useFindAndModify:true
+        });
+}
+connectDB().then(()=>{
+    console.log('MongoDB Atlas Connected');
+    // importData();
 
-const db = mongoose.connection;
-module.exports = db;
+}).catch((err)=>{
+    console.log(`Error Message - ${err.message}`)
+})
+
+module.exports = mongoose.connection;
+
