@@ -10,7 +10,7 @@ import {
   getAllArticles,
   editArticle,
   deleteArticle,
-  addArticle,
+  // addArticle
 } from "../../service/article-service";
 import "./ArticleEditor.css";
 
@@ -77,7 +77,7 @@ export default function ArticleEditor(req, res) {
       description: article.description,
       markdown: article.markdown,
     };
-    addArticle(data);
+    // addArticle(data);
   };
 
   return (
