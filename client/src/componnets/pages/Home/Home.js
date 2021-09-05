@@ -1,16 +1,12 @@
 import React from "react";
 import "./Home.css";
-import Button from "../../features/Button/Button";
 import GoalsCards from "./Goals/GoalsCards";
-import Copartners from "./Copartners/Copartners";
-import Card from "../../features/card/Card";
 import WorkersCards from "../../features/workersCards/WorkersCards";
-import Footer from "../../features/Footer/Footer";
-import ImageSlider from"../../features/Slider/imageSlider"
-import Vision from "./vision/Vision";
-import { FaArrowDown } from "react-icons/fa";
+import ImageSlider from "../../features/Slider/ImageSlider";
+import "./Home.css";
 import "animate.css";
-import Copartner from "./Copartners/Copartners";
+import Vision from "./vision/Vision";
+import "animate.css";
 import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
