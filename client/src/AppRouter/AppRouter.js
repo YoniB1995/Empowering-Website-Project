@@ -21,6 +21,7 @@ import FormsTemporary from '../componnets/features/Forms/FormsTemporary/FormsTem
 import Footer from '../componnets/features/Footer/Footer';
 import Products from '../componnets/features/Products/Products';
 import Product from '../componnets/features/Product/Product';
+
 import AddProduct from '../componnets/Forms/AddProduct/AddProduct';
 import AddArticle from '../componnets/Forms/AddArticle';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
