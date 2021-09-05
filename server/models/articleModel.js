@@ -1,9 +1,9 @@
 /* eslint-disable func-names */
-const marked = require('marked');
-const slugify = require('slugify');
-const mongoose = require('mongoose');
-const createDomPurify = require('dompurify');
-const { JSDOM } = require('jsdom');
+const marked = require("marked");
+const slugify = require("slugify");
+const mongoose = require("mongoose");
+const createDomPurify = require("dompurify");
+const { JSDOM } = require("jsdom");
 
 const dompurify = createDomPurify(new JSDOM().window);
 
@@ -35,7 +35,7 @@ const articleSchema = new mongoose.Schema({
   },
 });
 
-articleSchema.pre('validate', function (next) {
+articleSchema.pre("validate", function (next) {
   if (this.title) {
     this.slug = slugify(this.title, { lower: true, strict: true });
   }
@@ -47,6 +47,6 @@ articleSchema.pre('validate', function (next) {
   next();
 });
 
-const articleModel = mongoose.model('article', articleSchema);
+const articleModel = mongoose.model("article", articleSchema);
 
 module.exports = articleModel;

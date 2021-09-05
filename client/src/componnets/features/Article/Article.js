@@ -5,9 +5,6 @@ import "./Article.css";
 
 const Article = () => {
   const [article, setArticle] = useState();
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const [markdown, setMarkdown] = useState();
   const { id } = useParams();
   useEffect(() => {
     getAllArticles()
@@ -18,11 +15,6 @@ const Article = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  useEffect(() => {
-    setTitle(article?.title);
-    setDescription(article?.description);
-    setMarkdown(article?.markdown);
-  }, [article]);
   return (
     <>
       <section id="article">
@@ -33,7 +25,7 @@ const Article = () => {
                 src="https://source.unsplash.com/crVO0UMdoVU/600x600"
                 alt=""
               />
-              <h1 class="l-heading">{title}</h1>
+              <h1 class="l-heading">{article?.title}</h1>
               <div class="meta">
                 <small>
                   <i class="fas fa-user"></i> Written By Yuda
