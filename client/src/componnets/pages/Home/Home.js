@@ -6,7 +6,7 @@ import Copartners from "./Copartners/Copartners";
 import Card from "../../features/card/Card";
 import WorkersCards from "../../features/workersCards/WorkersCards";
 import Footer from "../../features/Footer/Footer";
-import ImageSlider from"../../features/Slider/imageSlider"
+import ImageSlider from"../../features/Slider/ImageSlider"
 import Vision from "./vision/Vision";
 import { FaArrowDown } from "react-icons/fa";
 import "animate.css";
