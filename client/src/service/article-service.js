@@ -28,13 +28,17 @@ const addArticle = async (articleData) => {
 };
 
 const editArticle = async (articleData) => {
-  const options = {
-    method: "PUT",
-    body: JSON.stringify(articleData),
-    headers: { "Content-Type": "application/json" },
-  };
+  // const options = {
+  //   method: "PUT",
+  //   body: JSON.stringify(articleData),
+  //   headers: { "Content-Type": "application/json" },
+  // };
   try {
-    await fetch(`${API}/articles/edit/${articleData["_id"]}`, options);
+    await fetch(`${API}/articles/edit/${articleData["_id"]}`, {
+      method: "PUT",
+      body: JSON.stringify(articleData),
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
     console.log(error);
   }

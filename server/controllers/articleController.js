@@ -27,7 +27,8 @@ const getAllArticles = async (req, res, next) => {
     );
   }
   try {
-    res.render("articles/new", { article });
+    // res.render("articles/new", { article });
+    return res.send(article);
   } catch (error) {
     console.log(error);
     return next(new ErrorResponse("Server Error", 500));
@@ -36,7 +37,7 @@ const getAllArticles = async (req, res, next) => {
 
 const editArticle = async (req, res, next) => {
   const oldArticle = await new articleModel({
-    _id: req.body.id,
+    _id: req.body._id,
     title: req.body.title,
     description: req.body.description,
     markdown: req.body.markdown,
@@ -65,7 +66,8 @@ const editArticle = async (req, res, next) => {
     });
   try {
     const article = await articleModel.findById(req.params.id);
-    res.render("articles/edit", { article });
+    // res.render("articles/edit", { article });
+    return res.send(article);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Server Error" });

@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 
-import ArticleDetails from "../componnets/features/Admin/ArticleDetails/ArticleDetails";
 import EditArticles from "../componnets/features/Admin/EditArticles/EditArticles";
-import NewArticles from "../componnets/features/Admin/NewArticles/NewArticles";
-import ArticleEditor from "../componnets/Forms/ArticleEditor";
 import Home from "../componnets/pages/Home/Home";
 import Programs from "../componnets/pages/Programs/Programs";
 import Donations from "../componnets/pages/Donations/Donations";
@@ -19,12 +16,15 @@ import NavBar from "../componnets/features/NavBar/NavBar";
 
 import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
 import Footer from "../componnets/features/Footer/Footer";
+import Products from "../componnets/features/Products/Products";
+import Product from "../componnets/features/Product/Product";
+import AddProduct from "../componnets/Forms/AddProduct/AddProduct";
+import AddArticle from "../componnets/Forms/AddArticle";
+import EditProducts from "../componnets/features/Admin/EditProducts/EditProducts";
 
 export default function AppRouter() {
   return (
     <div>
-    
-
       {/* <ul
         style={{
           display: "flex",
@@ -47,17 +47,19 @@ export default function AppRouter() {
         <Route exact path="/WorkersCards" component={WorkersCards} />
         <Route path="/Programs" component={Programs} />
         <Route path="/Donations" component={Donations} />
-        <Route path="/Store" component={Store} />
+        <Route path="/Store" component={Products} />
         <Route path="/Newsletter" component={Newsletter} />
         <Route path="/ContactUs" component={ContactUs} />
         <Route path="/AboutUs" component={AboutUs} />
         <Route path="/Articles" component={Articles} />
         <Route path="/Article/:id" component={Article} />
+        <Route path="/Products" component={Products} />
+        <Route path="/Product/:id" component={Product} />
 
-        <Route path="/Admin/ArticleDetails" component={ArticleDetails} />
         <Route path="/Admin/EditArticles/:id" component={EditArticles} />
-        <Route path="/Admin/NewArticles" component={NewArticles} />
-        <Route path="/Admin/ArticleEditor" component={ArticleEditor} />
+        <Route path="/Admin/EditProducts/:id" component={EditProducts} />
+        <Route path="/Admin/AddArticle" component={AddArticle} />
+        <Route path="/Admin/AddProduct" component={AddProduct} />
       </Switch>
     </div>
   );

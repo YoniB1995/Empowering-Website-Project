@@ -8,15 +8,17 @@ import {
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const [reRender, setReRender] = useState(true);
 
   useEffect(() => {
     getAllArticles()
       .then((res) => res.json())
       .then((result) => setArticles(result));
-  }, [articles]);
+  }, [reRender]);
   return (
     <>
       <h2 style={{ textAlign: "center" }}>Articles Lists & ID </h2>
+      <Link to="Admin/AddArticle"> add article</Link>
       <main id="content" class="main-area">
         <ul class="cards1">
           {articles.map((article, i) => {
@@ -39,6 +41,7 @@ const Articles = () => {
                   <button
                     onClick={() => {
                       deleteArticle(article);
+                      setReRender((old) => !old);
                     }}
                   >
                     delete
