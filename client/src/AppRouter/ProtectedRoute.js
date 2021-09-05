@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContextProvider";
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => {
+  
   const { isLogin } = useContext(AuthContext);
 
   return (

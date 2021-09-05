@@ -80,9 +80,7 @@ export default function AppRouter() {
           path="/Admin/ArticleDetails"
           component={ArticleDetails}
         /> */}
-        <ProtectedRoute
-          path='/Admin/EditArticles/:id'
-          component={EditArticles}
+        <ProtectedRoute path='/Admin/EditArticles/:id' component={EditArticles}
         />
         {/* <ProtectedRoute path="/Admin/NewArticles" component={NewArticles} />
         <ProtectedRoute path="/Admin/ArticleEditor" component={ArticleEditor} /> */}
