@@ -3,7 +3,7 @@ import "./Articles.css";
 import { Link } from "react-router-dom";
 import {
   deleteArticle,
-  getAllArticles,
+  getAllArticles
 } from "../../../service/article-service";
 
 const Articles = () => {

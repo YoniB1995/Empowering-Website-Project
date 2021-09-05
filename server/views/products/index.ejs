@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        .container {
+            margin: 5px;
+            width: 100%;
+            gap: 10%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>עורך-חנות</title>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/product/ejs/new-product" class="btn btn-success"> יצירת מוצר חדש</a>
+        <% if(products.length> 0) {
+            products.map(product => { %>
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://source.unsplash.com/random" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= product.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%= product.descripation %>
+                    </p>
+                    <a href="getEjsProducts/<%= product._id %>" class="btn btn-primary">Buy</a>
+                </div>
+            </div>
+            <% }) %>
+                <% } %>
+    </div>
+
+
+</body>
+
+</html>

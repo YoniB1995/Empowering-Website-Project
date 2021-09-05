@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.59",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
@@ -27,6 +28,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "joi": "^17.4.2",
+    "joigoose": "^8.0.2",
     "jsdom": "^17.0.0",
     "jsonwebtoken": "^8.5.1",
     "mailchimp-api-v3": "^1.15.0",
