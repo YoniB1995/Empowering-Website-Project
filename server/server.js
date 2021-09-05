@@ -9,7 +9,7 @@ const cors = require('cors');
 
 const path = require('path');
 const PORT = process.env.PORT || 5000;
-const articleModel = require('./models/articleModel');
+const planModel = require('./models/planModel');
 
 const app = express();
 
@@ -56,17 +56,20 @@ app.post('/upload', (req, res) => {
 //   res.render("articles/index", { articles });
 // });
 const adminRouter = require('./routes/adminRoutes');
-const articlesRouter = require('./routes/articleRouter');
+const plansRouter = require('./routes/planRouter');
 const newsLetterRouter = require('./routes/newsLetterRouter');
 const productRouter = require('./routes/productRouter');
 const contactUsRouter = require('./routes/contactUsRouter');
+const teamRouter = require('./routes/teamRouter');
 const userRouter = require('./routes/userRouter');
 
 app.use('/form', newsLetterRouter);
-app.use('/articles', articlesRouter);
+app.use('/plans', plansRouter);
 app.use('/admin', adminRouter);
 app.use('/product', productRouter);
 app.use('/contactUs', contactUsRouter);
+app.use('/team', teamRouter);
+
 app.use('/user', userRouter);
 
 // app.get('/', async (req, res) => {
