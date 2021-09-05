@@ -15,7 +15,7 @@ const Vision = () => {
       </div>
       <div className="vision-card">
         
-        <div className="vision-card-content wow animate__bounceInLeft">
+        <div className="vision-card-content wow animate__bounceInLeft ">
           הקבוצה הוקמה למען מטרה חשובה ונעלה שאנחנו הנשים האתיופיות החזקות,
           <br />
           האצילות והמוצלחות למרות שלפעמים איננו מעריכות מספיק את עצמנו ויש

@@ -6,13 +6,7 @@ import Copartners from "./Copartners/Copartners";
 import Card from "../../features/card/Card";
 import WorkersCards from "../../features/workersCards/WorkersCards";
 import Footer from "../../features/Footer/Footer";
-<<<<<<< HEAD
-import ImageSlider from "../../features/Slider/imageSlider";
-import "./Home.css";
-import "animate.css";
-=======
 import ImageSlider from"../../features/Slider/ImageSlider"
->>>>>>> f56760524108d6a84c1c62b0c9f2ec98fbb0f885
 import Vision from "./vision/Vision";
 import { FaArrowDown } from "react-icons/fa";
 import "animate.css";
@@ -20,6 +14,8 @@ import Copartner from "./Copartners/Copartners";
 import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
+import { BackTop } from 'antd';
+import Store from "../Store/Store";
 const Home = () => {
   useEffect(() => {
     new WOW.WOW({
@@ -74,6 +70,10 @@ const Home = () => {
       <GoalsCards />
       {/* <Copartner/> */}
       <SliderStore />
+      {/* <Store/> */}
+      <BackTop>
+      <div className="upBtn">BACK TO UP</div>
+    </BackTop>
     </div>
   );
 };
