@@ -35,9 +35,13 @@ const EditArticles = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(article);
-    editArticle(article).then(() => {
-      window.location.pathname = "/Articles";
-    });
+    editArticle(article)
+      .then(() => {
+        window.location.pathname = "/Articles";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -64,7 +68,10 @@ const EditArticles = () => {
                 class="validate[required,custom[onlyLetter],length[0,100]] feedback-input"
                 id="title"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                  console.log(article);
+                }}
               />
             </p>
 
