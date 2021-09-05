@@ -1,43 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  editArticle,
-  getAllArticles,
-} from "../../../../service/article-service";
-import "./EditArticle.css";
 
-const EditArticles = () => {
-  const [article, setArticle] = useState();
+import {
+  editProduct,
+  getAllProducts,
+} from "../../../../service/product-service";
+import "./EditProducts.css";
+
+const EditProducts = () => {
+  const [product, setProduct] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-  const [markdown, setMarkdown] = useState();
+  const [price, setPrice] = useState();
   const { id } = useParams();
   useEffect(() => {
-    getAllArticles()
+    getAllProducts()
       .then((res) => res.json())
       .then((result) => {
-        let founded = result.find((article) => article._id === id);
-        setArticle(founded);
+        let founded = result.products.find((product) => product._id === id);
+        setProduct(founded);
       })
       .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
-    setTitle(article?.title);
-    setDescription(article?.description);
-    setMarkdown(article?.markdown);
-  }, [article]);
+    setTitle(product?.title);
+    setDescription(product?.descripation);
+    setPrice(product?.price);
+  }, [product]);
 
   useEffect(() => {
-    setArticle((oldObj) => ({ ...oldObj, title, description, markdown }));
-  }, [title, description, markdown]);
+    setProduct((oldObj) => ({ ...oldObj, title, description, price }));
+  }, [title, description, price]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(article);
-    editArticle(article)
+    console.log(product);
+    editProduct(product)
       .then(() => {
-        window.location.pathname = "/Articles";
+        window.location.pathname = "/Products";
       })
       .catch((err) => {
         console.log(err);
@@ -56,7 +57,7 @@ const EditArticles = () => {
         zIndex: "1111",
       }}
     >
-      <h1>עריכת מאמר</h1>
+      <h1>עריכת מוצר</h1>
       <div id="form-main">
         <div id="form-div">
           <form onSubmit={handleSubmit} class="form" id="form1">
@@ -70,20 +71,20 @@ const EditArticles = () => {
                 value={title}
                 onChange={(e) => {
                   setTitle(e.target.value);
-                  console.log(article);
+                  console.log(product);
                 }}
               />
             </p>
 
             <p class="email">
-              <label htmlFor="markdown">markdown</label>
+              <label htmlFor="price">price</label>
               <input
                 name="email"
-                type="text"
+                type="number"
                 class="validate[required,custom[email]] feedback-input"
                 id="email"
-                value={markdown}
-                onChange={(e) => setMarkdown(e.target.value)}
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
               />
             </p>
 
@@ -103,7 +104,7 @@ const EditArticles = () => {
               <div class="ease"></div>
             </div>
             <button>
-              <Link to="/Articles">cancel</Link>
+              <Link to="/Products">cancel</Link>
             </button>
           </form>
         </div>
@@ -112,4 +113,4 @@ const EditArticles = () => {
   );
 };
 
-export default EditArticles;
+export default EditProducts;

@@ -1,60 +1,94 @@
-const Mailchimp = require('mailchimp-api-v3');
+const mailchimpModel = require("mailchimp-api-v3");
+const MailchimpMarketingModel = require("@mailchimp/mailchimp_marketing");
+const ErrorResponse = require("../utils/errorResponse");
 
 const { API_KEY } = process.env;
 const { AUDIENCE_ID } = process.env;
+const { SERVER_PREFIX } = process.env;
 
-const createMember = (req, res) => {
-  let mailchimpObject;
-  try {
-    mailchimpObject = new Mailchimp(API_KEY);
-  } catch (e) {
-    console.log('API KEY is not available');
-  }
+MailchimpMarketingModel.setConfig({
+	apiKey: API_KEY,
+	server: SERVER_PREFIX,
+});
 
-  const { sentEmail, check } = req.body;
+const getCampaignByTitle = async (req, res, next) => {
+	try {
+		const campaignsList = await MailchimpMarketingModel.campaigns.list();
 
-  if (!sentEmail) {
-    res.status(400).json('please add information to the request');
-  }
-  res.status(200).json('check');
-
-  mailchimpObject.post(`lists/${AUDIENCE_ID}/members`, {
-    email_address: sentEmail,
-    status: 'pending',
-  })
-    .then((response) => res.status(200).json(response))
-    .catch((e) => console.log(e));
+		const chosenCampaign = campaignsList.campaigns.filter(
+			(campaign) => campaign.settings.title === req.params.title
+		);
+		if (!chosenCampaign) {
+			next(new ErrorResponse("Campaign not found", 301));
+			return;
+		}
+		res.status(200).json({ campaign: chosenCampaign });
+	} catch (e) {
+		next(new ErrorResponse("server error", 500));
+	}
 };
 
-const getAllMembers = (req, res) => {
-  let mailchimpObject;
-  try {
-    mailchimpObject = new Mailchimp(API_KEY);
-  } catch (e) {
-    console.log('API KEY is not available');
-  }
-  mailchimpObject.get(`lists/${AUDIENCE_ID}/members`)
-    .then((response) => res.json(response))
-    .catch((e) => console.log(e));
+const createMember = async (req, res, next) => {
+	const { Email } = req.body;
+	let mailchimpObject;
+
+	try {
+		mailchimpObject = await new mailchimpModel(API_KEY);
+	} catch (e) {
+		console.log("API KEY is not available");
+	}
+
+	if (!Email) {
+		next(new ErrorResponse("please add information to the request error", 400));
+	}
+
+	mailchimpObject
+		.post(`lists/${AUDIENCE_ID}/members`, {
+			email_address: Email,
+			status: "pending",
+		})
+
+		.then((response) => res.status(200).json({ message: "save in newsletter" }))
+		.catch((e) => next(new ErrorResponse(e, 400)));
 };
 
-const getMember = (req, res) => {
-  let mailchimpObject;
-  try {
-    mailchimpObject = new Mailchimp(API_KEY);
-  } catch (e) {
-    console.log('API KEY is not available');
-  }
+const getAllMembers = (req, res, next) => {
+	let mailchimpObject;
+	try {
+		mailchimpObject = new mailchimpModel(API_KEY);
+	} catch (e) {
+		console.log("API KEY is not available");
+	}
+	mailchimpObject
+		.get(`/campaigns/${AUDIENCE_ID}/members`)
+		.then((response) => res.status(200).json(response))
+		.catch((e) => next(new ErrorResponse(e, 400)));
+};
 
-  mailchimpObject.get(`lists/${AUDIENCE_ID}/members`).then((audience) => {
-    const { email } = req.params;
-    const chosenMember = audience.members.filter((member) => email === member.email_address);
-    console.log(chosenMember);
-    res.status(200).send(chosenMember);
-  })
-    .catch((e) => console.log(e));
+const getMember = (req, res, next) => {
+	let mailchimpObject;
+	try {
+		mailchimpObject = new mailchimpModel(API_KEY);
+	} catch (e) {
+		console.log("API KEY is not available");
+	}
+
+	mailchimpObject
+		.get(`lists/${AUDIENCE_ID}/members`)
+		.then((audience) => {
+			const { email } = req.params;
+			const chosenMember = audience.members.filter(
+				(member) => email === member.email_address
+			);
+			console.log(chosenMember);
+			res.status(200).json({ chosenMember });
+		})
+		.catch((e) => next(new ErrorResponse("server error", 500)));
 };
 
 module.exports = {
-  createMember, getAllMembers, getMember,
+	createMember,
+	getAllMembers,
+	getMember,
+	getCampaignByTitle,
 };
