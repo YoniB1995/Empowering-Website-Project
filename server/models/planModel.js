@@ -7,7 +7,7 @@ const { JSDOM } = require('jsdom');
 
 const dompurify = createDomPurify(new JSDOM().window);
 
-const articleSchema = new mongoose.Schema({
+const planSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -35,7 +35,7 @@ const articleSchema = new mongoose.Schema({
   },
 });
 
-articleSchema.pre('validate', function (next) {
+planSchema.pre('validate', function (next) {
   if (this.title) {
     this.slug = slugify(this.title, { lower: true, strict: true });
   }
@@ -47,6 +47,6 @@ articleSchema.pre('validate', function (next) {
   next();
 });
 
-const articleModel = mongoose.model('article', articleSchema);
+const planModel = mongoose.model('plan', planSchema);
 
-module.exports = articleModel;
+module.exports = planModel;
