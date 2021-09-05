@@ -1,11 +1,9 @@
+require('dotenv').config()
 const mongoose = require("mongoose");
 
-const {
-  CONNECTION_URL = "mongodb+srv://empowering2021:EMpower1234@cluster0.mwn5e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-} = process.env;
 
 mongoose
-  .connect(CONNECTION_URL, {
+  .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
