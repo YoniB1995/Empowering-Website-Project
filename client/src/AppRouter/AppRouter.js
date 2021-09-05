@@ -15,12 +15,12 @@ import AboutUs from '../componnets/pages/AboutUs/AboutUs';
 import Articles from '../componnets/features/Articles/Articles';
 import WorkersCards from '../componnets/features/workersCards/WorkersCards';
 import Article from '../componnets/features/Article/Article';
-import Product from '../componnets/pages/Product/Product';
+// import Product from '../componnets/pages/Product/Product';
 
 import FormsTemporary from '../componnets/features/Forms/FormsTemporary/FormsTemporary';
 import Footer from '../componnets/features/Footer/Footer';
 import Products from '../componnets/features/Products/Products';
-// import Product from "../componnets/features/Product/Product";
+import Product from '../componnets/features/Product/Product';
 import AddProduct from '../componnets/Forms/AddProduct/AddProduct';
 import AddArticle from '../componnets/Forms/AddArticle';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
