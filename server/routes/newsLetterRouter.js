@@ -8,5 +8,9 @@ NewsLetterRouter.get(
 	"/getCampaign/:title",
 	NewsLetterController.getCampaignByTitle
 );
+NewsLetterRouter.get(
+	"/getCampaignFiltered",
+	NewsLetterController.getCampaignsFiltered
+);
 
 module.exports = NewsLetterRouter;

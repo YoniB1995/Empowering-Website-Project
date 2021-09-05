@@ -11,12 +11,31 @@ MailchimpMarketingModel.setConfig({
 	server: SERVER_PREFIX,
 });
 
+const getCampaignsFiltered = async (req, res, next) => {
+	try {
+		const campaignsList = await MailchimpMarketingModel.campaigns.list();
+		let campaigns = campaignsList.campaigns.sort(
+			(a, b) => new Date(b.create_time) - new Date(a.create_time)
+		);
+
+		if (!campaigns) {
+			next(new ErrorResponse("no campaign found", 301));
+			return;
+		}
+		res.status(200).json({ campaigns: campaigns });
+	} catch (e) {
+		console.log(e);
+		next(new ErrorResponse("server error", 500));
+	}
+};
+
 const getCampaignByTitle = async (req, res, next) => {
 	try {
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
+		const { title } = req.params;
 
 		const chosenCampaign = campaignsList.campaigns.filter(
-			(campaign) => campaign.settings.title === req.params.title
+			(campaign) => campaign.settings.title === title
 		);
 		if (!chosenCampaign) {
 			next(new ErrorResponse("Campaign not found", 301));
@@ -60,7 +79,7 @@ const getAllMembers = (req, res, next) => {
 		console.log("API KEY is not available");
 	}
 	mailchimpObject
-		.get(`/campaigns/${AUDIENCE_ID}/members`)
+		.get(`/lists/${AUDIENCE_ID}/members`)
 		.then((response) => res.status(200).json(response))
 		.catch((e) => next(new ErrorResponse(e, 400)));
 };
@@ -91,4 +110,5 @@ module.exports = {
 	getAllMembers,
 	getMember,
 	getCampaignByTitle,
+	getCampaignsFiltered,
 };
