@@ -14,7 +14,7 @@ MailchimpMarketingModel.setConfig({
 const getCampaignsFiltered = async (req, res, next) => {
 	try {
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
-		let campaigns = campaignsList.campaigns.sort(
+		const campaigns = campaignsList.campaigns.sort(
 			(a, b) => new Date(b.create_time) - new Date(a.create_time)
 		);
 

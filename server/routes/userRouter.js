@@ -10,5 +10,6 @@ userRouter.post(
 	userController.createUser,
 	newsLetterController.createMember
 );
+userRouter.put("/updateUser/:email", userController.updateUser);
 
 module.exports = userRouter;
