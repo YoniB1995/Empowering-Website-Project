@@ -1,15 +1,21 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
-mongoose
-	.connect(process.env.CONNECTION_URL, {
+const connectDB = async () => {
+	await mongoose.connect(process.env.CONNECTION_URL, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useCreateIndex: true,
 		useFindAndModify: false,
+	});
+};
+connectDB()
+	.then(() => {
+		console.log("MongoDB Atlas Connected");
+		// importData();
 	})
-	.then(() => console.log("mongoose connect successed"))
-	.catch((err) => console.log("err:", err));
+	.catch((err) => {
+		console.log(`Error Message - ${err.message}`);
+	});
 
-const db = mongoose.connection;
-module.exports = db;
+module.exports = mongoose.connection;

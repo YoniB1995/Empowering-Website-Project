@@ -12,18 +12,6 @@
   --tech-color: #009cff;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Lato", sans-serif;
-  line-height: 1.5;
-  background: var(--light-color);
-}
-
 a {
   color: #333;
   text-decoration: none;
