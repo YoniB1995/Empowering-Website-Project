@@ -6,6 +6,8 @@ const contactUsSchema = new Schema({
   email: String,
   inquiry: String,
   content: String,
+  iscompleted:Boolean,
+  notes:String
 });
 
 module.exports = mongoose.model('contactUs', contactUsSchema);
