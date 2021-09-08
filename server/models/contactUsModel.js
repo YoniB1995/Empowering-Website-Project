@@ -1,11 +1,38 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose;
+const Joi =require('joi')
 
-const contactUsSchema = new Schema({
-  email: String,
-  inquiry: String,
-  content: String,
-});
+const Joigoose = require('Joigoose')(mongoose)
 
-module.exports = mongoose.model('contactUs', contactUsSchema);
+const contactUsSchema = Joi.object({
+  Email: Joi.string()
+  .email()
+  .required()
+},
+{Inquiry: Joi.string()
+.min(2)
+.max(255)
+.required()
+
+},
+{
+  Content :Joi.string()
+  .min(2)
+.max(255)
+.required()
+
+}
+)
+
+const validContact = (contact)=>{
+  const joiObject = contactUsSchema.validate(contact)
+  return joiObject
+}
+
+const mongooseContact = new mongoose.Schema(Joigoose.convert(contactUsSchema))
+const contactModel = mongoose.model('contactUs',mongooseContact)
+module.exports = {
+  validContact,
+  contactModel
+}
+

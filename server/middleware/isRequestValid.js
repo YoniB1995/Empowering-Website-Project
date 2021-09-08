@@ -1,10 +1,9 @@
 const ErrorResponse = require('../utils/errorResponse');
 
 const isRequestValid = (req, res, next) => {
-  const {
-    title, descripation, quantity, price, variants,
+  const {  Title, Descrption, Image,Quantity, Price,
   } = req.body;
-  if (!title || !descripation || !quantity || !price || !variants) {
+  if (!Title || !Descrption ||Image || !Price|| !Quantity ) {
     console.log('Hey Im middleware between post request ');
     res.send('one of your fields is empty');
     return;

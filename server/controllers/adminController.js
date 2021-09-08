@@ -6,7 +6,7 @@
 /* eslint-disable max-len */
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { validAdmin } = require('../validation/adminValidation');
+// const { validAdmin } = require('../validation/adminValidation');
 const ErrorResponse = require('../utils/errorResponse');
 const adminModel = require('../models/adminModel');
 const { genToken } = require('../middleware/token');
