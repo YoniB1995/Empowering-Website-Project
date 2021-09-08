@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import GoalsCards from "./Goals/GoalsCards";
 import WorkersCards from "../../features/workersCards/WorkersCards";
-import ImageSlider from "../../features/Slider/ImageSlider";
+// import ImageSlider from "../../features/Slider/ImageSlider";
 import "./Home.css";
 import "animate.css";
 import Vision from "./vision/Vision";
@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div>
       <div className="home-first-section">
-        <ImageSlider />
+        {/* <ImageSlider /> */}
         <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
           <p>
