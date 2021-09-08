@@ -48,7 +48,7 @@ const deleteMember = async (req, res, next) => {
 		console.log("cannot find Member ");
 		next(new ErrorResponse("server error", 500));
 	}
-	res.status(200).json({ message: "Member deleted" });
+	res.status(200).json({ message: "member deleted" });
 };
 
 module.exports = {
