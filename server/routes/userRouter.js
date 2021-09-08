@@ -11,5 +11,6 @@ userRouter.post(
 	newsLetterController.createMember
 );
 userRouter.put("/updateUser/:email", userController.updateUser);
+userRouter.delete("/deleteUser/:email", userController.deleteUser);
 
 module.exports = userRouter;

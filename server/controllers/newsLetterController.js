@@ -1,6 +1,7 @@
 const mailchimpModel = require("mailchimp-api-v3");
 const MailchimpMarketingModel = require("@mailchimp/mailchimp_marketing");
 const ErrorResponse = require("../utils/errorResponse");
+const md5 = require("md5");
 
 const { API_KEY } = process.env;
 const { AUDIENCE_ID } = process.env;
