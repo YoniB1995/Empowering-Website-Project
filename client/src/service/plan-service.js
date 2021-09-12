@@ -5,38 +5,38 @@ const API =
     ? `https://empowering-women-web.herokuapp.com/`
     : 'http://localhost:5000';
 
-export const getAllArticles = async (req, res) => {
+export const getAllPlans = async (req, res) => {
   try {
-    return await fetch(`${API}/articles/all`);
+    return await fetch(`${API}/plans/all`);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Server Error' });
   }
 };
 
-export const addArticle = async (articleData) => {
+export const addPlan = async (planData) => {
   const options = {
     method: 'POST',
-    body: JSON.stringify(articleData),
+    body: JSON.stringify(planData),
     headers: { 'Content-Type': 'application/json' },
   };
   try {
-    await fetch(`${API}/articles/new`, options);
+    await fetch(`${API}/plans/new`, options);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const editArticle = async (articleData) => {
+export const editPlan = async (planData) => {
   // const options = {
   //   method: "PUT",
-  //   body: JSON.stringify(articleData),
+  //   body: JSON.stringify(planData),
   //   headers: { "Content-Type": "application/json" },
   // };
   try {
-    await fetch(`${API}/articles/edit/${articleData['_id']}`, {
+    await fetch(`${API}/plans/edit/${planData['_id']}`, {
       method: 'PUT',
-      body: JSON.stringify(articleData),
+      body: JSON.stringify(planData),
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error) {
@@ -44,13 +44,13 @@ export const editArticle = async (articleData) => {
   }
 };
 
-export const deleteArticle = async (articleData) => {
+export const deletePlan = async (planData) => {
   const options = {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
   };
   try {
-    await fetch(`${API}/articles/${articleData._id}`, options);
+    await fetch(`${API}/plans/${planData._id}`, options);
   } catch (error) {
     console.log(error);
   }
