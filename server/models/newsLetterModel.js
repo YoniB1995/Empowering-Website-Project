@@ -24,3 +24,5 @@ module.exports = {
 	validCampagin,
 	campaginModel,
 };
+
+// save the campagins (E-mail) from the admin

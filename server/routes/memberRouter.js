@@ -10,7 +10,16 @@ memberRouter.post(
 	memberController.createMember,
 	mailChimpController.createMember
 );
+memberRouter.put(
+	"/updateMember/:Email",
+	memberController.updateMember,
+	mailChimpController.updateMember
+);
 
-memberRouter.delete("/deleteMember/:email", memberController.deleteMember);
+memberRouter.delete(
+	"/deleteMember/:Email",
+	memberController.deleteMember,
+	mailChimpController.deleteMember
+);
 
 module.exports = memberRouter;
