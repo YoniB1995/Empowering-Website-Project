@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 import { AuthContext } from '../contexts/AuthContextProvider';
 
-import EditArticles from '../componnets/features/Admin/EditArticles/EditArticles';
+import EditArticles from '../componnets/features/Admin/EditPlans/EditPlans';
 import Home from '../componnets/pages/Home/Home';
 import Programs from '../componnets/pages/Programs/Programs';
 import Donations from '../componnets/pages/Donations/Donations';
@@ -12,9 +12,9 @@ import Newsletter from '../componnets/pages/Newsletter/Newsletter';
 import ContactUs from '../componnets/pages/ContactUs/ContactUs';
 import AboutUs from '../componnets/pages/AboutUs/AboutUs';
 // import RegistrasionForm from "../componnets/features/Forms/Registration";
-import Articles from '../componnets/features/Articles/Articles';
+import Articles from '../componnets/features/Plans/Plans';
 import WorkersCards from '../componnets/features/workersCards/WorkersCards';
-import Article from '../componnets/features/Article/Article';
+import Article from '../componnets/features/Plan/Plan';
 // import Product from '../componnets/pages/Product/Product';
 
 import FormsTemporary from '../componnets/features/Forms/FormsTemporary/FormsTemporary';
@@ -23,7 +23,7 @@ import Products from '../componnets/features/Products/Products';
 import Product from '../componnets/features/Product/Product';
 
 import AddProduct from '../componnets/Forms/AddProduct/AddProduct';
-import AddArticle from '../componnets/Forms/AddArticle';
+import AddArticle from '../componnets/Forms/AddPlan';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
 import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
 
@@ -64,14 +64,14 @@ export default function AppRouter() {
         <Route path='/Newsletter' component={Newsletter} />
         <Route path='/ContactUs' component={ContactUs} />
         <Route path='/AboutUs' component={AboutUs} />
-        <Route path='/Articles' component={Articles} />
-        <Route path='/Article/:id' component={Article} />
+        <Route path='/Plans' component={Articles} />
+        <Route path='/Plan/:id' component={Article} />
         <Route path='/Products' component={Products} />
         <Route path='/Product/:id' component={Product} />
 
-        <Route path='/Admin/EditArticles/:id' component={EditArticles} />
+        <Route path='/Admin/EditPlans/:id' component={EditArticles} />
         <Route path='/Admin/EditProducts/:id' component={EditProducts} />
-        <Route path='/Admin/AddArticle' component={AddArticle} />
+        <Route path='/Admin/AddPlan' component={AddArticle} />
         <Route path='/Admin/AddProduct' component={AddProduct} />
 
         <Route path='/form' component={FormsTemporary} />
