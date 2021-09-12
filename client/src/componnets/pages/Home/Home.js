@@ -10,6 +10,8 @@ import "animate.css";
 import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
+import { BackTop } from 'antd';
+import Store from "../Store/Store";
 const Home = () => {
   useEffect(() => {
     new WOW.WOW({
@@ -64,6 +66,10 @@ const Home = () => {
       <GoalsCards />
       {/* <Copartner/> */}
       <SliderStore />
+      {/* <Store/> */}
+      <BackTop>
+      <div className="upBtn">BACK TO UP</div>
+    </BackTop>
     </div>
   );
 };
