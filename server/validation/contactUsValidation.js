@@ -1,6 +1,6 @@
 const joi = require('joi');
 
-const adminSchema = require('../models/adminModel');
+const contactUs = require('../models/contactUsModel');
 
 
 exports.validContactUs = (bodyData) => {
@@ -13,5 +13,5 @@ exports.validContactUs = (bodyData) => {
     notes: joi.string().min().max()
 
   });
-  return joiSchema.validate(bodyData);
+  return joiSchema.validate(bodyData,contactUs);
 };

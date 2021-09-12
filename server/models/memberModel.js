@@ -3,7 +3,7 @@ const Joi = require("joi"); // Joi package for validation
 
 const Joigoose = require("joigoose")(mongoose); // convert joi schema to mongoose valid schema
 
-const userSchema = Joi.object({
+const memberSchema = Joi.object({
 	Email: Joi.string()
 		.min(2)
 		.max(20)
@@ -12,16 +12,18 @@ const userSchema = Joi.object({
 	// .meta({ _mongoose: { _id: true } }), // add specific  options to mongodb
 });
 
-const validUser = (userData) => {
-	const responseFromJoi = userSchema.validate(userData);
+const validMember = (memberData) => {
+	const responseFromJoi = memberSchema.validate(memberData);
 	console.log(responseFromJoi);
 	return responseFromJoi;
 };
 
-const mongooseUserSchema = new mongoose.Schema(Joigoose.convert(userSchema));
-const userModel = mongoose.model("user", mongooseUserSchema);
+const mongooseMemberSchema = new mongoose.Schema(
+	Joigoose.convert(memberSchema)
+);
+const memberModel = mongoose.model("member", mongooseMemberSchema);
 // 18 + 19 convert joi schema to mongoose schema and add to the data base as collection
 module.exports = {
-	validUser,
-	userModel,
+	validMember,
+	memberModel,
 };
