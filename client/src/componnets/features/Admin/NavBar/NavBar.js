@@ -32,7 +32,7 @@ export const NavBar = () => {
         <Link to='/Store'>
           <Menu.Item>חנות</Menu.Item>
         </Link>
-        <Link to='/Programs'>
+        <Link to='/Plans'>
           <Menu.Item>תוכניות</Menu.Item>
         </Link>
         <Link to='/AboutUs'>
