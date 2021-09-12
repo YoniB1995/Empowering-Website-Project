@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import GoalsCards from "./Goals/GoalsCards";
 import WorkersCards from "../../features/workersCards/WorkersCards";
-import ImageSlider from "../../features/Slider/ImageSlider";
+import ImageSlider from "../../features/Slider/SliderStore"
 import "./Home.css";
 import "animate.css";
 import Vision from "./vision/Vision";
