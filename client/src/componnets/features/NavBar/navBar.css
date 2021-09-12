@@ -24,6 +24,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /* margin-left: 20px; */
 }
 .navBarLinks :hover {
   background-color: rgb(244, 215, 192);
