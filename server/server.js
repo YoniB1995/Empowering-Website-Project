@@ -51,10 +51,10 @@ app.post("/upload", (req, res) => {
 // app.use("/product", productRouter);
 // app.use("/contactUs", contactUsRouter);
 
-// app.get("/", async (req, res) => {
-//   const articles = await articleModel.find().sort({ createdAt: "desc" });
-//   res.render("articles/index", { articles });
-// });
+app.get("/", async (req, res) => {
+  res.send("hello world");
+});
+
 const adminRouter = require("./routes/adminRoutes");
 const plansRouter = require("./routes/planRouter");
 const mailChimpRouter = require("./routes/mailChimpRouter");
