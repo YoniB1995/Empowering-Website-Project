@@ -5,7 +5,7 @@ const API =
 
 export const getAllNewsletter = async (req, res) => {
   try {
-    return await fetch(`${API}/Newsletter/all`);
+    return await fetch(`${API}/member/getMembers`);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Server Error" });
@@ -20,7 +20,7 @@ export const getOneNewsletter = async (articleData) => {
       headers: { 'Content-Type': 'application/json' },
     };
     try {
-      await fetch(`${API}/Newsletter/id`, options);
+      await fetch(`${API}/member/getMembers/id`, options);
     } catch (error) {
       console.log(error);
     }
