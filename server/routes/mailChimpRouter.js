@@ -7,9 +7,6 @@ mailChimp.delete("/deleteMember/:Email", mailChimpController.deleteMember);
 
 mailChimp.get("/getAllMembers", mailChimpController.getAllMembers);
 mailChimp.get("/getMember/:Email", mailChimpController.getMember);
-mailChimp.get("/getCampaign/:title", mailChimpController.getCampaignByTitle);
-mailChimp.get("/getCampaignFiltered", mailChimpController.getCampaignsFiltered);
-
 
 module.exports = mailChimp;
 
