@@ -30,7 +30,7 @@ const createMember = async (req, res, next) => {
 		if (!members) {
 			console.log("no members in the collection");
 		}
-		next();
+		// next();
 		res.status(200).json({ message: "user added to database" });
 	} catch (e) {
 		next(new ErrorResponse("server error", 500));

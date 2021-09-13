@@ -7,9 +7,8 @@ const { AUDIENCE_ID } = process.env;
 const { API_KEY } = process.env;
 
 const createMember = async (req, res, next) => {
-	const { Email } = req.params;
 	try {
-		const { error } = validMember({ Email }); // try to validate
+		const { error } = validMember(req.body); // try to validate
 		if (error) {
 			next(new ErrorResponse({ error: error.details[0].message }, 301));
 		}
@@ -17,10 +16,10 @@ const createMember = async (req, res, next) => {
 		next(new ErrorResponse("bad request", 301));
 	}
 	try {
-		const hashSubcriber = md5(req.params.Email);
+		const hashSubcriber = md5(req.body.Email);
 		const member = await MailchimpMarketingModel.lists
-			.updateListMember(AUDIENCE_ID, hashSubcriber, {
-				email_address: Email,
+			.addListMember(AUDIENCE_ID, {
+				email_address: req.body.Email,
 				status: "pending",
 			})
 			.then((response) =>
