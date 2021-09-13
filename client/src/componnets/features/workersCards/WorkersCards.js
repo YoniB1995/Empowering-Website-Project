@@ -1,8 +1,24 @@
 import React from "react";
-import "./workersCards.css";
+import './workersCards.css'
+import {useState,useEffect} from 'react';
+import {getAllWorkers} from '../../../service/team-service'
 
 const WorkersCards = () => {
-  return (
+
+  const [team,setTeam] = useState([]);
+
+  useEffect(()=>{
+    getAllWorkers()
+    .then((res)=> res.json())
+    .then((res)=>{
+      setTeam(res.team); 
+    });
+  },[]);
+
+  console.log(team);
+
+  
+  return team.length > 0 && (
     <>
       <section
         style={{ maxWidth: "1400px", width: "90%" }}
@@ -19,7 +35,7 @@ const WorkersCards = () => {
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Red">
               <h2>
-                <span>רחלי טדסה מלכאי</span>
+                <span>{team[0].fullname}</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
                   The Deer Hunter
@@ -27,28 +43,17 @@ const WorkersCards = () => {
               </h2>
               <div className="mc-content">
                 <div className="img-container">
-                  <img className="img-responsive" src="Racheli1.jpg" />
+                  <img className="img-responsive" src={team[0].image} />
                 </div>
                 <div className="mc-description">
-                  טדסה מלכאי – מנהלת קורס פיתוח ורכזת בוגרים בעמותת טק קריירה,
-                  שמכשירה יוצאי אתיופיה להשתלבות בעולם ההייטק – פתחה את הקבוצה
-                  אחרי ההפגנה הראשונה של יוצאי אתיופיה ב-2015, בשאיפה להעצים
-                  נשים אתיופיות שסובלות מאפליה כפולה. "מבחינתי, הדבר שהכי חשוב
-                  לשנות כרגע בישראל זה הגזענות, העניין של קבלת האחר", אומרת טדסה
-                  מלכאי. "הייתי מצפה ממדינה שעברה שואה, שחרטה על דגלה את 'ואהבת
-                  לרעך כמוך', להתנהג אחרת. בפועל יש קושי גדול לקבל את האחר. זה
-                  מתחיל מזה שעל מרקע הטלוויזיה אין גיוון של צבע. מה אלמד את
-                  ילדיי, כשהם לא רואים גיוון במסך שבו הם צופים? זה מחלחל אליהם.
-                  הם מבינים שמשהו לא תקין, ולא מבינים למה הם לא רואים את עצמם.
-                  ואם עוסקים בנושא של אברה מנגיסטו, מבינים שחיי אדם שחור שווים
-                  פחות מחיי אדם לבן".
+                  {team[0].description}
                 </div>
               </div>
               <a className="mc-btn-action">
                 <i className="fa fa-bars"></i>
               </a>
               <div className="mc-footer">
-                <h4>מנהלת העמותה</h4>
+                <h4>{team[0].role}</h4>
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
@@ -59,7 +64,7 @@ const WorkersCards = () => {
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Pink">
               <h2>
-                <span>lorem lorem</span>
+                <span>{team[1].fullname}</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
                   Mystic River
@@ -69,21 +74,18 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://images.pexels.com/photos/5668875/pexels-photo-5668875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src={team[1].image}
                   />
                 </div>
                 <div className="mc-description">
-                  He has won two Academy Awards, for his roles in the mystery
-                  drama Mystic River (2003) and the biopic Milk (2008). Penn
-                  began his acting career in television with a brief appearance
-                  in a 1974 episode of Little House on the Prairie ...
+                  {team[1].description}
                 </div>
               </div>
               <a className="mc-btn-action">
                 <i className="fa fa-bars"></i>
               </a>
               <div className="mc-footer">
-                <h4>Social</h4>
+                <h4>{team[1].role}</h4>
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
@@ -93,7 +95,7 @@ const WorkersCards = () => {
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Deep-Purple">
               <h2>
-                <span>Dustin Hoffman</span>
+                <span>{team[2].fullname}</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
                   Kramer vs. Kramer
@@ -103,20 +105,18 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://images.pexels.com/photos/3714743/pexels-photo-3714743.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    src={team[2].image}
                   />
                 </div>
                 <div className="mc-description">
-                  He has been known for his versatile portrayals of antiheroes
-                  and vulnerable characters.[3] He won the Academy Award for
-                  Kramer vs. Kramer in 1979 ...
+                  {team[2].description}
                 </div>
               </div>
               <a className="mc-btn-action">
                 <i className="fa fa-bars"></i>
               </a>
               <div className="mc-footer">
-                <h4>Social</h4>
+                <h4>{team[2].role}</h4>
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
@@ -126,7 +126,7 @@ const WorkersCards = () => {
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Purple">
               <h2>
-                <span>lorem lorem</span>
+                <span>{team[3].fullname}</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
                   Million Dollar Baby
@@ -136,20 +136,18 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://images.pexels.com/photos/3714743/pexels-photo-3714743.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    src={team[3].image}
                   />
                 </div>
                 <div className="mc-description">
-                  He rose to international fame with his role as the Man with No
-                  Name in Sergio Leone's Dollars trilogy of spaghetti Westerns
-                  during the 1960s ...
+                  {team[3].description}
                 </div>
               </div>
               <a className="mc-btn-action">
                 <i className="fa fa-bars"></i>
               </a>
               <div className="mc-footer">
-                <h4>Social</h4>
+                <h4>{team[3].role}</h4>
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
@@ -160,7 +158,7 @@ const WorkersCards = () => {
           <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Indigo">
               <h2>
-                <span>Edward Norton</span>
+                <span>{team[4].fullname}</span>
                 <strong>
                   <i className="fa fa-fw fa-star"></i>
                   American History X
@@ -170,59 +168,25 @@ const WorkersCards = () => {
                 <div className="img-container">
                   <img
                     className="img-responsive"
-                    src="https://images.pexels.com/photos/5668875/pexels-photo-5668875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src={team[4].image}
                   />
                 </div>
                 <div className="mc-description">
-                  He has been nominated for three Academy Awards for his work in
-                  the films Primal Fear, American History X and Birdman. He also
-                  starred in other roles ...
+                  {team[4].description}
                 </div>
               </div>
               <a className="mc-btn-action">
                 <i className="fa fa-bars"></i>
               </a>
               <div className="mc-footer">
-                <h4>Social</h4>
+                <h4>{team[4].role}</h4>
                 <a className="fa fa-fw fa-facebook"></a>
                 <a className="fa fa-fw fa-twitter"></a>
                 <a className="fa fa-fw fa-linkedin"></a>
               </div>
             </article>
           </div>
-          <div className="col-md-4 col-sm-6 col-xs-12">
-            <article className="material-card Blue">
-              <h2>
-                <span>Michael Caine</span>
-                <strong>
-                  <i className="fa fa-fw fa-star"></i>
-                  Educated Rita
-                </strong>
-              </h2>
-              <div className="mc-content">
-                <div className="img-container">
-                  <img
-                    className="img-responsive"
-                    src="https://images.pexels.com/photos/5668875/pexels-photo-5668875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                  />
-                </div>
-                <div className="mc-description">
-                  English actor and author. Renowned for his distinctive working
-                  className cockney accent, Caine has appeared in over 115 films
-                  and is regarded as a British ...
-                </div>
-              </div>
-              <a className="mc-btn-action">
-                <i className="fa fa-bars"></i>
-              </a>
-              <div className="mc-footer">
-                <h4>Social</h4>
-                <a className="fa fa-fw fa-facebook"></a>
-                <a className="fa fa-fw fa-twitter"></a>
-                <a className="fa fa-fw fa-linkedin"></a>
-              </div>
-            </article>
-          </div>
+         
           {/* <div className="col-md-4 col-sm-6 col-xs-12">
             <article className="material-card Light-Blue">
               <h2>
