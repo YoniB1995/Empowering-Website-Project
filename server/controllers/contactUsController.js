@@ -1,20 +1,29 @@
-const contactUsModel = require('../models/contactUsModel');
+const {validContact,contactModel} = require('../models/contactUsModel');
+
 const ErrorResponse = require('../utils/errorResponse');
 
-const createContactInformation = async (req, res, next) => {
-  try {
-    const contactInformation = await contactUsModel.insertMany(req.body);
-    console.log(contactInformation);
+const createContactInformation = async(req,res,next)=>{
+  try{
+    const {error} = validContact(req.body)
+    if (error){
+      next( new ErrorResponse({error:error.details[0].message}))
+    }
     res.status(200).json({ contactInformation });
-  } catch (e) {
-    console.log('failed to add contactInformation ');
-    next(new ErrorResponse('failed to add contactInformation', 500));
   }
-};
+    catch(e){
+      next(new ErrorResponse('bed request',301))
+}
+  }
+
 
 const getAllContactInformation = async (req, res, next) => {
+
   try {
-    const contactInformation = await contactUsModel.find({});
+    const {error} = validContact(req.body)
+    if (error){
+      next( new ErrorResponse({error:error.details[0].message}))
+    }
+    const contactInformation = await contactModel.find({});
     console.log(contactInformation);
     if (!contactInformation) {
       next(new ErrorResponse('No ContactInformation saved, please add', 400));
@@ -27,10 +36,15 @@ const getAllContactInformation = async (req, res, next) => {
 };
 
 const updateContactInformation = async (req, res, next) => {
-  try {
-    const contactInformation = await contactUsModel.findByIdAndUpdate(req.params.id, req.body);
 
-    console.log(contactInformation);
+  try {
+    const {error} = validContact(req.body)
+    if (error){
+      next( new ErrorResponse({error:error.details[0].message}))
+    }
+    const contactInformation = await contactModel.findByIdAndUpdate(req.params.id, req.body);
+
+   
     next(new ErrorResponse('success', 200));
   } catch (e) {
     console.log('failed to update contact information ');
@@ -39,8 +53,12 @@ const updateContactInformation = async (req, res, next) => {
 };
 
 const deleteContactInformation = async (req, res, next) => {
+  const {error} = validContact(req.body)
+  if (error){
+    next( new ErrorResponse({error:error.details[0].message}))
+  }
   try {
-    const contactInformation = await contactUsModel.findByIdAndDelete(req.params.id);
+    const contactInformation = await contactModel.findByIdAndDelete(req.params.id);
     console.log(contactInformation);
     next(new ErrorResponse('success', 200));
   } catch (e) {

@@ -11,7 +11,6 @@ username : Joi.string()
   .max(255)
   .required()
 
-
 },{
   password :Joi.string()
   .min(6)

@@ -6,7 +6,7 @@ productRouter.get("/", productController.getAllProducts);
 productRouter.get("/:id", productController.getProduct);
 
 // middleware to check if request body is empty
-// productRouter.post("/createProduct", );
+
 productRouter.post("/createProduct",isRequestValid, productController.createProduct);
 
 productRouter.delete("/deleteProduct/:id", productController.deleteProduct);
