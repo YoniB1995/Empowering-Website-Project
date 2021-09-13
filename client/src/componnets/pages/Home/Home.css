@@ -89,3 +89,14 @@
   /* height: 60vh; */
   background-color: #e8dbcf;
 }
+.upBtn{
+  float: right;
+  border: 2px solid #f8f7f5;
+  border-radius: 2px;
+  text-align: center;
+  width: 100px;
+  z-index: -1;
+}
+.upBtn:hover{
+  background-color: rgb(244, 215, 192);
+}

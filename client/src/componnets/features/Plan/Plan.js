@@ -1,36 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getAllArticles } from "../../../service/article-service";
-import "./Article.css";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getAllPlans } from '../../../service/plan-service';
+import './Plan.css';
 
-const Article = () => {
-  const [article, setArticle] = useState();
+const Plan = () => {
+  const [plan, setPlan] = useState();
   const { id } = useParams();
   useEffect(() => {
-    getAllArticles()
+    getAllPlans()
       .then((res) => res.json())
       .then((result) => {
-        let founded = result.find((article) => article._id === id);
-        setArticle(founded);
+        let founded = result.find((plan) => plan._id === id);
+        setPlan(founded);
       })
       .catch((err) => console.log(err));
   }, []);
   return (
     <>
-      <section id="article">
-        <div class="container">
-          <div class="page-container">
-            <article class="article">
+      <section id='article'>
+        <div class='container'>
+          <div class='page-container'>
+            <article class='article'>
               <img
-                src="https://source.unsplash.com/crVO0UMdoVU/600x600"
-                alt=""
+                src='https://source.unsplash.com/crVO0UMdoVU/600x600'
+                alt=''
               />
-              <h1 class="l-heading">{article?.title}</h1>
-              <div class="meta">
+              <h1 class='l-heading'>{plan?.title}</h1>
+              <div class='meta'>
                 <small>
-                  <i class="fas fa-user"></i> Written By Yuda
+                  <i class='fas fa-user'></i> Written By Yuda
                 </small>
-                <div class="category category-ent">Entertainment</div>
+                <div class='category category-ent'>Entertainment</div>
               </div>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore
@@ -64,44 +64,44 @@ const Article = () => {
               </p>
             </article>
 
-            <aside id="categories" class="article">
+            <aside id='categories' class='article'>
               <h2>Categories</h2>
-              <ul class="list">
+              <ul class='list'>
                 <li>
-                  <a href="#">
-                    <i class="fas fa-chevron-right"></i> Sports
+                  <a href='#'>
+                    <i class='fas fa-chevron-right'></i> Sports
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fas fa-chevron-right"></i> Entertainment
+                  <a href='#'>
+                    <i class='fas fa-chevron-right'></i> Entertainment
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fas fa-chevron-right"></i> Technology
+                  <a href='#'>
+                    <i class='fas fa-chevron-right'></i> Technology
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fas fa-chevron-right"></i> Fashion
+                  <a href='#'>
+                    <i class='fas fa-chevron-right'></i> Fashion
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class="fas fa-chevron-right"></i> Shopping
+                  <a href='#'>
+                    <i class='fas fa-chevron-right'></i> Shopping
                   </a>
                 </li>
               </ul>
             </aside>
 
-            <aside class="article bg-secondary">
+            <aside class='article bg-secondary'>
               <h2>Join Our Club</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit,
                 id?
               </p>
-              <a href="#" class="btn btn-dark btn-block">
+              <a href='#' class='btn btn-dark btn-block'>
                 Join Now
               </a>
             </aside>
@@ -112,4 +112,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default Plan;
