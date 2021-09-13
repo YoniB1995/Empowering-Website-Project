@@ -6,7 +6,7 @@ import './navBar.css';
  const NavBar = () => {
     return (
         <div className="navBar">
-            <Avatar className="logo" src="logo.jpg" alt="logo"><Link to='./'></Link></Avatar>
+            <Link to='./'><Avatar className="logo" src="logo.jpg" alt="logo"></Avatar></Link>
             <Menu className="navBarLinks" mode="horizontal">
                 <Link to='/Donations' className="donationsBtn"> 
                 <Menu.Item >

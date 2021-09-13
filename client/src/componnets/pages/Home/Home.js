@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import GoalsCards from "./Goals/GoalsCards";
 import WorkersCards from "../../features/workersCards/WorkersCards";
-import ImageSlider from "../../features/Slider/ImageSlider";
+import ImageSlider from "../../features/Slider/SliderStore"
 import "./Home.css";
 import "animate.css";
 import Vision from "./vision/Vision";
@@ -10,6 +10,8 @@ import "animate.css";
 import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
+import { BackTop } from 'antd';
+import Store from "../Store/Store";
 const Home = () => {
   useEffect(() => {
     new WOW.WOW({
@@ -64,6 +66,10 @@ const Home = () => {
       <GoalsCards />
       {/* <Copartner/> */}
       <SliderStore />
+      {/* <Store/> */}
+      <BackTop>
+      <div className="upBtn">BACK TO UP</div>
+    </BackTop>
     </div>
   );
 };

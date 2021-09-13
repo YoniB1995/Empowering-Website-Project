@@ -1,10 +1,12 @@
-* {
+.navBarLinks span {
   padding: 0;
   margin: 0;
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
   color: rgb(161, 110, 75);
+  font-family: 'Varela Round', sans-serif;
+  color: black;
 }
 .navBar {
   background-color: #f8f7f5;
@@ -22,6 +24,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /* margin-left: 20px; */
 }
 .navBarLinks :hover {
   background-color: rgb(244, 215, 192);
