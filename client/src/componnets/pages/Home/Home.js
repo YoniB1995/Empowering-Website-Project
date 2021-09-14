@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import GoalsCards from "./Goals/GoalsCards";
 import WorkersCards from "../../features/workersCards/WorkersCards";
-import ImageSlider from "../../features/Slider/SliderStore"
+import ImageSlider from "../../features/Slider/ImageSlider";
 import "./Home.css";
 import "animate.css";
 import Vision from "./vision/Vision";
@@ -10,7 +10,8 @@ import "animate.css";
 import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
-import { BackTop } from 'antd';
+import { BackTop } from "antd";
+import Plan from "../../features/Plan/Plan";
 import Store from "../Store/Store";
 const Home = () => {
   useEffect(() => {
@@ -21,7 +22,7 @@ const Home = () => {
   return (
     <div>
       <div className="home-first-section">
-        <ImageSlider/>
+        <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
           <p>
@@ -68,8 +69,8 @@ const Home = () => {
       <SliderStore />
       {/* <Store/> */}
       <BackTop>
-      <div className="upBtn">BACK TO UP</div>
-    </BackTop>
+        <div className="upBtn">BACK TO UP</div>
+      </BackTop>
     </div>
   );
 };
