@@ -5,44 +5,43 @@ import '../features/Input/Input.css';
 import '../features/Button/Button.css';
 import { Link } from 'react-router-dom';
 // import {editArticle} from '../../service/admin-service'
-import { getAllArticles, addArticle } from '../../service/article-service';
-import './AddArticle.css';
+import { getAllPlans, addPlan } from '../../service/plan-service';
 
 const API =
   process.env.NODE_ENV === 'production'
     ? `https://empowering-women-web.herokuapp.com/`
     : 'http://localhost:5000';
 
-export default function AddArticle(req, res) {
-  const [articlesID, setArticlesID] = useState([]);
-  const [article, setArticle] = useState([]);
-  const [articles, setArticles] = useState([]);
+export default function AddPlan(req, res) {
+  const [plansID, setPlansID] = useState([]);
+  const [plan, setPlan] = useState([]);
+  const [plans, setPlans] = useState([]);
 
   useEffect(() => {
-    getAllArticles()
+    getAllPlans()
       .then((res) => res.json())
-      .then((result) => setArticles(result));
+      .then((result) => setPlans(result));
   }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setArticle({ ...article, [name]: value });
-    console.log(article);
+    setPlan({ ...plan, [name]: value });
+    console.log(plan);
   };
 
   const insertArticle = async (params) => {
     // const ids = await articles.map((type,i) => type.title === article.title && setArticlesID(type._id) );
 
     const data = {
-      title: article.title,
-      description: article.description,
-      markdown: article.markdown,
+      title: plan.title,
+      description: plan.description,
+      markdown: plan.markdown,
       slug: 'yonib-testing-new-crud-functions',
       sanitizedHtml: '<p>##This is maybe the final post</p>\n',
     };
 
-    addArticle(data).then(() => {
-      window.location.pathname = '/Articles';
+    addPlan(data).then(() => {
+      window.location.pathname = '/Plans';
     });
     // addArticle(data);
   };
@@ -57,7 +56,7 @@ export default function AddArticle(req, res) {
             type='text'
             placeholder='title'
             name='title'
-            value={article.title}
+            value={plan.title}
             required
             onChange={handleInputChange}
           />
@@ -66,7 +65,7 @@ export default function AddArticle(req, res) {
             type='text'
             name='description'
             placeholder='description'
-            value={article.description}
+            value={plan.description}
             required
             onChange={handleInputChange}
           />
@@ -75,7 +74,7 @@ export default function AddArticle(req, res) {
             type='text'
             name='markdown'
             placeholder='markdown'
-            value={article.markdown}
+            value={plan.markdown}
             required
             onChange={handleInputChange}
           />
@@ -93,7 +92,7 @@ export default function AddArticle(req, res) {
           <div class='login-form__links'>
             <a class='login-form__link' href='./'>
               <div>
-                <Link to='/Articles'>Go to Articles?</Link>
+                <Link to='/Plans'>Go to Articles?</Link>
               </div>
             </a>
           </div>

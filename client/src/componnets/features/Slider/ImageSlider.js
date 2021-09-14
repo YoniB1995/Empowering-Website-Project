@@ -1,8 +1,8 @@
 import React from "react";
-import "../Slider/slider.css";
-import ImgSliderData from "./imgSliderData";
 import { Carousel } from "antd";
+import ImgSliderData from "./imgSliderData";
 import "antd/dist/antd.css";
+import "../Slider/slider.css";
 
 const ImageSlider = () => {
   return (
@@ -17,10 +17,3 @@ const ImageSlider = () => {
                 id="img-slide"
               />
             </div>
-          ))}
-        </Carousel>
-      </div>
-    </div>
-  );
-};
-export default ImageSlider;

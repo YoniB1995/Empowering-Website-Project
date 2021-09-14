@@ -4,9 +4,8 @@ const Joi = require("joi"); // Joi package for validation
 const Joigoose = require("joigoose")(mongoose); // convert joi schema to mongoose valid schema
 
 const campaginSchema = Joi.object({
-	title: Joi.string().min(2).max(20).required(),
-	descritipon: Joi.string().required().min(5).max(50),
-	createAt: Joi.date().required(),
+	Email: Joi.string().required(),
+	date: Joi.date().required(),
 });
 
 const validCampagin = (campaginData) => {
@@ -25,4 +24,4 @@ module.exports = {
 	campaginModel,
 };
 
-// save the campagins (E-mail) from the admin
+// save the users from campgin for arcade
