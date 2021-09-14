@@ -6,7 +6,7 @@ const Joigoose = require("joigoose")(mongoose); // convert joi schema to mongoos
 const memberSchema = Joi.object({
 	Email: Joi.string()
 		.min(2)
-		.max(20)
+		.max(35)
 		.required()
 		.email({ tlds: ["com"] }),
 	// .meta({ _mongoose: { _id: true } }), // add specific  options to mongodb
@@ -27,3 +27,5 @@ module.exports = {
 	validMember,
 	memberModel,
 };
+
+// save the users from newsLetter

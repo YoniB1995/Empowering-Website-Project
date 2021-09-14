@@ -2,7 +2,10 @@ const contactUsRouter = require("express").Router();
 
 const contactUsController = require("../controllers/contactUsController");
 
-contactUsRouter.get("/", contactUsController.getAllContactInformation);
+contactUsRouter.get(
+	"/getAllContactInformation",
+	contactUsController.getAllContactInformation
+);
 contactUsRouter.post(
 	"/createContactUs",
 	contactUsController.createContactInformation

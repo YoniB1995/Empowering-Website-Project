@@ -52,7 +52,7 @@ app.post("/upload", (req, res) => {
 // app.use("/contactUs", contactUsRouter);
 
 app.get("/", async (req, res) => {
-  res.send("hello world");
+	res.send("hello world");
 });
 
 const adminRouter = require("./routes/adminRoutes");
@@ -62,6 +62,7 @@ const productRouter = require("./routes/productRouter");
 const contactUsRouter = require("./routes/contactUsRouter");
 const teamRouter = require("./routes/teamRouter");
 const memberRouter = require("./routes/memberRouter");
+const campaginRouter = require("./routes/campaginRouter");
 
 app.use("/mailChimp", mailChimpRouter);
 app.use("/plans", plansRouter);
@@ -69,7 +70,7 @@ app.use("/admin", adminRouter);
 app.use("/product", productRouter);
 app.use("/contactUs", contactUsRouter);
 app.use("/team", teamRouter);
-
+app.use("/campagin", campaginRouter);
 app.use("/member", memberRouter);
 
 // app.get('/', async (req, res) => {
