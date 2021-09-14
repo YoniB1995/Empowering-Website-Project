@@ -2,7 +2,7 @@ const { MailchimpMarketingModel } = require("../models/mailChimpModel");
 const { validCampagin, campaginModel } = require("../models/campaginModel");
 const ErrorResponse = require("../utils/errorResponse");
 
-const getCampaignsFiltered = async (req, res, next) => {
+const getCampaignsSorted = async (req, res, next) => {
 	try {
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
 
@@ -13,10 +13,13 @@ const getCampaignsFiltered = async (req, res, next) => {
 		const campaigns = campaignsList.campaigns.sort(
 			(a, b) => new Date(b.create_time) - new Date(a.create_time)
 		);
-		const filterCampagins = campaigns.map((campagin) => {
-			return { url: campagin.long_archive_url, date: campagin.create_time };
+		const sortedCampagins = campaigns.map((campagin) => {
+			return {
+				url: campagin.long_archive_url,
+				date: campagin.create_time,
+			};
 		});
-		res.status(200).json({ filterCampagins });
+		res.status(200).json({ sortedCampagins });
 	} catch (e) {
 		console.log(e);
 		next(new ErrorResponse("server error", 500));
@@ -41,7 +44,16 @@ const getCampaignByTitle = async (req, res, next) => {
 	}
 };
 
+const getDataFromMailChimp = (req, res, next) => {
+	try {
+		console.log(req.body);
+	} catch (e) {
+		console.log(e);
+	}
+};
+
 module.exports = {
-	getCampaignsFiltered,
+	getCampaignsSorted,
 	getCampaignByTitle,
+	getDataFromMailChimp,
 };
