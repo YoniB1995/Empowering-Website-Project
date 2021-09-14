@@ -12,8 +12,13 @@ const ImageSlider = () => {
         <Carousel autoplay>
           {ImgSliderData.map((slide) => (
             <div>
-              <img
-                src="https://images.pexels.com/photos/1010079/pexels-photo-1010079.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                id="img-slide"
-              />
+                    <img src={slide.image} id="img-slide" alt="carousel-img" />
+
             </div>
+          ))}
+        </Carousel>
+      </div>
+    </div>
+  );
+};
+export default ImageSlider;
