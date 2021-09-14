@@ -23,29 +23,30 @@ const planSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-  },
-  slug: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  sanitizedHtml: {
-    type: String,
-    required: true,
-  },
+  }
+  // ,
+  // slug: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  // },
+  // sanitizedHtml: {
+  //   type: String,
+  //   required: true,
+  // },
 });
 
-planSchema.pre('validate', function (next) {
-  if (this.title) {
-    this.slug = slugify(this.title, { lower: true, strict: true });
-  }
+// planSchema.pre('validate', function (next) {
+//   if (this.title) {
+//     this.slug = slugify(this.title, { lower: true, strict: true });
+//   }
 
-  if (this.markdown) {
-    this.sanitizedHtml = dompurify.sanitize(marked(this.markdown));
-  }
+//   if (this.markdown) {
+//     this.sanitizedHtml = dompurify.sanitize(marked(this.markdown));
+//   }
 
-  next();
-});
+//   next();
+// });
 
 const planModel = mongoose.model('plan', planSchema);
 
