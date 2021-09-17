@@ -1,16 +1,46 @@
 const mongoose = require("mongoose");
 
-const { Schema } = mongoose;
+const Joi = require("joi");
 
-const productSchema = new Schema({
-	title: String,
-	descripation: String,
-	img: String,
-	quantity: Number,
-	price: Number,
-	variants: String,
-	like: Number,
+const joigoose = require("joigoose")(mongoose);
+
+const productSchema = Joi.object({
+  Title: Joi.string()
+  .min(2)
+  .max(255)
+  .required(),
+},
+{
+	Description: Joi.string()
+	.min(2)
+	.max(255)
+	.required()
+},
+{
+	Image: Joi.string()
+	.required()
+
+},
+{
+	Price: Joi.number()
+	.required()
+},
+{
+	Quantity: Joi.number()
+	.required()
 });
 
-const productModel = mongoose.model("product", productSchema);
-module.exports = productModel;
+
+const validProduct = (product) =>{
+	const productJoi = productSchema.validate(product);
+	return productJoi
+}
+
+const productmongooseSchema = new mongoose.Schema(joigoose.convert(productmongooseSchema))
+
+const productModel = mongoose.model('product',productmongooseSchema)
+
+module.exports = {
+	validProduct,
+	productModel
+}
