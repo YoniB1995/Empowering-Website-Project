@@ -11,7 +11,7 @@ const contactUsSchema = Joi.object({
   .email()
   .min(5)
   .max(99)
-  .regex('^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+  // .regex('^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
   .required()
 
 },
@@ -41,7 +41,7 @@ const validContact = (contact)=>{
   return contactJoi
 }
 
-const contactMongoose = new mongoose.Schema(joigoose.convert(contactMongoose))
+const contactMongoose = new mongoose.Schema(joigoose.convert(contactUsSchema))
 
 const contactModel = mongoose.model('contact',contactMongoose)
 

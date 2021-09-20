@@ -16,7 +16,7 @@ const adminSchema = Joi.object({
 },
 {
   password: Joi.string()
-  .regex('/^[a-2A-Z0-9],{3,30}/')
+  // .regex('/^[a-2A-Z0-9],{3,30}/')
   .min(6)
   .max(15)
   .required()
@@ -28,7 +28,7 @@ const adminSchema = Joi.object({
   .email()
   .min(5)
   .max(99)
-  .regex('^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+  // .regex('^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
   .required()
   
 })
@@ -39,7 +39,7 @@ const validAdmin = (admin)=>{
   return adminJoi
 }
 
-const adminMongoose = new mongoose.Schema(joigoose.convert(adminMongoose))
+const adminMongoose = new mongoose.Schema(joigoose.convert(adminSchema))
 
 const adminModel = mongoose.model('admin',adminMongoose)
 

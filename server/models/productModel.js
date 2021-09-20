@@ -36,7 +36,7 @@ const validProduct = (product) =>{
 	return productJoi
 }
 
-const productmongooseSchema = new mongoose.Schema(joigoose.convert(productmongooseSchema))
+const productmongooseSchema = new mongoose.Schema(joigoose.convert(productSchema))
 
 const productModel = mongoose.model('product',productmongooseSchema)
 
