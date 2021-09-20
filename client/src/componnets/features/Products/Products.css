@@ -1,6 +1,6 @@
 .row {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   flex-wrap: wrap;
   padding: 70px 30px;

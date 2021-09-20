@@ -7,7 +7,6 @@ import EditArticles from '../componnets/features/Admin/EditPlans/EditPlans';
 import Home from '../componnets/pages/Home/Home';
 import Programs from '../componnets/pages/Programs/Programs';
 import Donations from '../componnets/pages/Donations/Donations';
-import Store from '../componnets/pages/Store/Store';
 import Newsletter from '../componnets/pages/Newsletter/Newsletter';
 import ContactUs from '../componnets/pages/ContactUs/ContactUs';
 import AboutUs from '../componnets/pages/AboutUs/AboutUs';
@@ -59,7 +58,6 @@ export default function AppRouter() {
         <Route path='/Programs' component={Programs} />
         <Route path='/Donations' component={Donations} />
         <Route path='/Store' component={Products} />
-        {/* <Route path="/Store" component={Store} /> */}
         <Route path='/Product/:id' component={Product} />
         <Route path='/Newsletter' component={Newsletter} />
         <Route path='/ContactUs' component={ContactUs} />

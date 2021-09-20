@@ -1,18 +1,20 @@
-import React from 'react';
-import './Home.css';
-import GoalsCards from './Goals/GoalsCards';
-import WorkersCards from '../../features/workersCards/WorkersCards';
-import ImageSlider from '../../features/Slider/SliderStore';
-import './Home.css';
-import 'animate.css';
-import Vision from './vision/Vision';
-import 'animate.css';
-import SliderStore from '../../features/Slider/SliderStore';
-import { useEffect } from 'react';
-import WOW from 'wowjs';
-import { BackTop } from 'antd';
 import Store from '../Store/Store';
 import Newsletter from '../Newsletter/Newsletter';
+import React from "react";
+import "./Home.css";
+import GoalsCards from "./Goals/GoalsCards";
+import WorkersCards from "../../features/workersCards/WorkersCards";
+import ImageSlider from "../../features/Slider/ImageSlider";
+import "./Home.css";
+import "animate.css";
+import Vision from "./vision/Vision";
+import "animate.css";
+import SliderStore from "../../features/Slider/SliderStore";
+import { useEffect } from "react";
+import WOW from "wowjs";
+import { BackTop } from "antd";
+import Plan from "../../features/Plan/Plan";
+
 const Home = () => {
   useEffect(() => {
     new WOW.WOW({
@@ -21,9 +23,10 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className='home-first-section'>
+
+      <div className="home-first-section">
         <ImageSlider />
-        <div className='about-us wow animate__bounceInUp'>
+        <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
           <p>
             <br /> העצמה נשית אתיופית, עידוד ייעוץ ומילגות להשכלה גבוהה לנשים,
@@ -70,7 +73,9 @@ const Home = () => {
       <Newsletter />
       {/* <Store/> */}
       <BackTop>
-        <div className='upBtn'>BACK TO UP</div>
+
+        <div className="upBtn">BACK TO UP</div>
+
       </BackTop>
     </div>
   );

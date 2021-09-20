@@ -1,4 +1,5 @@
 const MailchimpMarketingModel = require("@mailchimp/mailchimp_marketing");
+const mailChimpModel = require("mailchimp-api-v3");
 
 const { API_KEY } = process.env;
 const { AUDIENCE_ID } = process.env;
@@ -9,4 +10,6 @@ MailchimpMarketingModel.setConfig({
 	server: SERVER_PREFIX,
 });
 
-module.exports = MailchimpMarketingModel;
+module.exports = { MailchimpMarketingModel, mailChimpModel };
+
+// mailChimp model with config
