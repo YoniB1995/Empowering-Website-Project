@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Commerce from '@chec/commerce.js';
-import ProductsC from '../componnets/features/Products/ProductsC';
-import Cart from '../componnets/cart/Cart';
+import ProductsC from '../../features/Products/ProductsC';
+import Cart from '../../cart/Cart';
 import { Badge} from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Drawer, Button } from 'antd';
+import CartItem from '../../cart/CartItem';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 const REACT_APP_CHEC_PUBLIC_KEY = "pk_332356f9128204a342117237f03a4f7afd9a55c1d788d";
@@ -38,11 +40,54 @@ const CommerceJs = () => {
         const { cart } = await commerce.cart.empty();
         setCart(cart);
     }
+    const EmptyCart = () => {
+        return <div>
+            <h2>No products in cart</h2>
+            <Link to='/Commercejs'>go to add product</Link>
+        </div>
+    };
+    const FilledCart = () => {
+        return <>
+            <Button onClick={showDrawer}>
+                            <span>סל קניות</span>
+                            <Badge count={cart?.total_items} showZero totalItems={cart?.total_items}>
+                                <ShoppingCartOutlined style={{ float: "right" }}/>
+                            </Badge>
+            </Button>
+            <Drawer title="Basic Drawer" placement="right" onClose={onClose} visible={visible}>
+            <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }}>
+                {cart?.line_items.map((item) => {
+                    return <CartItem item={item}
+                        handleUpdateCartQuantity={handleUpdateCartQuantity}
+                        handleRemoveFromCart={handleRemoveFromCart} />
+                })}
+            </div>
+            <div>
+                <span>subtotal:</span>
+                {cart.subtotal.formatted_with_symbol}
+                <button style={{ width: 100, height: 20 }} type="button" onClick={() => handleEmptyCart()} >Empty Cart</button>
+                <button style={{ width: 100, height: 20 }} type="button">Chekout</button>
+            </div>
+            </Drawer>
 
-    useEffect(() => {
-        fetchProducts();
-        fetchCart();
-    }, [])
+        </>}
+            useEffect(() => {
+                fetchProducts();
+                fetchCart();
+            }, []) 
+            const [visible, setVisible] = useState(false);
+
+            const showDrawer = () => {
+                setVisible(true);
+            };
+        
+            const onClose = () => {
+                setVisible(false);
+            };
+            console.log(cart)
+            if (!cart.line_items) return "loading ..";
+
+
 
     return (
 
@@ -51,12 +96,11 @@ const CommerceJs = () => {
                 <Switch>
                     <Route exact path='/Commercejs'>
                         <ProductsC products={products} handleAddToCart={handleAddToCart} />
-                        <Link to="/Commercejs/Cart">
-
+                        {/* <Link to="/Commercejs/Cart">
                             <Badge count={cart?.total_items} showZero totalItems={cart?.total_items}>
                                 <ShoppingCartOutlined style={{ float: "right" }}/>
                             </Badge>
-                        </Link>
+                        </Link> */}
                     </Route>
                     <Route path='/Commercejs/Cart'>
                         <Cart cart={cart}
@@ -65,6 +109,11 @@ const CommerceJs = () => {
                             handleEmptyCart={handleEmptyCart} />
                     </Route>
                 </Switch>
+                <div>
+            {/* <h1>Your Cart</h1> */}
+            {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
+
+        </div>
             </div>
         </Router>
 

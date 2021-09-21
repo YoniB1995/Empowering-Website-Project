@@ -15,14 +15,14 @@ const NavBar = () => {
         <Link to='/Donations' className='donationsBtn'>
           <Menu.Item>לקחת חלק בשינוי</Menu.Item>
         </Link>
-        <Link to='/ContactUs'>
-          {' '}
-          <Menu.Item>צור קשר</Menu.Item>{' '}
+        <Link to='/'>
+
+          <Menu.Item><ContactU /></Menu.Item>{' '}
         </Link>
         <Link to='/Newsletter'>
           <Menu.Item>ניוזלטר</Menu.Item>
         </Link>
-        <Link to='/Store'>
+        <Link to='/CommerceJs'>
           <Menu.Item>חנות</Menu.Item>
         </Link>
         <Link to='/Plans'>
