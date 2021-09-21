@@ -26,6 +26,9 @@ import AddProduct from '../componnets/Forms/AddProduct/AddProduct';
 import AddArticle from '../componnets/Forms/AddPlan';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
 import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
+import ProductsC from '../componnets/features/Products/ProductsC';
+import CommerceJs from '../commerce/Commerce';
+import { Accessibility } from 'accessibility/src/main';
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -34,7 +37,46 @@ export default function AppRouter() {
     return <Redirect to='/logout' />;
   }
 
+
+  window.addEventListener('load', function () { new Accessibility(); }, true);
+  var labels = {
+    resetTitle: 'רענן ',
+    closeTitle: 'סגור ',
+    menuTitle: 'נגישות ',
+    increaseText: 'זום אין ',
+    decreaseText: 'זום אאוט ',
+    increaseTextSpacing: 'הגדל את מרווח הטקסט ',
+    decreaseTextSpacing: 'הקטן את מרווח הטקסט ',
+    invertColors: 'הפוך צבעים ',
+    grayHues: 'גוונים אפורים ',
+    underlineLinks: 'קישורים תחתונים ',
+    bigCursor: 'סמן גדול ',
+    readingGuide: 'מדריך קריאה ',
+    textToSpeech: 'טקסט לדיבור ',
+    speechToText: 'דיבור לטקסט '
+};
+
+
+
+var options = { labels: labels };
+options.textToSpeechLang = 'he';
+options.speechToTextLang = 'he';
+new Accessibility(options);
+// new Accessibility({animations: {buttons: true}})
+
+// const resetAll =()=> {
+//   options.menuInterface.textToSpeech(!0),
+//    options.menuInterface.speechToText(!0),
+//    options.menuInterface.underlineLinks(!0),
+//    options.menuInterface.grayHues(!0),
+//    options.menuInterface.invertColors(!0),
+//    options.menuInterface.bigCursor(!0),
+//    options.menuInterface.readingGuide(!0),
+//    options.resetTextSize(),
+//    options.resetTextSpace()
+// }
   return (
+
     <div>
       {/* <ul
         style={{
@@ -66,7 +108,7 @@ export default function AppRouter() {
         <Route path='/AboutUs' component={AboutUs} />
         <Route path='/Plans' component={Articles} />
         <Route path='/Plan/:id' component={Article} />
-        <Route path='/Products' component={Products} />
+        <Route path='/CommerceJs' component={CommerceJs} />
         <Route path='/Product/:id' component={Product} />
 
         <Route path='/Admin/EditPlans/:id' component={EditArticles} />

@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import GoalsCards from "./Goals/GoalsCards";
 import WorkersCards from "../../features/workersCards/WorkersCards";
-import ImageSlider from "../../features/Slider/SliderStore"
+import ImageSlider from "../../features/Slider/ImageSlider"
 import "./Home.css";
 import "animate.css";
 import Vision from "./vision/Vision";
@@ -12,6 +12,9 @@ import { useEffect } from "react";
 import WOW from "wowjs";
 import { BackTop } from 'antd';
 import Store from "../Store/Store";
+import CommerceJs from "../../../commerce/Commerce";
+import ProductsC from "../../features/Products/ProductsC";
+import Product from "../../features/Product/Product";
 const Home = () => {
   useEffect(() => {
     new WOW.WOW({
@@ -21,6 +24,8 @@ const Home = () => {
   return (
     <div>
       <div className="home-first-section">
+        {/* <Product/> */}
+        {/* <CommerceJs/> */}
         <ImageSlider/>
         <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
