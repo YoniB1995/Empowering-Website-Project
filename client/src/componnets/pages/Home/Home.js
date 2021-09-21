@@ -1,4 +1,3 @@
-import Store from '../Store/Store';
 import Newsletter from '../Newsletter/Newsletter';
 import React from "react";
 import "./Home.css";
@@ -13,7 +12,6 @@ import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
 import { BackTop } from "antd";
-import Plan from "../../features/Plan/Plan";
 
 const Home = () => {
   useEffect(() => {
@@ -68,10 +66,8 @@ const Home = () => {
       </div>
       <Vision />
       <GoalsCards />
-      {/* <Copartner/> */}
       <SliderStore />
       <Newsletter />
-      {/* <Store/> */}
       <BackTop>
 
         <div className="upBtn">BACK TO UP</div>

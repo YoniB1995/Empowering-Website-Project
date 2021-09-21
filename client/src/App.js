@@ -10,7 +10,6 @@ function App() {
     <>
       <Router>
         <AuthContextProvider>
-          <NavBar />
           <AppRouter />
           <Footer />
         </AuthContextProvider>

@@ -8,6 +8,6 @@ export const getAllWorkers = async (req, res) => {
     return await fetch(`${API}/team`);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Server Error" });
+    // res.status(500).json({ message: "Server Error" });
   }
 };
