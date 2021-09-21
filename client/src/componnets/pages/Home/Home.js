@@ -1,8 +1,9 @@
+import Newsletter from '../Newsletter/Newsletter';
 import React from "react";
 import "./Home.css";
 import GoalsCards from "./Goals/GoalsCards";
 import WorkersCards from "../../features/workersCards/WorkersCards";
-import ImageSlider from "../../features/Slider/ImageSlider"
+import ImageSlider from "../../features/Slider/ImageSlider";
 import "./Home.css";
 import "animate.css";
 import Vision from "./vision/Vision";
@@ -10,8 +11,8 @@ import "animate.css";
 import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
-import { BackTop } from 'antd';
-import Store from "../Store/Store";
+import { BackTop } from "antd";
+
 const Home = () => {
   useEffect(() => {
     new WOW.WOW({
@@ -20,8 +21,9 @@ const Home = () => {
   }, []);
   return (
     <div>
+
       <div className="home-first-section">
-        <ImageSlider/>
+        <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
           <p>
@@ -30,7 +32,7 @@ const Home = () => {
             <br />
           </p>
           <p>
-            {" "}
+            {' '}
             ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה מינית,
             <br /> נשים הסובלות מאלימות
           </p>
@@ -51,25 +53,26 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="buffer-div">
-        <div className="arrow-icon-container">
+      <div className='buffer-div'>
+        <div className='arrow-icon-container'>
           <i
-            class="fas fa-arrow-down"
-            style={{ fontSize: "50px", color: "white" }}
+            class='fas fa-arrow-down'
+            style={{ fontSize: '50px', color: 'white' }}
           ></i>
         </div>
       </div>
-      <div className="home-second-section">
+      <div className='home-second-section'>
         <WorkersCards />
       </div>
       <Vision />
       <GoalsCards />
-      {/* <Copartner/> */}
-      {/* <SliderStore /> */}
-      {/* <Store/> */}
+      <SliderStore />
+      <Newsletter />
       <BackTop>
-      <div className="upBtn">BACK TO UP</div>
-    </BackTop>
+
+        <div className="upBtn">BACK TO UP</div>
+
+      </BackTop>
     </div>
   );
 };

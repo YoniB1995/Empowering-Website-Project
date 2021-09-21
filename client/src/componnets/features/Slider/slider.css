@@ -37,3 +37,19 @@
   padding: 10px;
   border-radius: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  .slider-container {
+    width: 360px;
+  }
+  .container-frame-cube {
+    margin-left: 30%;
+  }
+}
+@media screen and (max-width: 600px) {
+.material-card.mc-activet{
+background-color: blueviolet;
+}
+
+ 
+}

@@ -5,6 +5,16 @@ require("dotenv").config();
 const fileUpload = require("express-fileupload");
 const express = require("express");
 
+const adminRouter = require("./routes/adminRoutes");
+const plansRouter = require("./routes/planRouter");
+const mailChimpRouter = require("./routes/mailChimpRouter");
+const productRouter = require("./routes/productRouter");
+const contactUsRouter = require("./routes/contactUsRouter");
+const teamRouter = require("./routes/teamRouter");
+const memberRouter = require("./routes/memberRouter");
+const campaginRouter = require("./routes/campaginRouter");
+
+
 const cors = require("cors");
 
 const path = require("path");
@@ -25,12 +35,6 @@ app.use(methodOverride("_method"));
 app.use(cors());
 app.use(fileUpload());
 
-// const adminRouter = require("./routes/adminRoutes");
-// const articlesRouter = require("./routes/articleRouter");
-// const newsLetterRouter = require("./routes/newsLetterRouter");
-// const productRouter = require("./routes/productRouter");
-// const contactUsRouter = require("./routes/contactUsRouter");
-
 app.post("/upload", (req, res) => {
 	if (req.files === null) {
 		return res.status(400).json({ msg: "No file uploaded" });
@@ -45,37 +49,16 @@ app.post("/upload", (req, res) => {
 	});
 });
 
-// app.use("/form", newsLetterRouter);
-// app.use("/articles", articlesRouter);
-// app.use("/admin", adminRouter);
-// app.use("/product", productRouter);
-// app.use("/contactUs", contactUsRouter);
-
-app.get("/", async (req, res) => {
-  res.send("hello world");
-});
-
-const adminRouter = require("./routes/adminRoutes");
-const plansRouter = require("./routes/planRouter");
-const mailChimpRouter = require("./routes/mailChimpRouter");
-const productRouter = require("./routes/productRouter");
-const contactUsRouter = require("./routes/contactUsRouter");
-const teamRouter = require("./routes/teamRouter");
-const memberRouter = require("./routes/memberRouter");
-
 app.use("/mailChimp", mailChimpRouter);
 app.use("/plans", plansRouter);
 app.use("/admin", adminRouter);
 app.use("/product", productRouter);
 app.use("/contactUs", contactUsRouter);
 app.use("/team", teamRouter);
-
+app.use("/campagin", campaginRouter);
 app.use("/member", memberRouter);
 
-// app.get('/', async (req, res) => {
-//   const articles = await articleModel.find().sort({ createdAt: 'desc' });
-//   res.render('articles/index', { articles });
-// });
+
 
 if (process.env.NODE_ENV === "production") {
 	//NODE_ENV משתנה סביבה מובנה

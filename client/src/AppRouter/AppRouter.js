@@ -6,7 +6,6 @@ import EditArticles from '../componnets/features/Admin/EditPlans/EditPlans';
 import Home from '../componnets/pages/Home/Home';
 import Programs from '../componnets/pages/Programs/Programs';
 import Donations from '../componnets/pages/Donations/Donations';
-import Store from '../componnets/pages/Store/Store';
 import Newsletter from '../componnets/pages/Newsletter/Newsletter';
 import ContactUs from '../componnets/pages/ContactUs/ContactUs';
 import AboutUs from '../componnets/pages/AboutUs/AboutUs';
@@ -60,30 +59,13 @@ export default function AppRouter() {
   return (
 
     <div>
-      {/* <ul
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "1000px",
-        }}
-      >
-        <li>
-          <Link to="/WorkersCards">WorkersCards</Link>
-        </li>
-        <li>
-          <Link to="/Articles">Articles</Link>
-        </li>
-        <li>
-          <Link to="/Admin/ArticleEditor"> Admin ArticleEditor</Link>
-        </li>
-      </ul> */}
+
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/WorkersCards' component={WorkersCards} />
         <Route path='/Programs' component={Programs} />
         <Route path='/Donations' component={Donations} />
         <Route path='/Store' component={Products} />
-        {/* <Route path="/Store" component={Store} /> */}
         <Route path='/Product/:id' component={Product} />
         <Route path='/Newsletter' component={Newsletter} />
         <Route path='/ContactUs' component={ContactUs} />
@@ -92,12 +74,10 @@ export default function AppRouter() {
         <Route path='/Plan/:id' component={Article} />
         <Route path='/CommerceJs' component={CommerceJs} />
         <Route path='/Product/:id' component={Product} />
-
         <Route path='/Admin/EditPlans/:id' component={EditArticles} />
         <Route path='/Admin/EditProducts/:id' component={EditProducts} />
         <Route path='/Admin/AddPlan' component={AddArticle} />
         <Route path='/Admin/AddProduct' component={AddProduct} />
-
         <Route path='/form' component={FormsTemporary} />
         <ProtectedRoute path='/logout' component={Logout} />
 
