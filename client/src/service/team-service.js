@@ -1,6 +1,6 @@
 const API =
   process.env.NODE_ENV === "production"
-    ? `https://yonib.herokuapp.com`
+    ? `https://empowering-women-web.herokuapp.com/`
     : "http://localhost:5000";
 
 export const getAllWorkers = async (req, res) => {
