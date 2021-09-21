@@ -12,9 +12,6 @@ import { useEffect } from "react";
 import WOW from "wowjs";
 import { BackTop } from 'antd';
 import Store from "../Store/Store";
-import CommerceJs from "../../../commerce/Commerce";
-import ProductsC from "../../features/Products/ProductsC";
-import Product from "../../features/Product/Product";
 const Home = () => {
   useEffect(() => {
     new WOW.WOW({
@@ -24,8 +21,6 @@ const Home = () => {
   return (
     <div>
       <div className="home-first-section">
-        {/* <Product/> */}
-        {/* <CommerceJs/> */}
         <ImageSlider/>
         <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
@@ -70,7 +65,7 @@ const Home = () => {
       <Vision />
       <GoalsCards />
       {/* <Copartner/> */}
-      <SliderStore />
+      {/* <SliderStore /> */}
       {/* <Store/> */}
       <BackTop>
       <div className="upBtn">BACK TO UP</div>

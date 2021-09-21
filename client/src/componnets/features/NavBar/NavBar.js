@@ -14,7 +14,7 @@ import ContactU from "../../pages/ContactUs/ContactU";
                 לקחת חלק בשינוי
                 </Menu.Item>
                 </Link>
-                <Link to='/ContactUs'> <Menu.Item  >
+                <Link to='/'> <Menu.Item  >
                 <ContactU/>
                 </Menu.Item> </Link>
                 <Link to='/Newsletter'><Menu.Item  >
@@ -26,7 +26,7 @@ import ContactU from "../../pages/ContactUs/ContactU";
                 <Link to='/Programs'><Menu.Item  >
                 תוכניות
                 </Menu.Item></Link>
-                <Link to='/AboutUs'> <Menu.Item  >
+                <Link to='/AboutUs'><Menu.Item  >
                 עלינו
                 </Menu.Item></Link>
             </Menu>

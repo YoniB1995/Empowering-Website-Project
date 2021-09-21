@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 import { AuthContext } from '../contexts/AuthContextProvider';
-
 import EditArticles from '../componnets/features/Admin/EditPlans/EditPlans';
 import Home from '../componnets/pages/Home/Home';
 import Programs from '../componnets/pages/Programs/Programs';
@@ -16,12 +15,10 @@ import Articles from '../componnets/features/Plans/Plans';
 import WorkersCards from '../componnets/features/workersCards/WorkersCards';
 import Article from '../componnets/features/Plan/Plan';
 // import Product from '../componnets/pages/Product/Product';
-
 import FormsTemporary from '../componnets/features/Forms/FormsTemporary/FormsTemporary';
 import Footer from '../componnets/features/Footer/Footer';
 import Products from '../componnets/features/Products/Products';
 import Product from '../componnets/features/Product/Product';
-
 import AddProduct from '../componnets/Forms/AddProduct/AddProduct';
 import AddArticle from '../componnets/Forms/AddPlan';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
@@ -37,8 +34,8 @@ export default function AppRouter() {
     return <Redirect to='/logout' />;
   }
 
-
-  window.addEventListener('load', function () { new Accessibility(); }, true);
+  // Accessibility
+  window.addEventListener('load', function () { new Accessibility(); },false);
   var labels = {
     resetTitle: 'רענן ',
     closeTitle: 'סגור ',
@@ -55,26 +52,11 @@ export default function AppRouter() {
     textToSpeech: 'טקסט לדיבור ',
     speechToText: 'דיבור לטקסט '
 };
+  var options = { labels: labels };
+  options.textToSpeechLang = 'he'; // עברית
+  options.speechToTextLang = 'he'; // עברית
+  new Accessibility(options);
 
-
-
-var options = { labels: labels };
-options.textToSpeechLang = 'he';
-options.speechToTextLang = 'he';
-new Accessibility(options);
-// new Accessibility({animations: {buttons: true}})
-
-// const resetAll =()=> {
-//   options.menuInterface.textToSpeech(!0),
-//    options.menuInterface.speechToText(!0),
-//    options.menuInterface.underlineLinks(!0),
-//    options.menuInterface.grayHues(!0),
-//    options.menuInterface.invertColors(!0),
-//    options.menuInterface.bigCursor(!0),
-//    options.menuInterface.readingGuide(!0),
-//    options.resetTextSize(),
-//    options.resetTextSpace()
-// }
   return (
 
     <div>
