@@ -9,14 +9,14 @@ const WorkersCards = () => {
   const [filteredTeam, setFilteredTeam] = useState([]);
   const [selectedRole,setSelectedRole] = useState("");
 
-  useEffect(() => {
-    getAllWorkers()
-      .then((res) => res.json())
-      .then((res) => {
-        setTeam(res.team);
-        setFilteredTeam(res.team);
-      });
-  }, []);
+  // useEffect(() => {
+  //   getAllWorkers()
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setTeam(res.team);
+  //       setFilteredTeam(res.team);
+  //     });
+  // }, []);
 
   const filterRoles = ()=>{
     const newFilterRoles = team.filter((member)=>{

@@ -35,23 +35,7 @@ export default function AppRouter() {
 
   return (
     <div>
-      {/* <ul
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "1000px",
-        }}
-      >
-        <li>
-          <Link to="/WorkersCards">WorkersCards</Link>
-        </li>
-        <li>
-          <Link to="/Articles">Articles</Link>
-        </li>
-        <li>
-          <Link to="/Admin/ArticleEditor"> Admin ArticleEditor</Link>
-        </li>
-      </ul> */}
+
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/WorkersCards' component={WorkersCards} />
@@ -66,12 +50,10 @@ export default function AppRouter() {
         <Route path='/Plan/:id' component={Article} />
         <Route path='/Products' component={Products} />
         <Route path='/Product/:id' component={Product} />
-
         <Route path='/Admin/EditPlans/:id' component={EditArticles} />
         <Route path='/Admin/EditProducts/:id' component={EditProducts} />
         <Route path='/Admin/AddPlan' component={AddArticle} />
         <Route path='/Admin/AddProduct' component={AddProduct} />
-
         <Route path='/form' component={FormsTemporary} />
         <ProtectedRoute path='/logout' component={Logout} />
 
