@@ -12,6 +12,7 @@ import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
 import { BackTop } from "antd";
+import News from '../News/News';
 
 const Home = () => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Home = () => {
     <div>
 
       <div className="home-first-section">
+        <News/>
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
