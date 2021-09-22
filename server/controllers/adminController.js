@@ -14,12 +14,28 @@ const { genToken } = require('../middleware/token');
 const getTokenAndConfig = async (req, res) => {
   let token = req.header('x-api-key');
   if (!token) {
-    res.status(401).json({ msg: ' you must send token' });
+    res.status(403).json({ msg: ' forbidden , cant enter' });
   }
   try {
     let decodeToken = jwt.verify(token, 'asalefDeveloper');
     let user = await adminModel.findOne({ _id: decodeToken.id });
+    
     res.json({ massage: 'all ok', user });
+  } catch (error) {
+    res.status(401).json({ massage: 'token invalid or expired' });
+  }
+};
+
+const genTokenTest = async (req, res,next) => {
+  let token = req.header('x-api-key');
+  if (!token) {
+    res.status(403).json({ msg: ' forbidden , cant enter' });
+  }
+  try {
+    let decodeToken = jwt.verify(token, 'asalefDeveloper');
+    let user = await adminModel.findOne({ _id: decodeToken.id });
+    req.user = user;
+    next();
   } catch (error) {
     res.status(401).json({ massage: 'token invalid or expired' });
   }
@@ -34,7 +50,7 @@ const logIn = async (req, res) => {
     const user = await adminModel.findOne(
       { email: req.body.user.email },
       (error) => {
-        if (error) throw error;
+        if (error) throw error;k
       },
     );
     if (!user) {

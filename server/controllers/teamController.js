@@ -1,9 +1,22 @@
 const teamModel = require("../models/teamModel");
 const ErrorResponse = require("../utils/errorResponse");
 
-const getAllTeam = async (req, res, next) => {
+const getAllTeamEnglish = async (req, res, next) => {
     try{
-    const team = await teamModel.find({})
+    const team = await teamModel.find({lang:"english"})
+
+        if (!team){
+            return next(new ErrorResponse("No Team Details,try again",404))
+        }
+        res.send({message:"success",team:team})
+    } catch (error) {
+    return next(new ErrorResponse(error, 500));
+    }
+}
+
+const getAllTeamHebrew = async (req, res, next) => {
+    try{
+    const team = await teamModel.find({lang:"hebrew"})
 
         if (!team){
             return next(new ErrorResponse("No Team Details,try again",404))
@@ -84,5 +97,5 @@ const deleteTeamMember = async (req, res, next) => {
 }
 
 module.exports = {
-    getAllTeam,getTeamMember,getTeamMemberByRole,addNewMember,editTeamMember,deleteTeamMember
+    getAllTeamEnglish,getTeamMember,getTeamMemberByRole,addNewMember,editTeamMember,deleteTeamMember,getAllTeamHebrew
 }

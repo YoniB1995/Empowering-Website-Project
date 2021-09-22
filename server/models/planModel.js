@@ -23,6 +23,9 @@ const planSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  lang:{
+    type:String
   }
   // ,
   // slug: {
