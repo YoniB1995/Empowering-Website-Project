@@ -36,7 +36,7 @@ export default function ContactUs() {
       <label>אימייל</label>
       <Input type="email" name="user_email" />
       <label>תיאור</label>
-      <textarea name="message" style={{width:"340px",height:"100px",borderRadius:"5px",margin:"5px"}}/>
+      <textarea name="message" style={{width:"400px",height:"100%",borderRadius:"5px",margin:"5px"}}/>
       <Button className="form-button" type="submit" text="שלח"/>
       <div>{ result ? <Result/> : null }</div>
     </form>
