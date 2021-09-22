@@ -1,11 +1,10 @@
-const productModel = require("../models/productModel");
+const {validProduct,productModel} = require("../models/productModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const getAllProducts = async (req, res, next) => {
 	try {
 		const products = await productModel.find({});
 		console.log(products);
-
 		res.status(200).json({ products });
 	} catch (e) {
 		console.log("products list not found");

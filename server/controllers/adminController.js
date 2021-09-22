@@ -6,9 +6,8 @@
 /* eslint-disable max-len */
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { validAdmin } = require('../validation/adminValidation');
+const { validAdmin, adminModel } = require('../models/adminModel');
 const ErrorResponse = require('../utils/errorResponse');
-const adminModel = require('../models/adminModel');
 const { genToken } = require('../middleware/token');
 
 const getTokenAndConfig = async (req, res) => {
@@ -29,7 +28,7 @@ const logIn = async (req, res) => {
   try {
     const validBody = validAdmin(req.body.user);
     if (validBody.error) {
-      return next(new ErrorResponse(`${validBody.error.details[0].message}`, 400));
+      return  validBody.error.details[0].message
     }
     const user = await adminModel.findOne(
       { email: req.body.user.email },

@@ -1,46 +1,41 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-const Joi = require("joi");
+// const Joi = require("joi");
 
-const joigoose = require("joigoose")(mongoose);
+// const joigoose = require("joigoose")(mongoose);
 
-const productSchema = Joi.object({
-  Title: Joi.string()
-  .min(2)
-  .max(255)
-  .required(),
-},
-{
-	Description: Joi.string()
-	.min(2)
-	.max(255)
-	.required()
-},
-{
-	Image: Joi.string()
-	.required()
+// const productSchema = Joi.object({
+//   Title: Joi.string()
+//   .min(2)
+//   .max(255)
+//   .required(),
+// 	Description: Joi.string()
+// 	.min(2)
+// 	.max(255)
+// 	.required(),
 
-},
-{
-	Price: Joi.number()
-	.required()
-},
-{
-	Quantity: Joi.number()
-	.required()
-});
+// 	Image: Joi.string()
+// 	.required(),
 
 
-const validProduct = (product) =>{
-	const productJoi = productSchema.validate(product);
-	return productJoi
-}
+// 	Price: Joi.number()
+// 	.required(),
 
-const productmongooseSchema = new mongoose.Schema(joigoose.convert(productmongooseSchema))
+// 	Quantity: Joi.number()
+// 	.required()
+// });
 
-const productModel = mongoose.model('product',productmongooseSchema)
 
-module.exports = {
-	validProduct,
-	productModel
-}
+// const validProduct = (product) =>{
+// 	const productJoi = productSchema.validate(product);
+// 	return productJoi
+// }
+
+// const productmongooseSchema = new mongoose.Schema(joigoose.convert(productSchema))
+
+// const productModel = mongoose.model('product',productmongooseSchema)
+
+// module.exports = {
+// 	validProduct,
+// 	productModel
+// }
