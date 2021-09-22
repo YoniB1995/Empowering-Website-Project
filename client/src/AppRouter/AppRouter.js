@@ -23,7 +23,7 @@ import AddArticle from '../componnets/Forms/AddPlan';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
 import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
 import ProductsC from '../componnets/features/Products/ProductsC';
-import CommerceJs from '../commerce/Commerce';
+import CommerceJs from '../componnets/pages/commerce/Commerce';
 import { Accessibility } from 'accessibility/src/main';
 
 export default function AppRouter() {

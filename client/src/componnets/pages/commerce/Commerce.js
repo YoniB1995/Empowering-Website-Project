@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Commerce from '@chec/commerce.js';
-import ProductsC from '../componnets/features/Products/ProductsC';
-import Cart from '../componnets/cart/Cart';
+import ProductsC from '../../features/Products/ProductsC';
+import Cart from '../../cart/Cart';
 import { Badge} from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Drawer, Button } from 'antd';
-import CartItem from '../componnets/cart/CartItem';
+import CartItem from '../../cart/CartItem';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 const REACT_APP_CHEC_PUBLIC_KEY = "pk_332356f9128204a342117237f03a4f7afd9a55c1d788d";
@@ -54,7 +54,7 @@ const CommerceJs = () => {
                                 <ShoppingCartOutlined style={{ float: "right" }}/>
                             </Badge>
             </Button>
-            <Drawer title="סל הקניות שלך" placement="right" onClose={onClose} visible={visible}>
+            <Drawer title="Basic Drawer" placement="right" onClose={onClose} visible={visible}>
             <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }}>
                 {cart?.line_items.map((item) => {
                     return <CartItem item={item}

@@ -1,5 +1,6 @@
 .ant-modal *{
     width: 100%;
+    color: black;
     background-color: #f7f2ec;
     display: flex;
     flex-direction: column;
@@ -29,6 +30,7 @@
     background: #ffffff;
     outline: none;
     transition: border-color 0.5s;
+    width: 320px;
   }
   .ant-btn{
       background-color: #f7f2ec;

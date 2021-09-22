@@ -4,7 +4,6 @@ const md5 = require("md5");
 const { validMember } = require("../models/memberModel");
 
 const { AUDIENCE_ID } = process.env;
-const { API_KEY } = process.env;
 
 const createMember = async (req, res, next) => {
 	try {
@@ -16,8 +15,7 @@ const createMember = async (req, res, next) => {
 		next(new ErrorResponse("bad request", 301));
 	}
 	try {
-		const hashSubcriber = md5(req.body.Email);
-		const member = await MailchimpMarketingModel.lists
+		await MailchimpMarketingModel.lists
 			.addListMember(AUDIENCE_ID, {
 				email_address: req.body.Email,
 				status: "pending",
@@ -25,7 +23,7 @@ const createMember = async (req, res, next) => {
 			.then((response) =>
 				res.status(200).json({ message: "user added", response })
 			)
-			.catch((err) => res.send(err));
+			.catch((err) => res.json({ text: JSON.parse(err.response.text).detail }));
 	} catch (e) {
 		next(new ErrorResponse(e, 500));
 	}
@@ -43,13 +41,13 @@ const updateMember = async (req, res, next) => {
 	try {
 		const hashSubcriber = md5(req.params.Email);
 
-		const updateMember = await MailchimpMarketingModel.lists
+		await MailchimpMarketingModel.lists
 			.setListMember(AUDIENCE_ID, hashSubcriber, {
 				email_address: req.body.Email,
 				status_if_new: "subscribed",
 			})
 			.then((response) => res.status(200).json({ response }))
-			.catch((err) => res.send(err.response.text));
+			.catch((err) => res.json({ text: JSON.parse(err.response.text).detail }));
 	} catch (e) {
 		next(new ErrorResponse(e, 500));
 	}
@@ -106,7 +104,14 @@ const deleteMember = async (req, res, next) => {
 	await MailchimpMarketingModel.lists
 		.deleteListMemberPermanent(AUDIENCE_ID, subscriberHash)
 		.then((response) => res.status(200).json({ message: "user deleted" }))
-		.catch((err) => next(new ErrorResponse(err, 500)));
+		.catch((err) =>
+			next(
+				new ErrorResponse(
+					res.json({ text: JSON.parse(err.response.text).detail })
+				),
+				500
+			)
+		);
 };
 
 module.exports = {

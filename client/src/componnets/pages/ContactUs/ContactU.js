@@ -48,10 +48,10 @@ const ContactU = () => {
                 <DownOutlined/>
               </a>
             </Dropdown>
-            <label>אימייל:</label>
+            <label>אימייל</label>
             <input className="input" type="email" name="email" placeholder="אימייל"></input>
-            <label>תיאור:</label>
-            <textarea style={{width:"400px",height:"100px",borderRadius:"5px",margin:"5px"}}></textarea>
+            <label>תיאור</label>
+            <textarea style={{width:"320px",height:"100px",borderRadius:"5px",margin:"5px"}}></textarea>
           </form>
         </Modal>
       </div>
