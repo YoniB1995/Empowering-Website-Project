@@ -1,8 +1,9 @@
 import { Table, Space } from "antd";
-import DeleteModal from "../../Features/Modal/Delete-Modal";
-import EditModal from "../../Features/Modal/Edit-Modal";
+import DeleteModal from "../../../features/Admin/Modal/Delete-Modal";
+import EditModal from "../../../features/Admin/Modal/Edit-Modal";
+import AddModal from "../../../features/Admin/Modal/Add-Modal";
 import "antd/dist/antd.css";
-import AddModal from "../../Features/Modal/Add-Modal";
+
 
 const { Column, ColumnGroup } = Table;
 const data = [
@@ -11,7 +12,7 @@ const data = [
     fullName: "John",
     description: "Brown",
     role: "New York No. 1 Lake Park",
-    image: "London No. 1 Lake Park",
+    image: "London No. 1 Lake Park", 
   },
   {
     key: "2",

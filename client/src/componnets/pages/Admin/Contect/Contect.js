@@ -2,7 +2,7 @@ import { Table } from "antd";
 import PartnersContect from "./Partners-Contect";
 import ProgramsContect from "./Programs-Contect";
 import StaffContect from "./Staff-Contect";
-import AdminNavBar from "../../Features/Admin-Nav/Admin-Navbar";
+// import AdminNavBar from "../../Features/Admin-Nav/Admin-Navbar";
 
 const { Column, ColumnGroup } = Table;
 
@@ -60,7 +60,6 @@ const data = [
 const Contect = () => {
   return (
     <>
-      <AdminNavBar />
       <StaffContect />
       <ProgramsContect />
       <PartnersContect />

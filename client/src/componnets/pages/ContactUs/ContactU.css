@@ -1,12 +1,12 @@
 .ant-modal *{
-    width: 100%;
+    /* width: 100%;
     color: black;
     background-color: #f7f2ec;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center; */
 }
 .form1{
     width: 30vw;
@@ -38,8 +38,8 @@
       border: 2px solid #f7f2ec;
   }
   .ant-btn:hover{
-    background-color: rgb(185, 185, 185);
-    color: white;
+    /* background-color: rgb(185, 185, 185);
+    color: white; */
     
   }
   .input:focus {
