@@ -16,13 +16,14 @@
   cursor: pointer;
 }
 .home-first-section {
+  /* width: 100%;
   background-color: #f7f2ec;
   padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 }
 .about-us {
   direction: rtl;

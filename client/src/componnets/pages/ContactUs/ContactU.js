@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal, Button } from "antd";
 import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined,MailOutlined } from '@ant-design/icons';
 import './ContactU.css';
 
 const ContactU = () => {
@@ -28,9 +28,8 @@ const ContactU = () => {
   );
   return (
     <>
-      <Button onClick={showModal}>
-        צור קשר
-      </Button>
+      <MailOutlined onClick={showModal} id="mail-icon"/>
+      
       <div >
         <Modal 
           title="יצירת קשר"

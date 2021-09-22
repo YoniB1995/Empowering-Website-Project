@@ -1,4 +1,4 @@
-import Newsletter from '../Newsletter/Newsletter';
+import Newsletter from "../Newsletter/Newsletter";
 import React from "react";
 import "./Home.css";
 import GoalsCards from "./Goals/GoalsCards";
@@ -12,7 +12,7 @@ import SliderStore from "../../features/Slider/SliderStore";
 import { useEffect } from "react";
 import WOW from "wowjs";
 import { BackTop } from "antd";
-import News from '../News/News';
+import News from "../News/News";
 
 const Home = () => {
   useEffect(() => {
@@ -22,10 +22,10 @@ const Home = () => {
   }, []);
   return (
     <div>
-
       <div className="home-first-section">
-        <News/>
-        <ImageSlider />
+        <div>
+          <ImageSlider />
+        </div>
         <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
           <p>
@@ -34,7 +34,7 @@ const Home = () => {
             <br />
           </p>
           <p>
-            {' '}
+            {" "}
             ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה מינית,
             <br /> נשים הסובלות מאלימות
           </p>
@@ -55,15 +55,15 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className='buffer-div'>
-        <div className='arrow-icon-container'>
+      <div className="buffer-div">
+        <div className="arrow-icon-container">
           <i
-            class='fas fa-arrow-down'
-            style={{ fontSize: '50px', color: 'white' }}
+            class="fas fa-arrow-down"
+            style={{ fontSize: "50px", color: "white" }}
           ></i>
         </div>
       </div>
-      <div className='home-second-section'>
+      <div className="home-second-section">
         <WorkersCards />
       </div>
       <Vision />
@@ -71,9 +71,7 @@ const Home = () => {
       <SliderStore />
       <Newsletter />
       <BackTop>
-
         <div className="upBtn">BACK TO UP</div>
-
       </BackTop>
     </div>
   );
