@@ -2,49 +2,45 @@ import React from "react";
 import "./workersCards.css";
 import { useState, useEffect } from "react";
 import { getAllWorkers } from "../../../service/team-service";
-import TextField from "@material-ui/core/TextField";
+import Select from '../FilterSelect/Select';
 
 const WorkersCards = () => {
   const [team, setTeam] = useState([]);
   const [filteredTeam, setFilteredTeam] = useState([]);
-  const [roleName, setRoleName] = useState("");
+  const [selectedRole,setSelectedRole] = useState("");
 
-  useEffect(() => {
-    getAllWorkers()
-      .then((res) => res.json())
-      .then((res) => {
-        setTeam(res.team);
-        setFilteredTeam(res.team);
-      });
-  }, []);
+  // useEffect(() => {
+  //   getAllWorkers()
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setTeam(res.team);
+  //       setFilteredTeam(res.team);
+  //     });
+  // }, []);
 
-  console.log(team);
-  console.log(roleName);
+  const filterRoles = ()=>{
+    const newFilterRoles = team.filter((member)=>{
+      const roleMember = selectedRole === "All" || member.role.toLowerCase().includes(selectedRole.toLowerCase());
+      return roleMember;
+    })
+    setFilteredTeam(newFilterRoles);
 
-  const filteredRoles = () => {
-    const newFilteredRoles = team.filter((member) => {
-      const roleByName =
-        roleName === "" ||
-        member.role.toLowerCase().includes(roleName.toLowerCase());
-      return roleByName;
-    });
-    setFilteredTeam(newFilteredRoles);
-  };
+  }
 
-  useEffect(() => {
-    filteredRoles();
-  }, [roleName]);
+  useEffect(()=>{
+    filterRoles()
+  },[selectedRole])
+
+
+  
+
+  
+
+ 
 
   return (
     <>
-      <TextField
-        onChange={(e) => {
-          setRoleName(e.target.value);
-        }}
-        id="standard-basic"
-        label="Search"
-      />
-
+    <Select label="Members Roles" value={selectedRole} setValue={setSelectedRole} options={["All","member","manager","founder",]}/>
       {filteredTeam.length > 0 && (
         <section
           style={{ maxWidth: "1400px", width: "90%" }}

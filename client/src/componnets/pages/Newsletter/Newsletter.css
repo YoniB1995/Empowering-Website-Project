@@ -1,0 +1,16 @@
+.campaign-T {
+  display: flex;
+  margin-top: 44px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.iframe {
+  width: 60%;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.campaign-T h3 {
+  cursor: pointer;
+}
