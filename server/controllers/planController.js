@@ -24,16 +24,30 @@ const createNewPlan = async (req, res, next) => {
   }
 };
 
-const getAllPlans = async (req, res, next) => {
+const getAllPlansEnglish = async (req, res, next) => {
     try {
-  const plans = await planModel.find({});
+  const plans = await planModel.find({lang:"english"});
   if (!plans) {
     return next(
       new ErrorResponse("Can't find plans,check your route", 400)
     );
   }
   res.send(plans);
-    // res.render("articles/new", { article });
+  } catch (error) {
+    console.log(error);
+    return next(new ErrorResponse("Server Error", 500));
+  }
+};
+
+const getAllPlansHebrew = async (req, res, next) => {
+    try {
+  const plans = await planModel.find({lang:"hebrew"});
+  if (!plans) {
+    return next(
+      new ErrorResponse("Can't find plans,check your route", 400)
+    );
+  }
+  res.send(plans);
   } catch (error) {
     console.log(error);
     return next(new ErrorResponse("Server Error", 500));
@@ -63,7 +77,8 @@ const deletePlan = async (req, res, next) => {
 
 const planController = {
   createNewPlan,
-  getAllPlans,
+  getAllPlansEnglish,
+  getAllPlansHebrew,
   editPlan,
   deletePlan,
 };

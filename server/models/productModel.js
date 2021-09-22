@@ -27,13 +27,9 @@ const validProduct = (product) => {
 	return productJoi;
 };
 
-<<<<<<< HEAD
-const productmongooseSchema = new mongoose.Schema(joigoose.convert(productSchema))
-=======
 const productmongooseSchema = new mongoose.Schema(
 	joigoose.convert(productSchema)
 );
->>>>>>> fc6b52a9cf9d5d0f14fdc48b134d9301ad6b2657
 
 const productModel = mongoose.model("product", productmongooseSchema);
 
