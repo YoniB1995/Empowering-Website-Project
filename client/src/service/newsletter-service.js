@@ -26,3 +26,16 @@ export const getOneNewsletter = async (articleData) => {
     }
   };
 
+  export const addMemberToNewsletter = async (memberEmail) => {
+    const options = {
+      method: "POST",
+      body: JSON.stringify({ Email: memberEmail }),
+      headers: { "Content-Type": "application/json" },
+    };
+    try {
+      return fetch(`${API}/mailChimp/createMember`, options);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
