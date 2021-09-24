@@ -4,7 +4,7 @@
 require("dotenv").config();
 const fileUpload = require("express-fileupload");
 const express = require("express");
-
+const passport = require('passport')
 const adminRouter = require("./routes/adminRoutes");
 const plansRouter = require("./routes/planRouter");
 const mailChimpRouter = require("./routes/mailChimpRouter");
@@ -34,6 +34,10 @@ app.use(express.urlencoded({ extended: false })); // params יכולת לשלו�
 app.use(methodOverride("_method"));
 app.use(cors());
 app.use(fileUpload());
+app.use(passport.initialize());
+
+//passport Config
+require('./config/passport')(passport);
 
 app.post("/upload", (req, res) => {
 	if (req.files === null) {
