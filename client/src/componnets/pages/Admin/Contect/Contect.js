@@ -1,7 +1,8 @@
 import { Table } from 'antd';
 import PartnersContect from './Partners-Contect';
 import ProgramsContect from './Programs-Contect';
-import StaffContect from './Staff-Contect';
+// import StaffContect from './Staff-Contect';
+import EditableTable from './EditableTable/EditableTable';
 import AdminNavBar from '../../../features/Admin/Admin-Nav/Admin-Navbar';
 
 const { Column, ColumnGroup } = Table;
@@ -61,7 +62,8 @@ const Contect = () => {
   return (
     <>
       <AdminNavBar />
-      <StaffContect />
+      {/* <StaffContect /> */}
+      <EditableTable />
       <ProgramsContect />
       <PartnersContect />
     </>
