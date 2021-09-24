@@ -17,11 +17,13 @@ const getCampaignsSorted = async (req, res, next) => {
 			return {
 				url: campagin.long_archive_url,
 				date: campagin.create_time,
+				id: campagin.id,
+				name: campagin.settings.title,
+				status: campagin.status,
 			};
 		});
 		res.status(200).json({ sortedCampagins });
 	} catch (e) {
-		console.log(e);
 		next(new ErrorResponse("server error", 500));
 	}
 };
@@ -31,29 +33,47 @@ const getCampaignByTitle = async (req, res, next) => {
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
 		const { title } = req.params;
 
-		const chosenCampaign = campaignsList.campaigns.filter(
-			(campaign) => campaign.settings.title === title
+		const chosenCampaigns = campaignsList.campaigns.filter(
+			(campagin) =>
+				campagin.settings.title === title && campagin.status === "sent"
 		);
-		if (!chosenCampaign) {
+		console.log(chosenCampaigns);
+		if (!chosenCampaigns || chosenCampaigns.length === 0) {
 			next(new ErrorResponse("Campaign not found", 301));
-			return;
 		}
-		res.status(200).json({ chosenCampaign });
+
+		try {
+			const { id } = chosenCampaigns[0];
+			const { report_summary } = await MailchimpMarketingModel.campaigns.get(
+				id
+			);
+			res.json({ report_summary }).status(200);
+		} catch (e) {
+			next(new ErrorResponse("server error", 500));
+		}
 	} catch (e) {
-		next(new ErrorResponse("server error", 500));
+		next(new ErrorResponse("No campagin found", 301));
 	}
 };
 
-const getDataFromMailChimp = (req, res, next) => {
+const getCampaignData = async (req, res, next) => {
 	try {
-		console.log(req.body);
+		const { campagin } = req.params;
 	} catch (e) {
-		console.log(e);
+		next(new ErrorResponse("no campagin sent to server", 301));
+	}
+	try {
+		const { report_summary } = await MailchimpMarketingModel.campaigns.get(
+			"71e826f0e6"
+		);
+		res.json({ report_summary }).status(200);
+	} catch (e) {
+		console.log("Err");
 	}
 };
 
 module.exports = {
 	getCampaignsSorted,
 	getCampaignByTitle,
-	getDataFromMailChimp,
+	getCampaignData,
 };
