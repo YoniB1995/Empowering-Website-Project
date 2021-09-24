@@ -3,8 +3,8 @@
 }
 .slider-container {
   position: relative;
-  width: 600px;
-  height: 800px;
+  width: 474px;
+  height: 600px;
   background-color: #f8f7f5;
   padding: 30px 20px 0px 20px;
 }
@@ -16,11 +16,11 @@
   background-color: #798777;
   opacity: 1;
   margin-top: 0px;
-  margin-left: 40%;
+  margin-left: 33%;
 }
 #img-slide {
   margin-top: 20px;
-  height: 700px;
+  height: 524px;
   padding: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -47,9 +47,7 @@
   }
 }
 @media screen and (max-width: 600px) {
-.material-card.mc-activet{
-background-color: blueviolet;
-}
-
- 
+  .material-card.mc-activet {
+    background-color: blueviolet;
+  }
 }

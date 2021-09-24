@@ -35,11 +35,11 @@ const NavBar = () => {
           </Menu.Item>
         </Link>
 
-        <Link to="/Newsletter">
-          <Menu.Item className="menu-item">ניוזלטר</Menu.Item>
-        </Link>
         <Link to="/CommerceJs">
           <Menu.Item className="menu-item">חנות</Menu.Item>
+        </Link>
+        <Link to="/Donations">
+          <Menu.Item className="menu-item">תרומות</Menu.Item>
         </Link>
         <Link to="/Plans">
           <Menu.Item className="menu-item">תוכניות</Menu.Item>

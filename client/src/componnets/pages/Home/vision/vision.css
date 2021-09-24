@@ -1,42 +1,70 @@
-.vision-container {
-  width: 100%;
+.wrapper {
+  background-color: #e8dbcf;
+
+}
+.card {
+  width: 800px;
+  height: 26rem;
+  display: flex;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 5px;
+  background-color: white;
+}
+.img-container {
+  height: 100%;
+  width: 40%;
+}
+#img-vision {
+  height: 100%;
+  object-fit: cover;
+}
+.card-body {
+  /* margin: 1rem; */
+  height: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #444444;
-}
-
-.vision-card {
-  display: flex;
-  width: 60%;
-  height: 100%;
-  border-radius: 5px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  justify-content: center;
-  margin-top: 20px;
-  padding: 20px;
   flex-wrap: wrap;
-}
-
-.vision-card-content {
   direction: rtl;
-  line-height: 1.8;
   padding: 20px;
-  background-color: #f4d7c0;
-}
 
-.vision-card-img {
-  background-color: #f4d7c0;
-  width: 320px;
+
 }
-img {
+.card-title {
+  font-family: "Varela Round", sans-serif;
+  margin-bottom: 0.5rem;
+  direction: rtl;
+  margin-right: 5px;
 }
-@media only screen and (max-width: 760px) {
-  img {
-    width: 223px;
+.header-decoration{
+  width: 0;
+  height: 27px;
+  border:solid black;
+}
+.card-description {
+  font-family: "Varela Round", sans-serif;
+  direction: rtl;
+}
+.header{
+  display: flex;
+}
+@media only screen and (max-width: 720px) {
+  .card {
+    width:30rem;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
   }
-  .vision-card {
-    width: 80%;
+
+  .img-container {
+    height: 40%;
+    width: 100%;
+  }
+  .card-description {
+    height: 60%;
+    width: 100%;
+    background-color: purple;
+  }
+  #img-vision {
   }
 }

@@ -4,7 +4,7 @@ import NavBar from "./componnets/features/NavBar/NavBar";
 import Footer from "./componnets/features/Footer/Footer";
 import AuthContextProvider from "./contexts/AuthContextProvider";
 import Contect from "./componnets/pages/Admin/Contect/Contect";
-
+import Btn from "./componnets/features/Button/Button";
 
 function App() {
   return (
@@ -13,8 +13,7 @@ function App() {
         <AuthContextProvider>
           <NavBar />
           <AppRouter />
-          <Contect/>
-          <Footer />
+          {/* <Footer /> */}
         </AuthContextProvider>
       </Router>
     </>
