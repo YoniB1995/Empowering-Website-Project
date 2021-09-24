@@ -2,7 +2,7 @@ import "./ContactUs.css"
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import Input from "../../features/Input/Input";
-import Button from "../../features/Button/Button";
+import Button from "../../features/Button/ButtonComponent";
 
 const Result = ()=>{
     return(

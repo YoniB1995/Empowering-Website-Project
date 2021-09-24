@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
+// import 'antd/dist/antd.css';
+import './cartItem.css';
 
 // import Button from '../features/Button/Button';
 
@@ -10,15 +12,18 @@ const CartItem = ({ item, handleUpdateCartQuantity, handleRemoveFromCart }) => {
         <div>
             <Card
                 hoverable
-                style={{width: 300, height: 400, margin: 20, padding: 10 }}
-                cover={<img alt="productImg" src={item.media.source} style={{ width: 280, height: 200, }} />}
+                style={{width: 250, height: 100,opacity:1,textAlign:"left", margin:10,marginLeft:-20}}
+                cover={<img alt="productImg" src={item.media.source} style={{ width: 75, height: 75,top: 442,float:"right" , borderRadius:37}} />}
             >
+                <div className="detailsProduct">
                 <Meta title={item.name} />
                 <Meta description={item.line_total.formated_with_symbol} />
-                <button style={{ width: 80, height: 20, margin: 2 }} type="button" onClick={() => handleUpdateCartQuantity(item.id, item.quantity + 1)}>+</button>
+                
+                <span  type="button" onClick={() => handleUpdateCartQuantity(item.id, item.quantity + 1)}>+</span>
                 <Meta title={item.quantity} />
-                <button style={{ width: 80, height: 20 }} type="button" onClick={() => handleUpdateCartQuantity(item.id, item.quantity - 1)}>-</button>
-                <button style={{ width: 80, height: 20 }} type="button" onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
+                <span  type="button" onClick={() => handleUpdateCartQuantity(item.id, item.quantity - 1)}>-</span>
+                {/* <button style={{ width: 20, height: 20 }} type="button" onClick={() => handleRemoveFromCart(item.id)}>Remove</button> */}
+                </div>
             </Card>
 
         </div>

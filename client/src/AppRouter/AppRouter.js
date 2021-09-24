@@ -25,6 +25,8 @@ import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
 import ProductsC from '../componnets/features/Products/ProductsC';
 import CommerceJs from '../componnets/pages/commerce/Commerce';
 import { Accessibility } from 'accessibility/src/main';
+import './AppRouter.css';
+
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -55,6 +57,15 @@ export default function AppRouter() {
   options.textToSpeechLang = 'he'; // עברית
   options.speechToTextLang = 'he'; // עברית
   new Accessibility(options);
+  var options1 = {
+    icon: {
+        position: {
+            bottom: { size: 50, units: 'px' },
+            right: { size: 0, units: 'px' },
+        }
+    }
+}
+new Accessibility(options1);
 
   return (
 
