@@ -9,6 +9,8 @@ exports.validTeam = (bodyData) => {
     role: joi.string().min(3).max(7).required(),
     image: joi.string().min().max().required(),
     description: joi.string().min(10).max(300).required(),
+    lang: joi.string().min(5).max(8).required(),
+
 
   });
   return joiSchema.validate(bodyData,teamSchema);

@@ -10,7 +10,8 @@ const ErrorResponse = require("../utils/errorResponse");
 
 const router = express.Router();
 
-router.get('/all', planController.getAllPlans);
+router.get('/all/english', planController.getAllPlansEnglish);
+router.get('/all/hebrew', planController.getAllPlansHebrew);
 router.post('/new', planController.createNewPlan, savePlanAndRedirect('new'));
 router.put('/edit/:id', planController.editPlan);
 router.delete('/:id', planController.deletePlan);
