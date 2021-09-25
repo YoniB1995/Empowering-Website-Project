@@ -5,7 +5,8 @@ const { Schema } = mongoose;
 const teamSchema = new Schema({ fullname: String,
   role: String,
   image: String,
-  description:String });
+  description:String,
+lang:String });
 
 
 
