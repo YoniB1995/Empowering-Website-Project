@@ -65,6 +65,7 @@ const joigoose = require("joigoose")(mongoose);
 
 const dompurify = createDomPurify(new JSDOM().window);
 
+<<<<<<< HEAD
 const planSchema = Joi.object({
   title: Joi.string()
   .min(5)
@@ -75,6 +76,38 @@ const planSchema = Joi.object({
   markdown: Joi.string()
   .required(),
   createdAt: Joi.date(),
+=======
+const planSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  markdown: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  lang:{
+    type:String
+  }
+  // ,
+  // slug: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  // },
+  // sanitizedHtml: {
+  //   type: String,
+  //   required: true,
+  // },
+>>>>>>> d88b2420d03e0bfb43d9a8a1254b5ed63284a767
 });
 
 const validPlan = (plan) => {
