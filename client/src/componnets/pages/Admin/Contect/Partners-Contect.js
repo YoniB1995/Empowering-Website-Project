@@ -1,34 +1,17 @@
-<<<<<<< HEAD
-import { Table, Space } from "antd";
-import DeleteModal from "../../../features/Admin/Modal/Delete-Modal";
-import EditModal from "../../../features/Admin/Modal/Edit-Modal";
-import AddModal from "../../../features/Admin/Modal/Add-Modal";
-import "antd/dist/antd.css";
-
-=======
 import { Table, Space } from 'antd';
 import 'antd/dist/antd.css';
 import AddModal from '../../../features/Admin/Modal/Add-Modal';
 import EditModal from '../../../features/Admin/Modal/Edit-Modal';
 import DeleteModal from '../../../features/Admin/Modal/Delete-Modal';
->>>>>>> d88b2420d03e0bfb43d9a8a1254b5ed63284a767
 
 const { Column, ColumnGroup } = Table;
 const data = [
   {
-<<<<<<< HEAD
-    key: "1",
-    fullName: "John",
-    description: "Brown",
-    role: "New York No. 1 Lake Park",
-    image: "London No. 1 Lake Park", 
-=======
     key: '1',
     fullName: 'John',
     description: 'Brown',
     role: 'New York No. 1 Lake Park',
     image: 'London No. 1 Lake Park',
->>>>>>> d88b2420d03e0bfb43d9a8a1254b5ed63284a767
   },
   {
     key: '2',
