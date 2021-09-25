@@ -17,7 +17,6 @@ const ProductC = ({ product, handleAddToCart }) => {
                     <Meta title={product.name} />
 
                     <Meta description={product.price.formatted_with_symbol}></Meta>
-                    {/* <Meta description={product.variant_groups.option.name} /> */}
                 </div>
                 <hr></hr>
                 <span className="addToCart" onClick={() => handleAddToCart(product.id, 1)}>הוספה לסל+</span>
