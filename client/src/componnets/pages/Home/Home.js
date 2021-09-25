@@ -105,12 +105,12 @@ const Home = () => {
           <Vision />
         </div>
 
-        {/* <div
+        <div
           className="goals-container"
           style={{ width: "75%", display: "flex", justifyContent: "flex-end" }}
         >
           <Goals />
-        </div> */}
+        </div>
         <div
           className="programs-wrapper"
           style={{

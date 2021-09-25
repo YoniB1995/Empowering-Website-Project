@@ -41,7 +41,7 @@ const NavBar = () => {
         <Link to="/Donations">
           <Menu.Item className="menu-item">תרומות</Menu.Item>
         </Link>
-        <Link to="/Plans">
+        <Link to="/Programs">
           <Menu.Item className="menu-item">תוכניות</Menu.Item>
         </Link>
         <Link to="/AboutUs">
