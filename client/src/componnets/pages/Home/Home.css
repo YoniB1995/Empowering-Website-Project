@@ -97,9 +97,17 @@
 
 .vision-goals-wrapper{
   background-color: #e8dbcf;
-  border: 5px solid black;
-  display: flex;
-  justify-content: center;
-
   
+}
+.vision-goals-container{
+
+}
+
+
+@media only screen and (max-width: 1060px) {
+  .vision-goals-wrapper{
+    display: flex;
+    flex-direction: row;
+  }
+
 }
