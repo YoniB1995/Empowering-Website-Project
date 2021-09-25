@@ -48,7 +48,7 @@ const ContactU = () => {
               </a>
             </Dropdown>
             <label>אימייל</label>
-            <input className="input" type="email" name="email" placeholder="אימייל"></input>
+            <input className="input" type="email" name="email" placeholder="אימייל" ></input>
             <label>תיאור</label>
             <textarea style={{width:"320px",height:"100px",borderRadius:"5px",margin:"5px"}}></textarea>
           </form>
