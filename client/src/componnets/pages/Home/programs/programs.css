@@ -1,7 +1,7 @@
 .programs-wrapper {
-    background-color:#FFEDED ;
   display: flex;
   flex-direction: column;
+  background-color:#F3F4ED;
 }
 .cards-wrapper {
 padding: 20px;

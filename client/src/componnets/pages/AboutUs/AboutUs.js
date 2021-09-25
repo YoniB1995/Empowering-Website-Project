@@ -1,4 +1,5 @@
 import React from "react"
+import Copartner from "../Home/Copartners/Copartners";
 import Goals from "../Home/goals/Goals";
 import Vision from "../Home/vision/Vision";
 import "./AboutUs.css"
@@ -8,9 +9,11 @@ const AboutUs = ()=>{
 
     return(
         <div>
+            <Staff/>
+
             <Vision/>
             <Goals/>
-            <Staff/>
+            <Copartner/>
             
 
         </div>

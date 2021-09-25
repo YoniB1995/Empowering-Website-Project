@@ -64,14 +64,14 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="home-newsletter-section">
+      {/* <div className="home-newsletter-section">
         <div className="archive-container">
-          <div className="archive-slider">
-            <h3 id="archiveHeader">ארכיון הניוזלטר שלנו</h3>
+          <div className="archive-slider"> */}
             <SliderStore />
             {/* <img src="./archive-newsletter-vector.jpg" /> */}
-          </div>
+          {/* </div> */}
           <div className="newsletter-signup-btn">
+            <div style={{display:"flex",justifyContent:"center",}}>
             <Button
               className="about-us-home-btn"
               size="large"
@@ -84,9 +84,10 @@ const Home = () => {
             >
               להרשמה לניוזלטר לחצ\י כאן
             </Button>
-          </div>
-        </div>
-      </div>
+            </div>
+          {/* </div>
+        </div> */}
+      </div> 
       <Programs/>
       <div
         className="vision-goals-wrapper"
