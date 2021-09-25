@@ -1,24 +1,4 @@
-// const mongoose = require('mongoose');
 
-// const { Schema } = mongoose;
-
-<<<<<<< HEAD
-// const teamSchema = new Schema({ fullname: String,
-//   role: String,
-//   image: String,
-//   description:String });
-=======
-const teamSchema = new Schema({ fullname: String,
-  role: String,
-  image: String,
-  description:String,
-lang:String });
->>>>>>> d88b2420d03e0bfb43d9a8a1254b5ed63284a767
-
-
-
-// const team = mongoose.model('team', teamSchema)
-// module.exports = team;
 
 const mongoose  = require('mongoose');
 
