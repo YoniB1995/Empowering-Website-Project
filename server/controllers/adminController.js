@@ -4,69 +4,51 @@
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
 /* eslint-disable max-len */
-const bcrypt = require('bcrypt');
+require('dotenv').config()
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
 const { validAdmin } = require('../validation/adminValidation');
 const ErrorResponse = require('../utils/errorResponse');
-const adminModel = require('../models/adminModel');
-const { genToken } = require('../middleware/token');
+const {adminModel} = require('../models/adminModel');
 
-const getTokenAndConfig = async (req, res) => {
-  let token = req.header('x-api-key');
-  if (!token) {
-    res.status(403).json({ msg: ' forbidden , cant enter' });
-  }
-  try {
-    let decodeToken = jwt.verify(token, 'asalefDeveloper');
-    let user = await adminModel.findOne({ _id: decodeToken.id });
-    
-    res.json({ massage: 'all ok', user });
-  } catch (error) {
-    res.status(401).json({ massage: 'token invalid or expired' });
-  }
-};
 
-const genTokenTest = async (req, res,next) => {
-  let token = req.header('x-api-key');
-  if (!token) {
-    res.status(403).json({ msg: ' forbidden , cant enter' });
-  }
-  try {
-    let decodeToken = jwt.verify(token, 'asalefDeveloper');
-    let user = await adminModel.findOne({ _id: decodeToken.id });
-    req.user = user;
-    next();
-  } catch (error) {
-    res.status(401).json({ massage: 'token invalid or expired' });
-  }
-};
-
-const logIn = async (req, res) => {
+const loginAdmin = async (req, res) => {
   try {
     const validBody = validAdmin(req.body.user);
     if (validBody.error) {
       return next(new ErrorResponse(`${validBody.error.details[0].message}`, 400));
     }
-    const user = await adminModel.findOne(
-      { email: req.body.user.email },
-      (error) => {
-        if (error) throw error;k
-      },
-    );
-    if (!user) {
-      res.json({ msg: 'Email not found' });
-    }
-    const PassValid = await bcrypt.compare(
-      req.body.user.password,
-      user.password,
-    );
-    if (!PassValid) {
-      return next(new ErrorResponse('Wrong Password !', 401));
-    }
-    user.password = '****';
-    let adminToken = genToken(user.id);
-    // localStorage.setItem({ token: adminToken });
-    res.json({ token: adminToken, user });
+    const email = req.body.email;
+    const password = req.body.password;
+    await adminModel.findOne({email}).then(admin => {
+      if (!admin){
+        return res.status(404).json({email: "User not found"});
+      }
+    
+    bcrypt.compare(password,admin.password).then(isMatch =>{
+      if (isMatch){
+        const payload = {id: admin._id, email:admin.email, password: admin.password };
+
+        jwt.sign(
+          payload,
+          process.env.SECRET_KEY,
+          {expiresIn: 3600}, 
+          (err,token)=> {
+            res.json({
+              success: true,
+              token: "Bearer " + token,
+              expiresTokenIn: "60min"
+            })
+          }
+        );
+       }else {
+        return res.status(400).json({password: 'Password incorrect'});
+      }
+    })
+  
+  
+  })
   } catch (error) {
     console.log(error);
   }
@@ -85,9 +67,12 @@ const getAllAdmins = async (req, res, next) => {
 
 const getAdminById = async (req, res, next) => {
   try {
+   
     const admin = await adminModel.findById(req.params.id);
-
-    res.json(adminModel);
+ if (!admin) {
+      return next(new ErrorResponse('Admin not exists!',404))
+    }
+    res.status(200).json({success:true,admin:admin});
   } catch (error) {
     console.log(error);
     return next(new ErrorResponse('Server Error !', 500));
@@ -96,17 +81,27 @@ const getAdminById = async (req, res, next) => {
 
 const registerAdmin = async (req, res, next) => {
   try {
-    await bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(req.body.user.password, salt, (error, hash) => {
-        if (error) throw error;
-        req.body.user.password = hash;
-        adminModel.create(req.body.user, (err, result) => {
-          if (err) throw err;
-          result.password = '*********';
-          res.json(result);
+    await adminModel.findOne({email: req.body.email}).then(admin => {
+      if (admin) {
+        return res.status(400).json({email: "Email already exists"});
+      } else {
+        const newAdmin = new adminModel({
+          username: req.body.username,
+          email : req.body.email,
+          password: req.body.password
         });
+     
+    bcrypt.genSalt(10,  (err, salt) => {
+       bcrypt.hash(newAdmin.password, salt, (error, hash) => {
+        if (error) throw error;
+        newAdmin.password = hash;
+        newAdmin.save().then(data => res.json(data)).catch(err => console.log(err))
+        
+
       });
     });
+     }
+    })
   } catch (err) {
     console.log(err);
     return next(new ErrorResponse('Email already in system order another problem', 301));
@@ -114,19 +109,19 @@ const registerAdmin = async (req, res, next) => {
 };
 
 const deleteAdmin = async (req, res, next) => {
-  const { username } = req.body;
+  const {email} = req.body
   try {
-    const user = await adminModel.deleteById(
-      req.params.username === username && req.params.username,
+    const deletedUser = await adminModel.deleteOne(
+     {email:email}
     );
 
-    if (!user) {
+    if (!deletedUser) {
       return next(new ErrorResponse('there isn`t a username like this name', 301));
     }
 
-    console.log(user);
+    res.status(200).json({success:true,message:"Admin Deleted!",deletedAdmin: deletedUser})
   } catch (error) {
-    console.log(error);
+    res.status(200).json({success:false,deletedAdmin: "Not Deleted! Server Error"})
     return next(new ErrorResponse('Server Error !', 500));
   }
 };
@@ -136,6 +131,5 @@ module.exports = {
   getAdminById,
   registerAdmin,
   deleteAdmin,
-  logIn,
-  getTokenAndConfig,
+  loginAdmin,
 };
