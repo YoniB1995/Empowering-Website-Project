@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'antd';
 import 'antd/dist/antd.css';
-import './ProductC.css';
+import './Product.css';
 
 
 const ProductC = ({ product, handleAddToCart }) => {

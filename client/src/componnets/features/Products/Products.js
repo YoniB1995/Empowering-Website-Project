@@ -1,6 +1,6 @@
 import React from 'react';
-import ProductC from '../Product/ProductC';
-import './ProductsC.css'
+import ProductC from '../Product/Product';
+import './Products.css'
 
 const ProductsC = ({ products , handleAddToCart }) => {
     return ( <div className="card_container">

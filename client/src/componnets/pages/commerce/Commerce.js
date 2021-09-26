@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Commerce from '@chec/commerce.js';
-import ProductsC from '../../features/Products/ProductsC';
+import ProductsC from '../../features/Products/Products';
 import { Badge } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Drawer, Button } from 'antd';

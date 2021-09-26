@@ -3,7 +3,7 @@ import { Menu, Avatar } from 'antd';
 import 'antd/dist/antd.css';
 import './navBar.css';
 import 'antd/dist/antd.css'
-import ContactU from "../../pages/ContactUs/ContactU";
+import ContactU from "../../pages/ContactUs/ContactUs";
 
 const NavBar = () => {
   return (
