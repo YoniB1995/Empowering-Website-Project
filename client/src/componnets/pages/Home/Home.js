@@ -22,11 +22,11 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div className="home-about-us-section">
-        <div>
-          <ImageSlider />
-        </div>
-        <div className="about-us-home wow animate__bounceInUp">
+
+      <div className="home-first-section">
+        {/* <News/> */}
+        <ImageSlider />
+        <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>
           <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
           <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
