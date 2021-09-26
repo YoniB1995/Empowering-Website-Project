@@ -5,7 +5,7 @@ const Newsletter = () => {
   const campaigns = [
     {
       iframe:
-        'https://us5.campaign-archive.com/?u=4c2830c704079978d3ed5f940&id=a0a46a5859',
+      'https://us5.campaign-archive.com/?u=4c2830c704079978d3ed5f940&id=a0a46a5859',
       id: 0,
     },
     {

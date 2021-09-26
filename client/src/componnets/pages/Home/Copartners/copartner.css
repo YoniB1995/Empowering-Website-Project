@@ -1,9 +1,33 @@
-.copartnerMain{
-    background-color: #F7F2EC;
-    margin: auto;
+.copartner-container{
+    background-color:white;
 }
-.copartnerMain img{
-    width: 100px;
-    height: 100px;
-    margin-left: 20%;
-}
+.copartner-header {
+    width: 95%;
+    padding: 10px;
+    font-family: "Varela Round", sans-serif;
+    display: flex;
+      justify-content: flex-end;
+  }
+  
+  .copartner-header-decortion {
+      width: 0;
+      height: 27px;
+      border: solid black;
+      margin-left: 10px;
+    }
+    .copartner-logo-container{
+        width:80px;
+        
+    }
+    .copartner-logo{
+        width: 100%;
+        border: 50px solid black;
+    }
+    
+    .copartner-wrapper{
+        width: 60%;
+      display: flex;
+      justify-content: space-around;
+      margin: auto;
+      
+    }
