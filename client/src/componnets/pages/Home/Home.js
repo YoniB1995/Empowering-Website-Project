@@ -24,7 +24,7 @@ const Home = () => {
     <div>
 
       <div className="home-first-section">
-        <News/>
+        {/* <News/> */}
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
           <h1>קצת עלינו </h1>

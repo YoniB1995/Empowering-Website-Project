@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Modal, Button } from "antd";
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import './ContactU.css';
+import './ContactUs.css';
 
 const ContactU = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
