@@ -1,5 +1,5 @@
 const ErrorResponse = require("../utils/errorResponse");
-const filterFunc = require("../middleware/filterResponse");
+const filterResponse = require("../utils/filterResponse");
 const { MailchimpMarketingModel } = require("../models/mailChimpModel");
 const md5 = require("md5");
 const { validMember } = require("../models/memberModel");
@@ -35,7 +35,7 @@ const updateMember = async (req, res, next) => {
 	try {
 		const { error } = validMember(req.body); // try to validate
 		if (error) {
-			next(new ErrorResponse({ error: error.details[0].message }, 301));
+			res.json({ error: error.details[0].message }).status(301);
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));
@@ -64,10 +64,12 @@ const getAllMembers = async (req, res, next) => {
 			res.status(200).json("no members exist");
 		}
 		try {
-			const filterdMembers = filterFunc(members); // use function to filter fields
-			res.status(200).json({ filterdMembers });
+			const filterdMembers = filterResponse(members); // use function to filter fields
+			res.status(200).json({ filterdMembers }).status(301);
 		} catch (e) {
 			console.log("one of the fields not exist");
+
+			next(new ErrorResponse("server error", 500));
 		}
 	} catch (e) {
 		next(new ErrorResponse("server error", 500));
@@ -80,7 +82,7 @@ const getMember = async (req, res, next) => {
 	try {
 		const { error } = validMember({ Email }); // try to validate
 		if (error) {
-			next(new ErrorResponse({ error: error.details[0].message }, 301));
+			res.json({ error: error.details[0].message }).status(301);
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));
@@ -103,7 +105,7 @@ const deleteMember = async (req, res, next) => {
 	try {
 		const { error } = validMember({ Email }); // try to validate
 		if (error) {
-			next(new ErrorResponse({ error: error.details[0].message }, 301));
+			res.json({ error: error.details[0].message }).status(301);
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));
@@ -114,12 +116,7 @@ const deleteMember = async (req, res, next) => {
 			res.status(200).json({ message: "user deleted", response })
 		)
 		.catch((err) =>
-			next(
-				new ErrorResponse(
-					res.json({ text: JSON.parse(err.response.text).detail })
-				),
-				500
-			)
+			res.json({ text: JSON.parse(err.response.text).detail }).status(500)
 		);
 };
 

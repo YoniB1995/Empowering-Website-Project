@@ -13,16 +13,16 @@ const getCampaignsSorted = async (req, res, next) => {
 		const campaigns = campaignsList.campaigns.sort(
 			(a, b) => new Date(b.create_time) - new Date(a.create_time)
 		);
-		const sortedCampagins = campaigns.map((campagin) => {
-			return {
-				url: campagin.long_archive_url,
-				date: campagin.create_time,
-				id: campagin.id,
-				name: campagin.settings.title,
-				status: campagin.status,
-			};
-		});
-		res.status(200).json({ sortedCampagins });
+
+		const sortedCampagins = campaigns
+			.filter((campagin) => campagin.status === "sent")
+			.map((campagin) => {
+				return {
+					archive_url: campagin.archive_url,
+					title: campagin.settings.title,
+				};
+			});
+		res.json(sortedCampagins).status(200);
 	} catch (e) {
 		next(new ErrorResponse("server error", 500));
 	}
@@ -56,24 +56,30 @@ const getCampaignByTitle = async (req, res, next) => {
 	}
 };
 
-const getCampaignData = async (req, res, next) => {
+const getDataFromMailchimp = async (req, res, next) => {
 	try {
-		const { campagin } = req.params;
-	} catch (e) {
-		next(new ErrorResponse("no campagin sent to server", 301));
-	}
-	try {
-		const { report_summary } = await MailchimpMarketingModel.campaigns.get(
-			"71e826f0e6"
+		const result = await MailchimpMarketingModel.lists.getListWebhooks(
+			process.env.AUDIENCE_ID
 		);
-		res.json({ report_summary }).status(200);
-	} catch (e) {
-		console.log("Err");
+
+		try {
+			const webhooksDetails =
+				await MailchimpMarketingModel.lists.getListWebhooks(
+					process.env.AUDIENCE_ID
+				);
+			res.json({ result }).status(200);
+		} catch (e) {
+			console.log(e);
+			res.send("error");
+		}
+	} catch (E) {
+		console.log(E);
+		res.send("error");
 	}
 };
 
 module.exports = {
 	getCampaignsSorted,
 	getCampaignByTitle,
-	getCampaignData,
+	getDataFromMailchimp,
 };

@@ -19,7 +19,7 @@ const getAllContactInformation = async (req, res, next) => {
 		const contactInformation = await contactUsModel.find({});
 
 		if (!contactInformation) {
-			next(new ErrorResponse("No ContactInformation saved, please add", 400));
+			res.json({ text: "No ContactInformation saved, please add" }).status(400);
 		}
 		res.status(200).json({ contactInformation });
 	} catch (e) {

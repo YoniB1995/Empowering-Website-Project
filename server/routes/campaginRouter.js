@@ -11,6 +11,9 @@ campaginRouter.get(
 	campaginController.getCampaignByTitle
 );
 
-campaginRouter.get("/getCampaginData", campaginController.getCampaignData);
+campaginRouter.get(
+	"/getDataFromMailchimp",
+	campaginController.getDataFromMailchimp
+);
 
 module.exports = campaginRouter;
