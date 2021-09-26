@@ -12,6 +12,7 @@ import "./Home.css";
 import Goals from "./goals/Goals";
 import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   useEffect(() => {
@@ -39,6 +40,7 @@ const Home = () => {
             ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה מינית,
             נשים הסובלות
           </p>
+          <Link to="/AboutUs">
           <Button
             className="about-us-home-btn"
             size="large"
@@ -53,6 +55,7 @@ const Home = () => {
           >
             לקרוא עוד
           </Button>
+          </Link>
         </div>
       </div>
       <div className="buffer-div">

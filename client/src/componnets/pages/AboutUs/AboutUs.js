@@ -10,6 +10,9 @@ const AboutUs = ()=>{
     return(
         <div>
             <Staff/>
+
+            <Vision/>
+            <Goals/>
             <Copartner/>
             
 
