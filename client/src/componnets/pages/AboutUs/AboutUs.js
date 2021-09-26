@@ -8,12 +8,12 @@ import Staff from "./staff/Staff";
 const AboutUs = ()=>{
 
     return(
-        <div>
+        <div className="aboutus-wrapper" >
             <Staff/>
 
-            <Vision/>
-            <Goals/>
-            <Copartner/>
+            {/* <Vision/> */}
+            {/* <Goals/> */}
+            {/* <Copartner/> */}
             
 
         </div>

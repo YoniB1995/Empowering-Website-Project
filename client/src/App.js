@@ -14,9 +14,6 @@ function App() {
           <NavBar />
           <AppRouter />
           {/* <Footer /> */}
-        <Data/>
-          {/* <Contect/> */}
-          {/* <Contact/> */}
           
         </AuthContextProvider>
       </Router>
