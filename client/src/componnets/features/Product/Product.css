@@ -1,0 +1,29 @@
+/* // כרטיסייה ראשית */
+.productCard {
+  width: 300px;
+  height: 410px;
+  margin: 20px;
+  padding: 12px;
+  text-align: right;
+  border-radius: 10px;
+}
+.productCard img {
+  width: 280px;
+  height: 280px;
+}
+
+/* .icon {
+  float: right;
+} */
+.addToCart {
+ margin-right: 32%;
+  opacity: 1;
+}
+.addToCart:hover{
+  color:rgb(244, 215, 192);
+}
+.ant-card-body{
+    padding: 8px;
+    width: 250px;
+}
+

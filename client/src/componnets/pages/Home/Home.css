@@ -1,31 +1,32 @@
-.home {
-  text-align: center;
-  margin: 5%;
-  color: rgb(161, 110, 75);
-  font-size: 18px;
-}
-.homeBtn {
-  padding: 10px;
-  color: #ffffff;
-  font-weight: bold;
-  background: #bb906d;
-  width: 18%;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.home-first-section {
-  background-color: #f7f2ec;
-  padding: 20px;
+.home-about-us-section {
+  width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  background-color:#FAAD80;
+  padding: 20px;
+  display: flex;
   flex-wrap: wrap;
 }
-.about-us {
+.home-first-section{
+  background-color:#FAAD80;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.aboutus-content{
+  text-align: center;
   direction: rtl;
+}
+.about-us-home {
+  font-family: "Varela Round", sans-serif;
+  direction: rtl;
+  text-align: center;
+  padding: 20px;
+}
+#archiveHeader {
+  font-family: "Varela Round", sans-serif;
   text-align: center;
 }
 
@@ -37,6 +38,7 @@
   justify-content: center;
   align-items: flex-end;
 }
+
 .arrow-icon-container {
   width: 70px;
   height: 70px;
@@ -48,16 +50,23 @@
   margin-bottom: -35px;
 }
 
-.hazon {
-  position: relative;
-  direction: rtl;
-  background-color: #f4d7c0;
-  text-align: center;
-  padding: 5%;
+.home-newsletter-section {
+  font-family: "Varela Round", sans-serif;
+  background-color: #e8dbcf;
+  height: 600px;
+  display: flex;
+  justify-content: center;
 }
-.hazon h1 h3 {
-  line-height: 1.8;
-  border: 5px solid black;
+.archive-container {
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.archive-slider {
+  width: 50%;
+  height: 50%;
 }
 
 .myButton {
@@ -84,12 +93,8 @@
   position: relative;
   top: 1px;
 }
-.home-second-section {
-  width: 100%;
-  /* height: 60vh; */
-  background-color: #e8dbcf;
-}
-.upBtn{
+
+.upBtn {
   float: right;
   border: 2px solid #f8f7f5;
   border-radius: 2px;
@@ -97,6 +102,23 @@
   width: 100px;
   z-index: -1;
 }
-.upBtn:hover{
+.upBtn:hover {
   background-color: rgb(244, 215, 192);
+}
+
+.vision-goals-wrapper{
+  background-color: #e8dbcf;
+  
+}
+.vision-goals-container{
+
+}
+
+
+@media only screen and (max-width: 1060px) {
+  .vision-goals-wrapper{
+    display: flex;
+    flex-direction: row;
+  }
+
 }

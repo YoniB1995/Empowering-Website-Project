@@ -1,0 +1,26 @@
+.programs-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color:#F3F4ED;
+}
+.cards-wrapper {
+padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.programs-header {
+  width: 95%;
+  padding: 10px;
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.programs-header-decertion {
+    width: 0;
+    height: 27px;
+    border: solid black;
+    margin-left: 10px;
+  }
