@@ -3,6 +3,7 @@ import ProgramCardsData from "./ProgramCardsData";
 import './ProgramCards.css'
 
 import React from 'react'
+import Programs from "../../pages/Programs/Programs";
 
 export default function ProgramCards() {
     return (<div className="divMain">
@@ -16,4 +17,3 @@ export default function ProgramCards() {
     </div>
     )
 }
-

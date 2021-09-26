@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Modal, Button } from "antd";
 import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import './ContactU.css';
+import { DownOutlined ,MailOutlined} from '@ant-design/icons';
+import './ContactUs.css';
 
 const ContactU = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -28,9 +28,8 @@ const ContactU = () => {
   );
   return (
     <>
-      <Button onClick={showModal}>
-        צור קשר
-      </Button>
+      <MailOutlined onClick={showModal} id="mail-icon" ><span>צור קשר</span></MailOutlined>
+      
       <div >
         <Modal 
           title="יצירת קשר"
@@ -49,7 +48,7 @@ const ContactU = () => {
               </a>
             </Dropdown>
             <label>אימייל</label>
-            <input className="input" type="email" name="email" placeholder="אימייל" ></input>
+            <input className="input" type="email" name="email" placeholder="אימייל"></input>
             <label>תיאור</label>
             <textarea style={{width:"320px",height:"100px",borderRadius:"5px",margin:"5px"}}></textarea>
           </form>

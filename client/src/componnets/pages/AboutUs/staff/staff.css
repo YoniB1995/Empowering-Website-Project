@@ -1,0 +1,42 @@
+.staff-cards-container{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap
+    ;
+}
+.staff-card:hover{
+    border:none;
+    background-color:yellow;
+
+}
+.card-container{
+    background-color:#F5AD88 ;
+}
+.card-title{
+    /* visibility: hidden; */
+}
+    
+.staff-img:hover{
+border-radius: 0%;
+border-color: tomato;
+
+}
+.staff-header-container{
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+
+
+}
+.staff-header-decoration{
+    width: 0;
+    border: black solid;
+    height: 27px;
+    margin-left: 10px;
+
+}
+.staff-title{
+    font-family: "Varela Round", sans-serif;
+
+}
