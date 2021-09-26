@@ -8,6 +8,17 @@
   display: flex;
   flex-wrap: wrap;
 }
+.home-first-section{
+  background-color:#FAAD80;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.aboutus-content{
+  text-align: center;
+  direction: rtl;
+}
 .about-us-home {
   font-family: "Varela Round", sans-serif;
   direction: rtl;

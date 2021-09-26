@@ -27,7 +27,8 @@ const Home = () => {
         {/* <News/> */}
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
-          <h1>קצת עלינו </h1>
+          <div className="aboutus-content">
+          <h1 >קצת עלינו </h1>
           <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
           <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
           <p>
@@ -40,12 +41,14 @@ const Home = () => {
             ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה מינית,
             נשים הסובלות
           </p>
+         
           <Link to="/AboutUs">
           <Button
             className="about-us-home-btn"
             size="large"
             shape="round"
             style={{
+             margin:"auto",
               background: "white",
               borderColor: "white",
               color: "black",
@@ -56,6 +59,7 @@ const Home = () => {
             לקרוא עוד
           </Button>
           </Link>
+          </div>
         </div>
       </div>
       <div className="buffer-div">
