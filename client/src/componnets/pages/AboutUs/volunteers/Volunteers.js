@@ -1,10 +1,9 @@
 import { Button, Card } from "antd";
-import "./staff.css";
 import { useState } from "react";
 
 const { Meta } = Card;
 
-const Staff = () => {
+const Volunteers = () => {
   const [cardOnHover, setCardOnHover] = useState(false);
 
   const titleDisplay = cardOnHover ? "visible" : "hidden";
@@ -17,13 +16,6 @@ const Staff = () => {
     setCardOnHover(false);
   };
   const staffMembers = [
-    {
-      fullname: "רחלי טסדה מלכאי",
-      role: "יזמית,מייסדת ומנכלית העמותה",
-      image: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-      description:
-        "נולדה באתיופיה בשנת 1983 עלתה ארצה יחד עם משפחתה בשנת 1991 במבצע שלמה נשואה +3 בעלת תואר במשפטים ממכללת אשקלון",
-    },
     {
       fullname: "רחלי טסדה מלכאי",
       role: "יזמית,מייסדת ומנכלית העמותה",
@@ -79,60 +71,61 @@ const Staff = () => {
     <div className="staff-wrapper">
       <h1>{titleDisplay}</h1>
       <div className="staff-header-container">
-        <h3 className="staff-title">הכירו את הצוות שלנו</h3>
+        <h3 className="staff-title">הכירו את המתנדבים שלנו</h3>
 
         <div className="staff-header-decoration"></div>
       </div>
       <div className="cards-container">
-        {staffMembers.map((member) => (
-          <Card
-            onMouseOver={imgOnMouseHover}
-            onMouseOut={imgOnMouseOut}
-            className="staff-card"
-            hoverable
-            cover={
-              <img
-                className="staff-img"
-                style={{
-                  borderRadius: "100%",
-                  padding: "5px",
-                  width: "220px",
-                  height: "220px",
-                  margin: "auto",
-                }}
-                alt="example"
-                src={member.image}
-              />
-            }
-          >
-            <Meta
-              title={
-                <div>
-                  <p>{member.fullname}</p>
-                  {member.role}
-                </div>
-              }
-              description={member.description}
-              className="card-title"
+      {staffMembers.map((member) => (
+        <Card
+          onMouseOver={imgOnMouseHover}
+          onMouseOut={imgOnMouseOut}
+          className="staff-card"
+          hoverable
+          cover={
+            <img
+              className="staff-img"
+              style={{
+                borderRadius: "100%",
+                padding: "5px",
+                width: "220px",
+                height: "220px",
+                margin: "auto",
+              }}
+              alt="example"
+              src={member.image}
             />
-            <div className="staff-btn">
-              <Button
-                size="middle"
-                shape="round"
-                style={{
-                  background: "black",
-                  borderColor: "white",
-                  color: "white",
-                }}
-              >
-                מזער
-              </Button>
-            </div>
-          </Card>
-        ))}
-      </div>
+          }
+        >
+          <Meta
+            title={
+              <div>
+                <p>{member.fullname}</p>
+                {member.role}
+              </div>
+            }
+            description={member.description}
+            className="card-title"
+          />
+          <div className="staff-btn">
+          <Button
+            size="middle"
+            shape="round"
+            style={{
+              background: "black",
+              borderColor: "white",
+              color: "white",
+            }}
+          >
+           מזער
+          </Button>
+          </div>
+        </Card>
+      ))}
+        </div>
+
     </div>
   );
 };
 
-export default Staff;
+export default Volunteers;
