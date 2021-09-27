@@ -13,8 +13,12 @@ import Goals from "./goals/Goals";
 import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
 import { Link } from "react-router-dom";
+import {useTranslation} from "react-i18next"
+
 
 const Home = () => {
+  const {t} = useTranslation();
+
   useEffect(() => {
     new WOW.WOW({
       live: false,
@@ -28,19 +32,8 @@ const Home = () => {
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
           <div className="aboutus-content">
-          <h1 >קצת עלינו </h1>
-          <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
-          <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
-          <p>
-            ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה מינית,
-            נשים הסובלות
-          </p>
-          <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
-          <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
-          <p>
-            ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה מינית,
-            נשים הסובלות
-          </p>
+          <h1>{t("littleBitAbout")} </h1>
+          <p>{t("littleBitAboutInfo")}</p>
          
           <Link to="/AboutUs">
           <Button

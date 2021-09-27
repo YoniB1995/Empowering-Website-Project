@@ -3,22 +3,20 @@ import "animate.css";
 import { Button, Card } from "antd";
 import { useEffect } from "react";
 import WOW from "wowjs";
+import {useTranslation} from "react-i18next"
+
 const Goals = () => {
+  const {t} = useTranslation();
   return (
       <div className="card">
         <div className="card-body">
           <div className="header">
             <div className="header-decoration"></div>
-            <h3 className="card-title">מטרות</h3>
+            <h3 className="card-title">{t("Goals")}</h3>
           </div>
           <div className="card-description">
             <div>
-              הקמתי את הקבוצה למען מטרה חשובה ונעלה שאנחנו הנשים האתיופיות
-              החזקות , האצילות והמוצלחות(למרות שלפעמים איננו מעריכות מספיק את
-              עצמנו) ויש בידינו הזדמנות לעזור, לפרגן, ללמוד זו מזו, להעשיר אחת
-              את השנייה ולהצליח יחד. האמונה שלי היא כי החוכמה שבנו(כחוכמת מלכת
-              שבא) יכולה לסייע בהעלאת נושאים חברתיים ואישיים הקשורים לעדה ובעיקר
-              יכולה להביא למינוף והצלחה של כל אחת ואחת.
+            {t("GoalsInfo")}
             </div>
             <Button
               className="about-us-home-btn"
