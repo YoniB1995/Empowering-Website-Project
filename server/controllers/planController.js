@@ -9,14 +9,14 @@ const ErrorResponse = require("../utils/errorResponse");
 
 const createNewPlan = async (req, res, next) => {
   try {
-    const {title,description,markdown,createdAt} = req.body;
-    const plan = await planModel.create({title:title,description:description,markdown:markdown,createdAt:createdAt})
+    const {title,description,markdown,createdAt,lang} = req.body;
+    const plan = await planModel.create({title:title,description:description,markdown:markdown,createdAt:createdAt,lang:lang})
 
     if(!plan){
       return next(new ErrorResponse("Error,Fill al the details for your article!",404))
     }
 
-    res.send({message:"sucesss",data:"imported successfully!"})
+    res.send({message:"sucesss",data:"imported successfully!",plan:plan})
     // res.render("articles/new", { plan: new planModel() });
   } catch (error) {
     console.log(error);
