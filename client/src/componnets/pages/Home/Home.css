@@ -122,9 +122,10 @@
 
 .vision-goals-wrapper {
   background-color: #e8dbcf;
+  display: flex;
+  flex-direction: column;
 }
-.vision-goals-container {
-}
+
 
 @media only screen and (max-width: 1060px) {
   .vision {

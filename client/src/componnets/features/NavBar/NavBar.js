@@ -26,7 +26,7 @@ const NavBar = () => {
   return (
     <div className="navBar">
                   <div class="dropdown">
-          <button
+          {/* <button
             class="btn btn-link dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
@@ -34,7 +34,7 @@ const NavBar = () => {
             aria-expanded="false"
           >
             <GlobeIcon />
-          </button>
+          </button> */}
 
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li>          

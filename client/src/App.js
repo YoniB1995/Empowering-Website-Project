@@ -11,9 +11,9 @@ import { Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 function App() {
-  useEffect(() => {   
-    window.addEventListener('load', function() { new Accessibility(options); }, false);
-  });
+  // useEffect(() => {   
+  //   window.addEventListener('load', function() { new Accessibility(options); }, false);
+  // });
 
   var labels = {
     resetTitle: 'רענן ',
@@ -43,9 +43,6 @@ function App() {
             <NavBar />
             <AppRouter />
             {/* <Footer /> */}
-            {/* <Data /> */}
-            {/* <Contect/> */}
-            {/* <Contact/> */}
           </AuthContextProvider>
         </Router>
       </Suspense>
