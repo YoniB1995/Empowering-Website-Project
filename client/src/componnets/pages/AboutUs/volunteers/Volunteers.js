@@ -1,6 +1,6 @@
 import { Button, Card } from "antd";
 import { useState } from "react";
-
+import "./volunteers.css";
 const { Meta } = Card;
 
 const Volunteers = () => {
@@ -15,7 +15,7 @@ const Volunteers = () => {
   const imgOnMouseOut = () => {
     setCardOnHover(false);
   };
-  const staffMembers = [
+  const volunteersMembers = [
     {
       fullname: "רחלי טסדה מלכאי",
       role: "יזמית,מייסדת ומנכלית העמותה",
@@ -68,62 +68,52 @@ const Volunteers = () => {
     </div>
   );
   return (
-    <div className="staff-wrapper">
-      <h1>{titleDisplay}</h1>
-      <div className="staff-header-container">
-        <h3 className="staff-title">הכירו את המתנדבים שלנו</h3>
+    <div className="volunteers-wrapper">
+      <div className="volunteers-header-container">
+        <h3 className="volunteers-title">הכירו את המתנדבים שלנו</h3>
 
-        <div className="staff-header-decoration"></div>
+        <div className="volunteers-header-decoration"></div>
       </div>
       <div className="cards-container">
-      {staffMembers.map((member) => (
-        <Card
-          onMouseOver={imgOnMouseHover}
-          onMouseOut={imgOnMouseOut}
-          className="staff-card"
-          hoverable
-          cover={
-            <img
-              className="staff-img"
-              style={{
-                borderRadius: "100%",
-                padding: "5px",
-                width: "220px",
-                height: "220px",
-                margin: "auto",
-              }}
-              alt="example"
-              src={member.image}
-            />
-          }
-        >
-          <Meta
-            title={
-              <div>
-                <p>{member.fullname}</p>
-                {member.role}
-              </div>
+        {volunteersMembers.map((member) => (
+          <Card
+            className="volunteers-card"
+            hoverable
+            cover={
+              <img
+                className="volunteers-img"
+                style={{}}
+                alt="example"
+                src={member.image}
+              />
             }
-            description={member.description}
-            className="card-title"
-          />
-          <div className="staff-btn">
-          <Button
-            size="middle"
-            shape="round"
-            style={{
-              background: "black",
-              borderColor: "white",
-              color: "white",
-            }}
           >
-           מזער
-          </Button>
-          </div>
-        </Card>
-      ))}
-        </div>
-
+            <Meta
+              title={
+                <div>
+                  <p>{member.fullname}</p>
+                  {member.role}
+                </div>
+              }
+              description={member.description}
+              className="card-title"
+            />
+            <div className="volunteers-btn">
+              <Button
+                size="middle"
+                shape="round"
+                style={{
+                  background: "#D1D9D9",
+                  borderColor: "white",
+                  color: "black",
+                }}
+              >
+                מזער
+              </Button>
+            </div>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };
