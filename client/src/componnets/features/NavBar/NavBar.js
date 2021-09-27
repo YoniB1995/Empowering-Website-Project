@@ -65,8 +65,12 @@ const NavBar = () => {
         <Link to="/">
           <Menu.Item>
             <div className="navbar-left-side">
+
+             
+
               <div className="">
               </div>
+
               
                 <Link to="/ContactU" >
                 <Menu.Item className="menu-item-contact"> צור קשר</Menu.Item>

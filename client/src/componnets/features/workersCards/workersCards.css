@@ -45,9 +45,9 @@ element.style {
 .material-card {
   width: 70%;
 }
-img {
+/* img {
   width: 100%;
-}
+} */
 .material-card h2 {
   position: absolute;
   text-align: center;

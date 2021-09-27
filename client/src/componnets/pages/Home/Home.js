@@ -13,11 +13,10 @@ import Goals from "./goals/Goals";
 import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
 import { Link } from "react-router-dom";
-import {useTranslation} from "react-i18next"
-
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
-  const {t} = useTranslation();
+  const {  } = useTranslation();
 
   useEffect(() => {
     new WOW.WOW({
@@ -26,35 +25,45 @@ const Home = () => {
   }, []);
   return (
     <div>
-
       <div className="home-first-section">
-        {/* <News/> */}
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
           <div className="aboutus-content">
-          <h1>{t("littleBitAbout")} </h1>
-          <p>{t("littleBitAboutInfo")}</p>
-         
-          <Link to="/AboutUs">
-          <Button
-            className="about-us-home-btn"
-            size="large"
-            shape="round"
-            style={{
-             margin:"auto",
-              background: "white",
-              borderColor: "white",
-              color: "black",
-              fontWeight: "bold",
-              marginTop: "20px",
-            }}
-          >
-            לקרוא עוד
-          </Button>
-          </Link>
+            <h1>קצת עלינו </h1>
+            <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
+            <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
+            <p>
+              ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה
+              מינית, נשים הסובלות
+            </p>
+            <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
+            <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
+            <p>
+              ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה
+              מינית, נשים הסובלות
+            </p>
+
+            <Link to="/AboutUs">
+              <Button
+                className="about-us-home-btn"
+                size="large"
+                shape="round"
+                style={{
+                  margin: "auto",
+                  background: "white",
+                  borderColor: "white",
+                  color: "black",
+                  fontWeight: "bold",
+                  marginTop: "20px",
+                }}
+              >
+                לקרוא עוד
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
+      <div></div>
       <div className="buffer-div">
         <div className="arrow-icon-container">
           <i
@@ -67,60 +76,48 @@ const Home = () => {
       {/* <div className="home-newsletter-section">
         <div className="archive-container">
           <div className="archive-slider"> */}
-            <SliderStore />
-            {/* <img src="./archive-newsletter-vector.jpg" /> */}
-          {/* </div> */}
-          <div className="newsletter-signup-btn">
-            <div style={{display:"flex",justifyContent:"center",}}>
-            <Button
-              className="about-us-home-btn"
-              size="large"
-              shape="round"
-              style={{
-                background: "#f5ad88",
-                borderColor: "#f5ad88",
-                color: "white",
-              }}
-            >
-              להרשמה לניוזלטר לחצ\י כאן
-            </Button>
-            </div>
-          {/* </div>
-        </div> */}
-      </div> 
-      <Programs/>
-      <div
-        className="vision-goals-wrapper"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          height: "1000px",
-
-        }}
-      >
-        <div
-          className="vision-container"
-          style={{ width: "95%", display: "flex", justifyContent: "flex-end" }}
-        >
-          <Vision />
+      <SliderStore />
+      {/* <img src="./archive-newsletter-vector.jpg" /> */}
+      {/* </div> */}
+      <div className="newsletter-signup-btn">
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button
+            className="about-us-home-btn"
+            size="large"
+            shape="round"
+            style={{
+              background: "#f5ad88",
+              borderColor: "#f5ad88",
+              color: "white",
+            }}
+          >
+            להרשמה לניוזלטר לחצ\י כאן
+          </Button>
         </div>
+        {/* </div>
+        </div> */}
+      </div>
+      <Programs />
+      <div>
+        <div className="vision-goals-container">
+          <div className="vision">
+            <Vision />
+          </div>
 
-        <div
-          className="goals-container"
-          style={{ width: "75%", display: "flex", justifyContent: "flex-end" }}
-        >
-          <Goals />
+          <div className="goals">
+            <Goals />
+          </div>
         </div>
         <div
           className="programs-wrapper"
           style={{
-            width: "95%", display: "flex", justifyContent: "flex-end"
+            width: "95%",
+            display: "flex",
+            justifyContent: "flex-end",
           }}
-        >
-        </div>
+        ></div>
       </div>
-      <Copartner/>
+      <Copartner />
 
       <BackTop>
         <div className="upBtn">
