@@ -4,7 +4,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable new-cap */
 
-const planModel = require("../models/planModel");
+const {planModel} = require("../models/planModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const createNewPlan = async (req, res, next) => {
