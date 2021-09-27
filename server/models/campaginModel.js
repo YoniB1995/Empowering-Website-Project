@@ -4,8 +4,10 @@ const Joi = require("joi"); // Joi package for validation
 const Joigoose = require("joigoose")(mongoose); // convert joi schema to mongoose valid schema
 
 const campaginSchema = Joi.object({
-	Email: Joi.string().required(),
-	date: Joi.date().required(),
+	Email: Joi.string()
+	.required(),
+	date: Joi.date()
+	.required(),
 });
 
 const validCampagin = (campaginData) => {
