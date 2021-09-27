@@ -1,6 +1,7 @@
 .vertical-card {
   width: 800px;
   height: 26rem;
+  font-size: 16px;
   display: flex;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 5px;
@@ -11,11 +12,11 @@
   width: 40%;
 }
 #img-card {
+    padding: 10px;
   height: 100%;
   object-fit: cover;
 }
 .vertical-card-body {
-  /* margin: 1rem; */
   height: 100%;
   width: 60%;
   display: flex;
@@ -44,7 +45,8 @@
 }
 @media only screen and (max-width: 1060px) {
   .vertical-card {
-    width: 24rem;
+    font-size: 12px;
+    width: 22rem;
     height: 20rem;
     height: fit-content;
     display: flex;
@@ -52,7 +54,6 @@
   }
   .vertical-card-body {
     width: 100%;
-    border:red solid
   }
 
   .vertical-card-img-container {
@@ -64,6 +65,6 @@
     width: 100%;
   }
   #img-card {
-      width:60%
+    width: 100%;
   }
 }

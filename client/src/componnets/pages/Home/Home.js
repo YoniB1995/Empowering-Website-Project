@@ -13,11 +13,10 @@ import Goals from "./goals/Goals";
 import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
 import { Link } from "react-router-dom";
-import {useTranslation} from "react-i18next"
-
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
-  const {t} = useTranslation();
+  const {  } = useTranslation();
 
   useEffect(() => {
     new WOW.WOW({
@@ -27,7 +26,6 @@ const Home = () => {
   return (
     <div>
       <div className="home-first-section">
-        {/* <News/> */}
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
           <div className="aboutus-content">
@@ -65,6 +63,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div></div>
       <div className="buffer-div">
         <div className="arrow-icon-container">
           <i
@@ -99,31 +98,14 @@ const Home = () => {
         </div> */}
       </div>
       <Programs />
-      <div
-        className="vision-goals-wrapper"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          height: "1000px",
-        }}
-      >
-        {/* <div
-          className="vision-container"
-          style={{ width: "95%", display: "flex", justifyContent: "flex-end" }}
-        > */}
+      <div>
         <div className="vision-goals-container">
           <div className="vision">
-          <Vision />
+            <Vision />
           </div>
-        {/* </div> */}
 
-        {/* <div
-          className="goals-container"
-          style={{ width: "75%", display: "flex", justifyContent: "flex-end" }}
-        > */}
-        <div className="goals">
-          <Goals />
+          <div className="goals">
+            <Goals />
           </div>
         </div>
         <div

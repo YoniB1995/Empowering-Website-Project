@@ -10,17 +10,18 @@
 }
 
 .container-frame-cube {
+  width: 90%;
   position: absolute;
+}
+.frame-cube {
+  background-color: #798777;
   width: 130px;
   height: 35px;
-  background-color: #798777;
-  opacity: 1;
-  margin-top: 0px;
-  margin-left: 33%;
+  margin: auto;
 }
 #img-slide {
-  margin-top: 20px;
-  height: 524px;
+  margin: 20px auto 0 auto;
+  height: 526px;
   padding: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -42,9 +43,9 @@
   .slider-container {
     width: 360px;
   }
-  .container-frame-cube {
+  /* .container-frame-cube {
     margin-left: 30%;
-  }
+  } */
 }
 @media screen and (max-width: 600px) {
   .material-card.mc-activet {

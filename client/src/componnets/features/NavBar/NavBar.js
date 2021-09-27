@@ -26,7 +26,7 @@ const NavBar = () => {
   return (
     <div className="navBar">
                   <div class="dropdown">
-          {/* <button
+          <button
             class="btn btn-link dropdown-toggle"
             type="button"
             id="dropdownMenuButton1"
@@ -34,7 +34,7 @@ const NavBar = () => {
             aria-expanded="false"
           >
             <GlobeIcon />
-          </button> */}
+          </button>
 
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li>          
@@ -65,15 +65,7 @@ const NavBar = () => {
         <Link to="/">
           <Menu.Item>
             <div className="navbar-left-side">
-              <div className="">
-                <span id="langauge">ENG</span>
-
-                <img
-                  src="./language.png"
-                  alt="language-icon"
-                  id="language-icon"
-                />
-              </div>
+             
               
                 <Link to="/ContactU" >
                 <Menu.Item className="menu-item-contact"> צור קשר</Menu.Item>
