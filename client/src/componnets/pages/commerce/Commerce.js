@@ -4,30 +4,34 @@ import Commerce from '@chec/commerce.js';
 import ProductsC from '../../features/Products/Products';
 import { Badge } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import { Drawer, Button } from 'antd';
+import { Drawer, Button, Modal } from 'antd';
 import CartItem from '../../cart/CartItem';
 import ButtonComponen from '../../features/Button/ButtonComponent';
 import 'antd/dist/antd.css';
 import './commerce.css'
 import { Spin } from 'antd';
+import Input from '../../features/Input/Input';
 import ButtonComponent from '../../features/Button/ButtonComponent';
 const REACT_APP_CHEC_PUBLIC_KEY = "pk_332356f9128204a342117237f03a4f7afd9a55c1d788d";
 export const commerce = new Commerce(REACT_APP_CHEC_PUBLIC_KEY, true);
 
-
 const CommerceJs = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({})
+    const [card, setCard] = useState({})
     const fetchProducts = async () => {
         const data = await commerce.products.list();
         setProducts(data.data);
     }
-
+    console.log(products)
     const fetchCart = async () => {
         const cart = await commerce.cart.retrieve();
         setCart(cart)
     }
-
+    const fetchCard = async () => {
+        const card = await commerce.cart.retrieve();
+        setCard(card.line_items)
+    }
     const handleAddToCart = async (productId, quanitity) => {
         const { cart } = await commerce.cart.add(productId, quanitity);
         setCart(cart);
@@ -52,53 +56,79 @@ const CommerceJs = () => {
             </div>
         </Drawer>
     };
+    // const ModalForm = () => {
+    //     const [isModalVisible, setIsModalVisible] = useState(false);
+
+    //     const showModal = () => {
+    //         setIsModalVisible(true);
+    //     };
+
+    //     const handleOk = () => {
+    //         setIsModalVisible(false);
+    //     };
+
+    //     const handleCancel = () => {
+    //         setIsModalVisible(false);
+    //     };
+    //     return <div>  <Button type="primary" onClick={showModal}>
+    //         Open Modal
+    //     </Button>
+    //         <Modal title="פרטים אישיים" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+    //             <label>שם מלא</label>
+    //             <Input type="text" name="user_email" className="contact" />
+    //             <label>אימייל</label>
+    //             <Input type="email" name="user_email" className="contact" />
+    //         </Modal>
+    //     </div>
+
+    // }
     const FilledCart = () => {
         return <>
-        <div>
-            <Button onClick={showDrawer} className="badge">
-                <Badge count={cart?.total_items} showZero totalItems={cart?.total_items}>
-                    <ShoppingCartOutlined style={{ float: "right" }} />
-                </Badge>
-            </Button>
-            <div className="drawer">
-                <Drawer title="סל הקניות שלך" placement="right" onClose={onClose} visible={visible} >
-                    <div style={{ top: 304, left: 1281, height: 350 , textAlign:"center"}}>
-                        {cart?.line_items.map((item) => {
-                            return <CartItem item={item}
-                                handleUpdateCartQuantity={handleUpdateCartQuantity}
-                                handleRemoveFromCart={handleRemoveFromCart} />
-                        })}
-                    </div>
-                    <div className="subtotal">
-                        <span>סה"כ לתשלום:</span>
-                        {cart.subtotal.formatted_with_symbol}
-                        <ButtonComponent  type="button" onClick={() => handleEmptyCart()} className="btnCart" id="btnOne" text="רוקן עגלה"></ButtonComponent>
-                        <ButtonComponent  type="button" text="לקופה" className="btnCart" id="btnTwo"></ButtonComponent>
-                    </div>
-                </Drawer>
-            </div>
+            <div>
+                <Button onClick={showDrawer} className="badge">
+                    <Badge count={cart?.total_items} showZero totalItems={cart?.total_items}>
+                        <ShoppingCartOutlined style={{ float: "right" }} />
+                    </Badge>
+                </Button>
+                <div className="drawer">
+                    <Drawer title="סל הקניות שלך" placement="right" onClose={onClose} visible={visible} >
+                        <div style={{ top: 304, left: 1281, height: 350, textAlign: "center" }}>
+                            {cart?.line_items.map((item) => {
+                                return <CartItem item={item}
+                                    handleUpdateCartQuantity={handleUpdateCartQuantity}
+                                    handleRemoveFromCart={handleRemoveFromCart} />
+                            })}
+                        </div>
+                        <div className="subtotal">
+                            <span>סה"כ לתשלום:</span>
+                            {cart.subtotal.formatted_with_symbol}
+                            <ButtonComponent type="button" onClick={() => handleEmptyCart()} className="btnCart" id="btnOne" text="רוקן עגלה"></ButtonComponent>
+                            <ButtonComponent type="button"
+                               text="לקופה" className="btnCart" id="btnTwo"></ButtonComponent>
+                        </div>
+                    </Drawer>
+                </div>
             </div>
         </>
     }
     useEffect(() => {
         fetchProducts();
         fetchCart();
+        fetchCard();
     }, [])
     const [visible, setVisible] = useState(false);
 
     const showDrawer = () => {
         setVisible(true);
     };
-
     const onClose = () => {
         setVisible(false);
     };
-    console.log(cart)
-    if (!cart.line_items) return <div className="spin"><Spin size="large" /></div>;
-
+    // console.log(cart)
+    if (!cart.line_items) return <div className="spin"><Spin size="large" /></div>
     return (
         <div>
-            <div >
+            <div>
                 {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
             </div>
             <Switch>

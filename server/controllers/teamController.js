@@ -1,4 +1,4 @@
-const teamModel = require("../models/teamModel");
+const {teamModel} = require("../models/teamModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const getAllTeamEnglish = async (req, res, next) => {
@@ -54,9 +54,9 @@ const getTeamMemberByRole = async (req, res, next) => {
 
 const addNewMember = async (req, res, next) => {
     try{
-        const {fullname,role,image,description} = req.body
+        const {fullname,role,image,description,lang} = req.body
 
-        const newMember = await teamModel.create({fullname:fullname,role:role,image:image,description:description})
+        const newMember = await teamModel.create({fullname:fullname,role:role,image:image,description:description,lang:lang})
 
         if (!fullname || !role || !image || !description){
             return next(new ErrorResponse("You must fill all the values.",404))
@@ -69,11 +69,11 @@ const addNewMember = async (req, res, next) => {
 
 const editTeamMember = async (req, res, next) => {
     try{
-        const {fullname,role,image,description} = req.body
+        const {fullname,role,image,description,lang} = req.body
 
-        const updatedMember = await teamModel.findByIdAndUpdate(req.params.id,{fullname:fullname,role:role,image:image,description:description})
+        const updatedMember = await teamModel.findByIdAndUpdate(req.params.id,{fullname:fullname,role:role,image:image,description:description,lang:lang})
 
-        if (!fullname || !role || !image || !description){
+        if (!fullname || !role || !image || !description|| !lang){
             return next(new ErrorResponse("You must fill all the values.",404))
         }
         res.send({message:"edited member!",Edited:updatedMember})
