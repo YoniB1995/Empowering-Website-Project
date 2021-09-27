@@ -1,4 +1,5 @@
 const ErrorResponse = require("../utils/errorResponse");
+const filterResponse = require("../utils/filterResponse");
 const { MailchimpMarketingModel } = require("../models/mailChimpModel");
 const md5 = require("md5");
 const { validMember } = require("../models/memberModel");
@@ -9,7 +10,8 @@ const createMember = async (req, res, next) => {
 	try {
 		const { error } = validMember(req.body); // try to validate
 		if (error) {
-			next(new ErrorResponse({ error: error.details[0].message }, 301));
+			// next(new ErrorResponse({ error: error.details[0].message }, 301));
+			res.json({ error: error.details[0] }).status(301);
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));
@@ -33,7 +35,7 @@ const updateMember = async (req, res, next) => {
 	try {
 		const { error } = validMember(req.body); // try to validate
 		if (error) {
-			next(new ErrorResponse({ error: error.details[0].message }, 301));
+			res.json({ error: error.details[0].message }).status(301);
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));
@@ -55,13 +57,20 @@ const updateMember = async (req, res, next) => {
 
 const getAllMembers = async (req, res, next) => {
 	try {
-		const members = await MailchimpMarketingModel.lists.getListMembersInfo(
+		const { members } = await MailchimpMarketingModel.lists.getListMembersInfo(
 			AUDIENCE_ID
 		);
 		if (!members) {
 			res.status(200).json("no members exist");
 		}
-		res.status(200).json({ members });
+		try {
+			const filterdMembers = filterResponse(members); // use function to filter fields
+			res.status(200).json({ filterdMembers }).status(301);
+		} catch (e) {
+			console.log("one of the fields not exist");
+
+			next(new ErrorResponse("server error", 500));
+		}
 	} catch (e) {
 		next(new ErrorResponse("server error", 500));
 	}
@@ -73,7 +82,7 @@ const getMember = async (req, res, next) => {
 	try {
 		const { error } = validMember({ Email }); // try to validate
 		if (error) {
-			next(new ErrorResponse({ error: error.details[0].message }, 301));
+			res.json({ error: error.details[0].message }).status(301);
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));
@@ -96,21 +105,18 @@ const deleteMember = async (req, res, next) => {
 	try {
 		const { error } = validMember({ Email }); // try to validate
 		if (error) {
-			next(new ErrorResponse({ error: error.details[0].message }, 301));
+			res.json({ error: error.details[0].message }).status(301);
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));
 	}
 	await MailchimpMarketingModel.lists
 		.deleteListMemberPermanent(AUDIENCE_ID, subscriberHash)
-		.then((response) => res.status(200).json({ message: "user deleted" }))
+		.then((response) =>
+			res.status(200).json({ message: "user deleted", response })
+		)
 		.catch((err) =>
-			next(
-				new ErrorResponse(
-					res.json({ text: JSON.parse(err.response.text).detail })
-				),
-				500
-			)
+			res.json({ text: JSON.parse(err.response.text).detail }).status(500)
 		);
 };
 
