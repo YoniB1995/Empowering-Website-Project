@@ -13,8 +13,12 @@ import Goals from "./goals/Goals";
 import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
 import { Link } from "react-router-dom";
+import {useTranslation} from "react-i18next"
+
 
 const Home = () => {
+  const {t} = useTranslation();
+
   useEffect(() => {
     new WOW.WOW({
       live: false,

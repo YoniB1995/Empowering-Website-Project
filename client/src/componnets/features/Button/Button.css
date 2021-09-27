@@ -1,8 +1,8 @@
 .form-button{
-  padding: 10px;
+  padding: 4px;
   color: #ffffff;
   font-weight: bold;
-  background: #bb906d;
+  background: rgb(245, 173, 136);
   width: 100%;
   border: none;
   outline: none;
@@ -11,5 +11,5 @@
 }
 
 .form-button:active {
-  background: #bb906d;
+  background: rgb(245, 173, 136);
 }
