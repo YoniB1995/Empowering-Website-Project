@@ -50,10 +50,31 @@
   margin-top: 0px;
 }
 
+
 #mail-icon {
   font-size: 24px;
   margin-top: 10px;
 }
 #mail-icon :hover{
   color:#F5AD88 ;
+}
+.select{
+  width: 200px;
+  text-align: center;
+}
+
+.contact-form{
+  height: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  margin-left: 39%;
+  /* padding: 17px; */
+  
+}
+.contact-form h1{
+  font-family: "Varela Round", sans-serif;
 }

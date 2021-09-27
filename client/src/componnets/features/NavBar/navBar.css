@@ -33,11 +33,12 @@
   border-bottom-style: solid;
 
 } */
-.menu-item :hover {
+.navBar .menu-item:focus {
   color: #f5ad88;
   padding-bottom: 3px;
   border-bottom-style: solid;
 }
+
 .logo {
   width: 80px;
   height: 80px;
@@ -64,3 +65,14 @@
 .navbar-left-side {
   display: flex;
 }
+.active{
+  background-color: gold;
+}
+.menu-item-contact{
+margin: 5px;
+width: 110px;
+height: 45px;
+background: white;
+color: #000000;
+border-radius: 50px;
+opacity: 1; }
