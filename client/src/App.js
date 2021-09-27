@@ -10,6 +10,7 @@ import Data from "./componnets/pages/Admin/Data/Data";
 import { Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
+
 function App() {
   // useEffect(() => {   
   //   window.addEventListener('load', function() { new Accessibility(options); }, false);

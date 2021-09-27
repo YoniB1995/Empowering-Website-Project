@@ -18,10 +18,10 @@ const NavBar = () => {
   const { t } = useTranslation();
   const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
-  useEffect(() => {
-    document.body.dir = currentLang.dir || "rtl";
-    document.title = t("app_title");
-  }, [currentLang, t]);
+  // useEffect(() => {
+  //   document.body.dir = currentLang.dir || "rtl";
+  //   document.title = t("app_title");
+  // }, [currentLang, t]);
 
   return (
     <div className="navBar">
@@ -65,7 +65,12 @@ const NavBar = () => {
         <Link to="/">
           <Menu.Item>
             <div className="navbar-left-side">
+
              
+
+              <div className="">
+              </div>
+
               
                 <Link to="/ContactU" >
                 <Menu.Item className="menu-item-contact"> צור קשר</Menu.Item>
