@@ -10,6 +10,7 @@ const {type,name,placeholder,handleChange}=props;
       name={name}
       placeholder={placeholder}
       onChange={handleChange}
+      required
     />
   );
 };
