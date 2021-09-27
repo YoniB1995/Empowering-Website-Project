@@ -61,18 +61,24 @@ const NavBar = () => {
       <Link to="./">
         <Avatar className="logo" src="./logo-main.jpg" alt="logo"></Avatar>
       </Link>
-      <Menu className="navBarLinks" mode="horizontal">
+      <Menu className="navBarLinks" mode="horizontal" >
         <Link to="/">
           <Menu.Item>
             <div className="navbar-left-side">
+              <div className="">
+                <span id="langauge">ENG</span>
 
-              <div>
-                <Link to="/">
-                  <Menu.Item>
-                    <ContactU/>
-                  </Menu.Item>
-                </Link>
+                <img
+                  src="./language.png"
+                  alt="language-icon"
+                  id="language-icon"
+                />
               </div>
+              
+                <Link to="/ContactU" >
+                <Menu.Item className="menu-item-contact"> צור קשר</Menu.Item>
+                </Link>
+              
             </div>
           </Menu.Item>
         </Link>
