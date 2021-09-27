@@ -66,13 +66,6 @@ const NavBar = () => {
           <Menu.Item>
             <div className="navbar-left-side">
               <div className="">
-                <span id="langauge">ENG</span>
-
-                <img
-                  src="./language.png"
-                  alt="language-icon"
-                  id="language-icon"
-                />
               </div>
               
                 <Link to="/ContactU" >
