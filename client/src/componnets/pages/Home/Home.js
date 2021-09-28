@@ -76,12 +76,12 @@ const Home = () => {
       {/* <div className="home-newsletter-section">
         <div className="archive-container">
           <div className="archive-slider"> */}
-      <SliderStore />
+      {/* <SliderStore /> */}
       {/* <img src="./archive-newsletter-vector.jpg" /> */}
       {/* </div> */}
       <div className="newsletter-signup-btn">
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button
+          {/* <Button
             className="about-us-home-btn"
             size="large"
             shape="round"
@@ -92,7 +92,7 @@ const Home = () => {
             }}
           >
             להרשמה לניוזלטר לחצ\י כאן
-          </Button>
+          </Button> */}
         </div>
         {/* </div>
         </div> */}

@@ -1,21 +1,22 @@
 import { Button, Card } from "antd";
 import "./staff.css";
 import { useState } from "react";
+import { PlusCircleFilled } from "@ant-design/icons";
+import { ExclamationCircleOutlined, DeleteOutlined } from "@ant-design/icons";
+import { red } from "@material-ui/core/colors";
 
 const { Meta } = Card;
 
 const Staff = () => {
-  const [cardOnHover, setCardOnHover] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState({});
 
-  const titleDisplay = cardOnHover ? "visible" : "hidden";
-  const cardImgStyle = cardOnHover ? "#FDFCE5" : "#F5AD88";
+  const handleClick = (index) => () => {
+    setClickedIndex((state) => ({
+      ...state, // <-- copy previous state
+      [index]: !state[index], // <-- update value by index key
+    }));
+  };
 
-  const imgOnMouseHover = () => {
-    setCardOnHover(true);
-  };
-  const imgOnMouseOut = () => {
-    setCardOnHover(false);
-  };
   const staffMembers = [
     {
       fullname: "רחלי טסדה מלכאי",
@@ -82,21 +83,44 @@ const Staff = () => {
 
         <div className="staff-header-decoration"></div>
       </div>
+      <div className="staff-role-btn-container">
+        <Button
+          size="large"
+          shape="round"
+          style={{ marginRight: "10px", width: "120px" }}
+        >
+          {" "}
+          צוות
+        </Button>
+        <Button
+          size="large"
+          shape="round"
+          style={{ marginRight: "10px", width: "120px" }}
+        >
+          {" "}
+          ועד מנהל
+        </Button>
+        <Button
+          size="large"
+          shape="round"
+          style={{ marginRight: "10px", width: "120px" }}
+        >
+          {" "}
+          מייסדים
+        </Button>
+      </div>
       <div className="cards-container">
-        {staffMembers.map((member) => (
+        {staffMembers.map((member, index) => (
           <Card
-          
+            style={{ background: clickedIndex[index] ?"#fdfce5": "#f5ad88",border:"none"}}
             className="staff-card"
             hoverable
             cover={
               <img
+                onClick={handleClick(index)}
                 className="staff-img"
                 style={{
-                    borderRadius: "100%",
-                    padding: "5px",
-                    width: "220px",
-                    height: "220px",
-                    margin: "auto",
+                  margin: "auto",
                 }}
                 alt="example"
                 src={member.image}

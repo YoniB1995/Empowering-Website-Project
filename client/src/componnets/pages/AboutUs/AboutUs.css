@@ -2,32 +2,34 @@
   background-color: #f5ad88;
 }
 .targets-header-container {
-    margin-top: 20px;
-    display: flex;
-    width: 97%;
-    justify-content: flex-end;
-  }
-  .cards-container {
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .targets-header-decoration {
-    width: 0;
-    border: white solid;
-    height: 27px;
-    margin-left: 10px;
-  }
-  .targets-title {
-    font-family: "Varela Round", sans-serif;
-    color: white;
-  }
+  padding: 20px;
+  display: flex;
+  width: 97%;
+  justify-content: flex-end;
+}
+.cards-container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.targets-header-decoration {
+  margin-left: 10px;
+  width: 0;
+  border: white solid;
+  height: 27px;
+}
+.targets-title {
+  font-size: 24px;
+  font-family: "Varela Round", sans-serif;
+  color: white;
+}
 
 .targets-container {
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
-  /* border: 5px solid black; */
   align-items: center;
 }
 .target-card-list {
@@ -47,4 +49,13 @@
   padding: 20px;
   display: flex;
   justify-content: flex-start;
+}
+
+@media only screen and (max-width: 760px) {
+  .target-card-container-right-side {
+    /* justify-content: center; */
+  }
+  .target-card-container-left-side {
+    /* justify-content: center; */
+  }
 }

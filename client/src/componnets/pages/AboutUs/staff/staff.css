@@ -1,5 +1,5 @@
-.staff-wrapper {
-    width: 97%;
+ .staff-wrapper {
+  width: 97%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -8,10 +8,9 @@
   display: flex;
   width: 97%;
   justify-content: flex-end;
-
 }
 .cards-container {
-   padding: 20px;
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -25,30 +24,32 @@
 .staff-title {
   font-family: "Varela Round", sans-serif;
   color: white;
+  font-size: 20px;
 }
-.staff-card {
+/* .staff-card {
   width: 250px;
-  /* background-color: #f5ad88; */
-  background-color: #fdfce5;
-  margin-right: 20px;
+  background-color: #f5ad88;
+    background-color: #fdfce5; 
+   margin-right: 20px;
   margin-top: 20px;
 
   border: 0;
-}
+} 
 
-/* .staff-card:hover {
+.staff-card:hover {
   background-color: #fdfce5;
-} */
+} 
+ 
 
 .staff-card-title {
   padding: 10px;
-  /* display: none; */
-}
+   display: none; 
+} */
 
 /* .staff-card:hover staff-card-title {
   display: inline;
   background-color: #fdfce5;
-}
+}  */
 
 .staff-btn {
   margin: auto;
@@ -59,4 +60,9 @@
 }
 .staff-card:hover .staff-btn {
   display: flex;
-} */
+}
+
+.staff-role-btn-container {
+  display: flex;
+  justify-content: center;
+} 
