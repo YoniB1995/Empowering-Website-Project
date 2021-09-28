@@ -6,14 +6,15 @@ import "../Slider/slider.css";
 
 const ImageSlider = () => {
   return (
-    <div className="slider-img-section" style={{ paddingTop: "20px" }}>
+    <div className="slider-img-section">
       <div className="slider-container">
-        <div className="container-frame-cube"></div>
+        <div className="container-frame-cube ">
+        <div className="frame-cube"></div>
+        </div>
         <Carousel autoplay>
           {ImgSliderData.map((slide) => (
             <div>
-                    <img src={slide.image} id="img-slide" alt="carousel-img" />
-
+              <img src={slide.image} id="img-slide" alt="carousel-img" />
             </div>
           ))}
         </Carousel>

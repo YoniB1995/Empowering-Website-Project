@@ -1,0 +1,50 @@
+.aboutus-wrapper {
+  background-color: #f5ad88;
+}
+.targets-header-container {
+    margin-top: 20px;
+    display: flex;
+    width: 97%;
+    justify-content: flex-end;
+  }
+  .cards-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .targets-header-decoration {
+    width: 0;
+    border: white solid;
+    height: 27px;
+    margin-left: 10px;
+  }
+  .targets-title {
+    font-family: "Varela Round", sans-serif;
+    color: white;
+  }
+
+.targets-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 5px solid black; */
+  align-items: center;
+}
+.target-card-list {
+  list-style-type: none;
+}
+
+.target-card-container-right-side {
+  padding: 20px;
+  display: flex;
+  width: 90%;
+  justify-content: flex-end;
+}
+
+.target-card-container-left-side {
+  width: 90%;
+  padding: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+}

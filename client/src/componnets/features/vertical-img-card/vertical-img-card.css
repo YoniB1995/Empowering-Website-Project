@@ -1,22 +1,22 @@
-
-.card {
+.vertical-card {
   width: 800px;
   height: 26rem;
+  font-size: 16px;
   display: flex;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 5px;
   background-color: white;
 }
-.img-container {
+.vertical-card-img-container {
   height: 100%;
   width: 40%;
 }
 #img-card {
+    padding: 10px;
   height: 100%;
   object-fit: cover;
 }
-.card-body {
-  /* margin: 1rem; */
+.vertical-card-body {
   height: 100%;
   width: 60%;
   display: flex;
@@ -24,49 +24,47 @@
   flex-wrap: wrap;
   direction: rtl;
   padding: 20px;
-
-
 }
-.card-title {
+.vertical-card-title {
   font-family: "Varela Round", sans-serif;
   margin-bottom: 0.5rem;
   direction: rtl;
   margin-right: 5px;
 }
-.header-decoration{
+.header-decoration {
   width: 0;
   height: 27px;
-  border:solid black;
+  border: solid black;
 }
-.card-description {
+.vertical-card-description {
   font-family: "Varela Round", sans-serif;
   direction: rtl;
 }
-.header{
+.header {
   display: flex;
 }
 @media only screen and (max-width: 1060px) {
-  .card {
-    width:24rem;
+  .vertical-card {
+    font-size: 12px;
+    width: 22rem;
     height: 20rem;
-    height:fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: column;
   }
-  .card-body{
-    width: 100%;
-
-  }
-
-  .img-container {
-
-    /* height: 40%; */
+  .vertical-card-body {
     width: 100%;
   }
-  .card-description {
+
+  .vertical-card-img-container {
+    width: 100%;
+    /* border:5px solid black */
+  }
+  .vertical-card-description {
     height: 60%;
     width: 100%;
   }
-  #img-vision {
+  #img-card {
+    width: 100%;
   }
 }
