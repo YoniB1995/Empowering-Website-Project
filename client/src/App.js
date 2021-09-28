@@ -41,7 +41,7 @@ function App() {
           <NavBar />
           <AppRouter />
           {/* <Footer /> */}
-        <Data/>
+        {/* <Data/> */}
           {/* <Contect/> */}
           {/* <Contact/> */}
           
