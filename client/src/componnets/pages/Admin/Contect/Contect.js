@@ -14,8 +14,8 @@ const Contect = () => {
       <AdminNavBar />
       {/* <StaffContect/> */}
       <Editable />
-      <ProgramsContect />
-      <PartnersContect />
+      {/* <ProgramsContect /> */}
+      {/* <PartnersContect /> */}
     </>
   );
 };
