@@ -9,8 +9,7 @@ const { Option } = Select;
 
 export default function ContactU() {
 
-  const date = Date.now();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -63,7 +62,7 @@ export default function ContactU() {
         required
         onChange={getContent}
       />
-      <ButtonComponent className="form-button" type="submit" text="שלח" onClick={()=>{addContactUsInformation(inquiry,email,content,date)}}/>
+      <ButtonComponent className="form-button" type="submit" text="שלח" onClick={()=>{addContactUsInformation(inquiry,email,content)}}/>
     </form>
   );
 }
