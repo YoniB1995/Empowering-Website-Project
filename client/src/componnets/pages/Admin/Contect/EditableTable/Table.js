@@ -11,14 +11,14 @@ const Table = () => {
   const [addFormData, setAddFormData] = useState({
     fullName: '',
     date: '',
-    phoneNumber: '',
+    reason: '',
     email: '',
   });
 
   const [editFormData, setEditFormData] = useState({
     fullName: '',
     date: '',
-    phoneNumber: '',
+    reason: '',
     email: '',
   });
 
@@ -55,7 +55,7 @@ const Table = () => {
       id: nanoid(),
       fullName: addFormData.fullName,
       date: addFormData.date,
-      phoneNumber: addFormData.phoneNumber,
+      reason: addFormData.reason,
       email: addFormData.email,
     };
 
@@ -70,7 +70,7 @@ const Table = () => {
       id: editContactId,
       fullName: editFormData.fullName,
       date: editFormData.date,
-      phoneNumber: editFormData.phoneNumber,
+      reason: editFormData.reason,
       email: editFormData.email,
     };
 
@@ -91,7 +91,7 @@ const Table = () => {
     const formValues = {
       fullName: contact.fullName,
       date: contact.date,
-      phoneNumber: contact.phoneNumber,
+      reason: contact.reason,
       email: contact.email,
     };
 
@@ -174,7 +174,7 @@ const Table = () => {
             <tr>
               <th>Name</th>
               <th onClick={() => setFilterClick((old) => !old)}>date</th>
-              <th>Phone Number</th>
+              <th>reason</th>
               <th>Email</th>
               <th>Actions</th>
             </tr>
@@ -214,14 +214,14 @@ const Table = () => {
           type='text'
           name='date'
           required='required'
-          placeholder='Enter an addres...'
+          placeholder='Enter an date...'
           onChange={handleAddFormChange}
         />
         <input
           type='text'
-          name='phoneNumber'
+          name='reason'
           required='required'
-          placeholder='Enter a phone number...'
+          placeholder='Enter a reason...'
           onChange={handleAddFormChange}
         />
         <input
