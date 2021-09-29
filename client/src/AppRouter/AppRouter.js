@@ -50,7 +50,7 @@ export default function AppRouter() {
         <Route path='/Admin/AddProduct' component={AddProduct} />
         <Route path='/form' component={FormsTemporary} />
         <Route path='/test'>
-          <Contact />
+          {/* <Contact /> */}
           <Contect />
         </Route>
         <ProtectedRoute path='/logout' component={Logout} />
