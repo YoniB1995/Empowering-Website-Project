@@ -6,17 +6,18 @@ import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';
 
 const Table = () => {
+  const [filterClick, setFilterClick] = useState(false);
   const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
     fullName: '',
-    address: '',
+    date: '',
     phoneNumber: '',
     email: '',
   });
 
   const [editFormData, setEditFormData] = useState({
     fullName: '',
-    address: '',
+    date: '',
     phoneNumber: '',
     email: '',
   });
@@ -53,7 +54,7 @@ const Table = () => {
     const newContact = {
       id: nanoid(),
       fullName: addFormData.fullName,
-      address: addFormData.address,
+      date: addFormData.date,
       phoneNumber: addFormData.phoneNumber,
       email: addFormData.email,
     };
@@ -68,7 +69,7 @@ const Table = () => {
     const editedContact = {
       id: editContactId,
       fullName: editFormData.fullName,
-      address: editFormData.address,
+      date: editFormData.date,
       phoneNumber: editFormData.phoneNumber,
       email: editFormData.email,
     };
@@ -89,7 +90,7 @@ const Table = () => {
 
     const formValues = {
       fullName: contact.fullName,
-      address: contact.address,
+      date: contact.date,
       phoneNumber: contact.phoneNumber,
       email: contact.email,
     };
@@ -111,14 +112,68 @@ const Table = () => {
     setContacts(newContacts);
   };
 
+  let month = -2802041032;
+  let week = -642099029;
+  let day = -123744998;
+
+  const handleFilter = (filterDate) => {
+    setContacts(
+      contacts.filter((a) => new Date(a.date) - new Date() > filterDate)
+    );
+  };
+
   return (
     <div className='app-container'>
       <form onSubmit={handleEditFormSubmit}>
+        {filterClick && (
+          <div
+            style={{
+              background: 'white',
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              border: '2px solid black',
+              zIndex: '1111',
+            }}
+          >
+            <p
+              onClick={() => {
+                setFilterClick((old) => !old);
+                handleFilter(month);
+              }}
+            >
+              last month
+            </p>
+            <p
+              onClick={() => {
+                setFilterClick((old) => !old);
+                handleFilter(week);
+              }}
+            >
+              last week
+            </p>
+            <p
+              onClick={() => {
+                setFilterClick((old) => !old);
+                handleFilter(day);
+              }}
+            >
+              last day
+            </p>
+            <p
+              onClick={() => {
+                setContacts(data);
+              }}
+            >
+              all
+            </p>
+          </div>
+        )}
         <table>
           <thead>
             <tr>
               <th>Name</th>
-              <th>Address</th>
+              <th onClick={() => setFilterClick((old) => !old)}>date</th>
               <th>Phone Number</th>
               <th>Email</th>
               <th>Actions</th>
@@ -157,7 +212,7 @@ const Table = () => {
         />
         <input
           type='text'
-          name='address'
+          name='date'
           required='required'
           placeholder='Enter an addres...'
           onChange={handleAddFormChange}
