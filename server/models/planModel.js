@@ -88,40 +88,40 @@ module.exports = {
 // module.exports = planModel;
 // ///////////////////////////////////////
 
-const marked = require("marked");
-const slugify = require("slugify");
-const mongoose = require("mongoose");
-const createDomPurify = require("dompurify");
-const { JSDOM } = require("jsdom");
+// const marked = require("marked");
+// const slugify = require("slugify");
+// const mongoose = require("mongoose");
+// const createDomPurify = require("dompurify");
+// const { JSDOM } = require("jsdom");
 
-const Joi = require("joi");
+// const Joi = require("joi");
 
-const joigoose = require("joigoose")(mongoose);
+// const joigoose = require("joigoose")(mongoose);
 
-const dompurify = createDomPurify(new JSDOM().window);
+// const dompurify = createDomPurify(new JSDOM().window);
 
-const planSchema = Joi.object({
-  title: Joi.string()
-  .min(5)
-  .max(99)
-  .required(),
-  description: Joi.string()
-  .required(),
-  markdown: Joi.string()
-  .required(),
-  createdAt: Joi.date(),
-});
+// const planSchema = Joi.object({
+//   title: Joi.string()
+//   .min(5)
+//   .max(99)
+//   .required(),
+//   description: Joi.string()
+//   .required(),
+//   markdown: Joi.string()
+//   .required(),
+//   createdAt: Joi.date(),
+// });
 
-const validPlan = (plan) => {
-  const planJoi = planSchema.validate(plan);
-  return planJoi;
-};
+// const validPlan = (plan) => {
+//   const planJoi = planSchema.validate(plan);
+//   return planJoi;
+// };
 
-const planMongooseSchema = new mongoose.Schema(joigoose.convert(planSchema));
+// const planMongooseSchema = new mongoose.Schema(joigoose.convert(planSchema));
 
-const planModel = mongoose.model("plan", planMongooseSchema);
+// const planModel = mongoose.model("plan", planMongooseSchema);
 
-module.exports = {
-  validPlan,
-  planModel
-};
+// module.exports = {
+//   validPlan,
+//   planModel
+// };
