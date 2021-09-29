@@ -2,7 +2,7 @@ import { Table } from 'antd';
 import PartnersContect from './Partners-Contect';
 import ProgramsContect from './Programs-Contect';
 // import StaffContect from './Staff-Contect';
-import EditableTable from './EditableTable/EditableTable';
+import Editable from './EditableTable/Table';
 import AdminNavBar from '../../../features/Admin/Admin-Nav/Admin-Navbar';
 // import StaffContect from '../Staff-Contect';
 
@@ -13,7 +13,7 @@ const Contect = () => {
     <>
       <AdminNavBar />
       {/* <StaffContect/> */}
-      <EditableTable />
+      <Editable />
       <ProgramsContect />
       <PartnersContect />
     </>
