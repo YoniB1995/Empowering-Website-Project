@@ -96,8 +96,6 @@ const registerAdmin = async (req, res, next) => {
         if (error) throw error;
         newAdmin.password = hash;
         newAdmin.save().then(data => res.json(data)).catch(err => console.log(err))
-        
-
       });
     });
      }
