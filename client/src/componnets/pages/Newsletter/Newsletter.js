@@ -46,12 +46,10 @@ const Newsletter = () => {
       </div>
       {visible && (
         <div className='iframe'>
-          <iframe
-            src={iframeSelected.iframe}
+          <iframe src={iframeSelected.iframe}
             width='100%'
             height='500px'
-            frameborder='0'
-          ></iframe>
+            frameborder='0'></iframe>
         </div>
       )}
     </>

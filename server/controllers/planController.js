@@ -20,7 +20,7 @@ const createNewPlan = async (req, res, next) => {
       return next(new ErrorResponse("Error,Fill al the details for your article!",404))
     }
 
-    res.send({message:"sucesss",data:"imported successfully!"})
+    res.send({message:"sucesss",data:"imported successfully!",plan:plan})
     // res.render("articles/new", { plan: new planModel() });
   } catch (error) {
     console.log(error);
