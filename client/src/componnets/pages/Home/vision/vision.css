@@ -11,7 +11,7 @@
   height: 100%;
   width: 40%;
 }
-#img-vision {
+#img-card {
   height: 100%;
   object-fit: cover;
 }
@@ -47,20 +47,25 @@
 }
 @media only screen and (max-width: 1060px) {
   .card {
-    width:30rem;
+    width:24rem;
+    height: 20rem;
     height:fit-content;
     display: flex;
     flex-direction: column;
   }
+  .card-body{
+    width: 100%;
+
+  }
 
   .img-container {
-    height: 40%;
+
+    /* height: 40%; */
     width: 100%;
   }
   .card-description {
     height: 60%;
     width: 100%;
-    background-color: purple;
   }
   #img-vision {
   }

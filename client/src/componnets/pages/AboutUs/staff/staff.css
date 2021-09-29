@@ -1,42 +1,62 @@
-.staff-cards-container{
-    width: 60%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap
-    ;
+.staff-wrapper {
+    width: 97%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.staff-card:hover{
-    border:none;
-    background-color:yellow;
+.staff-header-container {
+  display: flex;
+  width: 97%;
+  justify-content: flex-end;
 
 }
-.card-container{
-    background-color:#F5AD88 ;
+.cards-container {
+   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.card-title{
-    /* visibility: hidden; */
+.staff-header-decoration {
+  width: 0;
+  border: white solid;
+  height: 27px;
+  margin-left: 10px;
 }
-    
-.staff-img:hover{
-border-radius: 0%;
-border-color: tomato;
+.staff-title {
+  font-family: "Varela Round", sans-serif;
+  color: white;
+}
+.staff-card {
+  width: 250px;
+  /* background-color: #f5ad88; */
+  background-color: #fdfce5;
+  margin-right: 20px;
+  margin-top: 20px;
 
+  border: 0;
 }
-.staff-header-container{
-    display: flex;
-    width: 90%;
-    justify-content: flex-end;
 
+/* .staff-card:hover {
+  background-color: #fdfce5;
+} */
 
+.staff-card-title {
+  padding: 10px;
+  /* display: none; */
 }
-.staff-header-decoration{
-    width: 0;
-    border: black solid;
-    height: 27px;
-    margin-left: 10px;
 
+/* .staff-card:hover staff-card-title {
+  display: inline;
+  background-color: #fdfce5;
 }
-.staff-title{
-    font-family: "Varela Round", sans-serif;
 
+.staff-btn {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  display: none;
 }
+.staff-card:hover .staff-btn {
+  display: flex;
+} */

@@ -21,7 +21,8 @@ import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts
 import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
 import Contact from '../componnets/pages/Admin/Contact/Contact';
 import Contect from '../componnets/pages/Admin/Contect/Contect';
-import CommerceJs from '../componnets/pages/commerce/Commerce'
+import CommerceJs from '../componnets/pages/commerce/Commerce';
+import ContactU from '../componnets/pages/ContactUs/ContactUs';
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -44,6 +45,7 @@ export default function AppRouter() {
         <Route path='/Admin/EditPlans/:id' component={EditArticles} />
         <Route path='/Admin/EditProducts/:id' component={EditProducts} />
         <Route path='/CommerceJs' component={CommerceJs} />
+        <Route path='/ContactU' component={ContactU} />
         <Route path='/Admin/AddPlan' component={AddArticle} />
         <Route path='/Admin/AddProduct' component={AddProduct} />
         <Route path='/form' component={FormsTemporary} />
