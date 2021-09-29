@@ -58,22 +58,10 @@ const getCampaignByTitle = async (req, res, next) => {
 
 const getDataFromMailchimp = async (req, res, next) => {
 	try {
-		const result = await MailchimpMarketingModel.lists.getListWebhooks(
-			process.env.AUDIENCE_ID
-		);
-
-		try {
-			const webhooksDetails =
-				await MailchimpMarketingModel.lists.getListWebhooks(
-					process.env.AUDIENCE_ID
-				);
-			res.json({ result }).status(200);
-		} catch (e) {
-			console.log(e);
-			res.send("error");
-		}
-	} catch (E) {
-		console.log(E);
+		console.log(req.body.data);
+		res.status(200).json({});
+	} catch (e) {
+		console.log(e);
 		res.send("error");
 	}
 };

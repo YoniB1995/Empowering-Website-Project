@@ -11,6 +11,11 @@ campaginRouter.get(
 	campaginController.getCampaignByTitle
 );
 
+campaginRouter.post(
+	"/getDataFromMailchimp",
+	campaginController.getDataFromMailchimp
+);
+
 campaginRouter.get(
 	"/getDataFromMailchimp",
 	campaginController.getDataFromMailchimp

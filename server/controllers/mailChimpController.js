@@ -20,7 +20,7 @@ const createMember = async (req, res, next) => {
 		await MailchimpMarketingModel.lists
 			.addListMember(AUDIENCE_ID, {
 				email_address: req.body.Email,
-				status: "pending",
+				status: "subscribed",
 			})
 			.then((response) =>
 				res.status(200).json({ message: "user added", response })
@@ -44,9 +44,10 @@ const updateMember = async (req, res, next) => {
 		const hashSubcriber = md5(req.params.Email);
 
 		await MailchimpMarketingModel.lists
-			.setListMember(AUDIENCE_ID, hashSubcriber, {
+			.updateListMember(AUDIENCE_ID, hashSubcriber, {
 				email_address: req.body.Email,
 				status_if_new: "subscribed",
+				FNAME: "yehoda",
 			})
 			.then((response) => res.status(200).json({ response }))
 			.catch((err) => res.json({ text: JSON.parse(err.response.text).detail }));
@@ -65,10 +66,9 @@ const getAllMembers = async (req, res, next) => {
 		}
 		try {
 			const filterdMembers = filterResponse(members); // use function to filter fields
-			res.status(200).json({ filterdMembers }).status(301);
+			res.status(200).json({ members }).status(301);
 		} catch (e) {
 			console.log("one of the fields not exist");
-
 			next(new ErrorResponse("server error", 500));
 		}
 	} catch (e) {
@@ -88,12 +88,13 @@ const getMember = async (req, res, next) => {
 		next(new ErrorResponse("bad request", 301));
 	}
 	try {
-		const member = await MailchimpMarketingModel.lists.getListMember(
-			AUDIENCE_ID,
-			subscriberHash
-		);
+		const { email_address, status } =
+			await MailchimpMarketingModel.lists.getListMember(
+				AUDIENCE_ID,
+				subscriberHash
+			);
 
-		res.status(200).json({ member });
+		res.status(200).json({ email_address, status });
 	} catch (e) {
 		next(new ErrorResponse("server error", 500));
 	}
