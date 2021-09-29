@@ -11,6 +11,8 @@ const passport = require('passport');
 const { validAdmin } = require('../validation/adminValidation');
 const ErrorResponse = require('../utils/errorResponse');
 const {adminModel} = require('../models/adminModel');
+// const { validAdmin, adminModel} = require('../models/adminModel');
+
 
 
 const loginAdmin = async (req, res) => {
