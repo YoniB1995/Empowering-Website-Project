@@ -1,8 +1,12 @@
-const teamModel = require("../models/teamModel");
+const {  validTeam,teamModel} = require("../models/teamModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const getAllTeamEnglish = async (req, res, next) => {
     try{
+        const {error}= validTeam(req.body)
+        if(error){
+            res.json({error:error.details[0].message})
+        }
     const team = await teamModel.find({lang:"english"})
 
         if (!team){

@@ -92,7 +92,7 @@ const createContactInformation = async (req, res, next) => {
   try {
     const validBody = validContact(req.body);
     if (validBody.error) {
-      return validBody.error.details[0].message;
+  res.json(validBody.error.details[0].message,301)
     }
     const contactInformation = await contactModel.insertMany(req.body);
     if (!contactInformation) {
@@ -109,7 +109,7 @@ const getAllContactInformation = async (req, res, next) => {
   try {
     const validBody = validContact(req.body);
     if (validBody.error) {
-      return validBody.error.details[0].message;
+      res.json(validBody.error.details[0].message).status(301)
     }
     const contactInformation = await contactModel.find({});
 
@@ -127,7 +127,7 @@ const getContactInformation = async (req, res, next) => {
   try {
     const validBody = validContact(req.body);
     if (validBody.error) {
-      return validBody.error.details[0].message;
+      res.json(validBody.error.details[0].message).status(301)
     }
     const contactInformation = await contactModel.findOne(req.body);
     if (!contactInformation) {
@@ -144,7 +144,7 @@ const updateContactInformation = async (req, res, next) => {
   try {
     const validBody = validContact(req.body);
     if (validBody.error) {
-      return validBody.error.details[0].message;
+      res.json(validBody.error.details[0].message).status(301)
     }
     const contactInformation = await contactModel.findByIdAndUpdate(
       req.params.id,
@@ -165,7 +165,7 @@ const deleteContactInformation = async (req, res, next) => {
   try {
     const validBody = validContact(req.body);
     if (validBody.error) {
-      return validBody.error.details[0].message;
+      res.json(validBody.error.details[0].message).status(301)
     }
     const contactInformation = await contactModel.findByIdAndDelete(
       req.params.id

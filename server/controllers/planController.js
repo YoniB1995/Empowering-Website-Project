@@ -4,11 +4,15 @@
 /* eslint-disable import/extensions */
 /* eslint-disable new-cap */
 
-const planModel = require("../models/planModel");
+const {  validPlan,planModel} = require("../models/planModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const createNewPlan = async (req, res, next) => {
   try {
+    const {error}  =validPlan(req.body)
+    if (error){
+      res.json({error:error.details[0].message},300)
+    }
     const {title,description,markdown,createdAt} = req.body;
     const plan = await planModel.create({title:title,description:description,markdown:markdown,createdAt:createdAt})
 

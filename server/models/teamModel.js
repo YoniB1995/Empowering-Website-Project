@@ -2,18 +2,10 @@
 
 // const { Schema } = mongoose;
 
-<<<<<<< HEAD
 // const teamSchema = new Schema({ fullname: String,
 //   role: String,
 //   image: String,
 //   description:String });
-=======
-const teamSchema = new Schema({ fullname: String,
-  role: String,
-  image: String,
-  description:String,
-lang:String });
->>>>>>> d88b2420d03e0bfb43d9a8a1254b5ed63284a767
 
 
 
