@@ -8,8 +8,8 @@ import Contect from "./componnets/pages/Admin/Contect/Contect";
 import Contact from "./componnets/pages/Admin/Contact/Contact";
 import Data from "./componnets/pages/Admin/Data/Data";
 import { Suspense } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.js";
+// import {Accessibility} from "Accessibility/src/main"
+
 
 function App() {
   // useEffect(() => {   

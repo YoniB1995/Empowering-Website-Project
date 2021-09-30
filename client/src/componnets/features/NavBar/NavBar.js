@@ -12,7 +12,7 @@ import { GlobeIcon, lang } from "../../../i18next/I18next";
 import { AuthContext } from "../../../contexts/AuthContextProvider";
 
 const NavBar = () => {
-  const { isLogin} = useContext(AuthContext);
+  const { isLogin,logout} = useContext(AuthContext);
   const { t } = useTranslation();
   const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
