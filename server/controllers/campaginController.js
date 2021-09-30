@@ -3,11 +3,11 @@ const { validCampagin, campaginModel } = require("../models/campaginModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const getCampaignsSorted = async (req, res, next) => {
-	try {	
-		const { error } = validCampagin(req.body); // try to validate
-	if (error) {
-	res.json({ error: error.details[0].message })
-	}
+	try {
+		// const { error } = validCampagin(req.body); // try to validate
+		// if (error) {
+		// 	res.json({ error: error.details[0].message });
+		// }
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
 
 		if (!campaignsList) {
@@ -24,6 +24,8 @@ const getCampaignsSorted = async (req, res, next) => {
 				return {
 					archive_url: campagin.archive_url,
 					title: campagin.settings.title,
+					id: campaign.id,
+					date: send_time,
 				};
 			});
 		res.json(sortedCampagins).status(200);
@@ -62,10 +64,28 @@ const getCampaignByTitle = async (req, res, next) => {
 
 const getDataFromMailchimp = async (req, res, next) => {
 	try {
-		console.log(req.body.data);
-		res.status(200).json({});
+		console.log(req.body);
+		// const dbCampagin = await campaginModel.findById(req.body.id);
+		// const mailChimpCampagins = await MailchimpMarketingModel.campaigns.list();
+		// if (dbCampagin) {
+		// 	mailChimpCampagins.map((campagin) => {
+		// 		return {
+		// 			archive_url: campagin.archive_url,
+		// 			id: campagin.settings.title,
+		// 			send_time: campagin.send_time,
+		// 		};
+		// 	});
+		// 	const updatedList = await campaginModel.insertMany(mailChimpCampagins);
+		// 	res.json({ updatedList }).status(200);
+		// }
+		// const { send_time, id, archive_url } = req.body;
+		// const newCampagin = await campaginModel.insertMany({
+		// 	send_time,
+		// 	id,
+		// 	archive_url,
+		// });
 	} catch (e) {
-		console.log(e);
+		// console.log(e);
 		res.send("error");
 	}
 };
