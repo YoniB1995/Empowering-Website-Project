@@ -3,11 +3,13 @@ class teamMembership {
   constructor() {
     this.user = teamModel;
   }
-  async create(fullname, description) {
+  async create(fullname, description,image,role,lang) {
     return this.user.create({
       fullname,
-      
-      description
+      description,
+      image,
+      role,
+      lang
     });
   }
   async getUser(id) {
