@@ -3,11 +3,19 @@ const { validCampagin, campaginModel } = require("../models/campaginModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const getCampaignsSorted = async (req, res, next) => {
+<<<<<<< HEAD
 	try {
 		// const { error } = validCampagin(req.body); // try to validate
 		// if (error) {
 		// 	res.json({ error: error.details[0].message });
 		// }
+=======
+	try {	
+	// 	const { error } = validCampagin(req.body); // try to validate
+	// if (error) {
+	// res.json({ error: error.details[0].message })
+	// }
+>>>>>>> yoni/for-hana-test
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
 
 		if (!campaignsList) {
