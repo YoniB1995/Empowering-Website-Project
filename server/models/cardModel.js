@@ -4,13 +4,13 @@ const Joi = require('joi');
 const joigoose = require('joigoose')(mongoose);
 
 const cardSchemaReception = Joi.object({
-  idCard: Joi.number().required(),
+  idCard: Joi.number(),
  
   fullName: Joi.string().min(4).max(199).required(),
 
   email: Joi.string().email().min(5).max(99).required(),
 });
- 
+  
 const validCard = (card) => {
   const cardJoi = cardSchemaReception.validate(card);
   return cardJoi;
