@@ -14,6 +14,7 @@ import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import WorkersCards from "../../features/workersCards/WorkersCards";
 
 const Home = () => {
   const {  } = useTranslation();
@@ -27,6 +28,7 @@ const Home = () => {
     <div>
       <div className="home-first-section">
         <ImageSlider />
+        <WorkersCards/>
         <div className="about-us wow animate__bounceInUp">
           <div className="aboutus-content">
             <h1>קצת עלינו </h1>

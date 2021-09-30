@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const API =
   process.env.NODE_ENV === "production"
-    ? `https://yonib.herokuapp.com`
+    ? `https://empowering-women-web.herokuapp.com/`
     : "http://localhost:5000";
 
 // const getAllAdmins = async (req,res) =>{
@@ -34,7 +34,7 @@ export const loginAdmin = (user) => {
     headers: { "Content-Type": "application/json" },
   };
   try {
-    return fetch(`${API}/admin/logIn`, options)
+    return fetch(`${API}/admin/login`, options)
       .then((res) => {
         return res.json();
       })

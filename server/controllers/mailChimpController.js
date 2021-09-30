@@ -10,8 +10,7 @@ const createMember = async (req, res, next) => {
 	try {
 		const { error } = validMember(req.body); // try to validate
 		if (error) {
-			// next(new ErrorResponse({ error: error.details[0].message }, 301));
-			res.json({ error: error.details[0] }).status(301);
+		res.json({ error: error.details[0].message })
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));

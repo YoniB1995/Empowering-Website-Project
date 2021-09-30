@@ -1,4 +1,4 @@
-const {teamModel} = require("../models/teamModel");
+const {  validTeam,teamModel} = require("../models/teamModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const getAllTeamEnglish = async (req, res, next) => {
