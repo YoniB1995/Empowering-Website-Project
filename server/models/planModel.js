@@ -1,6 +1,6 @@
 /* eslint-disable func-names */
-const marked = require("marked");
-const slugify = require("slugify");
+// const marked = require("marked");
+// const slugify = require("slugify");
 const mongoose = require("mongoose");
 const createDomPurify = require("dompurify");
 const { JSDOM } = require("jsdom");
