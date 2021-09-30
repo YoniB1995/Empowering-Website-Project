@@ -107,10 +107,10 @@ const createContactInformation = async (req, res, next) => {
 
 const getAllContactInformation = async (req, res, next) => {
 	try {
-		const validBody = validContact(req.body);
-		if (validBody.error) {
-			return validBody.error.details[0].message;
-		}
+		// const validBody = validContact(req.body);
+		// if (validBody.error) {
+		// 	return validBody.error.details[0].message;
+		// }
 		const contactInformation = await contactModel.find({});
 
 		if (!contactInformation) {
@@ -125,10 +125,10 @@ const getAllContactInformation = async (req, res, next) => {
 
 const getContactInformation = async (req, res, next) => {
 	try {
-		const validBody = validContact(req.body);
-		if (validBody.error) {
-			return validBody.error.details[0].message;
-		}
+		// const validBody = validContact(req.body);
+		// if (validBody.error) {
+		// 	return validBody.error.details[0].message;
+		// }
 		const contactInformation = await contactModel.findOne(req.body);
 		if (!contactInformation) {
 			next(new ErrorResponse("No ContactInformation found", 301));
