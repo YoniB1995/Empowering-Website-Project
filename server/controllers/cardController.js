@@ -18,7 +18,7 @@ const sendEmailCard = async (req, res) => {
     req.body.card.idCard = counterTwo;
     console.log();
     counterModel.findByIdAndUpdate(
-      '6155efbc710e9d4ab0b4ac68',
+      process.env.IDCOUNTER,
       { counterID: (counterTwo += 1) },
       function (err, result) {
         if (err) throw err;
@@ -56,7 +56,7 @@ const sendEmailCard = async (req, res) => {
         let htmlToSend = template(replacements);
         nodeHtmlToImage({
           path: myPath,
-          output: `./${req.body.card.fullName}.png`,
+          output: `${__dirname}/card-images/${req.body.card.fullName}.png`,
           html: htmlToSend,
         }).then(() => {
           let mailOptions = {
