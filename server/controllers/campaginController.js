@@ -3,24 +3,10 @@ const { validCampagin, campaginModel } = require("../models/campaginModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const getCampaignsSorted = async (req, res, next) => {
-<<<<<<< HEAD
 	try {
-		// const { error } = validCampagin(req.body); // try to validate
-		// if (error) {
-		// 	res.json({ error: error.details[0].message });
-		// }
-=======
-	try {	
-	// 	const { error } = validCampagin(req.body); // try to validate
-	// if (error) {
-	// res.json({ error: error.details[0].message })
-	// }
->>>>>>> yoni/for-hana-test
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
-
 		if (!campaignsList) {
 			next(new ErrorResponse("no campaign found", 301));
-			return;
 		}
 		const campaigns = campaignsList.campaigns.sort(
 			(a, b) => new Date(b.create_time) - new Date(a.create_time)
@@ -32,11 +18,10 @@ const getCampaignsSorted = async (req, res, next) => {
 				return {
 					archive_url: campagin.archive_url,
 					title: campagin.settings.title,
-					id: campaign.id,
-					date: send_time,
+					date: campagin.send_time,
 				};
 			});
-		res.json(sortedCampagins).status(200);
+		res.json({ sortedCampagins }).status(200);
 	} catch (e) {
 		next(new ErrorResponse("server error", 500));
 	}
@@ -51,7 +36,6 @@ const getCampaignByTitle = async (req, res, next) => {
 			(campagin) =>
 				campagin.settings.title === title && campagin.status === "sent"
 		);
-		console.log(chosenCampaigns);
 		if (!chosenCampaigns || chosenCampaigns.length === 0) {
 			next(new ErrorResponse("Campaign not found", 301));
 		}
