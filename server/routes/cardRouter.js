@@ -1,5 +1,6 @@
 const express = require('express')
 const cardRouter = express.Router()
 const cardController = require('../controllers/cardController')
-cardRouter.get('/',cardController.sendEmailCard)
+cardRouter.post('/sendEmail',cardController.sendEmailCard)
+cardRouter.get('/',cardController.getAllCard)
 module.exports = cardRouter  
