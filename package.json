@@ -18,6 +18,7 @@
   "dependencies": {
     "@ant-design/charts": "^1.2.13",
     "@mailchimp/mailchimp_marketing": "^3.0.59",
+    "accessibility": "^3.0.13",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",

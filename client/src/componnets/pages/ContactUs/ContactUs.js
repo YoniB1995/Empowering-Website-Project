@@ -1,63 +1,68 @@
-import { useState } from "react";
-import { Modal, Button } from "antd";
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined ,MailOutlined} from '@ant-design/icons';
-import './ContactUs.css';
+import "./ContactUs.css";
+import React, { useState } from "react";
+import Input from "../../features/Input/Input";
+import ButtonComponent from "../../features/Button/ButtonComponent";
+import { Select } from "antd";
+import {addContactUsInformation} from '../../../service/contactUs-service';
 
-const ContactU = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+const { Option } = Select;
 
-  const showModal = () => {
-    setIsModalVisible(true);
+export default function ContactU() {
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
-  const handleOk = () => {
-    setIsModalVisible(false);
+
+  const [email, setEmail] = useState("");
+  const [content, setContent] = useState("");
+  const [inquiry, setInquiry] = useState("");
+
+  const getEmail = (e) => {
+    setEmail(e.target.value);
   };
-  const handleCancel = () => {
-    setIsModalVisible(false);
+  const getContent = (e) => {
+    setContent(e.target.value);
   };
-  const menu = (
-    <Menu className="inputOne">
-      <Menu.Item key="0">
-        <a href="#">חבר מועדון</a>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <a href="#">אחר</a>
-      </Menu.Item>
-    </Menu>
-  );
+
+  const getInquiry = (selectedValue) => {
+    setInquiry(selectedValue);
+  };
+
+  console.log(inquiry);
+  console.log(email);
+
+  console.log(content);
+
   return (
-    <>
-      <MailOutlined onClick={showModal} id="mail-icon" ><span>צור קשר</span></MailOutlined>
-      
-      <div >
-        <Modal 
-          title="יצירת קשר"
-          visible={isModalVisible}
-          onOk={handleOk}
-          okText="שלח"
-          onCancel={handleCancel}
-          cancelText="ביטול"
-
-        >
-          <form className="form1">
-            <Dropdown overlay={menu} trigger={['click']}>
-              <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                סיבת פנייה
-                <DownOutlined/>
-              </a>
-            </Dropdown>
-            <label>אימייל</label>
-            <input className="input" type="email" name="email" placeholder="אימייל"></input>
-            <label>תיאור</label>
-            <textarea style={{width:"320px",height:"100px",borderRadius:"5px",margin:"5px"}}></textarea>
-          </form>
-        </Modal>
-      </div>
-    </>
+    <form className="contact-form" onSubmit={handleSubmit}>
+      <h1>יצירת קשר</h1>
+      <label> סיבת פנייה</label>
+      <Select onSelect={getInquiry} className="select">
+        <Option value="חבר מועדון">חבר מועדון</Option>
+        <Option value="אחר">אחר</Option>
+      </Select>
+      <label>אימייל</label>
+      <Input
+        type="email"
+        name="user_email"
+        className="contact"
+        handleChange={getEmail}
+      />
+      <label>תיאור</label>
+      <textarea
+        name="message"
+        className="contact"
+        style={{
+          width: "340px",
+          height: "100px",
+          borderRadius: "5px",
+          margin: "5px",
+        }}
+        required
+        onChange={getContent}
+      />
+      <ButtonComponent className="form-button" type="submit" text="שלח" onClick={()=>{addContactUsInformation(inquiry,email,content)}}/>
+    </form>
   );
-};
-
-export default ContactU;
-
-
+}

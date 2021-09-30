@@ -3,33 +3,33 @@
 /* eslint-disable no-empty-pattern */
 /* eslint-disable no-unused-expressions */
 const express = require('express');
-const planModel = require('../models/planModel');
+const {planModel} = require('../models/planModel');
 
 const planController = require('../controllers/planController');
 const ErrorResponse = require("../utils/errorResponse");
 
-const router = express.Router();
+const planRouter = express.Router();
 
-router.get('/all/english', planController.getAllPlansEnglish);
-router.get('/all/hebrew', planController.getAllPlansHebrew);
-router.post('/new', planController.createNewPlan, savePlanAndRedirect('new'));
-router.put('/edit/:id', planController.editPlan);
-router.delete('/:id', planController.deletePlan);
+planRouter.get('/all/english', planController.getAllPlansEnglish);
+planRouter.get('/all/hebrew', planController.getAllPlansHebrew);
+planRouter.post('/new', planController.createNewPlan);
+planRouter.put('/edit/:id', planController.editPlan);
+planRouter.delete('/:id', planController.deletePlan);
 
-function savePlanAndRedirect(path) {
-  return (async (req, res) => {
-    let { plan } = req;
-    plan.title = req.body.title;
-    plan.description = req.body.description;
-    plan.markdown = req.body.markdown;
+// function savePlanAndRedirect(path) {
+//   return (async (req, res) => {
+//     let { plan } = req;
+//     plan.title = req.body.title;
+//     plan.description = req.body.description;
+//     plan.markdown = req.body.markdown;
 
-    try {
-      const newSavedPlan = await plan.save();
-      res.send(newSavedPlan);
-    } catch (error) {
-      return next(new ErrorResponse("Server Error!",500))
-    }
-  });
-}
+//     try {
+//       const newSavedPlan = await plan.save();
+//       res.send(newSavedPlan);
+//     } catch (error) {
+//       return next(new ErrorResponse("Server Error!",500))
+//     }
+//   });
+// }
 
-module.exports = router;
+module.exports = planRouter;
