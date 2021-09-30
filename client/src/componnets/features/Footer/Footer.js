@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Input, Button } from "antd";
 import { FacebookOutlined, MailOutlined } from "@ant-design/icons";
 import { Layout } from "antd";
@@ -7,10 +8,12 @@ const { Header, Footer, Sider, Content } = Layout;
 
 const Footer1 = () => {
   return (
-    // <Footer>
     <footer>
       <div className="about">
-        <h4>אודות</h4>
+        <div className="footer-header-container">
+          <div className="footer-header-decortion"> </div>
+          <h4 className="footer-title">אודות</h4>
+        </div>
         <div>
           <ul>
             <li>תחום פעילות:פעילות חברתית </li>
@@ -20,7 +23,10 @@ const Footer1 = () => {
         </div>
       </div>
       <div className="contect">
-        <h4>צרי קשר</h4>
+        <div className="footer-header-container">
+          <div className="footer-header-decortion"> </div>
+          <h4 className="footer-title">צרו קשר</h4>
+        </div>
         <div>
           <img
             src="./placeholder.png"
@@ -31,25 +37,33 @@ const Footer1 = () => {
         </div>
         <div className="contact-footer-btn">
           <div className="footer-mail">
-            
-            <p>ליצירת קשר במייל<MailOutlined style={{ fontSize: "20px", padding: "5px" }} /></p>
+            <p>
+              {" "}
+              <MailOutlined style={{ fontSize: "20px", padding: "5px" }} />
+              ליצירת קשר במייל
+            </p>
+            <Link to="/ContactU">
             <Button
-            shape="round"
-            size="middle"
-            style={{
-              width: "100px",
-              background: "#F1CCB9",
-              marginRight: "10px",
-            }}
-          >
-            לחצ/י
-          </Button>
+              shape="round"
+              size="middle"
+              style={{
+                width: "100px",
+                background: "#F1CCB9",
+                marginRight: "10px",
+              }}
+            >
+              לחצ/י
+            </Button>
+            </Link >
+
           </div>
-      
         </div>
       </div>
       <div className="newsletter">
-        <h4>הצטרפי לניוזלטר</h4>
+        <div className="footer-header-container">
+          <div className="footer-header-decortion"></div>
+          <h4 className="footer-title">הצטרפו לניוזלטר</h4>
+        </div>
         <div className="join-newsletter-form">
           <div>
             <Input

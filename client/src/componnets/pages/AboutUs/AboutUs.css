@@ -50,6 +50,31 @@
   display: flex;
   justify-content: flex-start;
 }
+.buffer-staff-div {
+  display: flex;
+  background-color: white;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+}
+.staff-icon-buffer {
+  display: flex;
+  width: fit-content;
+  height: 100px;
+  border-radius: 100%;
+}
+.left-cube-staff-buffer {
+  margin-top: 20px;
+  background-color: #f5ad88;
+  width: 100px;
+  height: 25px;
+}
+.right-cube-staff-buffer {
+  margin-top: 20px;
+  background-color: #F2DAC3;
+  width: 100px;
+  height: 25px;
+}
 
 @media only screen and (max-width: 760px) {
   .target-card-container-right-side {

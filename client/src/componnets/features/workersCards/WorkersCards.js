@@ -31,13 +31,6 @@ const WorkersCards = () => {
     filterRoles()
   },[selectedRole])
 
-
-  
-
-  
-
- 
-
   return (
     <>
     <Select label="Members Roles" value={selectedRole} setValue={setSelectedRole} options={["All","member","manager","founder",]}/>
@@ -50,7 +43,7 @@ const WorkersCards = () => {
             <h1>
               הצוות שלנו
               <br />
-              {/* <small>designed by yuda</small> */}
+              <small>designed by yuda</small>
             </h1>
           </div>
           <div className="row active-with-click">

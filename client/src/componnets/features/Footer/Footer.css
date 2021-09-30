@@ -6,7 +6,17 @@ footer {
   font-family: "Varela Round", sans-serif;
   flex-wrap: wrap;
 }
-
+.footer-header-container {
+  width: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+.footer-header-decortion {
+  margin-left: 5px;
+  width: 0;
+  border: solid black;
+  height: 25px;
+}
 .about {
   display: flex;
   flex-direction: column;
@@ -31,6 +41,7 @@ footer {
   flex-wrap: wrap;
 }
 .join-newsletter-form {
+  margin-top: 5px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -44,6 +55,9 @@ footer {
 }
 .footer-mail {
   display: flex;
+}
+.footer-title {
+  margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 760px) {

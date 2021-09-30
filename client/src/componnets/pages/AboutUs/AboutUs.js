@@ -3,7 +3,7 @@ import VerticalImgCard from "../../features/vertical-img-card/VerticalImgCard";
 import Copartner from "../Home/Copartners/Copartners";
 import Volunteers from "./volunteers/Volunteers";
 import Staff from "./staff/Staff";
-import { ArrowLeftOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, TeamOutlined } from "@ant-design/icons";
 
 import "./AboutUs.css";
 
@@ -13,7 +13,9 @@ const AboutUs = () => {
   );
   const title2 = <h3 style={{ fontSize: "20px" }}>טיפול בפניות הציבור</h3>;
 
-  const title3 = <h3 style={{ fontSize: "20px" }}>מינוף ועידוד עסקים בקרב נשים בקהילה</h3>;
+  const title3 = (
+    <h3 style={{ fontSize: "20px" }}>מינוף ועידוד עסקים בקרב נשים בקהילה</h3>
+  );
   const description1 = (
     <ul className="target-card-list">
       <li>שינוי תפיסה תודעתית שתואר אקדמאי הוא בר השגה</li>
@@ -24,8 +26,7 @@ const AboutUs = () => {
       </li>
       <li>
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        הכוונה למלגות ממוקדות לגילאי בשתפ עם ארגונים 
-        ומוסדות קורסים להכשרה
+        הכוונה למלגות ממוקדות לגילאי בשתפ עם ארגונים ומוסדות קורסים להכשרה
         מקצועית
       </li>
       <li>
@@ -105,8 +106,18 @@ const AboutUs = () => {
           />
         </div>
       </div>
+      <div className="buffer-staff-div">
+        <div className="staff-icon-buffer">
+          <div className="left-cube-staff-buffer"></div>
+          <TeamOutlined style={{ fontSize: "80px", color: "#f5ad88" }} />
+          <TeamOutlined style={{ fontSize: "80px", color: "#F2DAC3" }} />
+          <div className="right-cube-staff-buffer"></div>
+
+          <div></div>
+        </div>
+      </div>
       <Staff />
-      <Volunteers />
+      {/* <Volunteers /> */}
 
       <Copartner />
     </div>

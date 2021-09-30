@@ -1,68 +1,81 @@
- .staff-wrapper {
-  width: 97%;
+.staff-wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  background: #F3D5C0;
 }
 .staff-header-container {
   display: flex;
   width: 97%;
   justify-content: flex-end;
 }
-.cards-container {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.staff-header-decoration {
-  width: 0;
-  border: white solid;
-  height: 27px;
-  margin-left: 10px;
-}
-.staff-title {
-  font-family: "Varela Round", sans-serif;
-  color: white;
-  font-size: 20px;
-}
-/* .staff-card {
-  width: 250px;
-  background-color: #f5ad88;
-    background-color: #fdfce5; 
-   margin-right: 20px;
-  margin-top: 20px;
-
-  border: 0;
-} 
-
-.staff-card:hover {
-  background-color: #fdfce5;
-} 
- 
-
-.staff-card-title {
-  padding: 10px;
-   display: none; 
-} */
-
-/* .staff-card:hover staff-card-title {
-  display: inline;
-  background-color: #fdfce5;
-}  */
-
-.staff-btn {
-  margin: auto;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  display: none;
-}
-.staff-card:hover .staff-btn {
-  display: flex;
-}
-
 .staff-role-btn-container {
   display: flex;
   justify-content: center;
-} 
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.staff-header-decoration {
+  width: 0;
+  height: 27px;
+  border: solid;
+}
+.our-team-wrapper {
+  display: flex;
+}
+
+.founder-card-container {
+  display: flex;
+  width: 25%;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+}
+.founder-card {
+  background: #F3D5C0;
+  display: flex;
+  height: 800px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.staff-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 75%;
+  height: 80%;
+}
+.staff-card {
+  display: flex;
+  height: 350px;
+  width: 33%;
+  justify-content: center;
+  text-align: center;
+}
+
+.img-staff {
+  width: 200px;
+  height: 170px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 1060px) {
+  .our-team-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .staff-card-container {
+    width: 100%;
+  }
+  .staff-card {
+    width: fit-content;
+    margin-bottom: 20px;
+  }
+  .founder-card {
+    height: 372px;
+    margin-bottom: 20px;
+  }
+}
