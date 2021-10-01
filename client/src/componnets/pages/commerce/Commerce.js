@@ -21,7 +21,7 @@ const CommerceJs = () => {
     const [cart, setCart] = useState({})
     const [card, setCard] = useState({})
     const [country, setCountry] = useState()
-    const [isCardOnCart,setIsCardOnCart ] = useState(false);
+    // const [isCardOnCart,setIsCardOnCart ] = useState(false);
 
 
 
@@ -70,11 +70,11 @@ const CommerceJs = () => {
     };
 
 
-    const check = () => {
-        cart.line_items.map(item => (item.product_id === "prod_RqEv5xXOxk5Zz4") ? setIsCardOnCart(true) : setIsCardOnCart(false));
+    // const check = () => {
+    //     cart.line_items.map(item => (item.product_id === "prod_RqEv5xXOxk5Zz4") ? setIsCardOnCart(true) : setIsCardOnCart(false));
         
-    }
-    const checkpath = "/Commercejs/CheckOut"
+    // }
+    // const checkpath = "/Commercejs/CheckOut"
     // const ModalForm = () => {
     //     const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -122,8 +122,9 @@ const CommerceJs = () => {
                             <span>סה"כ לתשלום:</span>
                             {cart.subtotal.formatted_with_symbol}
                             <ButtonComponent type="button" onClick={() => handleEmptyCart()} className="btnCart" id="btnOne" text="רוקן עגלה"></ButtonComponent>
-                            <ButtonComponent onClick={check} type="button" text="לקופה" className="btnCart" id="btnTwo"></ButtonComponent >
-                            <Link to={isCardOnCart?"/Commercejs/CheckOut" :"/Commercejs"}><button>here</button></Link>
+                                <Link to="/Commercejs/CheckOut" ><ButtonComponent  type="button" text="לקופה" className="btnCart" id="btnTwo"></ButtonComponent ></Link>
+                            {/* <ButtonComponent onClick={check} type="button" text="לקופה" className="btnCart" id="btnTwo"></ButtonComponent >
+                            <Link to={isCardOnCart?"/Commercejs/CheckOut" :"/Commercejs"}><button>here</button></Link> */}
 
 
                         </div>

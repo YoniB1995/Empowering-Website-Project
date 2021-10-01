@@ -1,23 +1,23 @@
 const API =
-    process.env.NODE_ENV === "production"
-        ? `https://yonib.herokuapp.com`
-        : "http://localhost:5000";
+  process.env.NODE_ENV === "production"
+    ? `https://empowering-women-web.herokuapp.com/`
+    : "http://localhost:5000";
 
-export const cardUser = (user) => {
-    const options = {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: { "Content-Type": "application/json" },
-    };
-    try {
-        return fetch(`${API}/store/card`, options)
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                console.log(data);
-            });
-    } catch (error) {
-        console.log(error);
-    }
+export const cardUser = (fullName, email) => {
+  // const date = Date.now();
+  const options = {
+    method: "POST",
+    body: JSON.stringify({
+     fullName,
+      email,
+      iscompleted: false,
+      notes: "notes",
+    }),
+    headers: { "Content-Type": "application/json" },
+  };
+  try {
+    return fetch(`${API}/card/sendEmail`, options);
+  } catch (error) {
+    console.log(error);
+  }
 };
