@@ -43,19 +43,18 @@ const Footer1 = () => {
               ליצירת קשר במייל
             </p>
             <Link to="/ContactU">
-            <Button
-              shape="round"
-              size="middle"
-              style={{
-                width: "100px",
-                background: "#F1CCB9",
-                marginRight: "10px",
-              }}
-            >
-              לחצ/י
-            </Button>
-            </Link >
-
+              <Button
+                shape="round"
+                size="middle"
+                style={{
+                  width: "100px",
+                  background: "#F1CCB9",
+                  marginRight: "10px",
+                }}
+              >
+                לחצ/י
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -81,7 +80,7 @@ const Footer1 = () => {
               marginRight: "10px",
             }}
           >
-            שלח
+             שלח
           </Button>
         </div>
         <div className="footer-facebook">
