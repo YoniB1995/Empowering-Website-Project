@@ -21,7 +21,8 @@ const teamSchema = Joi.object({
   fullname:Joi.string().min(4).max(99).required(),
   role: Joi.string().required(),
   image: Joi.string().min(50).max(400).required(),
-  description: Joi.string().min(20).max(400).required()
+  description: Joi.string().min(20).max(400).required(),
+  lang:Joi.string().min(3).max(10).required()
 })
 
 const validTeam = (team) =>{
