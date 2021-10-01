@@ -62,7 +62,7 @@ const NavBar = () => {
         </ul>
       </div>
       <Link to="./">
-        <Avatar className="logo" src="./logo-main.jpg" alt="logo"></Avatar>
+        <Avatar className="logo" src="./logo-main1.jpeg" alt="logo"></Avatar>
       </Link>
 
       <Menu className="navBarLinks" mode="horizontal">

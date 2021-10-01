@@ -14,6 +14,7 @@ const teamRouter = require("./routes/teamRouter");
 const partnersRouter = require("./routes/partnerRouter");
 const memberRouter = require("./routes/memberRouter");
 const campaginRouter = require("./routes/campaginRouter");
+const cardRouter = require('./routes/cardRouter')
 
 
 const cors = require("cors");
@@ -63,6 +64,7 @@ app.use("/team", teamRouter);
 app.use("/partners", partnersRouter);
 app.use("/campagin", campaginRouter);
 app.use("/member", memberRouter);
+app.use('/card',cardRouter)
 
 
 
