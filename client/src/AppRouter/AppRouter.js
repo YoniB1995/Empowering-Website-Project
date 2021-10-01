@@ -19,10 +19,10 @@ import AddProduct from '../componnets/Forms/AddProduct/AddProduct';
 import AddArticle from '../componnets/Forms/AddPlan';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
 import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
-import Contact from '../componnets/pages/Admin/Contact/Contact';
 import Contect from '../componnets/pages/Admin/Contect/Contect';
 import CommerceJs from '../componnets/pages/commerce/Commerce';
 import ContactU from '../componnets/pages/ContactUs/ContactUs';
+import Contact from '../componnets/pages/Admin/Contact/Contact';
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -49,22 +49,12 @@ export default function AppRouter() {
         <Route path='/Admin/AddPlan' component={AddArticle} />
         <Route path='/Admin/AddProduct' component={AddProduct} />
         <Route path='/form' component={FormsTemporary} />
-        <Route path='/test'>
-          {/* <Contact /> */}
-          <Contect />
-        </Route>
+        <Route path='/test'><Contect /></Route>
+        <Route path="/Contact" component={Contact}/> 
         <ProtectedRoute path='/logout' component={Logout} />
 
-        {/* <ProtectedRoute
-          path="/Admin/ArticleDetails"
-          component={ArticleDetails}
-        /> */}
-        <ProtectedRoute
-          path='/Admin/EditArticles/:id'
-          component={EditArticles}
-        />
-        {/* <ProtectedRoute path="/Admin/NewArticles" component={NewArticles} />
-        <ProtectedRoute path="/Admin/ArticleEditor" component={ArticleEditor} /> */}
+        <ProtectedRoute path='/Admin/EditArticles/:id' component={EditArticles}/>
+
       </Switch>
     </div>
   );

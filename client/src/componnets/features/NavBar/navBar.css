@@ -62,3 +62,12 @@
   border-radius: 50px;
   opacity: 1;
 }
+
+
+.globcss{
+display: flex;
+flex-direction: column;
+text-align: center;
+font-size:13px;
+margin-bottom: 3px;
+}
