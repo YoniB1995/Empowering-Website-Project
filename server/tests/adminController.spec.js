@@ -37,7 +37,7 @@ describe('GET /team/member/:id', () => {
       body.data[0].should.include.keys(
         '_id', 'fullname', 'role', 'image', 'description','lang'
       );
-      body.data[0].fullname.should.eql("יוני ביטאו");
+      body.data[0].fullname.should.eql("lior solomon");
       body.data[0]._id.should.eql(memberID);
       done();
     });
