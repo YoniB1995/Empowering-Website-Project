@@ -11,6 +11,7 @@ const mailChimpRouter = require("./routes/mailChimpRouter");
 const productRouter = require("./routes/productRouter");
 const contactUsRouter = require("./routes/contactUsRouter");
 const teamRouter = require("./routes/teamRouter");
+const partnersRouter = require("./routes/partnerRouter");
 const memberRouter = require("./routes/memberRouter");
 const campaginRouter = require("./routes/campaginRouter");
 
@@ -59,6 +60,7 @@ app.use("/admin", adminRouter);
 app.use("/product", productRouter);
 app.use("/contactUs", contactUsRouter);
 app.use("/team", teamRouter);
+app.use("/partners", partnersRouter);
 app.use("/campagin", campaginRouter);
 app.use("/member", memberRouter);
 
