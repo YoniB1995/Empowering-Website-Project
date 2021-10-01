@@ -26,20 +26,6 @@ export const getOneNewsletter = async (articleData) => {
     }
   };
 
-  // export const addMemberToNewsletter = async (memberEmail) => {
-  //   const options = {
-  //     method: "POST",
-  //     body: JSON.stringify({ Email: memberEmail }),
-  //     headers: { "Content-Type": "application/json" },
-  //   };
-  //   try {
-  //     return fetch(`${API}/mailChimp/createMember`, options);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-
   export const addMemberToNewsletter = async (memberEmail) => {
     const options = {
       method: "POST",
@@ -47,35 +33,31 @@ export const getOneNewsletter = async (articleData) => {
       headers: { "Content-Type": "application/json" },
     };
     try {
-      return fetch(`${API}/mailChimp/createMember`, options)
-       .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data);
-        });
+      return fetch(`${API}/mailChimp/createMember`, options);
     } catch (error) {
       console.log(error);
     }
   };
 
 
-//  export const getAllMembers = () => {
-//     const options = {
-//       method: "get",
-//       body: JSON.stringify(),
-//       headers: { "Content-Type": "application/json" },
-//     };
-//     try {
-//       return fetch(`${API}/mailChimp/getAllMembers`, options)
-//         .then((res) => {
-//           return res.json();
-//         })
+ 
 
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+ export const getAllMembers = () => {
+    const options = {
+      method: "get",
+      body: JSON.stringify(),
+      headers: { "Content-Type": "application/json" },
+    };
+    try {
+      return fetch(`${API}/mailChimp/getAllMembers`, options)
+        .then((res) => {
+          return res.json();
+        })
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   
 

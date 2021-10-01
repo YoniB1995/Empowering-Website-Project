@@ -8,13 +8,13 @@ import Contect from "./componnets/pages/Admin/Contect/Contect";
 import Contact from "./componnets/pages/Admin/Contact/Contact";
 import Data from "./componnets/pages/Admin/Data/Data";
 import { Suspense } from "react";
-// import {Accessibility} from "Accessibility/src/main"
+import {Accessibility} from "accessibility/src/main"
 
 
 function App() {
-  // useEffect(() => {   
-  //   window.addEventListener('load', function() { new Accessibility(options); }, false);
-  // });
+  useEffect(() => {   
+    window.addEventListener('load', function() { new Accessibility(options); }, false);
+  });
 
   var labels = {
     resetTitle: 'רענן ',

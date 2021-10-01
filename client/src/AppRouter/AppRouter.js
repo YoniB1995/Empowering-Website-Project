@@ -24,7 +24,7 @@ import CommerceJs from '../componnets/pages/commerce/Commerce';
 import ContactU from '../componnets/pages/ContactUs/ContactUs';
 import NewsLettersUserTable from '../componnets/features/Admin/NewsLetters-User-table';
 import LetNews from "../componnets/features/Admin/LetNews"
-
+import { LoginForm } from '../componnets/features/Forms/LoginForm';
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -54,7 +54,7 @@ export default function AppRouter() {
 
         <Route path='/NewsLettersUserTable' component={NewsLettersUserTable} />
         <Route path='/LetNews' component={LetNews} />
-      <Route path='/Contect' component={Contect} />
+      <Route path='/LoginForm' component={LoginForm} />
 
         <Route path='/test'><Contect /></Route>
         <ProtectedRoute path='/logout' component={Logout} />

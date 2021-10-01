@@ -17,7 +17,7 @@ import { useTranslation } from "react-i18next";
 import WorkersCards from "../../features/workersCards/WorkersCards";
 
 const Home = () => {
-  const {  } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     new WOW.WOW({
@@ -28,22 +28,13 @@ const Home = () => {
     <div>
       <div className="home-first-section">
         <ImageSlider />
-        <WorkersCards/>
+        <WorkersCards />
         <div className="about-us wow animate__bounceInUp">
           <div className="aboutus-content">
             <h1>קצת עלינו </h1>
-            <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
-            <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
-            <p>
-              ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה
-              מינית, נשים הסובלות
-            </p>
-            <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
-            <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
-            <p>
-              ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה
-              מינית, נשים הסובלות
-            </p>
+            <div  className="littleBitAboutInfo">
+              <p>{t("littleBitAboutInfo")}</p>
+            </div>
 
             <Link to="/AboutUs">
               <Button

@@ -20,36 +20,6 @@ const NewsLettersUserTable = () => {
   // })
   // .catch((err) => console.log(err));
   // }, []);
-  const API =
-  process.env.NODE_ENV === "production"
-    ? `https://empowering-women-web.herokuapp.com/`
-    : "http://localhost:5000";
-
-  useEffect(()=>{
-   const getAllMembers = () => {
-    const options = {
-      method: "get",
-      body: JSON.stringify(),
-      headers: { "Content-Type": "application/json" },
-    };
-    try {
-      return fetch(`${API}/mailChimp/getAllMembers`, options)
-        .then((res) => {
-          return res.json();
-        })
-        .then((res) => {
-          setDataa(res.filterdMembers);
-        });
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  })
-
-
-  
 
 
 
@@ -60,9 +30,8 @@ const NewsLettersUserTable = () => {
         style={{ textAlign: "right", fontSize: "24px", paddingBottom: "10px" }}
       ></div>
     
-    <h1>{dataa}</h1>
       
-      <Table dataSource={dataa}>
+      <Table dataSource={""}>
         <Column render={(text, record) => <UserOutlined />} />
         <Column title="כותרת" dataIndex="email" key="email" />
         <Column title="תאריך הצטרפות" dataIndex="date" key="date" />
