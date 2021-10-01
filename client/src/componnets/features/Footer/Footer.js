@@ -1,12 +1,21 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Input, Button } from "antd";
 import { FacebookOutlined, MailOutlined } from "@ant-design/icons";
 import { Layout } from "antd";
+import { addMemberToNewsletter } from "../../../service/newsletter-service";
+
 import "./Footer.css";
 
 const { Header, Footer, Sider, Content } = Layout;
 
 const Footer1 = () => {
+  const [singlet, setSinglet] = useState([]);
+
+  const saveInfoEmail = (e) => {
+    setSinglet(e.target.value);
+    console.log(singlet);
+  };
   return (
     <footer>
       <div className="about">
@@ -69,6 +78,7 @@ const Footer1 = () => {
               placeholder="מייל"
               shape="round"
               style={{ width: "200px" }}
+              onChange={saveInfoEmail}
             ></Input>
           </div>
           <Button
@@ -79,8 +89,9 @@ const Footer1 = () => {
               background: "#F1CCB9",
               marginRight: "10px",
             }}
+            onClick={() => addMemberToNewsletter(singlet)}
           >
-             שלח
+            שלח
           </Button>
         </div>
         <div className="footer-facebook">

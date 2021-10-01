@@ -39,26 +39,3 @@ export const getOneNewsletter = async (articleData) => {
     }
   };
 
-
- 
-
- export const getAllMembers = () => {
-    const options = {
-      method: "get",
-      body: JSON.stringify(),
-      headers: { "Content-Type": "application/json" },
-    };
-    try {
-      return fetch(`${API}/mailChimp/getAllMembers`, options)
-        .then((res) => {
-          return res.json();
-        })
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  
-
-  
