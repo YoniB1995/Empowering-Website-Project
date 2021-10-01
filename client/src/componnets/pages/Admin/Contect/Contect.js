@@ -14,7 +14,9 @@ const Contect = () => {
     <>
       <AdminNavBar />
       {/* <StaffContect/> */}
+      <h1>צוות</h1>
       <TeamTable />
+      <h1>פניות</h1>
       <ContactTable />
       {/* <ProgramsContect /> */}
       {/* <PartnersContect /> */}
