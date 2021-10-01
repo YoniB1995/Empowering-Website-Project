@@ -107,9 +107,50 @@ const Staff = () => {
   return (
     <div className="staff-wrapper">
       <div className="staff-header-container">
-        <h3 style={{ color: "white" }}>הכירו את הצוות שלנו</h3>
-
-        <div className="staff-header-decoration"></div>
+        <div className="staff-role-btn-container">
+          <Button
+            icon={<FilterOutlined />}
+            size="middle"
+            style={{
+              marginRight: "10px",
+              width: "120px",
+              background: "#fdfce5",
+            }}
+          >
+            {" "}
+            צוות
+          </Button>
+          <Button
+            icon={<FilterOutlined />}
+            size="middle"
+            style={{
+              marginRight: "10px",
+              width: "120px",
+              background: "#fdfce5",
+            }}
+          >
+            {" "}
+            ועד מנהל
+          </Button>
+          <Button
+            icon={<FilterOutlined />}
+            size="middle"
+            style={{
+              marginRight: "10px",
+              width: "120px",
+              background: "#fdfce5",
+            }}
+          >
+            {" "}
+            מייסדים
+          </Button>
+        </div>
+        <div className="staff-header-wrapper">
+          <div className="staff-headline">
+            <h3 className="hedaer" style={{color:"white"}}>הכירו את הצוות שלנו</h3>
+            <div className="staff-header-decoration"></div>
+          </div>
+        </div>
       </div>
 
       <div className="our-team-wrapper">
@@ -119,7 +160,7 @@ const Staff = () => {
               hoverable={false}
               style={{
                 width: 250,
-                background: "#F3D5C0",
+                background: "#FDFCE5",
                 borderRadius: "5px",
                 border: "0",
               }}
@@ -127,12 +168,17 @@ const Staff = () => {
                 <img
                   alt="example"
                   src={staffMembers[0].image}
-                  style={{ borderRadius: "100%", margin: "auto", width: "70%" }}
+                  style={{
+                    borderRadius: "100%",
+                    margin: "auto",
+                    width: "70%",
+                    height: 200,
+                  }}
                 />
               }
             >
               <Meta
-                title={staffMembers[0].fullname}
+                title={<div> <h4>{staffMembers[0].fullname}</h4><p>{staffMembers[0].role}</p></div>}
                 description={staffMembers[0].description}
                 style={{ textAlign: "center" }}
               />
@@ -150,7 +196,7 @@ const Staff = () => {
                     style={{
                       width: 250,
                       height: "100%",
-                      background: "#F3D5C0",
+                      background: "#f5ad88",
                       border: 0,
                     }}
                     cover={
@@ -169,49 +215,18 @@ const Staff = () => {
                     <Meta
                       style={{}}
                       title={
-                        <div style={{ color: "black" }}>
+                        <div style={{ color: "#232323" }}>
                           <h4 style={{ color: "white" }}>{member.fullname}</h4>
                           <p>{member.role} </p>
                         </div>
                       }
-                      // title={<p>{member.role} </p>}
-
-                      description={<p>{member.description}</p>}
+                      description={<p style={{color:"#232323"}}>{member.description}</p>}
                     />
                   </Card>
                 </div>
               );
           })}
         </div>
-      </div>
-      <div className="staff-role-btn-container">
-        <Button
-          icon={<FilterOutlined />}
-          size="large"
-          shape="round"
-          style={{ marginRight: "10px", width: "120px", background: "#fdfce5" }}
-        >
-          {" "}
-          צוות
-        </Button>
-        <Button
-          icon={<FilterOutlined />}
-          size="large"
-          shape="round"
-          style={{ marginRight: "10px", width: "120px", background: "#fdfce5" }}
-        >
-          {" "}
-          ועד מנהל
-        </Button>
-        <Button
-          icon={<FilterOutlined />}
-          size="large"
-          shape="round"
-          style={{ marginRight: "10px", width: "120px", background: "#fdfce5" }}
-        >
-          {" "}
-          מייסדים
-        </Button>
       </div>
     </div>
   );

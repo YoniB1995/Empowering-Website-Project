@@ -50,40 +50,6 @@ const WorkersCards = () => {
     filterRolesInHebrew()
   },[selectedRole])
 
-<<<<<<< HEAD
-  return (
-    <>
-    <Select label="Members Roles" value={selectedRole} setValue={setSelectedRole} options={["All","member","manager","founder",]}/>
-      {filteredTeam.length > 0 && (
-        <section
-          style={{ maxWidth: "1400px", width: "90%" }}
-          className="container"
-        >
-          <div className="page-header">
-            <h1>
-              הצוות שלנו
-              <br />
-              <small>designed by yuda</small>
-            </h1>
-          </div>
-          <div className="row active-with-click">
-            {filteredTeam.map((member) => {
-              return (
-                <div className="col-md-4 col-sm-6 col-xs-12">
-                  <article className="material-card Red">
-                    <h2>
-                      <span>{member.fullname}</span>
-                      <strong>
-                        <i className="fa fa-fw fa-star"></i>
-                        The Deer Hunter
-                      </strong>
-                    </h2>
-                    <div className="mc-content">
-                      <div className="img-container">
-                        <img className="img-responsive" src={member.image} />
-                      </div>
-                      <div className="mc-description">{member.description}</div>
-=======
   const changeToHebrew = ()=>{
     setIsHebrew(true)
 
@@ -133,7 +99,6 @@ const WorkersCards = () => {
                   <div className="mc-content">
                     <div className="img-container">
                       <img className="img-responsive" src={member.image} />
->>>>>>> 18548789f5a4ecc78ac9ca942ea73fbd5918616b
                     </div>
                     <div className="mc-description">{member.description}</div>
                   </div>

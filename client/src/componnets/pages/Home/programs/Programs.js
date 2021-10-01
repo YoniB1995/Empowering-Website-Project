@@ -1,11 +1,20 @@
 import "animate.css";
 import { Button, Card } from "antd";
 import { useEffect, useState } from "react";
+import WOW from "wowjs";
+import { ReadOutlined  } from "@ant-design/icons";
 
 import "./programs.css";
 const Programs = () => {
   const { Meta } = Card;
-  const [isCardOnHover,setCardisonHover]=useState(false)
+  const [clickedIndex, setClickedIndex] = useState(false);
+  const cardProgramOn = 'color:"white",marginLeft:"5px"';
+
+  useEffect(() => {
+    new WOW.WOW({
+      live: false,
+    }).init();
+  }, []);
 
   const programs = [
     {
@@ -16,7 +25,7 @@ const Programs = () => {
     {
       title: "השכלה גבוהה",
       description:
-        " תוכנית השכלה גבוהה תיתן הכוונה וייעוץ לנשים אשר מעוניינות ללמוד ולשפר את איכות חייהן וחיי משפחתן התוכנית תחשוף בפני הנשים את המוסדות הלימוד ותוכניות הקיימות בכל הארץ ואף תסייע במציאת מלגות ונשאף אף ךמתן מךגות לימוד",
+        " תוכנית השכלה גבוהה תיתן הכוונה וייעוץ לנשים אשר מעוניינות ללמוד ולשפר את איכות חייהן וחיי משפחתן התוכנית תחשוף בפני הנשים את המוסדות הלימוד ותוכניות הקיימות בכל הארץ ואף תסייע במציאת מלגות ונשאף אף למתן מלגות לימוד",
     },
     {
       title: "תוכנית העצמה נשית",
@@ -24,24 +33,60 @@ const Programs = () => {
         "הכרת כלים לשיפור היכולת האישית של נשים בעבודה בחברה ובמשפלה ובינהם חוק למניעת הטרדה מינית חוק עבודת נשים וחוק שווי זכויות האישה חוק שיווי זכויות האישה וחוק השיוון זכיות הזדמניות  אסרטביות ככלי מרכזי להעצמת נשים הפמינזם ככלי מרכזי להעצמת נשים",
     },
   ];
-    const ImgDisappearedOnHover=()=>{
-      setCardisonHover(true)
-    }
+
+  const ImgDisappearedOnHover = (index) => () => {
+    setClickedIndex((state) => ({
+      ...state,
+      [index]: !state[index],
+    }));
+  };
+
   return (
     <div className="programs-wrapper">
       <div className="programs-header">
-        <h3>תוכניות</h3>
+        <h3 style={{ color: "#D57E7E", fontSize: "32px" }}>תוכניות</h3>
         <div className="programs-header-decertion"></div>
       </div>
       <div className="cards-wrapper">
-        {programs.map((program) => (
+        {programs.map((program, index) => (
           <Card
-          // onMouseOver={}
+            className="program-card"
+            onClick={ImgDisappearedOnHover(index)}
             hoverable
-            style={{ width: 300, background: "#303b32"}}
-            cover={isCardOnHover?<div style={{width:"400px",height:"400px"}}>on hober</div>:<img alt="example" src="./woman-vector.jpg" />}
+            cover={
+              clickedIndex[index] ? (
+                <div className="program-card animate__animated animate__fadeInUp">
+                  <div className="card-program-clicked-container">
+                    <h2 className="program-clicked-header">{program.title} </h2>
+                    <p className="program-clicked-description">
+                      {program.description}
+                    </p>
+                    <div>
+                      <img
+                        className="img-program-card"
+                        src="./logo-main1.jpeg" alt="program card img"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <img
+                  className="program-card animate__animated animate__fadeIn"
+                  alt="example"
+                  src="./woman-vector.jpg"
+                />
+              )
+            }
           >
-            <Meta title={<p style={{color:"#798777",marginRight:"5px"}}>{program.title}</p>} style={{ textAlign: "center"}} />
+            <Meta
+              title={
+                clickedIndex[index] ? (
+                  ""
+                ) : (
+                  <h3 className="program-card-title">{program.title}<ReadOutlined style={{marginLeft:"4px"}} /></h3>
+                )
+              }
+            />
           </Card>
         ))}
       </div>
