@@ -1,5 +1,5 @@
 const API = process.env.NODE_ENV === "production"
- ? `https://empowering-women-web.herokuapp.com/`: "http://localhost:5000";
+ ? `https://empowering-women-web.herokuapp.com`: "http://localhost:5000";
 
 
 export const getAllPartners = async (req, res) => {

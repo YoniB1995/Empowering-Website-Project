@@ -13,8 +13,6 @@ const Copartner = () => {
     .then(data => setPartners(data.partners))
   },[])
 
-      console.log(partners)
-
   return (
     <div className="copartner-container">
       <div className="copartner-header">
