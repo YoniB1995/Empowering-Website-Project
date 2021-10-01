@@ -12,9 +12,7 @@ import { Accessibility } from 'accessibility/src/main';
 import { Suspense } from "react";
 import WorkersCards from "./componnets/features/workersCards/WorkersCards";
 import Programs from "./componnets/pages/Programs/Programs";
-
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap/dist/js/bootstrap.js";
+;
 
 function App() {
   useEffect(() => {   

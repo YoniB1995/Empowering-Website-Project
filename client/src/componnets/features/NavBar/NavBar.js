@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import React, { useEffect, useContext } from "react";
-import { Menu, Avatar } from "antd";
+import React, { useEffect,useState, useContext } from "react";
+import { Menu, Avatar, Button } from "antd";
 import "antd/dist/antd.css";
 import "./navBar.css";
 import "antd/dist/antd.css";
@@ -16,7 +16,7 @@ const NavBar = () => {
   const { t } = useTranslation();
   const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
-
+  const [btnLanguage,setBtnLanguage]=useState('ENG')
   // useEffect(() => {
   //   document.body.dir = currentLang.dir || "rtl";
   //   document.title = t("app_title");
@@ -25,47 +25,25 @@ const NavBar = () => {
   //   i18next.changeLanguage(code);
 
   // };
-
+   const changingBtnLanguage=(e)=>{
+   e.target.innerText==='ENG'?setBtnLanguage('HEB'):setBtnLanguage('ENG')
+   console.log(e.target.innerText)
+   
+   }
   return (
     <div className="navBar">
-      <div class="dropdown">
-        <button
-          class="btn btn-link dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <GlobeIcon />
-        </button>
-     
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            {/* לעצב לאמצע */}
-            <span className="globcss">{t("languageglob")}</span>
-          </li>
-          {lang.map(({ code, name, contry_code }) => (
-            <li key={contry_code}>
-              <button
-                class="dropdown-item"
-                disabled={code === currentLangCode}
-                onClick={() => i18next.changeLanguage(code)}
-              >
-                <span
-                  className={`flag-icon flag-icon-${contry_code} mx-2`}
-                  style={{ opacity: code === currentLangCode ? 0.5 : 1 }}
-                ></span>
-                {name}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      
+  
+   
       <Link to="./">
         <Avatar className="logo" src="./logo-main1.jpeg" alt="logo"></Avatar>
       </Link>
 
       <Menu className="navBarLinks" mode="horizontal">
+      <Menu.Item className="menu-item">
+      <Button onClick={changingBtnLanguage} > {btnLanguage}</Button>
+
+      </Menu.Item>
 
       { isLogin &&
         <Link to="/logout">
@@ -102,4 +80,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBar
