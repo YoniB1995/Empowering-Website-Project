@@ -3,7 +3,7 @@ const campaginRouter = require("express").Router();
 const campaginController = require("../controllers/campaginController");
 
 campaginRouter.get(
-	"/getCampaignsSorted",
+	"/getCampaignsSorted", 
 	campaginController.getCampaignsSorted
 );
 campaginRouter.get(
