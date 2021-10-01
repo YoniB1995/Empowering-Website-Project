@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { useState } from "react";
 
 
-const LoginForm = () => {
+export const LoginForm = () => {
 
   const [values,setValues] = useState({
     email:"",
