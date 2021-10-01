@@ -1,10 +1,8 @@
 const nodemailer = require('nodemailer');
 let handlebars = require('handlebars');
 const ErrorResponse = require('../utils/errorResponse');
-
 let fs = require('fs');
 const log = console.log;
-const path = require('path');
 const nodeHtmlToImage = require('node-html-to-image');
 const { cardModel, validCard } = require('../models/cardModel');
 const { counterModel } = require('../models/counterID');
