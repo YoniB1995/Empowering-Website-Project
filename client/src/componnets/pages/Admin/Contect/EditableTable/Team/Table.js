@@ -1,26 +1,34 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { nanoid } from 'nanoid';
+import axios from 'axios';
 import './Table.css';
-import data from './mock-data.json';
 import ReadOnlyRow from './ReadOnlyRow';
 import EditableRow from './EditableRow';
 
 const Table = () => {
   const [filterClick, setFilterClick] = useState(false);
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = useState([]);
+  const [file, setFile] = useState('');
+
   const [addFormData, setAddFormData] = useState({
-    fullName: '',
-    date: '',
-    reason: '',
-    email: '',
+    fullname: '',
+    description: '',
+    role: '',
+    image: '',
   });
 
   const [editFormData, setEditFormData] = useState({
-    fullName: '',
-    date: '',
-    reason: '',
-    email: '',
+    fullname: '',
+    description: '',
+    role: '',
+    image: '',
   });
+
+  useEffect(() => {
+    fetch('http://localhost:5000/team/hebrew')
+      .then((res) => res.json())
+      .then((data) => setContacts(data.team));
+  }, []);
 
   const [editContactId, setEditContactId] = useState(null);
 
@@ -32,7 +40,9 @@ const Table = () => {
 
     const newFormData = { ...addFormData };
     newFormData[fieldName] = fieldValue;
-
+    if (event.target.name === 'image') {
+      setFile(event.target.files[0]);
+    }
     setAddFormData(newFormData);
   };
 
@@ -53,10 +63,10 @@ const Table = () => {
 
     const newContact = {
       id: nanoid(),
-      fullName: addFormData.fullName,
-      date: addFormData.date,
-      reason: addFormData.reason,
-      email: addFormData.email,
+      fullname: addFormData.fullname,
+      description: addFormData.description,
+      role: addFormData.role,
+      image: addFormData.image,
     };
 
     const newContacts = [...contacts, newContact];
@@ -68,15 +78,17 @@ const Table = () => {
 
     const editedContact = {
       id: editContactId,
-      fullName: editFormData.fullName,
-      date: editFormData.date,
-      reason: editFormData.reason,
-      email: editFormData.email,
+      fullname: editFormData.fullname,
+      description: editFormData.description,
+      role: editFormData.role,
+      image: editFormData.image,
     };
 
     const newContacts = [...contacts];
 
-    const index = contacts.findIndex((contact) => contact.id === editContactId);
+    const index = contacts.findIndex(
+      (contact) => contact._id === editContactId
+    );
 
     newContacts[index] = editedContact;
 
@@ -86,13 +98,13 @@ const Table = () => {
 
   const handleEditClick = (event, contact) => {
     event.preventDefault();
-    setEditContactId(contact.id);
+    setEditContactId(contact._id);
 
     const formValues = {
-      fullName: contact.fullName,
-      date: contact.date,
-      reason: contact.reason,
-      email: contact.email,
+      fullname: contact.fullname,
+      description: contact.description,
+      role: contact.role,
+      image: contact.image,
     };
 
     setEditFormData(formValues);
@@ -105,7 +117,7 @@ const Table = () => {
   const handleDeleteClick = (contactId) => {
     const newContacts = [...contacts];
 
-    const index = contacts.findIndex((contact) => contact.id === contactId);
+    const index = contacts.findIndex((contact) => contact._id === contactId);
 
     newContacts.splice(index, 1);
 
@@ -120,6 +132,19 @@ const Table = () => {
     setContacts(
       contacts.filter((a) => new Date(a.date) - new Date() > filterDate)
     );
+  };
+
+  const insertProduct = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const res = await axios.post('http://localhost:5000/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    const { fileName, filePath } = await res.data;
   };
 
   return (
@@ -160,29 +185,22 @@ const Table = () => {
             >
               last day
             </p>
-            <p
-              onClick={() => {
-                setContacts(data);
-              }}
-            >
-              all
-            </p>
           </div>
         )}
         <table>
           <thead>
             <tr>
               <th>Name</th>
-              <th onClick={() => setFilterClick((old) => !old)}>date</th>
-              <th>reason</th>
-              <th>Email</th>
+              <th onClick={() => setFilterClick((old) => !old)}>description</th>
+              <th>role</th>
+              <th>image</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {contacts.map((contact) => (
+            {contacts?.map((contact) => (
               <Fragment>
-                {editContactId === contact.id ? (
+                {editContactId === contact._id ? (
                   <EditableRow
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
@@ -205,30 +223,29 @@ const Table = () => {
       <form onSubmit={handleAddFormSubmit}>
         <input
           type='text'
-          name='fullName'
+          name='fullname'
           required='required'
           placeholder='Enter a name...'
           onChange={handleAddFormChange}
         />
         <input
           type='text'
-          name='date'
+          name='description'
           required='required'
-          placeholder='Enter an date...'
+          placeholder='Enter an description...'
           onChange={handleAddFormChange}
         />
         <input
           type='text'
-          name='reason'
+          name='role'
           required='required'
-          placeholder='Enter a reason...'
+          placeholder='Enter a role...'
           onChange={handleAddFormChange}
         />
         <input
-          type='email'
-          name='email'
-          required='required'
-          placeholder='Enter an email...'
+          className='login-form__input'
+          type='file'
+          name='image'
           onChange={handleAddFormChange}
         />
         <button type='submit'>Add</button>
