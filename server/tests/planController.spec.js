@@ -20,10 +20,11 @@ describe('create New Plan', (done)=> {
     lang:"english"
   };
     it("should add a new plan to the db", async ()=> {
-        const {title,description,markdown,lang} = fakePlan;
+    const {title,description,markdown,lang} = fakePlan;
       const stub = sinon.stub(planModel, "create").returns(fakePlan);
       const plan = new planClass();
       const newPlan = await plan.createNewPlan(title,description,markdown,lang)
+      
       expect(stub.calledOnce).to.be.true;
       expect(newPlan.title).to.equal(title);
       expect(newPlan.description).to.equal(description);
