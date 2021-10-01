@@ -54,6 +54,15 @@ const getTeamMemberByRole = async (req, res, next) => {
 
 const addNewMember = async (req, res, next) => {
     try{
+        const {error} = validTeam(req.body)
+        if(error){
+            next(new ErrorResponse(error.details[0].message,301))
+        }
+    }
+    catch(e){
+        return next(new ErrorResponse(e,500))
+    }
+        try{
         const {fullname,role,image,description,lang} = req.body
 
         const newMember = await teamModel.create({fullname:fullname,role:role,image:image,description:description,lang:lang})
@@ -68,6 +77,15 @@ const addNewMember = async (req, res, next) => {
 }
 
 const editTeamMember = async (req, res, next) => {
+     try{
+        const {error} = validTeam(req.body)
+        if(error){
+            next(new ErrorResponse(error.details[0].message,301))
+        }
+    }
+    catch(e){
+        return next(new ErrorResponse(e,500))
+    }
     try{
         const {fullname,role,image,description,lang} = req.body
 

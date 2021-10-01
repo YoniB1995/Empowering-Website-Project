@@ -4,10 +4,10 @@ const ErrorResponse = require("../utils/errorResponse");
 
 const getCampaignsSorted = async (req, res, next) => {
 	try {	
-		const { error } = validCampagin(req.body); // try to validate
-	if (error) {
-	res.json({ error: error.details[0].message })
-	}
+	// 	const { error } = validCampagin(req.body); // try to validate
+	// if (error) {
+	// res.json({ error: error.details[0].message })
+	// }
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
 
 		if (!campaignsList) {
