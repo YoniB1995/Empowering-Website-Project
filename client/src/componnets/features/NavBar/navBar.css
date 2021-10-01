@@ -9,7 +9,7 @@
   color: black;
 }
 .navBar {
-  background-color: #f8f7f5;
+  /* background-color: #f8f7f5; */
   text-decoration: none;
   overflow: hidden;
   /* position: sticky; */
@@ -18,7 +18,7 @@
 }
 .navBarLinks {
   height: 100px;
-  background-color: #f8f7f5;
+  /* background-color: #f8f7f5; */
   font-size: 18px;
   font-weight: 900;
   padding: 7px 10%;
