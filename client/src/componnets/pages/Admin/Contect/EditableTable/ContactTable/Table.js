@@ -74,7 +74,7 @@ const Table = () => {
                 filterOpenFunc(true);
               }}
             >
-              completed
+              טופל
             </p>
             <p
               onClick={() => {
@@ -82,7 +82,7 @@ const Table = () => {
                 filterOpenFunc(false);
               }}
             >
-              not completed
+              לא טופל
             </p>
             <p
               onClick={() => {
@@ -90,7 +90,7 @@ const Table = () => {
                 setContacts(all);
               }}
             >
-              all
+              הכל
             </p>
           </div>
         )}
@@ -111,7 +111,7 @@ const Table = () => {
                 filterDateFunc(month);
               }}
             >
-              month
+              חודש
             </p>
             <p
               onClick={() => {
@@ -119,7 +119,7 @@ const Table = () => {
                 filterDateFunc(week);
               }}
             >
-              week
+              שבוע
             </p>
             <p
               onClick={() => {
@@ -127,7 +127,7 @@ const Table = () => {
                 filterDateFunc(day);
               }}
             >
-              day
+              יום
             </p>
             <p
               onClick={() => {
@@ -135,7 +135,7 @@ const Table = () => {
                 setContacts(all);
               }}
             >
-              all
+              הכל
             </p>
           </div>
         )}

@@ -15,11 +15,20 @@
   justify-content: space-around;
   align-items: center;
 }
-.aboutus-content {
+.about-us-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 384px;
   font-size: 16px;
   font-family: "Varela Round", sans-serif;
   text-align: center;
   direction: rtl;
+  margin-top: 20px;
+}
+
+.home-about-us-content{   
+  width: 100%;
+  line-height: 2;
 }
 .about-us-home {
   font-family: "Varela Round", sans-serif;

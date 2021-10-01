@@ -17,7 +17,7 @@ import { useTranslation } from "react-i18next";
 import WorkersCards from "../../features/workersCards/WorkersCards";
 
 const Home = () => {
-  const { t } = useTranslation();
+  const {} = useTranslation();
 
   useEffect(() => {
     new WOW.WOW({
@@ -29,12 +29,16 @@ const Home = () => {
       <div className="home-first-section">
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
-          <div className="aboutus-content">
-            <h1>קצת עלינו </h1>
-            <div  className="littleBitAboutInfo">
-              <p>{t("littleBitAboutInfo")}</p>
+          <div className="about-us-wrapper">
+            <h1>קצת עלינו</h1>
+            <div className="home-about-us-content">
+              עמותת נשים אתיופיות מעצימות הוקמה בשנת 2020, מתוך צורך ממשי למתן
+              סיוע,תמיכה ועידוד נשים ישראליות ממוצא אתיופי ,להשכלה גבוהה עסקים
+              ולערבות הדדית העמותה צמחה +מתוך פלטפורמה של קהילת נשים בפייסבוק
+              המונה 16,000 נשים -קהילת הנשים הקומה מתוך רצון ומטרה להעצים נשים
+              בכל תחומי החיים ושמה לה למטרה להשפיע בחברה הישראלית,בכלכלה בחינוך
+              ובכל תחומי החיים בכלל.
             </div>
-
             <Link to="/AboutUs">
               <Button
                 className="about-us-home-btn"
@@ -91,23 +95,23 @@ const Home = () => {
       </div>
       <Programs />
 
-        <div className="vision-goals-container">
-          <div className="vision">
-            <Vision />
-          </div>
-
-          <div className="goals">
-            <Goals />
-          </div>
+      <div className="vision-goals-container">
+        <div className="vision">
+          <Vision />
         </div>
-        <div
-          className="programs-wrapper"
-          style={{
-            width: "95%",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        ></div>
+
+        <div className="goals">
+          <Goals />
+        </div>
+      </div>
+      <div
+        className="programs-wrapper"
+        style={{
+          width: "95%",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      ></div>
       <Copartner />
 
       <BackTop>
