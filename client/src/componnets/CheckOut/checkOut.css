@@ -1,0 +1,14 @@
+.ant-steps {
+    width: 70%;
+    margin: auto;
+}
+.checkOutHeader{
+    text-align: center;
+    font-family: "Varela Round", sans-serif;
+}
+.ant-descriptions{
+display: flex;
+align-items: center;
+flex-direction: column;
+flex-wrap: wrap;
+}

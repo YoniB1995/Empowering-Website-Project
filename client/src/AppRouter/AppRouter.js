@@ -25,6 +25,7 @@ import ContactU from '../componnets/pages/ContactUs/ContactUs';
 import NewsLettersUserTable from '../componnets/features/Admin/NewsLetters-User-table';
 import LetNews from "../componnets/features/Admin/LetNews"
 import { LoginForm } from '../componnets/features/Forms/LoginForm';
+import Contact from '../componnets/pages/Admin/Contact/Contact';
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -57,6 +58,7 @@ export default function AppRouter() {
       <Route path='/LoginForm' component={LoginForm} />
 
         <Route path='/test'><Contect /></Route>
+        <Route path="/Contact" component={Contact}/> 
         <ProtectedRoute path='/logout' component={Logout} />
 
         <ProtectedRoute path='/Admin/EditArticles/:id' component={EditArticles}/>

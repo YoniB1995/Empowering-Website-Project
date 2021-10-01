@@ -1,13 +1,14 @@
 .programs-wrapper {
   display: flex;
   flex-direction: column;
-  background-color:#F3F4ED;
+  background-color: #f4dfd0;
+
 }
 .cards-wrapper {
-padding: 20px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  height: 569px;
 }
 
 .programs-header {
@@ -19,8 +20,55 @@ padding: 20px;
 }
 
 .programs-header-decertion {
-    width: 0;
-    height: 27px;
-    border: solid black;
-    margin-left: 10px;
+  width: 0;
+  height: 32px;
+  border: solid #d57e7e;
+  margin-left: 10px;
+}
+
+.program-card-title {
+  font-family: "Varela Round", sans-serif;
+  color: #d57e7e;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.program-card-title-clicked {
+  display: none;
+}
+.card-program-clicked-container {
+  width: 100%;
+  padding: 10px;
+  direction: rtl;
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
+  padding: 20px;
+}
+.program-clicked-header {
+  text-align: center;
+  color: #d57e7e;
+  margin-right: 10px;
+}
+.program-card {
+  border-radius: 5%;
+  display: flex;
+  width: 300px;
+  height: 450px;
+  background: #fefbf3;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.program-clicked-description {
+}
+
+.img-program-card {
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+}
+
+@media only screen and (max-width: 1060px) {
+  .program-card {
+    margin-bottom: 20px;
   }
+}

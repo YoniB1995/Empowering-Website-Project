@@ -28,7 +28,6 @@ const Home = () => {
     <div>
       <div className="home-first-section">
         <ImageSlider />
-        <WorkersCards />
         <div className="about-us wow animate__bounceInUp">
           <div className="aboutus-content">
             <h1>קצת עלינו </h1>
@@ -69,12 +68,12 @@ const Home = () => {
       {/* <div className="home-newsletter-section">
         <div className="archive-container">
           <div className="archive-slider"> */}
-      <SliderStore />
+      {/* <SliderStore /> */}
       {/* <img src="./archive-newsletter-vector.jpg" /> */}
       {/* </div> */}
       <div className="newsletter-signup-btn">
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button
+          {/* <Button
             className="about-us-home-btn"
             size="large"
             shape="round"
@@ -85,13 +84,13 @@ const Home = () => {
             }}
           >
             להרשמה לניוזלטר לחצ\י כאן
-          </Button>
+          </Button> */}
         </div>
         {/* </div>
         </div> */}
       </div>
       <Programs />
-      <div>
+
         <div className="vision-goals-container">
           <div className="vision">
             <Vision />
@@ -109,7 +108,6 @@ const Home = () => {
             justifyContent: "flex-end",
           }}
         ></div>
-      </div>
       <Copartner />
 
       <BackTop>

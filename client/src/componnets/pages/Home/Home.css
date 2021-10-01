@@ -48,8 +48,8 @@
 }
 
 .arrow-icon-container {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +77,6 @@
   height: 50%;
 }
 .vision-goals-container {
-  height: 80%;
   margin: auto;
   width: 80%;
   display: flex;
@@ -133,7 +132,6 @@
   display: flex;
   flex-direction: column;
     justify-content: space-around;
-    height: 1000px;
 }
 
 
