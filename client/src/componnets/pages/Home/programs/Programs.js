@@ -5,6 +5,7 @@ import WOW from 'wowjs';
 import { ReadOutlined } from '@ant-design/icons';
 
 import './programs.css';
+import { getAllPlans } from '../../../../service/plan-service';
 const Programs = () => {
   const { Meta } = Card;
   const [clickedIndex, setClickedIndex] = useState(false);
@@ -16,7 +17,7 @@ const Programs = () => {
       live: false,
     }).init();
 
-    fetch('http://localhost:5000/plans/all/hebrew')
+    getAllPlans()
       .then((res) => res.json())
       .then((data) => setPrograms(data));
   }, []);
