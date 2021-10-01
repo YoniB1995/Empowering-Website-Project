@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import './App.css';
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRouter from "./AppRouter/AppRouter";
 import NavBar from "./componnets/features/NavBar/NavBar";
@@ -7,21 +8,22 @@ import AuthContextProvider from "./contexts/AuthContextProvider";
 import Contect from "./componnets/pages/Admin/Contect/Contect";
 import Contact from "./componnets/pages/Admin/Contact/Contact";
 import Data from "./componnets/pages/Admin/Data/Data";
+import { Accessibility } from 'accessibility/src/main';
 import { Suspense } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.js";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/js/bootstrap.js";
 
 function App() {
-  // useEffect(() => {   
-  //   window.addEventListener('load', function() { new Accessibility(options); }, false);
-  // });
+  useEffect(() => {   
+    window.addEventListener('load', function() { new Accessibility(options); }, false);
+  });
 
   var labels = {
     resetTitle: 'רענן ',
     closeTitle: 'סגור ',
     menuTitle: 'נגישות ',
-    increaseText: 'זום אין ',
-    decreaseText: 'זום אאוט ',
+    increaseText: 'טקסט גדול ',
+    decreaseText: 'טקסט קטן ',
     increaseTextSpacing: 'הגדל את מרווח הטקסט ',
     decreaseTextSpacing: 'הקטן את מרווח הטקסט ',
     invertColors: 'הפוך צבעים ',
@@ -35,6 +37,7 @@ function App() {
   var options = { labels: labels };
   options.textToSpeechLang = 'he'; 
   options.speechToTextLang = 'he'; 
+
 
   return (
     <>

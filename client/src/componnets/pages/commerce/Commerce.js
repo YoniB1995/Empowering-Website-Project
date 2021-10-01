@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import Commerce from '@chec/commerce.js';
 import ProductsC from '../../features/Products/Products';
 import { Badge } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Drawer, Button, Modal } from 'antd';
 import CartItem from '../../cart/CartItem';
 import ButtonComponen from '../../features/Button/ButtonComponent';
@@ -12,26 +12,38 @@ import './commerce.css'
 import { Spin } from 'antd';
 import Input from '../../features/Input/Input';
 import ButtonComponent from '../../features/Button/ButtonComponent';
+import CheckOut from '../../CheckOut/CheckOut';
 const REACT_APP_CHEC_PUBLIC_KEY = "pk_332356f9128204a342117237f03a4f7afd9a55c1d788d";
-export const commerce = new Commerce(REACT_APP_CHEC_PUBLIC_KEY, true);
+export const commerce = new Commerce("pk_332356f9128204a342117237f03a4f7afd9a55c1d788d", true);
 
 const CommerceJs = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({})
     const [card, setCard] = useState({})
+    const [country, setCountry] = useState()
+    const [isCardOnCart,setIsCardOnCart ] = useState(false);
+
+
+
     const fetchProducts = async () => {
         const data = await commerce.products.list();
         setProducts(data.data);
     }
-    console.log(products)
+    // console.log(products)
     const fetchCart = async () => {
         const cart = await commerce.cart.retrieve();
         setCart(cart)
     }
+    console.log(cart);
     const fetchCard = async () => {
         const card = await commerce.cart.retrieve();
-        setCard(card.line_items)
+        setCard(card.line_items);
     }
+    const fetchCountry = async () => {
+        const country = await commerce.services.localeListCountries()
+        setCountry(country.countries.IL)
+    }
+    console.log(country)
     const handleAddToCart = async (productId, quanitity) => {
         const { cart } = await commerce.cart.add(productId, quanitity);
         setCart(cart);
@@ -56,6 +68,13 @@ const CommerceJs = () => {
             </div>
         </Drawer>
     };
+
+
+    const check = () => {
+        cart.line_items.map(item => (item.product_id === "prod_RqEv5xXOxk5Zz4") ? setIsCardOnCart(true) : setIsCardOnCart(false));
+        
+    }
+    const checkpath = "/Commercejs/CheckOut"
     // const ModalForm = () => {
     //     const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -70,9 +89,10 @@ const CommerceJs = () => {
     //     const handleCancel = () => {
     //         setIsModalVisible(false);
     //     };
-    //     return <div>  <Button type="primary" onClick={showModal}>
-    //         Open Modal
-    //     </Button>
+    //     return <div>
+    //         <Button type="primary" onClick={showModal}>
+    //             Open Modal
+    //         </Button>
     //         <Modal title="פרטים אישיים" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
     //             <label>שם מלא</label>
     //             <Input type="text" name="user_email" className="contact" />
@@ -80,14 +100,13 @@ const CommerceJs = () => {
     //             <Input type="email" name="user_email" className="contact" />
     //         </Modal>
     //     </div>
-
     // }
     const FilledCart = () => {
         return <>
             <div>
                 <Button onClick={showDrawer} className="badge">
-                    <Badge count={cart?.total_items} showZero totalItems={cart?.total_items}>
-                        <ShoppingCartOutlined style={{ float: "right" }} />
+                    { } <Badge count={cart?.total_items} showZero totalItems={cart?.total_items}>
+                        <i class="fas fa-shopping-cart" ></i>
                     </Badge>
                 </Button>
                 <div className="drawer">
@@ -103,8 +122,10 @@ const CommerceJs = () => {
                             <span>סה"כ לתשלום:</span>
                             {cart.subtotal.formatted_with_symbol}
                             <ButtonComponent type="button" onClick={() => handleEmptyCart()} className="btnCart" id="btnOne" text="רוקן עגלה"></ButtonComponent>
-                            <ButtonComponent type="button"
-                               text="לקופה" className="btnCart" id="btnTwo"></ButtonComponent>
+                            <ButtonComponent onClick={check} type="button" text="לקופה" className="btnCart" id="btnTwo"></ButtonComponent >
+                            <Link to={isCardOnCart?"/Commercejs/CheckOut" :"/Commercejs"}><button>here</button></Link>
+
+
                         </div>
                     </Drawer>
                 </div>
@@ -115,6 +136,7 @@ const CommerceJs = () => {
         fetchProducts();
         fetchCart();
         fetchCard();
+        fetchCountry();
     }, [])
     const [visible, setVisible] = useState(false);
 
@@ -124,7 +146,6 @@ const CommerceJs = () => {
     const onClose = () => {
         setVisible(false);
     };
-    // console.log(cart)
     if (!cart.line_items) return <div className="spin"><Spin size="large" /></div>
     return (
         <div>
@@ -134,6 +155,9 @@ const CommerceJs = () => {
             <Switch>
                 <Route exact path='/Commercejs'>
                     <ProductsC products={products} handleAddToCart={handleAddToCart} />
+                </Route>
+                <Route exact path='/Commercejs/CheckOut'>
+                    < CheckOut cart={cart} handleEmptyCart={handleEmptyCart} />
                 </Route>
             </Switch>
         </div>

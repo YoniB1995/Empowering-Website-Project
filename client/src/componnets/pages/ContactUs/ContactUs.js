@@ -7,24 +7,29 @@ const { Option } = Select;
 
 
 export default function ContactU() {
-const handleSubmit=(e)=>{
-  e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-}
+  }
   return (
-    <form className="contact-form" onSubmit={handleSubmit} >
-      <h1>יצירת קשר</h1>
-      <label> סיבת פנייה</label>
-      <Select className="select">
-        <Option value="חבר מועדון">חבר מועדון</Option>
-        <Option value="אחר">אחר</Option>
-      </Select>
-      <label>אימייל</label>
-      <Input type="email" name="user_email" className="contact" />
-      <label>תיאור</label>
-      <textarea name="message" className="contact" style={{ width: "340px", height: "100px", borderRadius: "5px", margin: "5px" }} required />
-      <ButtonComponent className="form-button" type="submit" text="שלח" />
-    </form>
+    <div className="contactDiv">
+    <div className="contact">
+      <form className="contact-form" onSubmit={handleSubmit} >
+        <h1>יצירת קשר</h1>
+        <label> סיבת פנייה</label>
+        <Select className="select" >
+          <Option value="חבר מועדון">חבר מועדון</Option>
+          <Option value="אחר">אחר</Option>
+        </Select>
+        <label>*אימייל</label>
+        <Input type="email" name="user_email" className="contact" />
+        <label>*תיאור</label>
+        <textarea name="message" className="contact" style={{ width: "340px", height: "100px", borderRadius: "5px", margin: "5px" ,background:"none"}} required />
+        <ButtonComponent className="form-button" type="submit" text="שלח" />
+      </form>
+      <img src="./785_generated.jpg" alt="image" ></img>
+    </div>
+    </div>
   );
 }
 
@@ -36,6 +41,40 @@ const handleSubmit=(e)=>{
 
 
 
+
+
+
+
+
+// export default function ContactU() {
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//   }
+//   return (
+//     <div className="contact">
+
+//       <form className="contact-form" onSubmit={handleSubmit} >
+//         <h1>יצירת קשר</h1>
+//         <label> סיבת פנייה</label>
+//         <Select className="select" >
+//           <Option value="חבר מועדון">חבר מועדון</Option>
+//           <Option value="אחר">אחר</Option>
+//         </Select>
+//         <label>*אימייל</label>
+//         <Input type="email" name="user_email" className="contact" />
+//         <label>*תיאור</label>
+//         <textarea name="message" className="contact" style={{ width: "340px", height: "100px", borderRadius: "5px", margin: "5px" }} required />
+//         <ButtonComponent className="form-button" type="submit" text="שלח" />
+
+
+//       </form>
+
+//       <img src="./programs-vector.jpg" alt="image" ></img>
+//     </div>
+//   );
+// }
 
 
 
