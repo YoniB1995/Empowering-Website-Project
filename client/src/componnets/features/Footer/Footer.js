@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Input, Button } from "antd";
 import { FacebookOutlined, MailOutlined } from "@ant-design/icons";
@@ -16,6 +16,13 @@ const Footer1 = () => {
     setSinglet(e.target.value);
     console.log(singlet);
   };
+  const handleClick = () => {
+    addMemberToNewsletter(singlet);
+    setSinglet([]);
+    console.log("success");
+  };
+
+  
   return (
     <footer>
       <div className="about">
@@ -89,7 +96,7 @@ const Footer1 = () => {
               background: "#F1CCB9",
               marginRight: "10px",
             }}
-            onClick={() => addMemberToNewsletter(singlet)}
+            onClick={handleClick}
           >
             שלח
           </Button>

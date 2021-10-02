@@ -19,7 +19,7 @@ const createMember = async (req, res, next) => {
     await MailchimpMarketingModel.lists
       .addListMember(AUDIENCE_ID, {
         email_address: req.body.Email,
-        status: "pending",
+        status: "subscribed",
       })
       .then((response) =>
         res.status(200).json({ message: "user added", response })

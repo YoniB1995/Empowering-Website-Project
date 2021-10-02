@@ -8,15 +8,18 @@ import ContactU from "../../pages/ContactUs/ContactUs";
 import i18next from "i18next";
 import cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
-import { GlobeIcon, lang } from "../../../i18next/I18next";
+import { lang } from "../../../i18next/I18next";
 import { AuthContext } from "../../../contexts/AuthContextProvider";
 
 const NavBar = () => {
-  const { isLogin,logout} = useContext(AuthContext);
-  const { t } = useTranslation();
+  const { isLogin} = useContext(AuthContext);
+  const { t} = useTranslation();
+
   const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
+
   const [btnLanguage,setBtnLanguage]=useState('ENG')
+  
   // useEffect(() => {
   //   document.body.dir = currentLang.dir || "rtl";
   //   document.title = t("app_title");
@@ -25,16 +28,27 @@ const NavBar = () => {
   //   i18next.changeLanguage(code);
 
   // };
+  function handleClick(lang) {
+    i18next.changeLanguage(lang)
+  }
+
    const changingBtnLanguage=(e)=>{
-   e.target.innerText==='ENG'?setBtnLanguage('HEB'):setBtnLanguage('ENG')
+    
+    e.target.innerText==='ENG'?setBtnLanguage('HEB'):setBtnLanguage('ENG')
+    
+
    console.log(e.target.innerText)
-   
    }
   return (
     <div className="navBar">
-      
-  
-   
+                  {lang.map(({ code, name}) => (
+              <>
+                <button onClick={i18next.changeLanguage(code)}>
+                  {name}
+                </button>
+                
+              </>
+            ))}
       <Link to="./">
         <Avatar className="logo" src="./logo-main1.jpeg" alt="logo"></Avatar>
       </Link>
@@ -44,6 +58,7 @@ const NavBar = () => {
       <Button onClick={changingBtnLanguage} > {btnLanguage}</Button>
 
       </Menu.Item>
+      
 
       { isLogin &&
         <Link to="/logout">

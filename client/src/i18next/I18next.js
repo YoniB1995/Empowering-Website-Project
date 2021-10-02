@@ -4,12 +4,17 @@ import { initReactI18next} from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 
+
+
+const availableLanguages = ['heb','en'];
+
 i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .use(HttpApi)
   .init({
     supportedLngs: ["heb","en"],
+    whitelist: availableLanguages,
     fallbackLng: "heb",
     detection: {
       order: ["cookie", "htmlTag", "localStorage", "path", "subdomain"],
@@ -24,13 +29,13 @@ i18n
   export const lang = [
     {
       code: "heb",
-      name: "hebrew",
+      name: "HEB",
       contry_code: "il",
       dir: "rtl",
     },
     {
       code: "en",
-      name: "english",
+      name: "ENG",
       contry_code: "gb",
       dir: "ltr",
     },

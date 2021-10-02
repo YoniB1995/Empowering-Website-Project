@@ -4,17 +4,19 @@ const API =
     ? `https://empowering-women-web.herokuapp.com/`
     : "http://localhost:5000";
 
-// const getAllAdmins = async (req,res) =>{
-//     try{
-//         const admin = await fetch(`${API}/admin`)
-//         .then((res) => { return res.json() })
+export const getAllAdmins = async (req,res) =>{
+    try{
+        const admin = await fetch(`${API}/admin`)
+        .then((res) => { return res.json() })
+        res.json(admin);
+    } catch(error){
+        console.log(error);
+        res.status(500).json({message:"Server Error"});
+    }
+}
 
-//         res.json(admin);
-//     } catch(error){
-//         console.log(error);
-//         res.status(500).json({message:"Server Error"});
-//     }
-// }
+
+
 
 // const getAdminById = async (req,res) =>{
 //     try{
