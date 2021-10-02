@@ -27,7 +27,7 @@ const getOnePlan = async (req, res, next) => {
     }
 }
 
-const addNewPlan = async (req, res, next) => {
+const addNewPartner = async (req, res, next) => {
     try{
         const {error} = validPartner(req.body)
         if(error){
@@ -90,5 +90,5 @@ const deleteOnePartner = async (req, res, next) => {
 }
 
 module.exports = {
-    getAllPartners,getOnePlan,addNewPlan,deleteOnePartner,editOnePartner
+    getAllPartners,getOnePlan,addNewPartner,deleteOnePartner,editOnePartner
 }
