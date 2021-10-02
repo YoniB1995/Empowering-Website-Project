@@ -145,5 +145,5 @@ module.exports = {
   getAdminById,
   registerAdmin,
   deleteAdmin,
-  loginAdmin,
+  loginAdmin, 
 };

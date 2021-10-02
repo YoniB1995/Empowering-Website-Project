@@ -6,11 +6,12 @@ const log = console.log;
 const nodeHtmlToImage = require('node-html-to-image');
 const { cardModel, validCard } = require('../models/cardModel');
 const { counterModel } = require('../models/counterID');
-let counterTwo;
+let newCounter;
+
 counterModel.find({}, (error, result) => {
   if (error) throw error;
 
-  counterTwo = result[0].counterID;
+  newCounter = result[0].counterID;
 });
 const sendEmailCard = async (req, res, next) => {
   try {
@@ -19,11 +20,11 @@ const sendEmailCard = async (req, res, next) => {
       return next(new ErrorResponse(`${validBody.error}`, 400));
     }
 
-    req.body.card.idCard = counterTwo;
+    req.body.card.idCard = newCounter;
     console.log();
     counterModel.findByIdAndUpdate(
       process.env.IDCOUNTER,
-      { counterID: (counterTwo += 1) },
+      { counterID: (newCounter += 1) },
       function (err, result) {
         if (err) throw err;
         console.log(result);
@@ -55,7 +56,7 @@ const sendEmailCard = async (req, res, next) => {
         let replacements = {
           username: `${req.body.card.fullName}`,
           date: '2021',
-          Invoicing: counterTwo - 1,
+          Invoicing: newCounter - 1,
         };
         let pathCardImage = `${__dirname}/card-images/${req.body.card.fullName}.png`;
         let htmlToSend = template(replacements);
@@ -65,24 +66,24 @@ const sendEmailCard = async (req, res, next) => {
           html: htmlToSend,
         }).then(() => {
           let mailOptions = {
-            from: 'asalef10@gmail.com', // TODO: email sender
+            from: 'asalef10@gmail.com',
             to: req.body.card.email,
-            subject: 'קבלה עבור כרטיס מועדון-נשים אתיופיות מעצימות',
-
+            subject: 'קבלה עבור כרטיס צרכנות-נשים אתיופיות מעצימות',
             attachments: [
               {
                 filename: `${req.body.card.fullName}.png`,
                 path: pathCardImage,
-              },
+              }, 
             ],
-            html: htmlToSend,
-          };
+            html: `
+            <div id="asi"           
+            <h2  style="color: black;text-align: center;border-style: solid;width: 385px;">${req.body.card.fullName} שלום </h2> <p> מעכשיו תוכלי להנות מכרטיס צרכנות של נשים אתיופיות מעצימות.</p> <p> הכרטיס מצורף למטה   </p><p>בברכה, נשים אתיופיות מעצימות,</p> </div> `,};
 
           transporter.sendMail(mailOptions, (err, data) => {
             if (err) {
               return log(err);
             } else {
-             return res.json({ message: `email sent` });
+              return res.json({ message: `email sent` });
             }
           });
         });
