@@ -1,20 +1,36 @@
 /* eslint-disable no-unused-vars */
-const API =
-  process.env.NODE_ENV === "production"
-    ? `https://empowering-women-web.herokuapp.com/`
-    : "http://localhost:5000";
+const API ="http://localhost:5000"
+  // process.env.NODE_ENV === "production"
+  //   ? `https://empowering-women-web.herokuapp.com/`
+  //   : "http://localhost:5000";
 
-// const getAllAdmins = async (req,res) =>{
+
+
+// export const getAllAdmins = async (req,res) =>{
 //     try{
 //         const admin = await fetch(`${API}/admin`)
 //         .then((res) => { return res.json() })
-
 //         res.json(admin);
 //     } catch(error){
 //         console.log(error);
 //         res.status(500).json({message:"Server Error"});
 //     }
 // }
+
+export const getAllAdmins = async (req,res) =>{
+  try{
+      const admin = await fetch(`${API}/admin`)
+      .then((res) => { return res.json() })
+      // .then((res) =>  console.log(res))
+      // res.json(admin);
+  } catch(error){
+      console.log(error);
+      res.status(500).json({message:"Server Error"});
+  }
+}
+
+
+
 
 // const getAdminById = async (req,res) =>{
 //     try{
@@ -76,5 +92,3 @@ export const deleteAdmin = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
-
-

@@ -4,6 +4,22 @@ import { initReactI18next} from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 
+export const lang = [
+  {
+    code: "heb",
+    name: "HEB",
+    contry_code: "il",
+    dir: "rtl",
+  },
+  {
+    code: "en",
+    name: "ENG",
+    contry_code: "gb",
+    dir: "ltr",
+  },
+];
+
+
 i18n
   .use(initReactI18next)
   .use(LanguageDetector)
@@ -21,21 +37,7 @@ i18n
   });
 
 
-  export const lang = [
-    {
-      code: "heb",
-      name: "hebrew",
-      contry_code: "il",
-      dir: "rtl",
-    },
-    {
-      code: "en",
-      name: "english",
-      contry_code: "gb",
-      dir: "ltr",
-    },
-  ];
-
+ 
  export const GlobeIcon = ({ width = 24, height = 24 }) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

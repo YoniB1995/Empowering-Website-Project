@@ -4,10 +4,13 @@ import Input from "../../features/Input/Input";
 import ButtonComponent from "../../features/Button/ButtonComponent";
 import { Select } from "antd";
 import {addContactUsInformation} from '../../../service/contactUs-service';
+import { useTranslation } from "react-i18next";
 
 const { Option } = Select;
 
 export default function ContactU() {
+
+  const {t} = useTranslation();
 
 
   const handleSubmit = (e) => {
@@ -36,20 +39,20 @@ export default function ContactU() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <h1>יצירת קשר</h1>
-      <label> סיבת פנייה</label>
+      <h1>{t("contact")}</h1>
+      <label> {t("Cause of appeal")}</label>
       <Select onSelect={getInquiry} className="select">
-        <Option value="חבר מועדון">חבר מועדון</Option>
-        <Option value="אחר">אחר</Option>
+        <Option value={t("club member")}>{t("club member")}</Option>
+        <Option value={t("Other")}>{t("Other")}</Option>
       </Select>
-      <label>אימייל</label>
+      <label>{t("Email")}</label>
       <Input
         type="email"
         name="user_email"
         className="contact"
         handleChange={getEmail}
       />
-      <label>תיאור</label>
+      <label>{t("Description")}</label>
       <textarea
         name="message"
         className="contact"
@@ -62,7 +65,7 @@ export default function ContactU() {
         required
         onChange={getContent}
       />
-      <ButtonComponent className="form-button" type="submit" text="שלח" onClick={()=>{addContactUsInformation(inquiry,email,content)}}/>
+      <ButtonComponent className="form-button" type="submit" text={t("click")} onClick={()=>{addContactUsInformation(inquiry,email,content)}}/>
     </form>
   );
 }
