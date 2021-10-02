@@ -34,6 +34,8 @@
 }
 .target-card-list {
   list-style-type: none;
+  font-size: 12px;    
+  /* -----------------------------------   בני הוסיף למען תרגום חח */
 }
 
 .target-card-container-right-side {

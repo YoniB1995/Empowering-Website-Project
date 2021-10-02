@@ -4,75 +4,75 @@ import Copartner from "../Home/Copartners/Copartners";
 import Volunteers from "./volunteers/Volunteers";
 import Staff from "./staff/Staff";
 import { ArrowLeftOutlined, TeamOutlined } from "@ant-design/icons";
-
 import "./AboutUs.css";
+import { useTranslation } from "react-i18next";
 
 const AboutUs = () => {
-  const title1 = (
-    <h3 style={{ fontSize: "20px" }}>עידוד וייעוץ לנשים ליציאה ללימודים</h3>
+  const { t } = useTranslation();
+  const title1 = <h3 style={{ fontSize: "20px" }}>{t("Encouragement")}</h3>;
+  const title2 = (
+    <h3 style={{ fontSize: "20px" }}>{t("Handling public inquiries")}</h3>
   );
-  const title2 = <h3 style={{ fontSize: "20px" }}>טיפול בפניות הציבור</h3>;
 
   const title3 = (
-    <h3 style={{ fontSize: "20px" }}>מינוף ועידוד עסקים בקרב נשים בקהילה</h3>
+    <h3 style={{ fontSize: "20px" }}>{t("encourage business")}</h3>
   );
   const description1 = (
     <ul className="target-card-list">
-      <li>שינוי תפיסה תודעתית שתואר אקדמאי הוא בר השגה</li>
+      <li>{t("conscious perception")}</li>
       <li>
         {" "}
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        נפגעות תקיפה מינית
+        {t("sexualVictims")}{" "}
       </li>
       <li>
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        הכוונה למלגות ממוקדות לגילאי בשתפ עם ארגונים ומוסדות קורסים להכשרה
-        מקצועית
+        {t("scholarships")}
       </li>
       <li>
         {" "}
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        סיוע למשפחות חד הוריות במצוקה כללית
+        {t("famileAssistance")}{" "}
       </li>
     </ul>
   );
 
   const description2 = (
     <ul className="target-card-list">
-      <li>באופן אישי או דרך קהילת נשים אתיופיות מעצימו </li>
+      <li>{t("publicinquiriesinperson")} </li>
       <li>
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        מתן סיוע מיידי לפניות של נשים{" "}
+        {t("Providing assistance")}
       </li>
       <li>
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />{" "}
-        נפגעות תקיפה מינית
+        {t("sexualVictims")}
       </li>
       <li>
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        אלימות משפחתית{" "}
+        {t("Domestic violence")}
       </li>
       <li>
         {" "}
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        סיוע למשפחות חד הוריות במצוקה כללית
+        {t("Assistance to single-parent")}{" "}
       </li>
     </ul>
   );
   const description3 = (
     <ul className="target-card-list">
-      <li>מינוף ועידוד עסקים בקרב נשים בקהילה </li>
+      <li>{t("Leverage business")}</li>
       <li>
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        שיווק ופרסום והנגשת העסקים בקהילה
+        {t("Marketing Business")}
       </li>
       <li>
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />
-        לוויו ומינוף עסקים קיימים{" "}
+        {t("Accompanying businesses")}
       </li>
       <li>
         <ArrowLeftOutlined style={{ color: "#40BAD5", fontSize: "20px" }} />{" "}
-        קניית שירותים פנים קההילתית להרחבת מספר הלקוחות
+        {t("Purchasing services")}{" "}
       </li>
     </ul>
   );
