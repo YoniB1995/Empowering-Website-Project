@@ -45,6 +45,7 @@ const loginAdmin = async (req, res, next) => {
                 success: true,
                 token: "Bearer " + token,
                 expiresTokenIn: "60min",
+                email: payload.email,
               });
             }
           );
@@ -115,7 +116,6 @@ const registerAdmin = async (req, res, next) => {
 };
 
 const deleteAdmin = async (req, res, next) => {
-  
   try {
     const deletedUser = await adminModel.deleteOne(req.params.id);
 
@@ -125,13 +125,11 @@ const deleteAdmin = async (req, res, next) => {
       );
     }
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Admin Deleted!",
-        deletedAdmin: deletedUser,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Admin Deleted!",
+      deletedAdmin: deletedUser,
+    });
   } catch (error) {
     res
       .status(200)
@@ -141,9 +139,12 @@ const deleteAdmin = async (req, res, next) => {
 };
 
 const updatedAdmin = async (req, res, next) => {
-  const {username, email } = req.body;
+  const { username, email } = req.body;
   try {
-    const UpdatedAdmin = await adminModel.findByIdAndUpdate(req.params.id,{username:username,email:email});
+    const UpdatedAdmin = await adminModel.findByIdAndUpdate(req.params.id, {
+      username: username,
+      email: email,
+    });
 
     if (!UpdatedAdmin) {
       return next(
@@ -151,13 +152,11 @@ const updatedAdmin = async (req, res, next) => {
       );
     }
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Admin Updated!",
-        UpdatedAdmin: UpdatedAdmin,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Admin Updated!",
+      UpdatedAdmin: UpdatedAdmin,
+    });
   } catch (error) {
     res
       .status(200)
@@ -172,5 +171,5 @@ module.exports = {
   registerAdmin,
   deleteAdmin,
   loginAdmin,
-  updatedAdmin
+  updatedAdmin,
 };

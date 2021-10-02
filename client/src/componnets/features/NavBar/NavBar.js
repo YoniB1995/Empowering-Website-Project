@@ -10,11 +10,12 @@ import cookies from "js-cookie";
 import { useTranslation } from "react-i18next";
 import { lang } from "../../../i18next/I18next";
 import { AuthContext } from "../../../contexts/AuthContextProvider";
+import { getAllAdmins } from "../../../service/admin-service";
+import Profile from "../Forms/FormsTemporary/Profile";
 
 const NavBar = () => {
   const { isLogin } = useContext(AuthContext);
   const { t } = useTranslation();
-
   const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
 
@@ -29,29 +30,22 @@ const NavBar = () => {
 
   // };
 
-
   const changingBtnLanguage = (e) => {
     e.target.innerText === "ENG"
       ? setBtnLanguage("HEB")
       : setBtnLanguage("ENG");
-      if(currentLangCode==="heb"){
-        i18next.changeLanguage('en')
-      }
-      else{
-        i18next.changeLanguage('heb')
-  
-      }
-   
-
+    if (currentLangCode === "heb") {
+      i18next.changeLanguage("en");
+    } else {
+      i18next.changeLanguage("heb");
+    }
     console.log(e.target.innerText);
   };
 
-
-
-
   return (
     <div className="navBar">
-  
+      {isLogin && <Profile />}
+
       <Link to="./">
         <Avatar className="logo" src="./logo-main1.jpeg" alt="logo"></Avatar>
       </Link>

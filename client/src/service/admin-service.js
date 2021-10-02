@@ -19,8 +19,8 @@ const API ="http://localhost:5000"
 
 export const getAllAdmins = async (req,res) =>{
   try{
-      const admin = await fetch(`${API}/admin`)
-      .then((res) => { return res.json() })
+      return await fetch(`${API}/admin`)
+      
       // .then((res) =>  console.log(res))
       // res.json(admin);
   } catch(error){
