@@ -1,4 +1,4 @@
-{
+ const adminDB = {
     "getAllAdmins": {
   "success": {
     "res": {
@@ -158,7 +158,82 @@
   }
    }
 }
+<<<<<<< HEAD:server/tests/adminTests.json
 
 
 
 
+=======
+},
+"loginAdmin": {
+  "success": {
+    "res": {
+      "statusCode": 201,
+      "headers": {
+        "content-type": "application/json"
+      }
+    },
+    "body": {
+      "status": "success",
+      "message":"admin is logged in!",
+      "data": [
+        {
+          "_id": "614b9fa0df92314c81d69f06",
+            "username": "Yoni Bitew",
+            "email": "yonibitew@gmail.com",
+            "password": "01230123"
+        }
+      ]
+    }
+  },
+  "failure": {
+  "res": {
+    "statusCode": 400,
+    "headers": {
+      "content-type": "application/json"
+    }
+  },
+  "body": {
+    "status": "error",
+    "message": "Wrong Details , admin not exists!"
+  }
+}
+},
+"updateAdminDetails": {
+  "success": {
+    "res": {
+      "statusCode": 201,
+      "headers": {
+        "content-type": "application/json"
+      }
+    },
+    "body": {
+      "status": "success",
+      "message":"admin details has changed!",
+      "data": [
+        {
+          "_id": "614b9fa0df92314c81d69f06",
+            "username": "Yoni Bitew",
+            "email": "yonibitew@gmail.com",
+            "password": "01230123"
+        }
+      ]
+    }
+  },
+  "failure": {
+  "res": {
+    "statusCode": 404,
+    "headers": {
+      "content-type": "application/json"
+    }
+  },
+  "body": {
+    "status": "error",
+    "message": "Admin details does not exist."
+  }
+}
+}
+}
+
+module.exports = adminDB;
+>>>>>>> main:server/tests/adminTests.js
