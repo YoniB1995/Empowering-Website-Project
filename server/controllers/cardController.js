@@ -76,8 +76,23 @@ const sendEmailCard = async (req, res, next) => {
               }, 
             ],
             html: `
-            <div id="asi"           
-            <h2  style="color: black;text-align: center;border-style: solid;width: 385px;">${req.body.card.fullName} שלום </h2> <p> מעכשיו תוכלי להנות מכרטיס צרכנות של נשים אתיופיות מעצימות.</p> <p> הכרטיס מצורף למטה   </p><p>בברכה, נשים אתיופיות מעצימות,</p> </div> `,};
+            
+            <div id="asi" style="border: 3px solid black; height: 27rem;text-align: center;"> 
+             <p style="line-height: 0;">${req.body.card.fullName} שלום </p>
+             <p style="line-height: 0;">ההזמנה שלך נקלטה אצלנו במערכת!</p>
+             <p style="line-height: 0;"> מעכשיו תוכלי להנות מכרטיס צרכנות של נשים אתיופיות מעצימות.</p>
+              <p style="line-height: 0;"> כרטיס הצרכנות מצורף בקבלה שלפניכם   </p>
+              <p style="line-height: 0;"> זקוקים לעזרה? רוצים לדבר איתנו? - אז עדיף שלא תשיבו למייל הזה כי זוהי הודעה אוטומטית  </p>
+              <p style="line-height: 0;"> אנחנו זמינים כאן <a href="https://empowering-women-web.herokuapp.com/ContactUs"  target="_blank">לכניסה לאתר</a>  </p>
+
+              <p>בברכה, נשים אתיופיות מעצימות,</p>
+
+              <img src="https://scontent.fhfa4-1.fna.fbcdn.net/v/t1.6435-9/129297065_104202501553925_2705016418117868057_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=yv-wty0tzksAX-psHZt&_nc_ht=scontent.fhfa4-1.fna&oh=7b921955f7bc4e79614e24ebd9a5e380&oe=617DEBE6" alt="empowering-logo" height="150px" width="150px" style="position: absolute; top:40% ;left: 40%;border-radius: 50%; border-color:white"/>
+
+            </div>`
+            
+            ,
+          };
 
           transporter.sendMail(mailOptions, (err, data) => {
             if (err) {
