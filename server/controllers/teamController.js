@@ -46,6 +46,10 @@ const getTeamMemberByRole = async (req, res, next) => {
 		if (!teamByRole) {
 			return next(new ErrorResponse("No Team Details,try again", 404));
 		}
+
+		if (teamByRole === "[]") {
+			res.send({ message: "error", members: "No Members or Typed wrong Role " });
+		}
 		res.send({ message: "success", members: teamByRole });
 	} catch (error) {
 		return next(new ErrorResponse(error, 500));

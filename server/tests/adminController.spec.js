@@ -1,13 +1,8 @@
 // process.env.NODE_ENV = 'test';
 const chai = require('chai')
-const ChaiHttp = require('chai-http')
 const sinon = require("sinon");
-const expect = chai.expect;
-const faker = require("faker");
 const request = require('request')
-const {adminModel} = require('../models/adminModel')
-const adminClass = require("../utils/tests-classes/adminClass");
-const adminDB = require('./adminTests')
+const adminDB = require('./adminDB')
 chai.should();
 
 const LOCAL_URL = 'http://localhost:5000';
@@ -18,12 +13,14 @@ describe('Admin Crud', () => {
   this.get = sinon.stub(request, 'get');
   this.post = sinon.stub(request, 'post');
   this.put = sinon.stub(request, 'put');
+  this.delete = sinon.stub(request, 'delete');
 });
 
 afterEach(() => {
   request.get.restore();
   request.post.restore();
   request.put.restore();
+  request.delete.restore();
 });
 
 describe('GET /admin', () => {
@@ -43,18 +40,6 @@ describe('GET /admin', () => {
       done();
     });
   });
-  // it('should throw an error if the movie does not exist', (done) => {
-  //   const obj = teamDB.single.failure;
-  //   this.get.yields(null, obj.res, JSON.stringify(obj.body));
-  //   request.get(`${LOCAL_URL}/team/member/6133bca1faebadas48f88b8323`, (err, res, body) => {
-  //     res.statusCode.should.equal(404);
-  //     res.headers['content-type'].should.contain('application/json');
-  //     body = JSON.parse(body);
-  //     body.status.should.eql('error');
-  //     body.message.should.eql('That movie does not exist.');
-  //     done();
-  //   });
-  // });
 });
 
 describe('GET /admin/getadmin/:id', () => {
@@ -137,5 +122,39 @@ describe('POST /admin/login', () => {
   });
 });
 
+describe('DELETE /admin', () => {
+  it('should get delete admin account details from the fake collection', (done) => {
+    const obj = adminDB.deleteAdmin.success;
+    this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+    request.delete(`${LOCAL_URL}/admin/delete/614b9fa0df92314c81d69f06`, (err, res, body) => {
+      res.statusCode.should.equal(200);
+      res.headers['content-type'].should.contain('application/json');
+      body = JSON.parse(body);
+      body.status.should.eql('success');
+      body.data.deletedAdmin.should.include.keys('status','data',"success");
+      body.data.deletedAdmin.username = "Yoni Bitew";
+      body.data.message = "Admin Deleted!";
+
+      done();
+    });
+  });
+
+    it('should get not delete admin account details from the fake collection', (done) => {
+      const obj = adminDB.deleteAdmin.failure;
+      this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+      request.delete(`${LOCAL_URL}/admin/:id`, (err, res, body) => {
+        res.statusCode.should.equal(404);
+        res.headers['content-type'].should.contain('application/json');
+        body = JSON.parse(body);
+        body.status.should.eql('success');
+        body.data.deletedAdmin.should.include.keys('status','data',"success");
+        body.data.deletedAdmin.username = "Yoni Bitew";
+        body.data.message = "Admin Deleted!";
+  
+        done();
+      })
+    })
+
+});
 
 });

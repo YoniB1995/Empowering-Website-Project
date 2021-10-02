@@ -10,7 +10,8 @@ adminRouter.post('/login', adminController.loginAdmin);
 adminRouter.get('/protected', passport.authenticate('jwt',{session: false}), (req,res,next)=>{
     res.status(200).json({success: true,message:"You are authorized!"})
 });
-adminRouter.delete('/delete', adminController.deleteAdmin);
+adminRouter.put('/update/:id', adminController.updatedAdmin);
+adminRouter.delete('/delete/:id', adminController.deleteAdmin);
    
 module.exports = adminRouter;
    

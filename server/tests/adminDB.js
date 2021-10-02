@@ -190,7 +190,42 @@
     "message": "Admin details does not exist."
   }
 }
-}
+},
+"deleteAdmin": {
+		"success": {
+			"res": {
+				"statusCode": 201,
+				"headers": {
+					"content-type": "application/json",
+				},
+			},
+			"body": {
+				"status": "success",
+				"data": {
+					"success": true,
+					"message": "Admin Deleted!",
+					"deletedAdmin": {
+						"_id": "614b9fa0df92314c81d69f06",
+						"username": "Yoni Bitew",
+						"email": "yonibitew@gmail.com",
+						"password": "01230123",
+					},
+				},
+			},
+		},
+		"failure": {
+			"res": {
+				"statusCode": 400,
+				"headers": {
+					"content-type": "application/json",
+				},
+			},
+			"body": {
+				"status": "error",
+			  "message": "Something went wrong.",
+			},
+		},
+	},
 }
 
 module.exports = adminDB;
