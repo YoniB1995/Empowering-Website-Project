@@ -32,7 +32,7 @@ const sendEmailCard = async (req, res, next) => {
     );
     cardModel.insertMany([req.body.card], (error, result) => {
       if (error) throw error;
-      res.json({ cardUser: result });
+      res.json({ cardUser: result }); 
       const myPath = `${__dirname}/views/index.html`;
       let readHTMLFile = function (path, callback) {
         fs.readFile(myPath, { encoding: 'utf-8' }, (err, html) => {
