@@ -9,23 +9,25 @@ const Profile = ()=> {
     const [dataa, setDataa] = useState([]);
 
   useEffect(() => {
-    getAllAdmins()
+    getAllAdmins() 
       .then((res) => {
-        setDataa(res);
-        console.log(dataa);
+        console.log(res);
       })
       .catch((err) => console.log(err));
   }, []);
     
     return (
         <div>
-                {dataa.map((d)=>{
+                {/* {dataa?.map((d)=>{
                     return(
                         <div>
                             <li>{d.username}</li>
+                            <p> {JSON.stringify(d)}</p>
                         </div>
                     )
-                })}
+                })} */}
+                   {/* <p> {JSONpretty data={} }</p> */}
+                   {/* <p> {JSON.stringify()}</p> */}
         </div>
     )
 }

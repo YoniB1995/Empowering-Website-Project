@@ -23,7 +23,6 @@ import Contect from "../componnets/pages/Admin/Contect/Contect";
 import CommerceJs from "../componnets/pages/commerce/Commerce";
 import ContactU from "../componnets/pages/ContactUs/ContactUs";
 import NewsLettersUserTable from "../componnets/features/Admin/NewsLetters-User-table";
-import LetNews from "../componnets/features/Admin/LetNews";
 import { LoginForm } from "../componnets/features/Forms/LoginForm";
 import Contact from "../componnets/pages/Admin/Contact/Contact";
 import Profile from "../componnets/features/Forms/FormsTemporary/Profile";
@@ -55,7 +54,6 @@ export default function AppRouter() {
         <Route path="/form" component={FormsTemporary} />
 
         <Route path="/NewsLettersUserTable" component={NewsLettersUserTable} />
-        <Route path="/LetNews" component={LetNews} />
         <Route path="/LoginForm" component={LoginForm} />
         <Route path="/Profile" component={Profile} />
         <Route path="/test">
