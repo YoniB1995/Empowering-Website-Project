@@ -242,8 +242,7 @@ const Staff = () => {
                   />
                 </Card>
               </div>
-            );
-          })}
+            );          })}
         </div>
       </div>
     </div>
