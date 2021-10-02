@@ -17,11 +17,15 @@ describe('Admin Crud', () => {
   beforeEach(() => {
   this.get = sinon.stub(request, 'get');
   this.post = sinon.stub(request, 'post');
+  this.delete = sinon.stub(request, 'delete');
+
 });
 
 afterEach(() => {
   request.get.restore();
   request.post.restore();
+  request.delete.restore();
+
 });
 
 describe('GET /admin', () => {
@@ -40,7 +44,8 @@ describe('GET /admin', () => {
       console.log(body.data)
       done();
     });
-  });
+
+
   // it('should throw an error if the movie does not exist', (done) => {
   //   const obj = teamDB.single.failure;
   //   this.get.yields(null, obj.res, JSON.stringify(obj.body));
@@ -86,7 +91,25 @@ describe('GET /admin/getadmin/:id', () => {
       done();
     });
   });
+})
+
+describe('DELETE /admin', () => {
+  it('should get delete admin account details from the fake collection', (done) => {
+    const obj = adminDB.deleteAdmin.success;
+    this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+    request.delete(`${LOCAL_URL}/admin/:id`, (err, res, body) => {
+      res.statusCode.should.equal(200);
+      res.headers['content-type'].should.contain('application/json');
+      body = JSON.parse(body);
+      body.status.should.eql('success');
+      body.data.deletedAdmin.should.include.keys('status','data',"success");
+      body.data.deletedAdmin.username = "Yoni Bitew";
+      body.data.message = "Admin Deleted!";
+
+      done();
+    });
 });
+}
 
 // describe('POST /api/v1/movies', () => {
 //   it('should return the movie that was added', (done) => {
