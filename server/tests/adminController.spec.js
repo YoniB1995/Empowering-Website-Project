@@ -7,7 +7,7 @@ const faker = require("faker");
 const request = require('request')
 const {adminModel} = require('../models/adminModel')
 const adminClass = require("../utils/tests-classes/adminClass");
-const adminDB = require('./adminTests.json')
+const adminDB = require('./adminTests')
 chai.should();
 
 const LOCAL_URL = 'http://localhost:5000';
@@ -17,11 +17,13 @@ describe('Admin Crud', () => {
   beforeEach(() => {
   this.get = sinon.stub(request, 'get');
   this.post = sinon.stub(request, 'post');
+  this.put = sinon.stub(request, 'put');
 });
 
 afterEach(() => {
   request.get.restore();
   request.post.restore();
+  request.put.restore();
 });
 
 describe('GET /admin', () => {
@@ -74,7 +76,7 @@ describe('GET /admin/getadmin/:id', () => {
       done();
     });
   });
-  it('should throw an error if the movie does not exist', (done) => {
+  it('should throw an error if the admin details does not exist', (done) => {
     const obj = adminDB.getOneAdmin.failure;
     this.get.yields(null, obj.res, JSON.stringify(obj.body));
     request.get(`${LOCAL_URL}/team/member/6133bca1faebadas48f88b8323`, (err, res, body) => {
@@ -88,52 +90,52 @@ describe('GET /admin/getadmin/:id', () => {
   });
 });
 
-// describe('POST /api/v1/movies', () => {
-//   it('should return the movie that was added', (done) => {
-//     const options = {
-//       body: {
-//         name: 'Titanic',
-//         genre: 'Drama',
-//         rating: 8,
-//         explicit: true
-//       },
-//       json: true,
-//       url: `${LOCAL_URL}/api/v1/movies`
-//     };
-//     const obj = movies.add.success;
-//     this.post.yields(null, obj.res, JSON.stringify(obj.body));
-//     request.post(options, (err, res, body) => {
-//       res.statusCode.should.equal(201);
-//       res.headers['content-type'].should.contain('application/json');
-//       body = JSON.parse(body);
-//       body.status.should.eql('success');
-//       body.data[0].should.include.keys(
-//         'id', 'name', 'genre', 'rating', 'explicit'
-//       );
-//       body.data[0].name.should.eql('Titanic');
-//       console.log(body)
-//       done();
-//     });
-//   });
-// });
-// describe('create New Admin', (done)=> {
+describe('POST /admin/login', () => {
+  it('should log the admin after checking if the data is valid and exists at the fake db collection', (done) => {
+    const options = {
+      body:  {
+            username: "Updated yoni bitew",
+        },
+      json: true,
+      url: `${LOCAL_URL}/admin/update`
+    };
+    const obj = adminDB.updateAdminDetails
+    this.put.yields(null, obj.success.res, JSON.stringify(obj.success.body));
+    request.put(options, (err, res, body) => {
+      res.statusCode.should.equal(201);
+      res.headers['content-type'].should.contain('application/json');
+      body = JSON.parse(body);
+      body.status.should.eql('success');
+      body.data[0].should.include.keys(
+        'email', 'password'
+      );
+      body.data[0].email.should.eql('yonibitew@gmail.com');
+      body.data[0].username = options.body.username;
 
-//     const fakeAdmin = {
-//     email:"yonatansamfisher@gmail.com",
-//     password:"12345678"
-//   };
-//     it("should login the admin to the website if has correct token", async ()=> {
-//     const {email,password} = fakeAdmin;
-//       const stub = sinon.stub(adminModel, "findOne").set('Bearer Token');
-//       const admin = new adminClass();
-//       const newAdmin = await admin.createNewAdmin(email,password)
-      
-//     //   expect(stub.calledOnce).to.be.true;
-//       expect(stub).have('Bearer Token')
-      
-//       console.log({newAdmin:newAdmin})
-//     });
+      body.data[0].username.should.eql("Updated yoni bitew")
+      console.log(body)
+      done();
+    });
+  });
 
-//   });
+  it('should throw an error if the admin details does not exist', (done) => {
+    const options = {
+      body: { username: "Updated yoni bitew" },
+      json: true,
+      url:  `${LOCAL_URL}/admin/update`
+    };
+    const obj = adminDB.updateAdminDetails;
+    this.put.yields(null, obj.failure.res, JSON.stringify(obj.failure.body));
+    request.put(options, (err, res, body) => {
+      res.statusCode.should.equal(404);
+      res.headers['content-type'].should.contain('application/json');
+      body = JSON.parse(body);
+      body.status.should.eql('error');
+      body.message.should.eql('Admin details does not exist.');
+      done();
+    });
+  });
+});
+
 
 });
