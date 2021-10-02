@@ -1,141 +1,116 @@
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Input, Button } from "antd";
+import { FacebookOutlined, MailOutlined } from "@ant-design/icons";
+import { Layout } from "antd";
+import { addMemberToNewsletter } from "../../../service/newsletter-service";
+import { useTranslation } from "react-i18next";
+
 import "./Footer.css";
 
-// const Footer = () => {
-//   return (
-//     <footer>
-//       <div className="content">
-//         <div class="left box">
-//           <div classname="upper">
-//             <div class="topic">About us</div>
-//             <p>
-//               CodingLab is a channel where you can learn HTML, CSS, and also
-//               JavaScript along with creative CSS Animations and Effects.
-//             </p>
-//           </div>
-//           <div class="lower">
-//             <div class="topic">Contact us</div>
-//             <div class="phone">
-//               <a href="#">
-//                 <i class="fas fa-phone-volume"></i>+007 9089 6767
-//               </a>
-//             </div>
-//             <div class="email">
-//               <a href="#">
-//                 <i class="fas fa-envelope"></i>abc@gmail.com
-//               </a>
-//             </div>
-//           </div>
-//         </div>
-//         <div class="middle box">
-//           <div class="topic">Our Services</div>
-//           <div>
-//             <a href="#">Web Design, Development</a>
-//           </div>
-//           <div>
-//             <a href="#">Web UX Design, Reasearch</a>
-//           </div>
-//           <div>
-//             <a href="#">Web User Interface Design</a>
-//           </div>
-//           <div>
-//             <a href="#">Theme Development, Design</a>
-//           </div>
-//           <div>
-//             <a href="#">Mobile Application Design</a>
-//           </div>
-//           <div>
-//             <a href="#">Wire raming Prototyping</a>
-//           </div>
-//         </div>
-//       </div>
-//       <div class="right box">
-//         <div class="topic">Subscribe us</div>
-//         <form action="#">
-//           <input type="text" placeholder="Enter email address" />
-//           <input type="submit" name="" value="Send" />
-//           <div class="media-icons">
-//             <a href="#">
-//               <i class="fab fa-facebook-f"></i>
-//             </a>
-//             <a href="#">
-//               <i class="fab fa-instagram"></i>
-//             </a>
-//             <a href="#">
-//               <i class="fab fa-twitter"></i>
-//             </a>
-//             <a href="#">
-//               <i class="fab fa-youtube"></i>
-//             </a>
-//             <a href="#">
-//               <i class="fab fa-linkedin-in"></i>
-//             </a>
-//           </div>
-//         </form>
-//       </div>
-//       <div class="bottom">
-//         <p>
-//           Copyright © 2020 <a href="#">CodingLab</a> All rights reserved
-//         </p>
-//       </div>
-//       <div class="bottom">
-//         <p>
-//           Copyright © 2020 <a href="#">CodingLab</a> All rights reserved
-//         </p>
-//       </div>
-//     </footer>
-//   );
-// };
+const { Header, Footer, Sider, Content } = Layout;
 
+const Footer1 = () => {
+  const { t } = useTranslation();
+  const [singletNews, setSingletNews] = useState([]);
 
+  const saveInfoEmail = (e) => {
+    setSingletNews(e.target.value);
+    console.log(singletNews);
+  };
 
-const Footer = () => {
+  const handleClick = () => {
+    addMemberToNewsletter(singletNews);
+    setSingletNews("");
+    console.log("success");
+  };
 
-    return(
-        <footer>
-        <div class="content">
-          <div class="left box">
-            <div class="upper">
-              <div class="topic">אודות</div>
-              <p>אודות אודות אודות אודות אודות אודות </p>
-            </div>
-            <div class="lower">
-              <div class="topic">צרו איתנו קשר</div>
-              <div class="phone">
-                <a href="#"><i class="fas fa-phone-volume"></i>+007 9089 6767</a>
-              </div>
-              <div class="email">
-                <a href="#"><i class="fas fa-envelope"></i>abc@gmail.com</a>
-              </div>
-            </div>
-          </div>
-          <div class="middle box">
-            <div class="topic">השירותים שלנו</div>
-            <div><a href="#"> 1 השירות שירות שירות </a></div>
-            <div><a href="#">2 השירות שירות שירות</a></div>
-            <div><a href="#">3 השירות שירות שירות</a></div>
-            <div><a href="#">4 השירות שירות שירות</a></div>
-            <div><a href="#">5 השירות שירות שירות</a></div>
-            <div><a href="#">6 השירות שירות שירות</a></div>
-          </div>
-          <div class="right box">
-            <div class="topic">להצטרף לניוזלטר שלנו</div>
-            <form action="#">
-              <input type="text" placeholder="איימל" id="newsletter-input" />
-              <input type="submit" name="" value="שלח"/>
-              <div class="media-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-            </form>
+  return (
+    <footer>
+      <div className="about">
+        <div className="footer-header-container">
+          <div className="footer-header-decortion"> </div>
+          <h4 className="footer-title">{t("about")}</h4>
+        </div>
+        <div>
+          <ul>
+            <li>{t("Area of activity")} </li>
+            <li> {t("organizationType")} </li>
+            <li> {t("Organization number")} </li>
+          </ul>
+        </div>
+      </div>
+      <div className="contect">
+        <div className="footer-header-container">
+          <div className="footer-header-decortion"> </div>
+          <h4 className="footer-title">{t("Contact Us")}</h4>
+        </div>
+        <div>
+          <img
+            src="./placeholder.png"
+            alt="plachholder-icon"
+            id="footer-placeholder-icon"
+          />
+          {t("Streetinfo")}
+        </div>
+        <div className="contact-footer-btn">
+          <div className="footer-mail">
+            <p>
+              {" "}
+              <MailOutlined style={{ fontSize: "20px", padding: "5px" }} />
+              {t("emailContact")}{" "}
+            </p>
+            <Link to="/ContactU">
+              <Button
+                shape="round"
+                size="middle"
+                style={{
+                  width: "100px",
+                  background: "#F1CCB9",
+                  marginRight: "10px",
+                }}
+              >
+                {t("click")}
+              </Button>
+            </Link>
           </div>
         </div>
-        <div class="bottom">
-          <p>Copyright © 2020 <a href="#">TechCareer</a> All rights reserved</p>
+      </div>
+      <div className="newsletter">
+        <div className="footer-header-container">
+          <div className="footer-header-decortion"></div>
+          <h4 className="footer-title">{t("Join the newsletter")}</h4>
         </div>
-      </footer>
-    )
-}
-export default Footer;
+        <div className="join-newsletter-form">
+          <div>
+            <Input
+              placeholder="מייל"
+              shape="round"
+              style={{ width: "200px" }}
+              onChange={saveInfoEmail}
+              value={singletNews}
+            ></Input>
+          </div>
+          <Button
+            shape="round"
+            size="middle"
+            style={{
+              width: "100px",
+              background: "#F1CCB9",
+              marginRight: "10px",
+            }}
+            onClick={handleClick}
+          >
+            {t("send")}
+          </Button>
+        </div>
+        <div className="footer-facebook">
+          <FacebookOutlined style={{ fontSize: "20px" }} />
+          <p>{t("siteNamefacebook")} </p>
+        </div>
+      </div>
+    </footer>
+    // </Footer>
+  );
+};
+export default Footer1;

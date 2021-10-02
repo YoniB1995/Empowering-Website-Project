@@ -15,11 +15,20 @@
   justify-content: space-around;
   align-items: center;
 }
-.aboutus-content {
+.about-us-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 384px;
   font-size: 16px;
   font-family: "Varela Round", sans-serif;
   text-align: center;
   direction: rtl;
+  margin-top: 20px;
+}
+
+.home-about-us-content{   
+  width: 100%;
+  line-height: 2;
 }
 .about-us-home {
   font-family: "Varela Round", sans-serif;
@@ -48,8 +57,8 @@
 }
 
 .arrow-icon-container {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +86,6 @@
   height: 50%;
 }
 .vision-goals-container {
-  height: 80%;
   margin: auto;
   width: 80%;
   display: flex;
@@ -133,7 +141,6 @@
   display: flex;
   flex-direction: column;
     justify-content: space-around;
-    height: 1000px;
 }
 
 
@@ -149,4 +156,10 @@
 
     justify-content: center;
   }
+}
+
+
+.littleBitAboutInfo{
+  display: flex;
+  width: 500px;
 }

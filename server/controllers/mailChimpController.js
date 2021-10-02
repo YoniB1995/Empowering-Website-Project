@@ -1,5 +1,5 @@
 const ErrorResponse = require("../utils/errorResponse");
-const filterResponse = require("../utils/filterResponse");
+const filterMailchimpResponse = require("../utils/filterMailchimpResponse");
 const { MailchimpMarketingModel } = require("../models/mailChimpModel");
 const md5 = require("md5");
 const { validMember } = require("../models/memberModel");
@@ -10,7 +10,7 @@ const createMember = async (req, res, next) => {
 	try {
 		const { error } = validMember(req.body); // try to validate
 		if (error) {
-		res.json({ error: error.details[0].message })
+			res.json({ error: error.details[0].message });
 		}
 	} catch (e) {
 		next(new ErrorResponse("bad request", 301));
@@ -19,11 +19,12 @@ const createMember = async (req, res, next) => {
 		await MailchimpMarketingModel.lists
 			.addListMember(AUDIENCE_ID, {
 				email_address: req.body.Email,
-				status: "pending",
+				status: "subscribed",
 			})
-			.then((response) =>
-				res.status(200).json({ message: "user added", response })
-			)
+			.then((response) => {
+				const { email_address, status } = response;
+				res.status(200).json({ message: "user added", email_address, status });
+			})
 			.catch((err) => res.json({ text: JSON.parse(err.response.text).detail }));
 	} catch (e) {
 		next(new ErrorResponse(e, 500));
@@ -31,26 +32,28 @@ const createMember = async (req, res, next) => {
 };
 
 const updateMember = async (req, res, next) => {
-	try {
-		const { error } = validMember(req.body); // try to validate
-		if (error) {
-			res.json({ error: error.details[0].message }).status(301);
-		}
-	} catch (e) {
-		next(new ErrorResponse("bad request", 301));
-	}
-	try {
-		const hashSubcriber = md5(req.params.Email);
+  try {
+    const { error } = validMember(req.body); // try to validate
+    if (error) {
+      res.json({ error: error.details[0].message }).status(301);
+    }
+  } catch (e) {
+    next(new ErrorResponse("bad request", 301));
+  }
+  try {
+    const hashSubcriber = md5(req.params.Email);
 
 		await MailchimpMarketingModel.lists
-			.setListMember(AUDIENCE_ID, hashSubcriber, {
+			.updateListMember(AUDIENCE_ID, hashSubcriber, {
 				email_address: req.body.Email,
 				status_if_new: "subscribed",
 			})
-			.then((response) => res.status(200).json({ response }))
+			.then((response) =>
+				res.status(200).json({ message: "user updated", response })
+			)
 			.catch((err) => res.json({ text: JSON.parse(err.response.text).detail }));
 	} catch (e) {
-		next(new ErrorResponse(e, 500));
+		next(new ErrorResponse("Bad request", 301));
 	}
 };
 
@@ -60,14 +63,17 @@ const getAllMembers = async (req, res, next) => {
 			AUDIENCE_ID
 		);
 		if (!members) {
-			res.status(200).json("no members exist");
+			next(new ErrorResponse("bad request", 301));
 		}
 		try {
-			const filterdMembers = filterResponse(members); // use function to filter fields
-			res.status(200).json({ filterdMembers }).status(301);
+			const subscribredList = members.filter(
+				(member) => member.status === "subscribed"
+			);
+
+			const subscribers = filterMailchimpResponse(subscribredList); // use function to filter fields
+			res.status(200).json({ message: "User deleted", subscribers });
 		} catch (e) {
 			console.log("one of the fields not exist");
-
 			next(new ErrorResponse("server error", 500));
 		}
 	} catch (e) {
@@ -87,42 +93,43 @@ const getMember = async (req, res, next) => {
 		next(new ErrorResponse("bad request", 301));
 	}
 	try {
-		const member = await MailchimpMarketingModel.lists.getListMember(
-			AUDIENCE_ID,
-			subscriberHash
-		);
+		const { email_address, status } =
+			await MailchimpMarketingModel.lists.getListMember(
+				AUDIENCE_ID,
+				subscriberHash
+			);
 
-		res.status(200).json({ member });
+		res.status(200).json({ email_address, status });
 	} catch (e) {
-		next(new ErrorResponse("server error", 500));
+		next(new ErrorResponse("Server error", 500));
 	}
 };
 
 const deleteMember = async (req, res, next) => {
-	const subscriberHash = md5(req.params.Email);
-	const { Email } = req.params;
-	try {
-		const { error } = validMember({ Email }); // try to validate
-		if (error) {
-			res.json({ error: error.details[0].message }).status(301);
-		}
-	} catch (e) {
-		next(new ErrorResponse("bad request", 301));
-	}
-	await MailchimpMarketingModel.lists
-		.deleteListMemberPermanent(AUDIENCE_ID, subscriberHash)
-		.then((response) =>
-			res.status(200).json({ message: "user deleted", response })
-		)
-		.catch((err) =>
-			res.json({ text: JSON.parse(err.response.text).detail }).status(500)
-		);
+  const subscriberHash = md5(req.params.Email);
+  const { Email } = req.params;
+  try {
+    const { error } = validMember({ Email }); // try to validate
+    if (error) {
+      res.json({ error: error.details[0].message }).status(301);
+    }
+  } catch (e) {
+    next(new ErrorResponse("bad request", 301));
+  }
+  await MailchimpMarketingModel.lists
+    .deleteListMemberPermanent(AUDIENCE_ID, subscriberHash)
+    .then((response) =>
+      res.status(200).json({ message: "user deleted", response })
+    )
+    .catch((err) =>
+      res.json({ text: JSON.parse(err.response.text).detail }).status(500)
+    );
 };
 
 module.exports = {
-	createMember,
-	getAllMembers,
-	getMember,
-	updateMember,
-	deleteMember,
+  createMember,
+  getAllMembers,
+  getMember,
+  updateMember,
+  deleteMember,
 };

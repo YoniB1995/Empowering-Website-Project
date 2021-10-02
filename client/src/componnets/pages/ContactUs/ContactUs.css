@@ -66,15 +66,43 @@
 .contact-form{
   height: 500px;
   padding: 20px;
+  margin: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 20vw;
-  margin-left: 39%;
+  margin-left: 20%;
   /* padding: 17px; */
   
 }
 .contact-form h1{
   font-family: "Varela Round", sans-serif;
+}
+
+.contact >img {
+  width: 40%;
+  height: 80vh;
+  margin-right: 8%;
+}
+.contact{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin: 4px;
+
+
+}    
+.contactDiv{
+  border: 100px solid #faad80;
+}
+
+@media screen and (max-width: 750px) {
+  .contact {
+    display: block;
+    margin-left: 25%;
+  }
+  .contact > img{
+    display: none;
+  }
 }
