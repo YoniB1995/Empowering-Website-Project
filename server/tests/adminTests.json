@@ -1,5 +1,51 @@
 {
-    "single": {
+    "getAllAdmins": {
+  "success": {
+    "res": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": "application/json"
+      }
+    },
+    "body": {
+      "status": "success",
+      "data": [
+        {
+    "_id": "61231311Aaweacbed03fda6d",
+    "username": "Yoni Bitew",
+    "email": "yonibitew@gmail.com",
+    "password": "01230123"
+},
+{
+    "_id": "61231311Aaweacbed054asdd",
+    "username": "Lior Solomon",
+    "email": "liorsolomon@gmail.com",
+    "password": "321123"
+},
+{
+    "_id": "61231311Aaweacbed054asdd",
+    "username": "Racheli Melkai",
+    "email": "racheli@gmail.com",
+    "password": "321123"
+}
+        
+      ]
+    }
+  },
+  "failure": {
+    "res": {
+      "statusCode": 404,
+      "headers": {
+        "content-type": "application/json"
+      }
+    },
+    "body": {
+      "status": "error",
+      "message": "That movie does not exist."
+    }
+  }
+},
+ "getOneAdmin": {
   "success": {
     "res": {
       "statusCode": 200,
@@ -12,12 +58,9 @@
       "data": [
         {
           "_id": "614b9fa0df92314c81d69f06",
-            "fullname": "יוני ביטאו",
-            "role": "מייסדת",
-            "image": "https://www.iconsdb.com/icons/preview/red/administrator-xxl.png",
-            "description": "תיאור קצר על בעל התפקיד ועל המעשים שהוא עשה בקהילה",
-            "__v": 0,
-            "lang": "hebrew"
+            "username": "Yoni Bitew",
+            "email": "yonibitew@gmail.com",
+            "password": "01230123"
         }
       ]
     }
@@ -35,7 +78,7 @@
     }
   }
 },
-    "add": {
+    "createAdmin": {
   "success": {
     "res": {
       "statusCode": 201,
