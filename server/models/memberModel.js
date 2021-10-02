@@ -8,7 +8,7 @@ const memberSchema = Joi.object({
 		.min(2)
 		.max(35)
 		.required()
-		.email({ tlds: ["com"] }),
+		.email({ tlds: ["com", "co.il"] }),
 	// .meta({ _mongoose: { _id: true } }), // add specific  options to mongodb
 });
 
@@ -21,6 +21,7 @@ const validMember = (memberData) => {
 const mongooseMemberSchema = new mongoose.Schema(
 	Joigoose.convert(memberSchema)
 );
+
 const memberModel = mongoose.model("member", mongooseMemberSchema);
 // 18 + 19 convert joi schema to mongoose schema and add to the data base as collection
 module.exports = {

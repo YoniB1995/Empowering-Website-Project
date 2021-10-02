@@ -3,16 +3,10 @@ const { validCampagin, campaginModel } = require("../models/campaginModel");
 const ErrorResponse = require("../utils/errorResponse");
 
 const getCampaignsSorted = async (req, res, next) => {
-	try {	
-	// 	const { error } = validCampagin(req.body); // try to validate
-	// if (error) {
-	// res.json({ error: error.details[0].message })
-	// }
+	try {
 		const campaignsList = await MailchimpMarketingModel.campaigns.list();
-
 		if (!campaignsList) {
 			next(new ErrorResponse("no campaign found", 301));
-			return;
 		}
 		const campaigns = campaignsList.campaigns.sort(
 			(a, b) => new Date(b.create_time) - new Date(a.create_time)
@@ -24,66 +18,15 @@ const getCampaignsSorted = async (req, res, next) => {
 				return {
 					archive_url: campagin.archive_url,
 					title: campagin.settings.title,
+					date: campagin.send_time,
 				};
 			});
-		res.json(sortedCampagins).status(200);
+		res.json({ sortedCampagins }).status(200);
 	} catch (e) {
 		next(new ErrorResponse("server error", 500));
 	}
 };
 
-const getCampaignByTitle = async (req, res, next) => {
-	try {
-		const campaignsList = await MailchimpMarketingModel.campaigns.list();
-		const { title } = req.params;
-
-		const chosenCampaigns = campaignsList.campaigns.filter(
-			(campagin) =>
-				campagin.settings.title === title && campagin.status === "sent"
-		);
-		console.log(chosenCampaigns);
-		if (!chosenCampaigns || chosenCampaigns.length === 0) {
-			next(new ErrorResponse("Campaign not found", 301));
-		}
-
-		try {
-			const { id } = chosenCampaigns[0];
-			const { report_summary } = await MailchimpMarketingModel.campaigns.get(
-				id
-			);
-			res.json({ report_summary }).status(200);
-		} catch (e) {
-			next(new ErrorResponse("server error", 500));
-		}
-	} catch (e) {
-		next(new ErrorResponse("No campagin found", 301));
-	}
-};
-
-const getDataFromMailchimp = async (req, res, next) => {
-	try {
-		const result = await MailchimpMarketingModel.lists.getListWebhooks(
-			process.env.AUDIENCE_ID
-		);
-
-		try {
-			const webhooksDetails =
-				await MailchimpMarketingModel.lists.getListWebhooks(
-					process.env.AUDIENCE_ID
-				);
-			res.json({ result }).status(200);
-		} catch (e) {
-			console.log(e);
-			res.send("error");
-		}
-	} catch (E) {
-		console.log(E);
-		res.send("error");
-	}
-};
-
 module.exports = {
 	getCampaignsSorted,
-	getCampaignByTitle,
-	getDataFromMailchimp,
 };
