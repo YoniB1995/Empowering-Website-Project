@@ -17,7 +17,7 @@ import { useTranslation } from "react-i18next";
 import WorkersCards from "../../features/workersCards/WorkersCards";
 
 const Home = () => {
-  const {} = useTranslation();
+  const {t} = useTranslation();
 
   useEffect(() => {
     new WOW.WOW({
@@ -30,14 +30,9 @@ const Home = () => {
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
           <div className="about-us-wrapper">
-            <h1>קצת עלינו</h1>
+            <h1>{t("littleBitAbout")}</h1>
             <div className="home-about-us-content">
-              עמותת נשים אתיופיות מעצימות הוקמה בשנת 2020, מתוך צורך ממשי למתן
-              סיוע,תמיכה ועידוד נשים ישראליות ממוצא אתיופי ,להשכלה גבוהה עסקים
-              ולערבות הדדית העמותה צמחה +מתוך פלטפורמה של קהילת נשים בפייסבוק
-              המונה 16,000 נשים -קהילת הנשים הקומה מתוך רצון ומטרה להעצים נשים
-              בכל תחומי החיים ושמה לה למטרה להשפיע בחברה הישראלית,בכלכלה בחינוך
-              ובכל תחומי החיים בכלל.
+              {t("littleBitAboutInfo")}
             </div>
             <Link to="/AboutUs">
               <Button
@@ -53,7 +48,7 @@ const Home = () => {
                   marginTop: "20px",
                 }}
               >
-                לקרוא עוד
+               {t("readMore")} 
               </Button>
             </Link>
           </div>
@@ -118,7 +113,7 @@ const Home = () => {
 
       <BackTop>
         <div className="upBtn">
-          חזרה למעלה
+         {t("backUp")}
           <ArrowUpOutlined />
         </div>
       </BackTop>

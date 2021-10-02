@@ -32,16 +32,16 @@ const createMember = async (req, res, next) => {
 };
 
 const updateMember = async (req, res, next) => {
-	try {
-		const { error } = validMember(req.body); // try to validate
-		if (error) {
-			res.json({ error: error.details[0].message }).status(301);
-		}
-	} catch (e) {
-		next(new ErrorResponse("bad request", 301));
-	}
-	try {
-		const hashSubcriber = md5(req.params.Email);
+  try {
+    const { error } = validMember(req.body); // try to validate
+    if (error) {
+      res.json({ error: error.details[0].message }).status(301);
+    }
+  } catch (e) {
+    next(new ErrorResponse("bad request", 301));
+  }
+  try {
+    const hashSubcriber = md5(req.params.Email);
 
 		await MailchimpMarketingModel.lists
 			.updateListMember(AUDIENCE_ID, hashSubcriber, {
@@ -106,30 +106,30 @@ const getMember = async (req, res, next) => {
 };
 
 const deleteMember = async (req, res, next) => {
-	const subscriberHash = md5(req.params.Email);
-	const { Email } = req.params;
-	try {
-		const { error } = validMember({ Email }); // try to validate
-		if (error) {
-			res.json({ error: error.details[0].message }).status(301);
-		}
-	} catch (e) {
-		next(new ErrorResponse("bad request", 301));
-	}
-	await MailchimpMarketingModel.lists
-		.deleteListMemberPermanent(AUDIENCE_ID, subscriberHash)
-		.then((response) =>
-			res.status(200).json({ message: "user deleted", response })
-		)
-		.catch((err) =>
-			res.json({ text: JSON.parse(err.response.text).detail }).status(500)
-		);
+  const subscriberHash = md5(req.params.Email);
+  const { Email } = req.params;
+  try {
+    const { error } = validMember({ Email }); // try to validate
+    if (error) {
+      res.json({ error: error.details[0].message }).status(301);
+    }
+  } catch (e) {
+    next(new ErrorResponse("bad request", 301));
+  }
+  await MailchimpMarketingModel.lists
+    .deleteListMemberPermanent(AUDIENCE_ID, subscriberHash)
+    .then((response) =>
+      res.status(200).json({ message: "user deleted", response })
+    )
+    .catch((err) =>
+      res.json({ text: JSON.parse(err.response.text).detail }).status(500)
+    );
 };
 
 module.exports = {
-	createMember,
-	getAllMembers,
-	getMember,
-	updateMember,
-	deleteMember,
+  createMember,
+  getAllMembers,
+  getMember,
+  updateMember,
+  deleteMember,
 };

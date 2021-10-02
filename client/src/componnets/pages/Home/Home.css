@@ -162,3 +162,9 @@
     height: 981px;
   }
 }
+
+
+.littleBitAboutInfo{
+  display: flex;
+  width: 500px;
+}

@@ -3,8 +3,10 @@ import "./copartner.css";
 import "animate.css";
 import {getAllPartners} from '../../../../service/partners-service'
 import WOW from "wowjs";
+import { useTranslation } from "react-i18next";
 
 const Copartner = () => {
+  const {t} = useTranslation();
   const [partners,setPartners] = useState([]);
 
   useEffect(()=>{
@@ -16,7 +18,7 @@ const Copartner = () => {
   return (
     <div className="copartner-container">
       <div className="copartner-header">
-        <h3>שותפים</h3>
+        <h3>{t("Partners")}</h3>
         <div className="copartner-header-decortion"></div>
       </div>
       <div className="copartner-wrapper">
