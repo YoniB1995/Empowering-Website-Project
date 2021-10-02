@@ -51,11 +51,11 @@ const Programs = () => {
                       {program.description}
                     </p>
                     <div>
-                      <img
+                      {/* <img
                         className='img-program-card'
                         src='./logo-main1.jpeg'
                         alt='program card img'
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>

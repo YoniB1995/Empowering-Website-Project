@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 require('dotenv').config()
 const keys = {
-  mongoURI:process.env.CONNECTION_URL,
-  secretOrKey:process.env.SECRET_KEY,
+  mongoURI:"mongodb+srv://empowering2021:EMpower1234@cluster0.mwn5e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  secretOrKey:"yoniB1995",
 }
 module.exports = keys;

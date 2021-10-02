@@ -1,7 +1,6 @@
 .programs-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: #f4dfd0;
 
 }
 .cards-wrapper {
@@ -28,7 +27,6 @@
 
 .program-card-title {
   font-family: "Varela Round", sans-serif;
-  color: #d57e7e;
   text-align: center;
   margin-top: 20px;
 }
@@ -70,5 +68,8 @@
 @media only screen and (max-width: 1060px) {
   .program-card {
     margin-bottom: 20px;
+  }
+  .cards-wrapper{
+    height: 1600px;
   }
 }

@@ -94,16 +94,18 @@ const Home = () => {
         </div> */}
       </div>
       <Programs />
+      <div className="vision-goals-wrapper">
+        <div className="vision-goals-container">
+          <div className="vision">
+            <Vision />
+          </div>
 
-      <div className="vision-goals-container">
-        <div className="vision">
-          <Vision />
-        </div>
-
-        <div className="goals">
-          <Goals />
+          <div className="goals">
+            <Goals />
+          </div>
         </div>
       </div>
+
       <div
         className="programs-wrapper"
         style={{

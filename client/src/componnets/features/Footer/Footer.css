@@ -5,6 +5,7 @@ footer {
   direction: rtl;
   font-family: "Varela Round", sans-serif;
   flex-wrap: wrap;
+  padding: 10px;
 }
 .footer-header-container {
   width: 200px;
