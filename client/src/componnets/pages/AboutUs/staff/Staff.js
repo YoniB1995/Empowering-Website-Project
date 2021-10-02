@@ -23,7 +23,7 @@ const staffMembers = [
       "נולדה באתיופיה בשנת 1983 עלתה ארצה יחד עם משפחתה בשנת 1991 במבצע שלמה נשואה +3 בעלת תואר במשפטים ממכללת אשקלון",
   },
   {
-    id: 0,
+    
     fullname: "Racheli Tadesa Melkai",
     role: "Founder",
     image:
@@ -39,7 +39,6 @@ const Staff = () => {
   const [teamEnglish, setTeamEnglish] = useState([]);
   const [filteredTeamHebrew, setFilteredTeamHebrew] = useState([]);
   const [filteredTeamEnglish, setFilteredTeamEnglish] = useState([]);
-  const [selectedRole,setSelectedRole] = useState("");
   const [isHebrew,setIsHebrew] = useState(true);
 
   useEffect(() => {
@@ -73,12 +72,12 @@ const Staff = () => {
      })
    setFilteredTeamHebrew(teamFilter)
  }
- const filterFoundersInHebrew = ()=>{
-  const teamFilter = teamHebrew.filter((member)=>{
-    return member.role === "מייסדת"
-   })
- setFilteredTeamHebrew(teamFilter)
-}
+//  const filterFoundersInHebrew = ()=>{
+//   const teamFilter = teamHebrew.filter((member)=>{
+//     return member.role === "מייסדת"
+//    })
+//  setFilteredTeamHebrew(teamFilter)
+// }
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -95,12 +94,12 @@ const filterManagersInEnglish= ()=>{
    })
  setFilteredTeamEnglish(teamFilter1)
 }
-const filterFoundersInEnglish = ()=>{
-const teamFilter1 = teamEnglish.filter((member)=>{
-  return member.role === "Founder"
- })
-setFilteredTeamEnglish(teamFilter1)
-}
+// const filterFoundersInEnglish = ()=>{
+// const teamFilter1 = teamEnglish.filter((member)=>{
+//   return member.role === "Founder"
+//  })
+// setFilteredTeamEnglish(teamFilter1)
+// }
 
 
 
