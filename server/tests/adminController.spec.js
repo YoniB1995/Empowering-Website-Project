@@ -111,7 +111,7 @@ describe('DELETE /admin', () => {
       done();
     });
 });
-}
+},
 
 describe('POST /admin/login', () => {
   it('should log the admin after checking if the data is valid and exists at the fake db collection', (done) => {
