@@ -95,7 +95,7 @@ describe('GET /admin/getadmin/:id', () => {
   });
 })
 
-describe('DELETE /admin', () => {
+ describe('DELETE /admin', () => {
   it('should get delete admin account details from the fake collection', (done) => {
     const obj = adminDB.deleteAdmin.success;
     this.delete.yield(null, obj.res, JSON.stringify(obj.body));
@@ -110,8 +110,23 @@ describe('DELETE /admin', () => {
 
       done();
     });
+
+    it('should get not delete admin account details from the fake collection', (done) => {
+      const obj = adminDB.deleteAdmin.failure;
+      this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+      request.delete(`${LOCAL_URL}/admin/:id`, (err, res, body) => {
+        res.statusCode.should.equal(404);
+        res.headers['content-type'].should.contain('application/json');
+        body = JSON.parse(body);
+        body.status.should.eql('success');
+        body.data.deletedAdmin.should.include.keys('status','data',"success");
+        body.data.deletedAdmin.username = "Yoni Bitew";
+        body.data.message = "Admin Deleted!";
+  
+        done();
+      });
+
 });
-},
 
 describe('POST /admin/login', () => {
   it('should log the admin after checking if the data is valid and exists at the fake db collection', (done) => {
@@ -161,4 +176,4 @@ describe('POST /admin/login', () => {
 
 
 
-});
+})
