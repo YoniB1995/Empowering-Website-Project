@@ -1,32 +1,37 @@
-.copartner-container{
-    background-color:white;
+.copartner-container {
+  background-color: white;
+  margin-bottom: 5rem;
 }
 .copartner-header {
-    width: 95%;
-    padding: 10px;
-    font-family: "Varela Round", sans-serif;
-    display: flex;
-      justify-content: flex-end;
-  }
-  
-  .copartner-header-decortion {
-      width: 0;
-      height: 27px;
-      border: solid black;
-      margin-left: 10px;
-    }
-    .copartner-logo-container{
-        width:80px;
-        
-    }
-    .copartner-logo{
-        width: 100%;
-    }
-    
-    .copartner-wrapper{
-        width: 60%;
-      display: flex;
-      justify-content: space-around;
-      margin: auto;
-      
-    }
+  width: 95%;
+  padding: 10px;
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.copartner-header-decortion {
+  width: 0;
+  height: 27px;
+  border: solid black;
+  margin-left: 10px;
+}
+.copartner-logo-container {
+  width: 150px;
+}
+.copartner-logo {
+  width: 100%;
+  height: 14rem;
+}
+
+.copartner-logo:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.copartner-wrapper {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}

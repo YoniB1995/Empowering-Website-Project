@@ -1,5 +1,5 @@
 {
-    "single": {
+    "getAllMembers": {
   "success": {
     "res": {
       "statusCode": 200,
@@ -11,13 +11,12 @@
       "status": "success",
       "data": [
         {
-          "_id": "614b9fa0df92314c81d69f06",
-            "fullname": "יוני ביטאו",
-            "role": "מייסדת",
-            "image": "https://www.iconsdb.com/icons/preview/red/administrator-xxl.png",
-            "description": "תיאור קצר על בעל התפקיד ועל המעשים שהוא עשה בקהילה",
-            "__v": 0,
-            "lang": "hebrew"
+            "email_address": "Asalef10@gmail.com",
+            "status": "pending"
+        },
+        {
+            "email_address": "empo726@gmail.com",
+            "status": "subscribed"
         }
       ]
     }
@@ -31,14 +30,14 @@
     },
     "body": {
       "status": "error",
-      "message": "That movie does not exist."
+      "message": "the list not found."
     }
   }
 },
-    "add": {
+    "getMember": {
   "success": {
     "res": {
-      "statusCode": 201,
+      "statusCode": 200,
       "headers": {
         "content-type": "application/json"
       }

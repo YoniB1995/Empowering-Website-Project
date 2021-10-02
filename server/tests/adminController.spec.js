@@ -1,13 +1,8 @@
 // process.env.NODE_ENV = 'test';
 const chai = require('chai')
-const ChaiHttp = require('chai-http')
 const sinon = require("sinon");
-const expect = chai.expect;
-const faker = require("faker");
 const request = require('request')
-const {adminModel} = require('../models/adminModel')
-const adminClass = require("../utils/tests-classes/adminClass");
-const teamDB = require('./teamDB.json')
+const adminDB = require('./adminDB')
 chai.should();
 
 const LOCAL_URL = 'http://localhost:5000';
@@ -17,17 +12,40 @@ describe('Admin Crud', () => {
   beforeEach(() => {
   this.get = sinon.stub(request, 'get');
   this.post = sinon.stub(request, 'post');
+  this.put = sinon.stub(request, 'put');
+  this.delete = sinon.stub(request, 'delete');
 });
 
 afterEach(() => {
   request.get.restore();
   request.post.restore();
+  request.put.restore();
+  request.delete.restore();
 });
 
-describe('GET /team/member/:id', () => {
-  it('should respond with a single movie', (done) => {
-    const obj = teamDB.single.success;
-    const memberID = teamDB.add.success.body.data[0]._id
+describe('GET /admin', () => {
+  it('should get all the admins account details from the fake collection', (done) => {
+    const obj = adminDB.getAllAdmins.success;
+    this.get.yields(null, obj.res, JSON.stringify(obj.body));
+    request.get(`${LOCAL_URL}/admin`, (err, res, body) => {
+      res.statusCode.should.equal(200);
+      res.headers['content-type'].should.contain('application/json');
+      body = JSON.parse(body);
+      body.status.should.eql('success');
+      body.data[0].should.include.keys(
+        'username', 'email', 'password'
+      );
+      body.data[2].username.should.eql("Racheli Melkai");
+      console.log(body.data)
+      done();
+    });
+  });
+});
+
+describe('GET /admin/getadmin/:id', () => {
+  it('should get a single admin by choice from the fake admin db collection', (done) => {
+    const obj = adminDB.getOneAdmin.success;
+    const memberID = adminDB.getOneAdmin.success.body.data[0]._id
     this.get.yields(null, obj.res, JSON.stringify(obj.body));
     request.get(`${LOCAL_URL}/team/member/${memberID}`, (err, res, body) => {
       res.statusCode.should.equal(200);
@@ -35,15 +53,16 @@ describe('GET /team/member/:id', () => {
       body = JSON.parse(body);
       body.status.should.eql('success');
       body.data[0].should.include.keys(
-        '_id', 'fullname', 'role', 'image', 'description','lang'
+        'username', 'email', 'password'
       );
-      body.data[0].fullname.should.eql("יוני ביטאו");
-      body.data[0]._id.should.eql(memberID);
+      body.data[0]._id.should.eql("614b9fa0df92314c81d69f06")
+      body.data[0].username.should.eql("Yoni Bitew");
+      console.log(body.data)
       done();
     });
   });
-  it('should throw an error if the movie does not exist', (done) => {
-    const obj = teamDB.single.failure;
+  it('should throw an error if the admin details does not exist', (done) => {
+    const obj = adminDB.getOneAdmin.failure;
     this.get.yields(null, obj.res, JSON.stringify(obj.body));
     request.get(`${LOCAL_URL}/team/member/6133bca1faebadas48f88b8323`, (err, res, body) => {
       res.statusCode.should.equal(404);
@@ -56,52 +75,86 @@ describe('GET /team/member/:id', () => {
   });
 });
 
-// describe('POST /api/v1/movies', () => {
-//   it('should return the movie that was added', (done) => {
-//     const options = {
-//       body: {
-//         name: 'Titanic',
-//         genre: 'Drama',
-//         rating: 8,
-//         explicit: true
-//       },
-//       json: true,
-//       url: `${LOCAL_URL}/api/v1/movies`
-//     };
-//     const obj = movies.add.success;
-//     this.post.yields(null, obj.res, JSON.stringify(obj.body));
-//     request.post(options, (err, res, body) => {
-//       res.statusCode.should.equal(201);
-//       res.headers['content-type'].should.contain('application/json');
-//       body = JSON.parse(body);
-//       body.status.should.eql('success');
-//       body.data[0].should.include.keys(
-//         'id', 'name', 'genre', 'rating', 'explicit'
-//       );
-//       body.data[0].name.should.eql('Titanic');
-//       console.log(body)
-//       done();
-//     });
-//   });
-// });
-// describe('create New Admin', (done)=> {
+describe('POST /admin/login', () => {
+  it('should log the admin after checking if the data is valid and exists at the fake db collection', (done) => {
+    const options = {
+      body:  {
+            username: "Updated yoni bitew",
+        },
+      json: true,
+      url: `${LOCAL_URL}/admin/update`
+    };
+    const obj = adminDB.updateAdminDetails
+    this.put.yields(null, obj.success.res, JSON.stringify(obj.success.body));
+    request.put(options, (err, res, body) => {
+      res.statusCode.should.equal(201);
+      res.headers['content-type'].should.contain('application/json');
+      body = JSON.parse(body);
+      body.status.should.eql('success');
+      body.data[0].should.include.keys(
+        'email', 'password'
+      );
+      body.data[0].email.should.eql('yonibitew@gmail.com');
+      body.data[0].username = options.body.username;
 
-//     const fakeAdmin = {
-//     email:"yonatansamfisher@gmail.com",
-//     password:"12345678"
-//   };
-//     it("should login the admin to the website if has correct token", async ()=> {
-//     const {email,password} = fakeAdmin;
-//       const stub = sinon.stub(adminModel, "findOne").set('Bearer Token');
-//       const admin = new adminClass();
-//       const newAdmin = await admin.createNewAdmin(email,password)
-      
-//     //   expect(stub.calledOnce).to.be.true;
-//       expect(stub).have('Bearer Token')
-      
-//       console.log({newAdmin:newAdmin})
-//     });
+      body.data[0].username.should.eql("Updated yoni bitew")
+      console.log(body)
+      done();
+    });
+  });
 
-//   });
+  it('should throw an error if the admin details does not exist', (done) => {
+    const options = {
+      body: { username: "Updated yoni bitew" },
+      json: true,
+      url:  `${LOCAL_URL}/admin/update`
+    };
+    const obj = adminDB.updateAdminDetails;
+    this.put.yields(null, obj.failure.res, JSON.stringify(obj.failure.body));
+    request.put(options, (err, res, body) => {
+      res.statusCode.should.equal(404);
+      res.headers['content-type'].should.contain('application/json');
+      body = JSON.parse(body);
+      body.status.should.eql('error');
+      body.message.should.eql('Admin details does not exist.');
+      done();
+    });
+  });
+});
+
+describe('DELETE /admin', () => {
+  it('should get delete admin account details from the fake collection', (done) => {
+    const obj = adminDB.deleteAdmin.success;
+    this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+    request.delete(`${LOCAL_URL}/admin/delete/614b9fa0df92314c81d69f06`, (err, res, body) => {
+      res.statusCode.should.equal(200);
+      res.headers['content-type'].should.contain('application/json');
+      body = JSON.parse(body);
+      body.status.should.eql('success');
+      body.data.deletedAdmin.should.include.keys('status','data',"success");
+      body.data.deletedAdmin.username = "Yoni Bitew";
+      body.data.message = "Admin Deleted!";
+
+      done();
+    });
+  });
+
+    it('should get not delete admin account details from the fake collection', (done) => {
+      const obj = adminDB.deleteAdmin.failure;
+      this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+      request.delete(`${LOCAL_URL}/admin/:id`, (err, res, body) => {
+        res.statusCode.should.equal(404);
+        res.headers['content-type'].should.contain('application/json');
+        body = JSON.parse(body);
+        body.status.should.eql('success');
+        body.data.deletedAdmin.should.include.keys('status','data',"success");
+        body.data.deletedAdmin.username = "Yoni Bitew";
+        body.data.message = "Admin Deleted!";
+  
+        done();
+      })
+    })
+
+});
 
 });

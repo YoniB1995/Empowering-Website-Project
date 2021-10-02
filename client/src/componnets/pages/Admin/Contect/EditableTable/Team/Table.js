@@ -15,6 +15,7 @@ const Table = () => {
     description: '',
     role: '',
     image: '',
+    lang: '',
   });
 
   const [editFormData, setEditFormData] = useState({
@@ -22,6 +23,7 @@ const Table = () => {
     description: '',
     role: '',
     image: '',
+    lang: '',
   });
 
   useEffect(() => {
@@ -62,12 +64,20 @@ const Table = () => {
     event.preventDefault();
 
     const newContact = {
-      id: nanoid(),
       fullname: addFormData.fullname,
       description: addFormData.description,
       role: addFormData.role,
       image: addFormData.image,
+      lang: addFormData.lang,
     };
+
+    fetch('http://localhost:5000/team/new', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newContact),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
 
     const newContacts = [...contacts, newContact];
     setContacts(newContacts);
@@ -77,12 +87,19 @@ const Table = () => {
     event.preventDefault();
 
     const editedContact = {
-      id: editContactId,
       fullname: editFormData.fullname,
       description: editFormData.description,
       role: editFormData.role,
       image: editFormData.image,
+      lang: editFormData.lang,
     };
+    fetch(`http://localhost:5000/team/edit/${editContactId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(editedContact),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
 
     const newContacts = [...contacts];
 
@@ -105,6 +122,7 @@ const Table = () => {
       description: contact.description,
       role: contact.role,
       image: contact.image,
+      lang: contact.lang,
     };
 
     setEditFormData(formValues);
@@ -120,6 +138,13 @@ const Table = () => {
     const index = contacts.findIndex((contact) => contact._id === contactId);
 
     newContacts.splice(index, 1);
+    fetch(`http://localhost:5000/team/${contactId}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({}),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
 
     setContacts(newContacts);
   };
@@ -167,7 +192,7 @@ const Table = () => {
                 handleFilter(month);
               }}
             >
-              last month
+              חודש
             </p>
             <p
               onClick={() => {
@@ -175,7 +200,7 @@ const Table = () => {
                 handleFilter(week);
               }}
             >
-              last week
+              שבוע
             </p>
             <p
               onClick={() => {
@@ -183,18 +208,18 @@ const Table = () => {
                 handleFilter(day);
               }}
             >
-              last day
+              יום
             </p>
           </div>
         )}
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th onClick={() => setFilterClick((old) => !old)}>description</th>
-              <th>role</th>
-              <th>image</th>
-              <th>Actions</th>
+              <th>שם מלא</th>
+              <th>תיאור</th>
+              <th>תפקיד</th>
+              <th>תמונה</th>
+              <th>פעולות</th>
             </tr>
           </thead>
           <tbody>
@@ -219,27 +244,27 @@ const Table = () => {
         </table>
       </form>
 
-      <h2>Add a Contact</h2>
+      <h2>הוסף חבר צוות</h2>
       <form onSubmit={handleAddFormSubmit}>
         <input
           type='text'
           name='fullname'
           required='required'
-          placeholder='Enter a name...'
+          placeholder='שם מלא'
           onChange={handleAddFormChange}
         />
         <input
           type='text'
           name='description'
           required='required'
-          placeholder='Enter an description...'
+          placeholder='תיאור'
           onChange={handleAddFormChange}
         />
         <input
           type='text'
           name='role'
           required='required'
-          placeholder='Enter a role...'
+          placeholder='תפקיד'
           onChange={handleAddFormChange}
         />
         <input
@@ -248,7 +273,14 @@ const Table = () => {
           name='image'
           onChange={handleAddFormChange}
         />
-        <button type='submit'>Add</button>
+        <input
+          type='text'
+          name='lang'
+          required='required'
+          placeholder='english/hebrew'
+          onChange={handleAddFormChange}
+        />
+        <button type='submit'>הוסף</button>
       </form>
     </div>
   );
