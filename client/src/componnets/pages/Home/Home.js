@@ -17,7 +17,7 @@ import { useTranslation } from "react-i18next";
 import WorkersCards from "../../features/workersCards/WorkersCards";
 
 const Home = () => {
-  const {  } = useTranslation();
+  const {} = useTranslation();
 
   useEffect(() => {
     new WOW.WOW({
@@ -28,23 +28,17 @@ const Home = () => {
     <div>
       <div className="home-first-section">
         <ImageSlider />
-        <WorkersCards/>
         <div className="about-us wow animate__bounceInUp">
-          <div className="aboutus-content">
-            <h1>קצת עלינו </h1>
-            <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
-            <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
-            <p>
-              ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה
-              מינית, נשים הסובלות
-            </p>
-            <p> עצמה נשית אתיופית, עידוד, ייעוץ ומילגות להשכלה גבוהה לנשיםv</p>
-            <p> הכשרות וקורסים, מינוף ועידוד פתיחת עסקים לנשים בקהילה</p>
-            <p>
-              ייעוץ לעצמאות כלכלית, טיפול בפניות הציבור נזקקים, נפגעי תקיפה
-              מינית, נשים הסובלות
-            </p>
-
+          <div className="about-us-wrapper">
+            <h1>קצת עלינו</h1>
+            <div className="home-about-us-content">
+              עמותת נשים אתיופיות מעצימות הוקמה בשנת 2020, מתוך צורך ממשי למתן
+              סיוע,תמיכה ועידוד נשים ישראליות ממוצא אתיופי ,להשכלה גבוהה עסקים
+              ולערבות הדדית העמותה צמחה +מתוך פלטפורמה של קהילת נשים בפייסבוק
+              המונה 16,000 נשים -קהילת הנשים הקומה מתוך רצון ומטרה להעצים נשים
+              בכל תחומי החיים ושמה לה למטרה להשפיע בחברה הישראלית,בכלכלה בחינוך
+              ובכל תחומי החיים בכלל.
+            </div>
             <Link to="/AboutUs">
               <Button
                 className="about-us-home-btn"
@@ -78,12 +72,12 @@ const Home = () => {
       {/* <div className="home-newsletter-section">
         <div className="archive-container">
           <div className="archive-slider"> */}
-      <SliderStore />
+      {/* <SliderStore /> */}
       {/* <img src="./archive-newsletter-vector.jpg" /> */}
       {/* </div> */}
       <div className="newsletter-signup-btn">
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button
+          {/* <Button
             className="about-us-home-btn"
             size="large"
             shape="round"
@@ -94,31 +88,30 @@ const Home = () => {
             }}
           >
             להרשמה לניוזלטר לחצ\י כאן
-          </Button>
+          </Button> */}
         </div>
         {/* </div>
         </div> */}
       </div>
       <Programs />
-      <div>
-        <div className="vision-goals-container">
-          <div className="vision">
-            <Vision />
-          </div>
 
-          <div className="goals">
-            <Goals />
-          </div>
+      <div className="vision-goals-container">
+        <div className="vision">
+          <Vision />
         </div>
-        <div
-          className="programs-wrapper"
-          style={{
-            width: "95%",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        ></div>
+
+        <div className="goals">
+          <Goals />
+        </div>
       </div>
+      <div
+        className="programs-wrapper"
+        style={{
+          width: "95%",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      ></div>
       <Copartner />
 
       <BackTop>

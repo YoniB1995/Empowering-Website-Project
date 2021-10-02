@@ -7,7 +7,7 @@ const API =
 
 export const getAllPlans = async (req, res) => {
   try {
-    return await fetch(`${API}/plans/all`);
+    return await fetch(`${API}/plans/all/hebrew`);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Server Error' });

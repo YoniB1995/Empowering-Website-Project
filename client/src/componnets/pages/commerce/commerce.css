@@ -9,19 +9,20 @@ opacity: 9;
 
 } */
 /* // כפתור קניות */
+.ant-badge{
+  font-size: 20px;
+}
 .badge {
   background-color: #f8f7f5;
 }
 button.ant-btn.badge {
   background-color: white;
-  width: 65px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border-radius: 30px 0px 0px 30px;
   opacity: 1;
   position: fixed;
-  margin-left: 96%;
-}
-.iconCart {
+  right: 5px;
   opacity: 1;
 }
 
@@ -30,8 +31,8 @@ button.ant-btn.badge {
 } */
 /* // כל הכרטיסייה */
 .ant-drawer-content {
-  margin-left: -20%;
-  margin-top: 40%;
+  margin-left: -18%;
+  margin-top: 57%;
   overflow: hidden;
   border: none;
   height: 75%;
@@ -79,4 +80,9 @@ button.ant-btn.badge {
 } */
 .btnCart:hover{
     color: white;
+}
+.ant-drawer-content-wrapper{
+  width: 262px !important;
+  height: 75% !important;
+
 }

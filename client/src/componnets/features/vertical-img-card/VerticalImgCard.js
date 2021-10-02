@@ -19,3 +19,6 @@ const VerticalImgCard = (props) => {
 };
 
 export default VerticalImgCard;
+
+
+const obj=<div><p>"hello"</p><p>"hello"</p></div>
