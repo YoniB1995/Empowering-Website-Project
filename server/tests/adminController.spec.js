@@ -79,14 +79,15 @@ describe('POST /admin/login', () => {
   it('should log the admin after checking if the data is valid and exists at the fake db collection', (done) => {
     const options = {
       body:  {
-            username: "Updated yoni bitew",
+            email:"yonibitew@gmail.com",
+            password:"01230123"
         },
       json: true,
-      url: `${LOCAL_URL}/admin/update`
+      url: `${LOCAL_URL}/admin/login`
     };
-    const obj = adminDB.updateAdminDetails
-    this.put.yields(null, obj.success.res, JSON.stringify(obj.success.body));
-    request.put(options, (err, res, body) => {
+    const obj = adminDB.loginAdmin.success
+    this.post.yields(null, obj.res, JSON.stringify(obj.body));
+    request.post(options, (err, res, body) => {
       res.statusCode.should.equal(201);
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
@@ -95,9 +96,8 @@ describe('POST /admin/login', () => {
         'email', 'password'
       );
       body.data[0].email.should.eql('yonibitew@gmail.com');
-      body.data[0].username = options.body.username;
+      body.data[0].password = options.body.password;
 
-      body.data[0].username.should.eql("Updated yoni bitew")
       console.log(body)
       done();
     });
@@ -105,11 +105,11 @@ describe('POST /admin/login', () => {
 
   it('should throw an error if the admin details does not exist', (done) => {
     const options = {
-      body: { username: "Updated yoni bitew" },
+      body: { email: "dani@gmail.com" },
       json: true,
-      url:  `${LOCAL_URL}/admin/update`
+      url:  `${LOCAL_URL}/admin/login`
     };
-    const obj = adminDB.updateAdminDetails;
+    const obj = adminDB.loginAdmin;
     this.put.yields(null, obj.failure.res, JSON.stringify(obj.failure.body));
     request.put(options, (err, res, body) => {
       res.statusCode.should.equal(404);
