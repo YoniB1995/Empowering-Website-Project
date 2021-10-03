@@ -5,7 +5,6 @@ const passport = require('passport')
 const adminRouter = require("./routes/adminRoutes");
 const plansRouter = require("./routes/planRouter");
 const mailChimpRouter = require("./routes/mailChimpRouter");
-const productRouter = require("./routes/productRouter");
 const contactUsRouter = require("./routes/contactUsRouter");
 const teamRouter = require("./routes/teamRouter");
 const partnersRouter = require("./routes/partnerRouter");
@@ -29,8 +28,8 @@ const methodOverride = require("method-override");
 app.set("view engine", "ejs");
 app.set("views", `${__dirname}/views`);
 
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: false })); 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(cors());
 app.use(fileUpload());
@@ -38,31 +37,18 @@ app.use(passport.initialize());
 
 require('./config/passport')(passport);
 
-app.post("/upload", (req, res) => {
-	if (req.files === null) {
-		return res.status(400).json({ msg: "No file uploaded" });
-	}
-	const file = req.files.file;
-	file.mv(`${__dirname}/../client/public/uploads/${file.name}`, (err) => {
-		if (err) {
-			console.error(err);
-			return res.status(500).send(err);
-		}
-		res.json({ fileName: file.name, filePath: `/uploads/${file.name}` });
-	});
-});
+
 
 app.use("/mailChimp", mailChimpRouter);
 app.use("/plans", plansRouter);
 app.use("/admin", adminRouter);
-app.use("/product", productRouter);
 app.use("/contactUs", contactUsRouter);
 app.use("/team", teamRouter);
 app.use("/partners", partnersRouter);
 app.use("/campagin", campaginRouter);
 app.use("/member", memberRouter);
-app.use('/card',cardRouter)
-app.use('/planedit',ejsEditor)
+app.use('/card', cardRouter)
+app.use('/planedit', ejsEditor)
 
 
 
