@@ -18,7 +18,6 @@ const NavBar = () => {
   const { t } = useTranslation();
   const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
-  const [btnLanguage, setBtnLanguage] = useState("ENG");
 
   // useEffect(() => {
   //   document.body.dir = currentLang.dir || "rtl";
@@ -30,15 +29,11 @@ const NavBar = () => {
   // };
 
   const changingBtnLanguage = (e) => {
-    e.target.innerText === "ENG"
-      ? setBtnLanguage("HEB")
-      : setBtnLanguage("ENG");
     if (currentLangCode === "heb") {
       i18next.changeLanguage("en");
     } else {
       i18next.changeLanguage("heb");
     }
-    console.log(e.target.innerText);
   };
 
   return (
@@ -46,12 +41,12 @@ const NavBar = () => {
       {isLogin && <Profile />}
 
       <Link to="./">
-        <Avatar className="logo" src="./logo-main1.jpeg" alt="logo"></Avatar>
+        <Avatar className="logo" src="./logo-main.jpg" alt="logo"></Avatar>
       </Link>
 
       <Menu className="navBarLinks" mode="horizontal">
         <Menu.Item className="menu-item">
-          <Button onClick={changingBtnLanguage}> {btnLanguage}</Button>
+          <Button onClick={changingBtnLanguage}> {currentLangCode}</Button>
         </Menu.Item>
 
         {isLogin && (

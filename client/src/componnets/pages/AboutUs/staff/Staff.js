@@ -147,7 +147,7 @@ const Staff = () => {
             <Button
               onClick={filterVolunteersInHebrew}
               icon={<FilterOutlined />}
-              size="middle"
+              size="large"
               style={{
                 marginRight: "10px",
                 width: "120px",
@@ -160,7 +160,7 @@ const Staff = () => {
             <Button
               onClick={filterManagersInHebrew}
               icon={<FilterOutlined />}
-              size="middle"
+              size="large"
               style={{
                 marginRight: "10px",
                 width: "120px",

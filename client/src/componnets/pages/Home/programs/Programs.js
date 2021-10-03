@@ -3,19 +3,21 @@ import { Button, Card } from 'antd';
 import { useEffect, useState } from 'react';
 import WOW from 'wowjs';
 import { ReadOutlined } from '@ant-design/icons';
-import cookies from "js-cookie";
+import cookies from 'js-cookie';
 
 import './programs.css';
-import { getAllPlans } from '../../../../service/plan-service';
+import { getAllPlans, getAllPlansEng } from '../../../../service/plan-service';
 
 const Programs = () => {
   const { Meta } = Card;
   const [clickedIndex, setClickedIndex] = useState(false);
   const [programs, setPrograms] = useState([]);
+  const [programsEng, setProgramsEng] = useState([]);
+  const [both, setBoth] = useState([]);
+
   const cardProgramOn = 'color:"white",marginLeft:"5px"';
 
-  const currentLangCode = cookies.get("i18next") || "heb";
-
+  const currentLangCode = cookies.get('i18next') || 'heb';
 
   useEffect(() => {
     new WOW.WOW({
@@ -25,6 +27,9 @@ const Programs = () => {
     getAllPlans()
       .then((res) => res.json())
       .then((data) => setPrograms(data));
+    getAllPlansEng()
+      .then((res) => res.json())
+      .then((data) => setProgramsEng(data));
   }, []);
 
   const ImgDisappearedOnHover = (index) => () => {
@@ -33,6 +38,9 @@ const Programs = () => {
       [index]: !state[index],
     }));
   };
+  useEffect(() => {
+    setBoth(currentLangCode === 'heb' ? programs : programsEng);
+  }, [currentLangCode]);
 
   return (
     <div className='programs-wrapper'>
@@ -41,7 +49,7 @@ const Programs = () => {
         <div className='programs-header-decertion'></div>
       </div>
       <div className='cards-wrapper'>
-        {programs.map((program, index) => (
+        {both.map((program, index) => (
           <Card
             className='program-card'
             onClick={ImgDisappearedOnHover(index)}
@@ -55,11 +63,11 @@ const Programs = () => {
                       {program.description}
                     </p>
                     <div>
-                      <img
+                      {/* <img
                         className='img-program-card'
                         src='./logo-main1.jpeg'
                         alt='program card img'
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
