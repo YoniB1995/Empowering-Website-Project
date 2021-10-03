@@ -42,7 +42,7 @@ const sendEmailCard = async (req, res, next) => {
           } else {
             callback(null, html);
           }
-        });
+        });  
       };
       let transporter = nodemailer.createTransport({
         service: 'gmail',
