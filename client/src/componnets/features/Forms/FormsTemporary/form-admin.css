@@ -1,0 +1,48 @@
+.form-page {
+  height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #ff7e5f,
+    #ff8d63,
+    #ff9a69,
+    #fea771,
+    #feb47b
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  width: 350px;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 10px;
+}
+
+.admin-form-header {
+  font-size: 24px;
+  font-family: "Varela Round", sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+.password-input-conatiner {
+  width: 490px;
+}
+
+.userName-input-conatiner {
+  width: 480px;
+}
+.checkbox-container {
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

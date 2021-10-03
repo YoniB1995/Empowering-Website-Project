@@ -25,6 +25,7 @@ const Home = () => {
   }, []);
   return (
     <div>
+      
       <div className="home-first-section">
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
@@ -63,12 +64,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <div className="home-newsletter-section">
-        <div className="archive-container">
-          <div className="archive-slider"> */}
-      {/* <SliderStore /> */}
-      {/* <img src="./archive-newsletter-vector.jpg" /> */}
-      {/* </div> */}
+    
       <div className="newsletter-signup-btn">
         <div style={{ display: "flex", justifyContent: "center" }}>
           {/* <Button
@@ -88,16 +84,18 @@ const Home = () => {
         </div> */}
       </div>
       <Programs />
+      <div className="vision-goals-wrapper">
+        <div className="vision-goals-container">
+          <div className="vision">
+            <Vision />
+          </div>
 
-      <div className="vision-goals-container">
-        <div className="vision">
-          <Vision />
-        </div>
-
-        <div className="goals">
-          <Goals />
+          <div className="goals">
+            <Goals />
+          </div>
         </div>
       </div>
+
       <div
         className="programs-wrapper"
         style={{
@@ -109,10 +107,11 @@ const Home = () => {
       <Copartner />
 
       <BackTop>
-        <div className="upBtn">
-         {t("backUp")}
-          <ArrowUpOutlined />
-        </div>
+        
+         <div className="up-arrow">
+          <ArrowUpOutlined style={{fontSize:"24px",color:"white"}} />
+          </div>
+  
       </BackTop>
     </div>
   );
