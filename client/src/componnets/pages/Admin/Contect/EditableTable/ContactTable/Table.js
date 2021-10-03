@@ -150,7 +150,7 @@ const Table = () => {
               <th onClick={() => setFilterOpen((old) => !old)}>טופל/לא טופל</th>
             </tr>
           </thead>
-          {contacts.length === 0 && <h1>אין פניות</h1>}
+          {contacts?.length === 0 && <h1>אין פניות</h1>}
           <tbody>
             {contacts?.map((contact) => (
               <Fragment>
