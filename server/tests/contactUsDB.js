@@ -129,6 +129,80 @@ const contactUsDB = {
 			},
 		},
 	},
+	updateContactInformation: {
+		success: {
+			res: {
+				statusCode: 200,
+				headers: {
+					"content-type": "application/json",
+				},
+			},
+			body: {
+				status: "success",
+				data: {
+					message: "contact updated",
+					updatedContact: {
+					_id: "61522199f1510100167f6980",
+					email: "liorlsa9@gmail.com",
+					inquiry: "website",
+					content: "dsadsadsa",
+					iscompleted: false,
+					notes: "not sure what is the problem",
+					date: "2021-09-28T21:00:00.000Z"
+				}
+				},
+			},
+		},
+		failure: {
+			res: {
+				statusCode: 404,
+				headers: {
+					"content-type": "application/json",
+				},
+			},
+			body: {
+				status: "error",
+				message: "failed to update contact information",
+			},
+		},
+	},
+	"getContactInformation": {
+		"success": {
+		  "res": {
+			"statusCode": 200,
+			"headers": {
+			  "content-type": "application/json"
+			}
+		  },
+		  "body": {
+			"status": "success",
+			"data": 
+			{
+				"date": "2021-09-28T21:00:00.000Z",
+				"_id": "61522199f1510100167f6980",
+				"email": "liorlsa9@gmail.com",
+				"inquiry": "website",
+				"content": "dsadsadsa",
+				"iscompleted": true,
+				"notes": "not sure what is the problem",
+				"__v": 0
+			}
+			
+		  }
+		},
+		"failure": {
+		  "res": {
+			"statusCode": 500,
+			"headers": {
+			  "content-type": "application/json"
+			}
+		  },
+		  "body": {
+			"status": "error",
+			"message": "Server Error."
+		  }
+		}
+	  }
 };
 
 module.exports = contactUsDB;
