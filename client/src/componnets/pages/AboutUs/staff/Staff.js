@@ -243,7 +243,7 @@ const Staff = () => {
                     </p>
                   </div>
                 }
-                description={staffMembers[0].description}
+                description={isHebrew ? staffMembers[0].description : staffMembers[1].description}
                 style={{ textAlign: "center" }}
               />
             </Card>
