@@ -10,7 +10,6 @@ import Contact from "./componnets/pages/Admin/Contact/Contact";
 import Data from "./componnets/pages/Admin/Data/Data";
 import { Accessibility } from 'accessibility/src/main';
 import { Suspense } from "react";
-import WorkersCards from "./componnets/features/workersCards/WorkersCards";
 import Programs from "./componnets/pages/Programs/Programs";
 ;
 
