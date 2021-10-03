@@ -9,5 +9,5 @@ MailchimpMarketingModel.setConfig({
 	server: SERVER_PREFIX,
 });
 
-module.exports = { MailchimpMarketingModel, mailChimpModel };
+module.exports = MailchimpMarketingModel;
 
