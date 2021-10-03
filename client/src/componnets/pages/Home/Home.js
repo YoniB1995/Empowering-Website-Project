@@ -64,12 +64,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <div className="home-newsletter-section">
-        <div className="archive-container">
-          <div className="archive-slider"> */}
-      {/* <SliderStore /> */}
-      {/* <img src="./archive-newsletter-vector.jpg" /> */}
-      {/* </div> */}
+    
       <div className="newsletter-signup-btn">
         <div style={{ display: "flex", justifyContent: "center" }}>
           {/* <Button

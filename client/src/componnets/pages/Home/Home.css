@@ -137,16 +137,15 @@
 .up-arrow {
   width: 40px;
   height: 40px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  border-radius:100%;
-  background:black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background: black;
   opacity: 0.7;
 }
 .up-arrow:hover {
-  background: #C8C6C6;
-
+  background: #c8c6c6;
 }
 
 @media only screen and (max-width: 1060px) {
@@ -162,7 +161,7 @@
     justify-content: center;
   }
   .vision-goals-wrapper {
-    height: 981px;
+    height: 1200px;
   }
 }
 

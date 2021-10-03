@@ -1,8 +1,6 @@
 
 
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -11,9 +9,7 @@ footer {
   flex-wrap: wrap;
   padding: 10px;
   background: white;
-  clear: both;
-  position: relative;
-  margin-bottom: 20px;
+
 }
 .footer-header-container {
   width: 200px;

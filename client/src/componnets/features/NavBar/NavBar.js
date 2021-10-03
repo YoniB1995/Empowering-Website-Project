@@ -17,13 +17,7 @@ const NavBar = () => {
   const { isLogin } = useContext(AuthContext);
   const { t } = useTranslation();
   const currentLangCode = cookies.get("i18next") || "heb";
-<<<<<<< HEAD
-  // const currentLang = lang.find((i) => i.code === currentLangCode);
-
-=======
   const currentLang = lang.find((i) => i.code === currentLangCode);
->>>>>>> ea25b9dbe05828dde8ef082984739cd3dfadef3c
-  const [btnLanguage, setBtnLanguage] = useState("ENG");
 
   // useEffect(() => {
   //   document.body.dir = currentLang.dir || "rtl";
