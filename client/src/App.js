@@ -45,7 +45,9 @@ function App() {
         <Router>
           <AuthContextProvider>
               <NavBar />
+              <div className="app-router-body">
               <AppRouter />
+              </div>
               <Footer />
           </AuthContextProvider>
         </Router>
