@@ -1,12 +1,13 @@
-const request = require("request");
-const LOCAL_URL = "http://localhost:5000";
-const chai = require("chai");
-const ChaiHttp = require("chai-http");
+// process.env.NODE_ENV = 'test';
+const chai = require('chai')
 const sinon = require("sinon");
-const expect = chai.expect;
-const contactUsDB = require("./contactUsDB");
-
+const faker = require("faker");
+const request = require('request');
+const contactUsDB = require('./contactUsDB');
+const should = require("should");
 chai.should();
+
+const LOCAL_URL = 'http://localhost:5000';
 
 describe("ContactUs Crud", () => {
 	beforeEach(() => {
@@ -109,13 +110,14 @@ describe("ContactUs Crud", () => {
 			};
 			const obj = contactUsDB.createContactInformation.failure;
 			console.log(obj);
-			this.post.yields(null, obj.res, obj.body);
+			this.post.yields(null, obj.res, JSON.stringify(obj.body));
 			request.post(
-				`${options}/contactUs/getAllContactInformation`,
+				`${LOCAL_URL}/contactUs/createContactUs`,
 				(err, res, body) => {
 					res.headers["content-type"].should.contain("application/json");
-					res.statusCode.should.equal(404);
-					body.message.should.equal("Cannot get contact us.")
+					res.statusCode.should.eql(404);
+					body = JSON.parse(body);
+					should(body.status).be.eql('error');
 					done();
 				}
 			);
@@ -131,7 +133,7 @@ describe("ContactUs Crud", () => {
 				content: "dsadsadsa",
 			},
 			json: true,
-			url: `${LOCAL_URL}/contactUs/createContactUs`,
+			url: `${LOCAL_URL}/contactUs/deleteContactUs/:id`,
 		};
 		it('should delete ContactUs details from the fake collection', (done) => {
 			const obj = contactUsDB.deleteContactInformation.success;
@@ -139,7 +141,8 @@ describe("ContactUs Crud", () => {
 			request.delete(`${options}/contactUs/deleteContactUs/:id`, (err, res, body) => {
 				res.statusCode.should.equal(200);
 				res.headers['content-type'].should.contain('application/json');
-				console.log(body);
+				body = JSON.parse(body);
+
 
 
 				done();
@@ -155,15 +158,15 @@ describe("ContactUs Crud", () => {
 					content: "dsadsadsa",
 				},
 				json: true,
-				url: `${LOCAL_URL}/contactUs/createContactUs`,
+				url: `${LOCAL_URL}/contactUs/deleteContactUs/:id`,
 			};
 			const obj = contactUsDB.deleteContactInformation.failure;
 			this.delete.yields(null, obj.res, JSON.stringify(obj.body));
 			request.delete(`${options}/contactUs/deleteContactUs/:id`, (err, res, body) => {
 				res.statusCode.should.equal(404);
 				res.headers['content-type'].should.contain('application/json');
-				console.log(body);
-				body.message.should.equal("failed to update contact information");
+				body = JSON.parse(body);
+				body.message.should.equal("Cannot delete contact us.");
 
 				done();
 			});
@@ -188,17 +191,18 @@ describe("ContactUs Crud", () => {
 					date: "2021-09-28T21:00:00.000Z"
 				},
 				json: true,
-				url: `${LOCAL_URL}/contactUs/createContactUs`,
+				url: `${LOCAL_URL}/contactUs/updateContactUs/:id`,
 			};
 			const obj = contactUsDB.updateContactInformation.success;
 			this.put.yields(null, obj.res, JSON.stringify(obj.body));
 			request.put(`${options}/contactUs/updateContactUs/:id`, (err, res, body) => {
 				res.statusCode.should.equal(200);
 				res.headers['content-type'].should.contain('application/json');
+				body = JSON.parse(body);
 				body.message.should.equal("contact updated");
-				body.data.updatedContact.should.include.keys("_id", "email", "inquiry", "content", "iscompleted", "notes", "date");
-				body.data.updatedContact._id.should.equal(options.body._id);
-				body.data.updatedContact.email.should.equal(options.body.email);
+				body.data._id.should.eql(options.body._id);
+				body.data._id.should.equal(options.body._id);
+				body.data.email.should.equal(options.body.email);
 
 
 				done();
@@ -217,14 +221,16 @@ describe("ContactUs Crud", () => {
 					date: "2021-09-28T21:00:00.000Z"
 				},
 				json: true,
-				url: `${LOCAL_URL}/contactUs/createContactUs`,
+				url: `${LOCAL_URL}/contactUs/updateContactInformation/:id`,
 			};
-			const obj = contactUsDB.deleteContactInformation.failure;
+			const obj = contactUsDB.updateContactInformation.failure;
 			this.put.yields(null, obj.res, JSON.stringify(obj.body));
 			request.put(`${options}/contactUs/updateContactInformation/:id`, (err, res, body) => {
 				res.statusCode.should.equal(404);
 				res.headers['content-type'].should.contain('application/json');
-				body['status'].should.equal("error");
+				body = JSON.parse(body);
+				body['status'].should.eql("error");
+				body.message.should.equal("failed to update contact information");
 				done();
 			});
 		});
@@ -236,10 +242,10 @@ describe("ContactUs Crud", () => {
 			const contactID = contactUsDB.getContactInformation.success.body.data._id;
 			this.get.yields(null, obj.res, JSON.stringify(obj.body));
 			request.get(`${LOCAL_URL}/contactUs/getContactInformation/${contactID}`, (err, res, body) => {
-				res.statusCode.should.equal(200);
+				res.statusCode.should.eql(200);
 				res.headers['content-type'].should.contain('application/json');
 				body = JSON.parse(body);
-				body.data.email.should.equal("liorlsa9@gmail.com");
+				body.data.email.should.eql("liorlsa9@gmail.com");
 
 				done();
 			});
