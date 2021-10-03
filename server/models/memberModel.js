@@ -1,15 +1,15 @@
-const mongoose = require("mongoose"); // mongoose package
-const Joi = require("joi"); // Joi package for validation
+const mongoose = require("mongoose"); 
+const Joi = require("joi"); 
 
-const Joigoose = require("joigoose")(mongoose); // convert joi schema to mongoose valid schema
+const Joigoose = require("joigoose")(mongoose); 
 
 const memberSchema = Joi.object({
 	Email: Joi.string()
 		.min(2)
 		.max(35)
 		.required()
-		.email({ tlds: ["com", "co.il"] }),
-	// .meta({ _mongoose: { _id: true } }), // add specific  options to mongodb
+		.email(),
+
 });
 
 const validMember = (memberData) => {
@@ -23,10 +23,9 @@ const mongooseMemberSchema = new mongoose.Schema(
 );
 
 const memberModel = mongoose.model("member", mongooseMemberSchema);
-// 18 + 19 convert joi schema to mongoose schema and add to the data base as collection
 module.exports = {
 	validMember,
 	memberModel,
 };
 
-// save the users from newsLetter
+

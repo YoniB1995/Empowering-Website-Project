@@ -13,6 +13,14 @@ export const getAllPlans = async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 };
+export const getAllPlansEng = async (req, res) => {
+  try {
+    return await fetch(`${API}/plans/all/english`);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
 
 export const addPlan = async (planData) => {
   const options = {

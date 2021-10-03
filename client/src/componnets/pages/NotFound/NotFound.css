@@ -1,0 +1,80 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  background-color: #ffb344;
+}
+
+.vertical-card {
+  width: 80%;
+  height: 80%;
+  font-size: 16px;
+  display: flex;
+  border-radius: 5px;
+  background-color: #ffb344;
+}
+.vertical-card-img-container {
+  height: 100%;
+  width: 40%;
+}
+#img-card {
+  padding: 10px;
+  border-radius: 25px;
+  height: 80%;
+  object-fit: cover;
+}
+.vertical-card-body {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  direction: rtl;
+  padding: 20px;
+}
+.vertical-card-title {
+  font-family: "Varela Round", sans-serif;
+  margin-bottom: 0.5rem;
+  direction: rtl;
+  margin-right: 5px;
+}
+.header-decoration {
+  width: 0;
+  height: 27px;
+  border: solid black;
+}
+.vertical-card-description {
+  font-family: "Varela Round", sans-serif;
+  direction: rtl;
+}
+.header {
+  display: flex;
+}
+@media only screen and (max-width: 760px) {
+  .vertical-card {
+    font-size: 12px;
+    width: 22rem;
+    height: 20rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  .vertical-card-body {
+    width: 100%;
+  }
+
+  .vertical-card-img-container {
+    width: 100%;
+  }
+  .vertical-card-description {
+    height: 60%;
+    width: 100%;
+  }
+  #img-card {
+    width: 100%;
+  }
+}

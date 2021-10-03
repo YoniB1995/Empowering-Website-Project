@@ -79,14 +79,15 @@ describe('POST /admin/login', () => {
   it('should log the admin after checking if the data is valid and exists at the fake db collection', (done) => {
     const options = {
       body:  {
-            username: "Updated yoni bitew",
+            email:"yonibitew@gmail.com",
+            password:"01230123"
         },
       json: true,
-      url: `${LOCAL_URL}/admin/update`
+      url: `${LOCAL_URL}/admin/login`
     };
-    const obj = adminDB.updateAdminDetails
-    this.put.yields(null, obj.success.res, JSON.stringify(obj.success.body));
-    request.put(options, (err, res, body) => {
+    const obj = adminDB.loginAdmin.success
+    this.post.yields(null, obj.res, JSON.stringify(obj.body));
+    request.post(options, (err, res, body) => {
       res.statusCode.should.equal(201);
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
@@ -95,9 +96,8 @@ describe('POST /admin/login', () => {
         'email', 'password'
       );
       body.data[0].email.should.eql('yonibitew@gmail.com');
-      body.data[0].username = options.body.username;
+      body.data[0].password = options.body.password;
 
-      body.data[0].username.should.eql("Updated yoni bitew")
       console.log(body)
       done();
     });
@@ -105,51 +105,50 @@ describe('POST /admin/login', () => {
 
   it('should throw an error if the admin details does not exist', (done) => {
     const options = {
-      body: { username: "Updated yoni bitew" },
+      body: { email: "dani@gmail.com" },
       json: true,
-      url:  `${LOCAL_URL}/admin/update`
+      url:  `${LOCAL_URL}/admin/login`
     };
-    const obj = adminDB.updateAdminDetails;
+    const obj = adminDB.loginAdmin;
     this.put.yields(null, obj.failure.res, JSON.stringify(obj.failure.body));
     request.put(options, (err, res, body) => {
-      res.statusCode.should.equal(404);
+      res.statusCode.should.equal(400);
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
       body.status.should.eql('error');
-      body.message.should.eql('Admin details does not exist.');
+      body.message.should.eql('Wrong Details , admin not exists!');
       done();
     });
   });
 });
 
 describe('DELETE /admin', () => {
-  it('should get delete admin account details from the fake collection', (done) => {
+  it('should  delete admin account details from the fake collection', (done) => {
     const obj = adminDB.deleteAdmin.success;
-    this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+    this.delete.yields(null, obj.res, JSON.stringify(obj.body));
     request.delete(`${LOCAL_URL}/admin/delete/614b9fa0df92314c81d69f06`, (err, res, body) => {
-      res.statusCode.should.equal(200);
+      res.statusCode.should.equal(201);
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
       body.status.should.eql('success');
-      body.data.deletedAdmin.should.include.keys('status','data',"success");
-      body.data.deletedAdmin.username = "Yoni Bitew";
-      body.data.message = "Admin Deleted!";
+      body.should.include.keys('status','data');
+      body.data.deletedAdmin.should.include.keys("_id","username","email","password");
+      body.data.message.should.equal("Admin Deleted!");
 
       done();
     });
   });
 
-    it('should get not delete admin account details from the fake collection', (done) => {
+    it('should not delete admin account details from the fake collection', (done) => {
       const obj = adminDB.deleteAdmin.failure;
-      this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+      this.delete.yields(null, obj.res, JSON.stringify(obj.body));
       request.delete(`${LOCAL_URL}/admin/:id`, (err, res, body) => {
-        res.statusCode.should.equal(404);
+        res.statusCode.should.equal(400);
         res.headers['content-type'].should.contain('application/json');
         body = JSON.parse(body);
-        body.status.should.eql('success');
-        body.data.deletedAdmin.should.include.keys('status','data',"success");
-        body.data.deletedAdmin.username = "Yoni Bitew";
-        body.data.message = "Admin Deleted!";
+        body.status.should.eql('error');
+        body.message.should.equal("Something went wrong.");
+       
   
         done();
       })

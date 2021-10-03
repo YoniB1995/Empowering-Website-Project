@@ -6,9 +6,9 @@ const joigoose = require('joigoose')(mongoose);
 const cardSchemaReception = Joi.object({
   idCard: Joi.number(),
  
-  fullName: Joi.string().min(4).max(199).required(),
+  fullName: Joi.string().min(2).max(99).required(),
 
-  email: Joi.string().email().min(5).max(99).required(),
+  email: Joi.string().email().min(2).max(99).required(),
 });
   
 const validCard = (card) => {

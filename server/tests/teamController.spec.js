@@ -8,7 +8,7 @@ chai.should();
 
 const LOCAL_URL = 'http://localhost:5000';
 
-describe('Admin Crud', () => {
+describe('Team Crud', () => {
 
   beforeEach(() => {
   this.get = sinon.stub(request, 'get');
@@ -96,7 +96,7 @@ describe('POST /team/roles', () => {
 
       })
       body.data.map((teamMember,i)=>{
-        teamMember.role.should.eql(options.body);
+        teamMember.role.should.eql(options.body.role);
 
       })
       console.log(body.data)
@@ -153,7 +153,7 @@ describe('POST /team/new', () => {
 
 
 describe('PUT /team/edit/:id', () => {
-  it.only('should update existing member to the fake db collection', (done) => {
+  it('should update existing member to the fake db collection', (done) => {
     const options = {
       body:  {
            fullname: "Yoni Bitew",

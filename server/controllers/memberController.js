@@ -1,6 +1,6 @@
 const { validMember, memberModel } = require("../models/memberModel");
 
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require("../utilities/errorResponse");
 
 const getMembers = async (req, res, next) => {
 	try {
@@ -17,7 +17,7 @@ const getMembers = async (req, res, next) => {
 
 const createMember = async (req, res, next) => {
 	try {
-		const { error } = validMember(req.body); // try to validate
+		const { error } = validMember(req.body); 
 		if (error) {
 		res.json({ error: error.details[0].message })
 		}
@@ -55,7 +55,7 @@ const deleteMember = async (req, res, next) => {
 
 const updateMember = async (req, res, next) => {
 	try {
-		const { error } = validMember(req.body); // try to validate
+		const { error } = validMember(req.body); 
 		if (error) {
 			next(new ErrorResponse({ error: error.details[0].message }, 301));
 		}
