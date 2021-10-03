@@ -27,15 +27,6 @@ const getAllContactInformation = async (req, res, next) => {
     if (!contactInformation) {
       next(new ErrorResponse('No ContactInformation saved, please add', 400));
     }
-    const contactList = contactInformation.map((contact) => {
-      return {
-        date: contact.date,
-        email: contact.email,
-        inquiry: contact.inquiry,
-        content: contact.content,
-        id: contact.id,
-      };
-    });
     res.status(200).json({ contactInformation });
   } catch (e) {
     console.log('failed to add contact information ');
