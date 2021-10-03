@@ -32,7 +32,7 @@ const sendEmailCard = async (req, res, next) => {
     );
     cardModel.insertMany([req.body.card], (error, result) => {
       if (error) throw error;
-      res.json({ cardUser: result });
+      res.json({ cardUser: result }); 
       const myPath = `${__dirname}/views/index.html`;
       let readHTMLFile = function (path, callback) {
         fs.readFile(myPath, { encoding: 'utf-8' }, (err, html) => {
@@ -76,8 +76,19 @@ const sendEmailCard = async (req, res, next) => {
               }, 
             ],
             html: `
-            <div id="asi"           
-            <h2  style="color: black;text-align: center;border-style: solid;width: 385px;">${req.body.card.fullName} שלום </h2> <p> מעכשיו תוכלי להנות מכרטיס צרכנות של נשים אתיופיות מעצימות.</p> <p> הכרטיס מצורף למטה   </p><p>בברכה, נשים אתיופיות מעצימות,</p> </div> `,};
+            
+            <div id="cardEmail" style="border: 3px solid black; height: 27rem;text-align: center;"> 
+           <h1>  <p style="line-height: 0;">${req.body.card.fullName} שלום </p></h1>
+             <p style="line-height: 0;">ההזמנה שלך נקלטה אצלנו במערכת!</p>
+             <p style="line-height: 0;"> מעכשיו תוכלי להנות מכרטיס צרכנות של נשים אתיופיות מעצימות.</p>
+              <p style="line-height: 0;"> כרטיס הצרכנות מצורף בקבלה שלפניכם   </p>
+              <p style="line-height: 0;"> זקוקים לעזרה? רוצים לדבר איתנו? - אז עדיף שלא תשיבו למייל הזה כי זוהי הודעה אוטומטית  </p>
+              <p style="line-height: 0;"> אנחנו זמינים כאן <a href="https://empowering-women-web.herokuapp.com/ContactUs"  target="_blank">לכניסה לאתר</a>  </p>
+              <p>בברכה, נשים אתיופיות מעצימות,</p>            
+            </div>`
+            
+            ,
+          };
 
           transporter.sendMail(mailOptions, (err, data) => {
             if (err) {
