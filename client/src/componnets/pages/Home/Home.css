@@ -157,3 +157,9 @@
     justify-content: center;
   }
 }
+
+
+.littleBitAboutInfo{
+  display: flex;
+  width: 500px;
+}

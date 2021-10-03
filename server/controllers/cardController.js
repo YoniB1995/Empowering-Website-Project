@@ -6,11 +6,12 @@ const log = console.log;
 const nodeHtmlToImage = require('node-html-to-image');
 const { cardModel, validCard } = require('../models/cardModel');
 const { counterModel } = require('../models/counterID');
-let counterTwo;
+let newCounter;
+
 counterModel.find({}, (error, result) => {
   if (error) throw error;
 
-  counterTwo = result[0].counterID;
+  newCounter = result[0].counterID;
 });
 const sendEmailCard = async (req, res, next) => {
   try {
@@ -19,11 +20,11 @@ const sendEmailCard = async (req, res, next) => {
       return next(new ErrorResponse(`${validBody.error}`, 400));
     }
 
-    req.body.card.idCard = counterTwo;
+    req.body.card.idCard = newCounter;
     console.log();
     counterModel.findByIdAndUpdate(
       process.env.IDCOUNTER,
-      { counterID: (counterTwo += 1) },
+      { counterID: (newCounter += 1) },
       function (err, result) {
         if (err) throw err;
         console.log(result);
@@ -31,7 +32,7 @@ const sendEmailCard = async (req, res, next) => {
     );
     cardModel.insertMany([req.body.card], (error, result) => {
       if (error) throw error;
-      res.json({ cardUser: result });
+      res.json({ cardUser: result }); 
       const myPath = `${__dirname}/views/index.html`;
       let readHTMLFile = function (path, callback) {
         fs.readFile(myPath, { encoding: 'utf-8' }, (err, html) => {
@@ -55,7 +56,7 @@ const sendEmailCard = async (req, res, next) => {
         let replacements = {
           username: `${req.body.card.fullName}`,
           date: '2021',
-          Invoicing: counterTwo - 1,
+          Invoicing: newCounter - 1,
         };
         let pathCardImage = `${__dirname}/card-images/${req.body.card.fullName}.png`;
         let htmlToSend = template(replacements);
@@ -65,24 +66,35 @@ const sendEmailCard = async (req, res, next) => {
           html: htmlToSend,
         }).then(() => {
           let mailOptions = {
-            from: 'asalef10@gmail.com', // TODO: email sender
+            from: 'asalef10@gmail.com',
             to: req.body.card.email,
-            subject: 'קבלה עבור כרטיס מועדון-נשים אתיופיות מעצימות',
-
+            subject: 'קבלה עבור כרטיס צרכנות-נשים אתיופיות מעצימות',
             attachments: [
               {
                 filename: `${req.body.card.fullName}.png`,
                 path: pathCardImage,
-              },
+              }, 
             ],
-            html: htmlToSend,
+            html: `
+            
+            <div id="cardEmail" style="border: 3px solid black; height: 27rem;text-align: center;"> 
+           <h1>  <p style="line-height: 0;">${req.body.card.fullName} שלום </p></h1>
+             <p style="line-height: 0;">ההזמנה שלך נקלטה אצלנו במערכת!</p>
+             <p style="line-height: 0;"> מעכשיו תוכלי להנות מכרטיס צרכנות של נשים אתיופיות מעצימות.</p>
+              <p style="line-height: 0;"> כרטיס הצרכנות מצורף בקבלה שלפניכם   </p>
+              <p style="line-height: 0;"> זקוקים לעזרה? רוצים לדבר איתנו? - אז עדיף שלא תשיבו למייל הזה כי זוהי הודעה אוטומטית  </p>
+              <p style="line-height: 0;"> אנחנו זמינים כאן <a href="https://empowering-women-web.herokuapp.com/ContactUs"  target="_blank">לכניסה לאתר</a>  </p>
+              <p>בברכה, נשים אתיופיות מעצימות,</p>            
+            </div>`
+            
+            ,
           };
 
           transporter.sendMail(mailOptions, (err, data) => {
             if (err) {
               return log(err);
             } else {
-             return res.json({ message: `email sent` });
+              return res.json({ message: `email sent` });
             }
           });
         });

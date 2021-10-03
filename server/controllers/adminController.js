@@ -45,6 +45,7 @@ const loginAdmin = async (req, res, next) => {
                 success: true,
                 token: "Bearer " + token,
                 expiresTokenIn: "60min",
+                email: payload.email,
               });
             }
           );
@@ -115,9 +116,8 @@ const registerAdmin = async (req, res, next) => {
 };
 
 const deleteAdmin = async (req, res, next) => {
-  const { email } = req.body;
   try {
-    const deletedUser = await adminModel.deleteOne({ email: email });
+    const deletedUser = await adminModel.deleteOne(req.params.id);
 
     if (!deletedUser) {
       return next(
@@ -125,17 +125,42 @@ const deleteAdmin = async (req, res, next) => {
       );
     }
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Admin Deleted!",
-        deletedAdmin: deletedUser,
-      });
+    res.status(200).json({
+      success: true,
+      message: "Admin Deleted!",
+      deletedAdmin: deletedUser,
+    });
   } catch (error) {
     res
       .status(200)
       .json({ success: false, deletedAdmin: "Not Deleted! Server Error" });
+    return next(new ErrorResponse("Server Error !", 500));
+  }
+};
+
+const updatedAdmin = async (req, res, next) => {
+  const { username, email } = req.body;
+  try {
+    const UpdatedAdmin = await adminModel.findByIdAndUpdate(req.params.id, {
+      username: username,
+      email: email,
+    });
+
+    if (!UpdatedAdmin) {
+      return next(
+        new ErrorResponse("Admin details are wrong, please try again.", 301)
+      );
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Admin Updated!",
+      UpdatedAdmin: UpdatedAdmin,
+    });
+  } catch (error) {
+    res
+      .status(200)
+      .json({ success: false, UpdatedAdmin: "Not Updated! Server Error" });
     return next(new ErrorResponse("Server Error !", 500));
   }
 };
@@ -146,4 +171,5 @@ module.exports = {
   registerAdmin,
   deleteAdmin,
   loginAdmin,
+  updatedAdmin,
 };
