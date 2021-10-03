@@ -11,11 +11,7 @@ const adminSchema = Joi.object({
   password: Joi.string()
   .min(6)
   .max(15)
-  .required()
-  // password_confirmation: Joi.any().valid(Joi.ref('password')).required().options({ language: { any: { allowOnly: 'must match password' } } })
- ,
-//  return res.json( validBody.error.details[0].message).status(400)
-
+  .required(),
   email: Joi.string()
   .email()
   .min(5)

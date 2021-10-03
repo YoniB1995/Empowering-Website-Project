@@ -1,11 +1,12 @@
 const nodemailer = require('nodemailer');
 let handlebars = require('handlebars');
-const ErrorResponse = require('../utils/errorResponse');
+const ErrorResponse = require('../utilities/errorResponse');
 let fs = require('fs');
 const log = console.log;
 const nodeHtmlToImage = require('node-html-to-image');
 const { cardModel, validCard } = require('../models/cardModel');
 const { counterModel } = require('../models/counterID');
+
 let newCounter;
 
 counterModel.find({}, (error, result) => {
@@ -32,7 +33,7 @@ const sendEmailCard = async (req, res, next) => {
     );
     cardModel.insertMany([req.body.card], (error, result) => {
       if (error) throw error;
-      res.json({ cardUser: result }); 
+      res.json({ cardUser: result });
       const myPath = `${__dirname}/views/index.html`;
       let readHTMLFile = function (path, callback) {
         fs.readFile(myPath, { encoding: 'utf-8' }, (err, html) => {
@@ -46,11 +47,11 @@ const sendEmailCard = async (req, res, next) => {
       let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'tomalon1010@gmail.com',
-          pass: 'asalef1010',
+          user: process.env.EMAIL,
+          pass: process.env.PASSWORD,
         },
       });
-      2;
+
       readHTMLFile(myPath, function (err, html) {
         let template = handlebars.compile(html);
         let replacements = {
@@ -66,14 +67,14 @@ const sendEmailCard = async (req, res, next) => {
           html: htmlToSend,
         }).then(() => {
           let mailOptions = {
-            from: 'asalef10@gmail.com',
+            from: 'EmpoweringEthiopianWomen7@gmail.com',
             to: req.body.card.email,
             subject: 'קבלה עבור כרטיס צרכנות-נשים אתיופיות מעצימות',
             attachments: [
               {
                 filename: `${req.body.card.fullName}.png`,
                 path: pathCardImage,
-              }, 
+              },
             ],
             html: `
             
@@ -85,9 +86,7 @@ const sendEmailCard = async (req, res, next) => {
               <p style="line-height: 0;"> זקוקים לעזרה? רוצים לדבר איתנו? - אז עדיף שלא תשיבו למייל הזה כי זוהי הודעה אוטומטית  </p>
               <p style="line-height: 0;"> אנחנו זמינים כאן <a href="https://empowering-women-web.herokuapp.com/ContactUs"  target="_blank">לכניסה לאתר</a>  </p>
               <p>בברכה, נשים אתיופיות מעצימות,</p>            
-            </div>`
-            
-            ,
+            </div>`,
           };
 
           transporter.sendMail(mailOptions, (err, data) => {
@@ -105,12 +104,31 @@ const sendEmailCard = async (req, res, next) => {
   }
 };
 const getAllCard = async (req, res) => {
-  cardModel.find({}, (error, result) => {
-    if (error) throw error;
-    res.json({ cards: result });
-  });
+  try {
+    cardModel.find({}, (error, result) => {
+      if (error) throw error;
+      res.json({ cards: 'not found cards' });
+    });
+  } catch (error) {
+    res.json({ message: 'not found' });
+  }
 };
+const getCardByEmail = async (req, res, next) => {
+  try {
+    const card = await cardModel.find({ email: req.body.card.email });
+    if (!card) {
+      return next(new ErrorResponse('card not exists!', 404));
+    }
+    res.status(200).json({ card: card });
+  } catch (error) {
+    console.log(error);
+    return next(new ErrorResponse('Server Error !', 500));
+  }
+};
+
+
 module.exports = {
   sendEmailCard,
   getAllCard,
+  getCardByEmail,
 };

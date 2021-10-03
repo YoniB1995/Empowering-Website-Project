@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../../contexts/AuthContextProvider";
-import JSONpretty from "react-json-pretty";
+// import JSONpretty from "react-json-pretty";
 import { getAllAdmins } from "../../../../service/admin-service";
 import "./Profile.css"
 const Profile = () => {

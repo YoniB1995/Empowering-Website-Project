@@ -1,11 +1,5 @@
-/* eslint-disable new-cap */
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
-/* eslint-disable new-cap */
-
 const {  validPlan,planModel} = require("../models/planModel");
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require("../utilities/errorResponse");
 
 const createNewPlan = async (req, res, next) => {
   try {
@@ -21,7 +15,6 @@ const createNewPlan = async (req, res, next) => {
     }
 
     res.send({message:"sucesss",data:"imported successfully!",plan:plan})
-    // res.render("articles/new", { plan: new planModel() });
   } catch (error) {
     console.log(error);
     return next(new ErrorResponse("Server Error", 500));
