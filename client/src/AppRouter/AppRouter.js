@@ -25,6 +25,7 @@ import NewsLettersUserTable from "../componnets/features/Admin/NewsLetters-User-
 import { LoginForm } from "../componnets/features/Forms/LoginForm";
 import Contact from "../componnets/pages/Admin/Contact/Contact";
 import Profile from "../componnets/features/Forms/FormsTemporary/Profile";
+import NotFound from '../componnets/pages/NotFound/NotFound'
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -57,7 +58,8 @@ export default function AppRouter() {
         <Route path="/test">
           <Contect />
         </Route>
-        
+              <Route component={NotFound} />
+
         <Route path="/Contact" component={Contact} />
         <ProtectedRoute path="/logout" component={Logout} />
 
