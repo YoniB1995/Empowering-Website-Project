@@ -8,7 +8,7 @@ const cardSchemaReception = Joi.object({
  
   fullName: Joi.string().min(2).max(99).required(),
 
-  email: Joi.string().email().min(5).max(99).required(),
+  email: Joi.string().email().min(2).max(99).required(),
 });
   
 const validCard = (card) => {

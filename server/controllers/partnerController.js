@@ -1,5 +1,5 @@
 const { partnerModel, validPartner} = require("../models/partnerModel");
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require("../utilities/errorResponse");
 
 const getAllPartners = async (req, res, next) => {
     try{

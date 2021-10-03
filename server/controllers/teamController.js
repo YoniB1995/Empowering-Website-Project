@@ -1,5 +1,5 @@
 const { validTeam, teamModel } = require("../models/teamModel");
-const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require("../utilities/errorResponse");
 
 const getAllTeamEnglish = async (req, res, next) => {
 	try {
