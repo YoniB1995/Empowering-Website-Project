@@ -2,15 +2,14 @@ import { Button, Card } from "antd";
 import "animate.css";
 import "./staff.css";
 import WOW from "wowjs";
-import { useState } from "react";
-import { useEffect } from "react";
+import React,{ useState,useEffect, Children } from "react";
 import { Layout } from "antd";
 import { FilterOutlined } from "@ant-design/icons";
 import {
   getTeamMemberInEnglish,
   getTeamMemberInHebrew,
 } from "../../../../service/team-service";
-
+import cookies from "js-cookie";
 const { Header, Footer, Sider, Content } = Layout;
 
 const { Meta } = Card;
@@ -34,12 +33,25 @@ const staffMembers = [
   },
 ];
 
+
 const Staff = () => {
   const [teamHebrew, setTeamHebrew] = useState([]);
   const [teamEnglish, setTeamEnglish] = useState([]);
   const [filteredTeamHebrew, setFilteredTeamHebrew] = useState([]);
   const [filteredTeamEnglish, setFilteredTeamEnglish] = useState([]);
   const [isHebrew, setIsHebrew] = useState(true);
+
+  const currentLangCode = cookies.get("i18next") || "heb";
+
+  useEffect(() => {
+  if (currentLangCode === "heb") {
+    setIsHebrew(true)
+  } else {
+    setIsHebrew(false)
+  }
+  }, [currentLangCode])
+ 
+
 
   useEffect(() => {
     getTeamMemberInHebrew()
@@ -98,12 +110,8 @@ const Staff = () => {
   // setFilteredTeamEnglish(teamFilter1)
   // }
 
-  const changeToHebrew = () => {
-    setIsHebrew(true);
-  };
-  const changeToEnglish = () => {
-    setIsHebrew(false);
-  };
+ 
+  
   const [clickedIndex, setClickedIndex] = useState({});
   const gridStyle = {
     width: "25%",
@@ -132,8 +140,7 @@ const Staff = () => {
 
   return (
     <div className="staff-wrapper">
-      <button onClick={changeToEnglish}>english</button>
-      <button onClick={changeToHebrew}>עברית</button>
+    
       <div className="staff-header-container">
         {isHebrew ? (
           <div className="staff-role-btn-container">
@@ -148,7 +155,7 @@ const Staff = () => {
               }}
             >
               {" "}
-              צוות
+              מתנדבים
             </Button>
             <Button
               onClick={filterManagersInHebrew}

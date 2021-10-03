@@ -3,6 +3,7 @@ import { Button, Card } from 'antd';
 import { useEffect, useState } from 'react';
 import WOW from 'wowjs';
 import { ReadOutlined } from '@ant-design/icons';
+import cookies from "js-cookie";
 
 import './programs.css';
 import { getAllPlans } from '../../../../service/plan-service';
@@ -12,6 +13,9 @@ const Programs = () => {
   const [clickedIndex, setClickedIndex] = useState(false);
   const [programs, setPrograms] = useState([]);
   const cardProgramOn = 'color:"white",marginLeft:"5px"';
+
+  const currentLangCode = cookies.get("i18next") || "heb";
+
 
   useEffect(() => {
     new WOW.WOW({

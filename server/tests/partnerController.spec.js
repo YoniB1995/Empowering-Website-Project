@@ -67,7 +67,7 @@ describe('GET /partners/one/:id', () => {
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
       body.status.should.eql('error');
-      body.message.should.eql('Partner member details not exist.');
+      body.message.should.eql('The partner details does not exist..');
       done();
     });
   });
@@ -105,7 +105,7 @@ describe('POST /partners/new', () => {
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
       body.status.should.eql('error');
-      body.message.should.eql('Partner details not exist.');
+      body.message.should.eql('The partner details does not exist..');
       done();
     });
   });
@@ -162,7 +162,7 @@ it('should throw an error if the team members details does not match', (done) =>
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
       body.status.should.eql('error');
-      body.message.should.eql('Partner details does not exists.');
+      body.message.should.eql('Partner details not exist.');
       done();
     });
   });

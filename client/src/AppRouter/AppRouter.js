@@ -11,7 +11,6 @@ import Newsletter from "../componnets/pages/Newsletter/Newsletter";
 import AboutUs from "../componnets/pages/AboutUs/AboutUs";
 // import RegistrasionForm from "../componnets/features/Forms/Registration";
 import Articles from "../componnets/features/Plans/Plans";
-import WorkersCards from "../componnets/features/workersCards/WorkersCards";
 import Article from "../componnets/features/Plan/Plan";
 
 import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
@@ -38,7 +37,6 @@ export default function AppRouter() {
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/WorkersCards" component={WorkersCards} />
         <Route path="/Programs" component={Programs} />
         <Route path="/Donations" component={Donations} />
         <Route path="/Newsletter" component={Newsletter} />
@@ -59,6 +57,7 @@ export default function AppRouter() {
         <Route path="/test">
           <Contect />
         </Route>
+        
         <Route path="/Contact" component={Contact} />
         <ProtectedRoute path="/logout" component={Logout} />
 
