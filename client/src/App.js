@@ -38,8 +38,7 @@ function App() {
   var options = { labels: labels };
   options.textToSpeechLang = 'he'; 
   options.speechToTextLang = 'he'; 
-
-
+  
   return (
     <>
       <Suspense fallback="Loading...">

@@ -12,3 +12,10 @@ align-items: center;
 flex-direction: column;
 flex-wrap: wrap;
 }
+.ant-steps-item-icon{
+    background-color: rgb(241, 204, 185) !important;
+    border: white !important;
+}
+.ant-steps-item-title::after{
+    color: black !important;
+}

@@ -9,7 +9,6 @@ import Programs from '../componnets/pages/Programs/Programs';
 import Donations from '../componnets/pages/Donations/Donations';
 import Newsletter from '../componnets/pages/Newsletter/Newsletter';
 import AboutUs from '../componnets/pages/AboutUs/AboutUs';
-// import RegistrasionForm from "../componnets/features/Forms/Registration";
 import Articles from '../componnets/features/Plans/Plans';
 import WorkersCards from '../componnets/features/workersCards/WorkersCards';
 import Article from '../componnets/features/Plan/Plan';
@@ -20,7 +19,7 @@ import AddArticle from '../componnets/Forms/AddPlan';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
 import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
 import Contect from '../componnets/pages/Admin/Contect/Contect';
-import CommerceJs from '../componnets/pages/commerce/Commerce';
+import CommerceJs from '../componnets/pages/store/Store';
 import ContactU from '../componnets/pages/ContactUs/ContactUs';
 import Contact from '../componnets/pages/Admin/Contact/Contact';
 

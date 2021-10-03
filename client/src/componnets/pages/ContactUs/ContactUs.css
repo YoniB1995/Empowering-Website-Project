@@ -1,26 +1,4 @@
-/* .ant-modal *{
-    width: 100%;
-    color: black;
-    background-color: #f7f2ec;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-} */
-.form1 {
-  width: 30vw;
-  border-radius: 10px;
-  margin: 5px;
-}
-.inputOne {
-  border: 2px solid black;
-  text-align: center;
-}
-.ant-modal-title {
-  color: black;
-}
-.input {
+.contactInput {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -28,73 +6,61 @@
   background: #ffffff;
   outline: none;
   transition: border-color 0.5s;
-  width: 320px;
+  width: 300px;
 }
-.ant-btn {
-  /* background-color: #f7f2ec; */
-  color: black;
-  border: 2px solid #f7f2ec;
+.formButton {
+  border-radius: 5px;
+  border: 2px solid #dddddd;
+  background: #ffffff;
+  width: 80%;
 }
-.ant-btn:hover {
-  /* background-color: rgb(185, 185, 185);
-    color: white; */
-}
-.input:focus {
-  border-color: #e6bc98;
-}
-
-.pinput::placeholder {
-  color: #aaaaaa;
-}
-.ant-menu-horizontal .ant-menu-item {
-  margin-top: 0px;
-}
-
-
-#mail-icon {
-  font-size: 24px;
-  margin-top: 10px;
-}
-#mail-icon :hover{
-  color:#F5AD88 ;
-}
-.select{
+.select {
   width: 200px;
   text-align: center;
+  border: 2px solid #dddddd;
 }
 
-.contact-form{
-  height: 500px;
-  padding: 20px;
-  margin: 5px;
+.contact-form {
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 20vw;
-  margin-left: 20%;
-  /* padding: 17px; */
-  
-}
-.contact-form h1{
+  background: rgb(241, 204, 185);
   font-family: "Varela Round", sans-serif;
+  width: 230px;
+  margin-left: 20%;
+  padding: 20px;
 }
 
-.contact >img {
-  width: 40%;
-  height: 80vh;
-  margin-right: 8%;
+.formImg > img {
+  height: 60vh;
+  background-color: white;
+  padding: 15px;
 }
-.contact{
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin: 4px;
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5ad88;
+  height: 70vh;
+  width: 70vw;
+}
+.contact > .formDetails {
+  background-color: rgb(241, 204, 185);
+  width: 30%;
+  height: 60vh;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
+}
 
-
-}    
-.contactDiv{
-  border: 100px solid #faad80;
+.contactConraier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  width: 100%;
+  background-color: white;
 }
 
 @media screen and (max-width: 750px) {
@@ -102,7 +68,7 @@ margin: 4px;
     display: block;
     margin-left: 25%;
   }
-  .contact > img{
+  .contact > img {
     display: none;
   }
 }

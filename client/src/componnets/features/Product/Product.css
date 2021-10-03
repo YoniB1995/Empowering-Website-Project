@@ -1,15 +1,16 @@
 /* // כרטיסייה ראשית */
 .productCard {
   width: 300px;
-  height: 410px;
+  height: 400px;
   margin: 20px;
   padding: 12px;
   text-align: right;
   border-radius: 10px;
+
 }
 .productCard img {
   width: 280px;
-  height: 280px;
+  height: 180px;
 }
 
 /* .icon {
@@ -25,5 +26,11 @@
 .ant-card-body{
     padding: 8px;
     width: 250px;
+    margin-top: 24%;
 }
-
+.productContainer{
+  background: rgb(241, 204, 185);
+  border-radius: 10px;
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
