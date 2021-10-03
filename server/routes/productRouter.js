@@ -1,6 +1,5 @@
 const productRouter = require("express").Router();
 const productController = require("../controllers/productController");
-const isRequestValid = require("../middleware/isRequestValid");
 
 productRouter.get("/", productController.getAllProducts);
 productRouter.get("/:id", productController.getProduct);
@@ -8,14 +7,12 @@ productRouter.get("/:id", productController.getProduct);
 // middleware to check if request body is empty
 productRouter.post(
 	"/createProduct",
-	isRequestValid,
 	productController.createProduct
 );
 
 productRouter.delete("/deleteProduct/:id", productController.deleteProduct);
 productRouter.put(
 	"/updateProduct/:id",
-	isRequestValid,
 	productController.updateProduct
 );
 // from updateProduct ejs render

@@ -1,17 +1,8 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable no-shadow */
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-undef */
-/* eslint-disable consistent-return */
-/* eslint-disable max-len */
 require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const passport = require("passport");
-const { validAdmin } = require("../validation/adminValidation");
-const ErrorResponse = require("../utils/errorResponse");
-const { adminModel } = require("../models/adminModel");
-// const { validAdmin, adminModel} = require('../models/adminModel');
+const ErrorResponse = require("../utilities/errorResponse");
+const { adminModel,validAdmin } = require("../models/adminModel");
 
 const loginAdmin = async (req, res, next) => {
   try {
@@ -121,7 +112,7 @@ const deleteAdmin = async (req, res, next) => {
 
     if (!deletedUser) {
       return next(
-        new ErrorResponse("there isn`t a username like this name", 301)
+        new ErrorResponse("there isn`t a admin with this id", 301)
       );
     }
 
@@ -131,10 +122,8 @@ const deleteAdmin = async (req, res, next) => {
       deletedAdmin: deletedUser,
     });
   } catch (error) {
-    res
-      .status(200)
-      .json({ success: false, deletedAdmin: "Not Deleted! Server Error" });
-    return next(new ErrorResponse("Server Error !", 500));
+    
+    return next(new ErrorResponse("Not Deleted! Server Error", 500));
   }
 };
 

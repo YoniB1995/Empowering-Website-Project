@@ -163,7 +163,7 @@ describe("ContactUs Crud", () => {
 				res.statusCode.should.equal(404);
 				res.headers['content-type'].should.contain('application/json');
 				console.log(body);
-				body.message.equal("failed to update contact information");
+				body.message.should.equal("failed to update contact information");
 
 				done();
 			});

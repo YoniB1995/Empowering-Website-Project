@@ -1,7 +1,7 @@
-const mongoose = require("mongoose"); // mongoose package
-const Joi = require("joi"); // Joi package for validation
+const mongoose = require("mongoose"); 
+const Joi = require("joi"); 
 
-const Joigoose = require("joigoose")(mongoose); // convert joi schema to mongoose valid schema
+const Joigoose = require("joigoose")(mongoose); 
 
 const campaginSchema = Joi.object({
 	title: Joi.string()
@@ -26,10 +26,9 @@ const mongooseCampaginSchema = new mongoose.Schema(
 	Joigoose.convert(campaginSchema)
 );
 const campaginModel = mongoose.model("campagin", mongooseCampaginSchema);
-// 18 + 19 convert joi schema to mongoose schema and add to the data base as collection
 module.exports = {
 	validCampagin,
 	campaginModel,
 };
 
-// save the campagins (E-mail) from the admin
+

@@ -1,11 +1,12 @@
 const nodemailer = require('nodemailer');
 let handlebars = require('handlebars');
-const ErrorResponse = require('../utils/errorResponse');
+const ErrorResponse = require('../utilities/errorResponse');
 let fs = require('fs');
 const log = console.log;
 const nodeHtmlToImage = require('node-html-to-image');
 const { cardModel, validCard } = require('../models/cardModel');
 const { counterModel } = require('../models/counterID');
+
 let newCounter;
 
 counterModel.find({}, (error, result) => {
@@ -50,7 +51,7 @@ const sendEmailCard = async (req, res, next) => {
           pass: process.env.PASSWORD,
         },
       });
-      2;
+
       readHTMLFile(myPath, function (err, html) {
         let template = handlebars.compile(html);
         let replacements = {
@@ -66,7 +67,7 @@ const sendEmailCard = async (req, res, next) => {
           html: htmlToSend,
         }).then(() => {
           let mailOptions = {
-            from: 'asalef10@gmail.com',
+            from: 'EmpoweringEthiopianWomen7@gmail.com',
             to: req.body.card.email,
             subject: 'קבלה עבור כרטיס צרכנות-נשים אתיופיות מעצימות',
             attachments: [
@@ -112,7 +113,7 @@ const getAllCard = async (req, res) => {
     res.json({ message: 'not found' });
   }
 };
-const getCardByEmail = async (req, res) => {
+const getCardByEmail = async (req, res, next) => {
   try {
     const card = await cardModel.find({ email: req.body.card.email });
     if (!card) {

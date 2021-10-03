@@ -7,12 +7,12 @@ const createDomPurify = require('dompurify');
 
 const { JSDOM } = require('jsdom');
 
-const articleSchema = require('../models/articleModel');
+const planSchema = require('../models/planModel');
 
 const dompurify = createDomPurify(new JSDOM().window);
 
 const jsdomCheck = () => {
-  articleSchema.pre('validate', function (next) {
+  planSchema.pre('validate', function (next) {
     if (this.title) {
       this.slug = slugify(this.title, { lower: true, strict: true });
     }

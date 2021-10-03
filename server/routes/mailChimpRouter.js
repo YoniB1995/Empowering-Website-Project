@@ -10,4 +10,3 @@ mailChimp.get("/getMember/:Email", mailChimpController.getMember);
 
 module.exports = mailChimp;
 
-// bring data from mailChimp account

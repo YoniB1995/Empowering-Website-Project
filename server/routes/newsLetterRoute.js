@@ -3,4 +3,4 @@ const newsLetterController = require("../controllers/newsLetterController");
 
 newsLetterRouter.get("/getAllCampagins");
 
-module.exports = newsLetter;
+module.exports = newsLetterRouter;

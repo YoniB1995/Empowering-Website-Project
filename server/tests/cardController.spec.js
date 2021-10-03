@@ -24,24 +24,24 @@ describe('card to email', () => {
 
     
     
-//   describe('GET /card', () => {
-//     it('should get all the admins account details from the fake collection', (done) => {
-//       const obj = cardEmail.getAllCards.success;
-//       this.get.yields(null, obj.res, JSON.stringify(obj.body));
-//       request.get(`${LOCAL_URL}/card`, (err, res, body) => {
-//         res.statusCode.should.equal(200);
-//         res.headers['content-type'].should.contain('application/json');
-//         body = JSON.parse(body);
-//         body.status.should.eql('success');
-//         body.data[0].should.include.keys(
-//           'fullName', 'email'
-//         );
-//         body.data[0].fullName.should.eql("asalef alena");
-//         console.log(body.data)
-//         done();
-//       });
-//     });
-//   });
+  describe('GET /card', () => {
+    it('should get all the admins account details from the fake collection', (done) => {
+      const obj = cardEmail.getAllCards.success;
+      this.get.yields(null, obj.res, JSON.stringify(obj.body));
+      request.get(`${LOCAL_URL}/card`, (err, res, body) => {
+        res.statusCode.should.equal(200);
+        res.headers['content-type'].should.contain('application/json');
+        body = JSON.parse(body);
+        body.status.should.eql('success');
+        body.data[0].should.include.keys(
+          'fullName', 'email'
+        );
+        body.data[0].fullName.should.eql("asalef alena");
+        console.log(body.data)
+        done();
+      });
+    });
+  });
     
    
     
