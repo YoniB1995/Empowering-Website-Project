@@ -2,11 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../../contexts/AuthContextProvider";
 import JSONpretty from "react-json-pretty";
 import { getAllAdmins } from "../../../../service/admin-service";
-import "./Profile.css"
+import { UserOutlined } from "@ant-design/icons";
+
+import "./Profile.css";
 const Profile = () => {
   const { isLogin } = useContext(AuthContext);
 
-  // const [dataa, setDataa] = useState([]);
   const [admins, setAdmins] = useState([]);
 
   const isToken = localStorage.getItem("token");
@@ -19,16 +20,25 @@ const Profile = () => {
 
   return (
     <div>
-      {/* 
+      {/*       
       {isLogin && (
         
       )} */}
       <div>
         {isToken ? (
-          <h1 className="profile">
-            Hello:
-            {admins.map((admin) => admin.email === adminUser && admin.username)}
-          </h1>
+          <div className="profile">
+            <div className="user-icon-container">
+            <UserOutlined style={{fontSize:"20px",color:"white"}}/>
+            </div>
+            <p>hello</p>
+
+            <p>
+              {" "}
+              {admins.map(
+                (admin) => admin.email === adminUser && admin.username
+              )}
+            </p>
+          </div>
         ) : (
           <h1>No USER</h1>
         )}

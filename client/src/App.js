@@ -12,8 +12,7 @@ import { Accessibility } from 'accessibility/src/main';
 import { Suspense } from "react";
 import WorkersCards from "./componnets/features/workersCards/WorkersCards";
 import Programs from "./componnets/pages/Programs/Programs";
-
-
+import BtnLanguageProvider from './componnets/features/LanguageContext/LanguageContext'
 function App() {
   useEffect(() => {   
     window.addEventListener('load', function() { new Accessibility(options); }, false);
@@ -43,13 +42,16 @@ function App() {
   return (
     <>
       <Suspense fallback="Loading...">
+        
         <Router>
           <AuthContextProvider>
+
             <NavBar />
             <AppRouter />
             <Footer1 />
           </AuthContextProvider>
         </Router>
+
       </Suspense>
     </>
   );

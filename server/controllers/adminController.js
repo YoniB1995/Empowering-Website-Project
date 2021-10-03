@@ -170,10 +170,6 @@ module.exports = {
   getAdminById,
   registerAdmin,
   deleteAdmin,
-<<<<<<< HEAD
-  loginAdmin, 
-=======
   loginAdmin,
   updatedAdmin,
->>>>>>> main
 };

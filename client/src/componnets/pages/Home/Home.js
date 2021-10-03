@@ -26,6 +26,7 @@ const Home = () => {
   }, []);
   return (
     <div>
+      
       <div className="home-first-section">
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
@@ -112,10 +113,11 @@ const Home = () => {
       <Copartner />
 
       <BackTop>
-        <div className="upBtn">
-         {t("backUp")}
-          <ArrowUpOutlined />
-        </div>
+        
+         <div className="up-arrow">
+          <ArrowUpOutlined style={{fontSize:"24px",color:"white"}} />
+          </div>
+  
       </BackTop>
     </div>
   );

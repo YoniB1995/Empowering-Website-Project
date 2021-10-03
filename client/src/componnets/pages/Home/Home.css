@@ -134,16 +134,19 @@
   top: 1px;
 }
 
-.upBtn {
-  float: right;
-  border: 2px solid #f8f7f5;
-  border-radius: 2px;
-  text-align: center;
-  width: 100px;
-  z-index: -1;
+.up-arrow {
+  width: 40px;
+  height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  border-radius:100%;
+  background:black;
+  opacity: 0.7;
 }
-.upBtn:hover {
-  background-color: rgb(244, 215, 192);
+.up-arrow:hover {
+  background: #C8C6C6;
+
 }
 
 @media only screen and (max-width: 1060px) {
@@ -158,13 +161,12 @@
 
     justify-content: center;
   }
-  .vision-goals-wrapper{
+  .vision-goals-wrapper {
     height: 981px;
   }
 }
 
-
-.littleBitAboutInfo{
+.littleBitAboutInfo {
   display: flex;
   width: 500px;
 }

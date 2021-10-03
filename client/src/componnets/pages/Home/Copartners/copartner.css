@@ -18,6 +18,7 @@
 }
 .copartner-logo-container {
   width: 150px;
+  margin-right: 20px;
 }
 .copartner-logo {
   width: 100%;
@@ -30,8 +31,7 @@
 }
 
 .copartner-wrapper {
-  width: 60%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  margin: auto;
+  justify-content: center;
 }

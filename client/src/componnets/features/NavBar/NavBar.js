@@ -17,7 +17,7 @@ const NavBar = () => {
   const { isLogin } = useContext(AuthContext);
   const { t } = useTranslation();
   const currentLangCode = cookies.get("i18next") || "heb";
-  const currentLang = lang.find((i) => i.code === currentLangCode);
+  // const currentLang = lang.find((i) => i.code === currentLangCode);
 
   const [btnLanguage, setBtnLanguage] = useState("ENG");
 
@@ -31,15 +31,11 @@ const NavBar = () => {
   // };
 
   const changingBtnLanguage = (e) => {
-    e.target.innerText === "ENG"
-      ? setBtnLanguage("HEB")
-      : setBtnLanguage("ENG");
     if (currentLangCode === "heb") {
       i18next.changeLanguage("en");
     } else {
       i18next.changeLanguage("heb");
     }
-    console.log(e.target.innerText);
   };
 
   return (
@@ -52,7 +48,7 @@ const NavBar = () => {
 
       <Menu className="navBarLinks" mode="horizontal">
         <Menu.Item className="menu-item">
-          <Button onClick={changingBtnLanguage}> {btnLanguage}</Button>
+          <Button onClick={changingBtnLanguage}> {currentLangCode}</Button>
         </Menu.Item>
 
         {isLogin && (
