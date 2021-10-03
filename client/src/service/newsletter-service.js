@@ -50,9 +50,10 @@ export const getOneNewsletter = async (articleData) => {
     };
     try {
       return fetch(`${API}/mailChimp/getAllMembers`, options)
-        .then((res) => {
-          return res.json();
-        })
+        .then((res) => { return res.json();})
+        .then((res)=>{console.log(res); })
+
+        
 
     } catch (error) {
       console.log(error);

@@ -14,7 +14,6 @@ import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import WorkersCards from "../../features/workersCards/WorkersCards";
 
 const Home = () => {
   const {t} = useTranslation();

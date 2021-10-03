@@ -112,11 +112,11 @@ describe('POST /admin/login', () => {
     const obj = adminDB.loginAdmin;
     this.put.yields(null, obj.failure.res, JSON.stringify(obj.failure.body));
     request.put(options, (err, res, body) => {
-      res.statusCode.should.equal(404);
+      res.statusCode.should.equal(400);
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
       body.status.should.eql('error');
-      body.message.should.eql('Admin details does not exist.');
+      body.message.should.eql('Wrong Details , admin not exists!');
       done();
     });
   });
