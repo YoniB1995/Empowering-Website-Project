@@ -11,7 +11,7 @@ const createContactInformation = async (req, res, next) => {
 		if (!contactInformation) {
 			next(new ErrorResponse("failed to add contactInformation", 301));
 		}
-		res.status(200).json({ message: "Contact information added", contactInformation});
+		res.status(200).json({ message: "Contact information added", contactInformation });
 	} catch (e) {
 		console.log("failed to add contactInformation ");
 		next(new ErrorResponse("failed to add contactInformation", 500));
@@ -32,9 +32,10 @@ const getAllContactInformation = async (req, res, next) => {
 				inquiry: contact.inquiry,
 				content: contact.content,
 				id: contact.id,
+
 			};
 		});
-		res.status(200).json(contactList);
+		res.status(200).json({ contactList });
 	} catch (e) {
 		console.log("failed to add contact information ");
 		next(new ErrorResponse("Error", 500));
@@ -47,7 +48,7 @@ const getContactInformation = async (req, res, next) => {
 		if (!contactInformation) {
 			next(new ErrorResponse("No ContactInformation found", 301));
 		}
-		res.status(200).json({ message:"contact information",contactInformation });
+		res.status(200).json({ message: "contact information", contactInformation });
 	} catch (e) {
 		console.log("failed to add contact information ");
 		next(new ErrorResponse("Server Error", 500));
@@ -58,7 +59,7 @@ const updateContactInformation = async (req, res, next) => {
 	try {
 		const validBody = validContact(req.body);
 		if (validBody.error) {
-			res.json({message:validBody.error.details[0].message}).status(200);
+			res.json({ message: validBody.error.details[0].message }).status(200);
 		}
 		const contactInformation = await contactModel.findByIdAndUpdate(
 			req.params.id,
@@ -68,7 +69,7 @@ const updateContactInformation = async (req, res, next) => {
 			next(new ErrorResponse("failed to update contact information", 301));
 		}
 
-		res.status(200).json({ message: "contact updated",contactInformation });
+		res.status(200).json({ message: "contact updated", contactInformation });
 	} catch (e) {
 		console.log("failed to update contact information ");
 		next(new ErrorResponse("Error", 500));
@@ -78,14 +79,14 @@ const updateContactInformation = async (req, res, next) => {
 const deleteContactInformation = async (req, res, next) => {
 	try {
 		const contactExists = await contactModel.findById(req.params.id);
-		if(!contactExists){
+		if (!contactExists) {
 			next(new ErrorResponse("failed to delete contactInformation, check id again", 301));
 		}
 		const contactInformation = await contactModel.findByIdAndDelete(
 			req.params.id
 		);
 		res.status(200).json({ message: "contact deleted", contactExists });
-		
+
 	} catch (e) {
 		next(new ErrorResponse("Server Error", 500));
 	}
