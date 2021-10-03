@@ -62,35 +62,3 @@ describe('card to email', () => {
   });
 });
 
-describe('POST /card/sendEmail', () => {
-  it('should send to email', (done) => {
-    const options = {
-      body: {
-       'fullName': 'ron moyal1',
-        'email': 'ron@gmail.com',
-      },
-      json: true,
-      url: `${LOCAL_URL}/card/sendEmail`,
-    };
-    // const obj = cardEmail.sendCard.success;
-    // console.log('objone' + obj);
-    // this.post.yields(null, obj.res, obj.body);
-    // request.post(`${options.body}/card/sendEmail`, (err, res, body) => {
-    //   res.headers['content-type'].should.contain('application/json');
-    //   res.statusCode.should.equal(200);
-    //   body.card.email.should.equal('ron@gmail.com');
-    //   done();
-    // });
-    const obj = cardEmail.sendCard.success
-    this.post.yields(null, obj.res, obj.body);
-    request.post(
-      `${options}/card/sendEmail`,
-      () => {
-        obj.res.headers['content-type'].should.contain("application/json");
-        obj.res.statusCode.should.equal(200)
-        res
-        // res.statusCode.should.equal(200);
-        // body.card.fullName.should.equal("ron moyal")
-        done();
-  });
-});

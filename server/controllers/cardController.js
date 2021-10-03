@@ -22,19 +22,18 @@ const sendEmailCard = async (req, res, next) => {
     }
 
     req.body.card.idCard = newCounter;
-    console.log();
     counterModel.findByIdAndUpdate(
       process.env.IDCOUNTER,
       { counterID: (newCounter += 1) },
       function (err, result) {
         if (err) throw err;
-        console.log(result);
       }
     );
     cardModel.insertMany([req.body.card], (error, result) => {
       if (error) throw error;
       res.json({ cardUser: result });
-      const myPath = `${__dirname}/views/index.html`;
+      const myPath = `./server/data/views/index.html`;
+      console.log(myPath);
       let readHTMLFile = function (path, callback) {
         fs.readFile(myPath, { encoding: 'utf-8' }, (err, html) => {
           if (err) {
@@ -59,10 +58,10 @@ const sendEmailCard = async (req, res, next) => {
           date: '2021',
           Invoicing: newCounter - 1,
         };
-        let pathCardImage = `${__dirname}/card-images/${req.body.card.fullName}.png`;
+        let pathCardImage = `./server/data/views/card-images/${req.body.card.fullName}.png`;
         let htmlToSend = template(replacements);
         nodeHtmlToImage({
-          path: myPath,
+          path: myPath, 
           output: pathCardImage,
           html: htmlToSend,
         }).then(() => {
