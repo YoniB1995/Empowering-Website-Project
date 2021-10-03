@@ -2,23 +2,12 @@ const campaginRouter = require("express").Router();
 
 const campaginController = require("../controllers/campaginController");
 
+// @ GET request to get all Campaigns.
+// @ URL http://localhost:5000/campagin/getCampaignsSorted
 campaginRouter.get(
 	"/getCampaignsSorted",
 	campaginController.getCampaignsSorted
 );
-// campaginRouter.get(
-// 	"/getCampaignByTitle/:title",
-// 	campaginController.getCampaignByTitle
-// );
 
-// campaginRouter.post(
-// 	"/getDataFromMailchimp",
-// 	campaginController.getDataFromMailchimp
-// );
-
-// campaginRouter.get(
-// 	"/getDataFromMailchimp",
-// 	campaginController.getDataFromMailchimp
-// );
 
 module.exports = campaginRouter;
