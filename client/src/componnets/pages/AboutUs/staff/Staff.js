@@ -148,7 +148,7 @@ const Staff = () => {
               }}
             >
               {" "}
-              צוות
+              מתנדבים
             </Button>
             <Button
               onClick={filterManagersInHebrew}
