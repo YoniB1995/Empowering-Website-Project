@@ -1,5 +1,5 @@
-const ErrorResponse = require("../utils/errorResponse");
-const filterMailchimpResponse = require("../utils/filterMailchimpResponse");
+const ErrorResponse = require("../utilities/errorResponse");
+const filterMailchimpResponse = require("../utilities/filterMailchimpResponse");
 const { MailchimpMarketingModel } = require("../models/mailChimpModel");
 const md5 = require("md5");
 const { validMember } = require("../models/memberModel");
@@ -8,7 +8,7 @@ const { AUDIENCE_ID } = process.env;
 
 const createMember = async (req, res, next) => {
 	try {
-		const { error } = validMember(req.body); // try to validate
+		const { error } = validMember(req.body); 
 		if (error) {
 			res.json({ error: error.details[0].message });
 		}
@@ -33,7 +33,7 @@ const createMember = async (req, res, next) => {
 
 const updateMember = async (req, res, next) => {
   try {
-    const { error } = validMember(req.body); // try to validate
+    const { error } = validMember(req.body); 
     if (error) {
       res.json({ error: error.details[0].message }).status(301);
     }
@@ -70,7 +70,7 @@ const getAllMembers = async (req, res, next) => {
 				(member) => member.status === "subscribed"
 			);
 
-			const subscribers = filterMailchimpResponse(subscribredList); // use function to filter fields
+			const subscribers = filterMailchimpResponse(subscribredList); 
 			res.status(200).json({ message: "User deleted", subscribers });
 		} catch (e) {
 			console.log("one of the fields not exist");
@@ -85,7 +85,7 @@ const getMember = async (req, res, next) => {
 	const subscriberHash = md5(req.params.Email);
 	const { Email } = req.params;
 	try {
-		const { error } = validMember({ Email }); // try to validate
+		const { error } = validMember({ Email }); 
 		if (error) {
 			res.json({ error: error.details[0].message }).status(301);
 		}
@@ -109,7 +109,7 @@ const deleteMember = async (req, res, next) => {
   const subscriberHash = md5(req.params.Email);
   const { Email } = req.params;
   try {
-    const { error } = validMember({ Email }); // try to validate
+    const { error } = validMember({ Email }); 
     if (error) {
       res.json({ error: error.details[0].message }).status(301);
     }
