@@ -18,7 +18,6 @@ const NavBar = () => {
   const { t } = useTranslation();
   const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
-
   const [btnLanguage, setBtnLanguage] = useState("ENG");
 
   // useEffect(() => {

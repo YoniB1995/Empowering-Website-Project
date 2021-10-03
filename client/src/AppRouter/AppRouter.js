@@ -59,6 +59,7 @@ export default function AppRouter() {
         <Route path="/test">
           <Contect />
         </Route>
+        
         <Route path="/Contact" component={Contact} />
         <ProtectedRoute path="/logout" component={Logout} />
 
