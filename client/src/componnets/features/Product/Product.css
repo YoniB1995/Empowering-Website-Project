@@ -30,7 +30,8 @@
 }
 .productContainer{
   background: rgb(241, 204, 185);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   margin-top: 2%;
   margin-bottom: 4%;
+  box-shadow: 2px 2px 2px 2px;
 }

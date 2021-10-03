@@ -20,21 +20,12 @@ const sendEmailCard = async (req, res, next) => {
     if (validBody.error) {
       return next(new ErrorResponse(`${validBody.error}`, 400));
     }
-<<<<<<< HEAD
- 
-    req.body.card.idCard = counterTwo;
-    console.log();
-    counterModel.findByIdAndUpdate(
-      process.env.IDCOUNTER, 
-      { counterID: (counterTwo += 1) },
-=======
 
     req.body.card.idCard = newCounter;
     console.log();
     counterModel.findByIdAndUpdate(
       process.env.IDCOUNTER,
       { counterID: (newCounter += 1) },
->>>>>>> 0bdc9f5ad15123cc2e4d900df2fb96f9f50f3c9f
       function (err, result) {
         if (err) throw err;
         console.log(result);
