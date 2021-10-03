@@ -10,7 +10,7 @@ cardRouter.get('/', cardController.getAllCard)
 // @ URL http://localhost:5000/card/sendEmail
 cardRouter.post('/sendEmail', cardController.sendEmailCard)
 
-// @ POST request to get  memberShip by email.
+// @ POST request to get card by email.
 // @ URL http://localhost:5000/card/getCardByEmail
-cardRouter.post('/getByEmail',cardController.getCardByEmail)
+cardRouter.post('/getCardByEmail',cardController.getCardByEmail)
 module.exports = cardRouter 
