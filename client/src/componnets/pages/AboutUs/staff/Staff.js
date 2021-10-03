@@ -68,7 +68,6 @@ const Staff = () => {
       });
   }, []);
 
-  /////////////////////////////////////////////////////////////////////////////////////////
 
   const filterVolunteersInHebrew = () => {
     const teamFilter = teamHebrew.filter((member) => {
@@ -82,13 +81,7 @@ const Staff = () => {
     });
     setFilteredTeamHebrew(teamFilter);
   };
-  //  const filterFoundersInHebrew = ()=>{
-  //   const teamFilter = teamHebrew.filter((member)=>{
-  //     return member.role === "מייסדת"
-  //    })
-  //  setFilteredTeamHebrew(teamFilter)
-  // }
-  //////////////////////////////////////////////////////////////////////////////////////////////
+
 
   const filterVolunteersInEnlish = () => {
     const teamFilter1 = teamEnglish.filter((member) => {
@@ -103,12 +96,7 @@ const Staff = () => {
     });
     setFilteredTeamEnglish(teamFilter1);
   };
-  // const filterFoundersInEnglish = ()=>{
-  // const teamFilter1 = teamEnglish.filter((member)=>{
-  //   return member.role === "Founder"
-  //  })
-  // setFilteredTeamEnglish(teamFilter1)
-  // }
+  
 
  
   
@@ -147,7 +135,7 @@ const Staff = () => {
             <Button
               onClick={filterVolunteersInHebrew}
               icon={<FilterOutlined />}
-              size="middle"
+              size="large"
               style={{
                 marginRight: "10px",
                 width: "120px",
@@ -160,7 +148,7 @@ const Staff = () => {
             <Button
               onClick={filterManagersInHebrew}
               icon={<FilterOutlined />}
-              size="middle"
+              size="large"
               style={{
                 marginRight: "10px",
                 width: "120px",
@@ -344,22 +332,6 @@ const Staff = () => {
                         }
                       />
 
-                      <Meta
-                        style={{}}
-                        title={
-                          <div style={{ color: "#232323" }}>
-                            <h4 style={{ color: "white" }}>
-                              {member.fullname}
-                            </h4>
-                            <p>{member.role} </p>
-                          </div>
-                        }
-                        description={
-                          <p style={{ color: "#232323" }}>
-                            {member.description}
-                          </p>
-                        }
-                      />
                     </Card>
                   </div>
                 );

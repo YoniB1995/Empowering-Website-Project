@@ -5,4 +5,76 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
+  color: white;
+  background-color: #ffb344;
+}
+
+.notfound-card {
+  width: 80%;
+  height: 80%;
+  font-size: 16px;
+  display: flex;
+  border-radius: 5px;
+  background-color: #ffb344;
+}
+.notfound-card-img-container {
+  height: 100%;
+  width: 40%;
+}
+#img-card {
+  padding: 10px;
+  border-radius: 25px;
+  height: 80%;
+  object-fit: cover;
+}
+.notfound-card-body {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  direction: rtl;
+  padding: 20px;
+}
+.notfound-card-title {
+  font-family: "Varela Round", sans-serif;
+  margin-bottom: 0.5rem;
+  direction: rtl;
+  margin-right: 5px;
+}
+.notfound-header-decoration {
+  width: 0;
+  height: 27px;
+  border: solid black;
+}
+.notfound-card-description {
+  font-family: "Varela Round", sans-serif;
+  direction: rtl;
+}
+.notfound-header {
+  display: flex;
+}
+@media only screen and (max-width: 760px) {
+  .notfound-card {
+    font-size: 12px;
+    width: 22rem;
+    height: 20rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  .notfound-card-body {
+    width: 100%;
+  }
+
+  .notfound-card-img-container {
+    width: 100%;
+  }
+  .notfound-card-description {
+    height: 60%;
+    width: 100%;
+  }
+  #img-card {
+    width: 100%;
+  }
 }
