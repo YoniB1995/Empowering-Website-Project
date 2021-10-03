@@ -1,20 +1,21 @@
-import { Link } from 'react-router-dom';
-import React, { useEffect, useState, useContext } from 'react';
-import { Menu, Avatar, Button } from 'antd';
-import 'antd/dist/antd.css';
-import './navBar.css';
-import 'antd/dist/antd.css';
-import ContactU from '../../pages/ContactUs/ContactUs';
-import i18next from 'i18next';
-import cookies from 'js-cookie';
-import { useTranslation } from 'react-i18next';
-import { lang } from '../../../i18next/I18next';
-import { AuthContext } from '../../../contexts/AuthContextProvider';
-import { getAllAdmins } from '../../../service/admin-service';
-import Profile from '../Forms/FormsTemporary/Profile';
+import { Link } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { Menu, Avatar, Button } from "antd";
+import "antd/dist/antd.css";
+import "./navBar.css";
+import "antd/dist/antd.css";
+import ContactU from "../../pages/ContactUs/ContactUs";
+import i18next from "i18next";
+import cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
+import { lang } from "../../../i18next/I18next";
+import { AuthContext } from "../../../contexts/AuthContextProvider";
+import { getAllAdmins } from "../../../service/admin-service";
+import Profile from "../Forms/FormsTemporary/Profile";
+import { Redirect } from "react-router";
 
 const NavBar = () => {
-  const { isLogin } = useContext(AuthContext);
+  const { isLogin ,logout} = useContext(AuthContext);
   const { t } = useTranslation();
   const currentLangCode = cookies.get('i18next') || 'heb';
   const currentLang = lang.find((i) => i.code === currentLangCode);
@@ -35,6 +36,11 @@ const NavBar = () => {
       i18next.changeLanguage('heb');
     }
   };
+  
+  const logoutAdmin = () => {
+    logout()
+    return <Redirect to="/form" />
+  }
 
   return (
     <div className='navBar'>
@@ -50,9 +56,7 @@ const NavBar = () => {
         </Menu.Item>
 
         {isLogin && (
-          <Link to='/logout'>
-            <Menu.Item className='menu-item'>{t('logout')}</Menu.Item>
-          </Link>
+            <Menu.Item className="menu-item" onClick={logoutAdmin}>{t("logout")}</Menu.Item>
         )}
 
         {isLogin && (
