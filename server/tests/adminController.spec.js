@@ -123,33 +123,32 @@ describe('POST /admin/login', () => {
 });
 
 describe('DELETE /admin', () => {
-  it('should get delete admin account details from the fake collection', (done) => {
+  it('should  delete admin account details from the fake collection', (done) => {
     const obj = adminDB.deleteAdmin.success;
-    this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+    this.delete.yields(null, obj.res, JSON.stringify(obj.body));
     request.delete(`${LOCAL_URL}/admin/delete/614b9fa0df92314c81d69f06`, (err, res, body) => {
-      res.statusCode.should.equal(200);
+      res.statusCode.should.equal(201);
       res.headers['content-type'].should.contain('application/json');
       body = JSON.parse(body);
       body.status.should.eql('success');
-      body.data.deletedAdmin.should.include.keys('status','data',"success");
-      body.data.deletedAdmin.username = "Yoni Bitew";
-      body.data.message = "Admin Deleted!";
+      body.should.include.keys('status','data');
+      body.data.deletedAdmin.should.include.keys("_id","username","email","password");
+      body.data.message.should.equal("Admin Deleted!");
 
       done();
     });
   });
 
-    it('should get not delete admin account details from the fake collection', (done) => {
+    it('should not delete admin account details from the fake collection', (done) => {
       const obj = adminDB.deleteAdmin.failure;
-      this.delete.yield(null, obj.res, JSON.stringify(obj.body));
+      this.delete.yields(null, obj.res, JSON.stringify(obj.body));
       request.delete(`${LOCAL_URL}/admin/:id`, (err, res, body) => {
-        res.statusCode.should.equal(404);
+        res.statusCode.should.equal(400);
         res.headers['content-type'].should.contain('application/json');
         body = JSON.parse(body);
-        body.status.should.eql('success');
-        body.data.deletedAdmin.should.include.keys('status','data',"success");
-        body.data.deletedAdmin.username = "Yoni Bitew";
-        body.data.message = "Admin Deleted!";
+        body.status.should.eql('error');
+        body.message.should.equal("Something went wrong.");
+       
   
         done();
       })
