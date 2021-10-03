@@ -1,11 +1,13 @@
-const { campaginModel } = require("../../models/campaginModel");
-class campaginClass {
+const { MailchimpMarketingModel } = require("../../models/mailChimpModel");
+const { AUDIENCE_ID } = process.env;
+class MailchimpMarketingModelClass {
 	constructor() {
-		this.campagin = campaginModel;
+		this.MailchimpMarketingModel = MailchimpMarketingModel;
 	}
 	async getCampaignsSorted() {
-		return await this.campagin.find({});
+		console.log("made it");
+		return await this.MailchimpMarketingModel.lists.getListMembersInfo(AUDIENCE_ID);
 	}
 }
 
-module.exports = campaginClass;
+module.exports = MailchimpMarketingModelClass;

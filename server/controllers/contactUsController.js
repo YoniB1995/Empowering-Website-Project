@@ -98,7 +98,7 @@ const createContactInformation = async (req, res, next) => {
 		if (!contactInformation) {
 			next(new ErrorResponse("failed to add contactInformation", 301));
 		}
-		res.status(200).json({ message: "Contact information added", ...contactInformation});
+		res.status(200).json({ message: "Contact information added", contactInformation});
 	} catch (e) {
 		console.log("failed to add contactInformation ");
 		next(new ErrorResponse("failed to add contactInformation", 500));
@@ -175,7 +175,7 @@ const deleteContactInformation = async (req, res, next) => {
 		const contactInformation = await contactModel.findByIdAndDelete(
 			req.params.id
 		);
-		res.status(200).json({ message: "contact deleted",contactExists });
+		res.status(200).json({ message: "contact deleted", contactExists });
 		
 	} catch (e) {
 		next(new ErrorResponse("Server Error", 500));
