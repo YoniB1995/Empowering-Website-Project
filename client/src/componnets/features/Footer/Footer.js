@@ -26,7 +26,8 @@ const Footer1 = () => {
   };
 
   return (
-    <footer>
+    <div>
+    <footer className="page-container">
       <div className="about">
         <div className="footer-header-container">
           <div className="footer-header-decortion"> </div>
@@ -45,8 +46,9 @@ const Footer1 = () => {
           <div className="footer-header-decortion"> </div>
           <h4 className="footer-title">{t("Contact Us")}</h4>
         </div>
-        <div>
+        <div className="footer-placeholder-icon-container">
           <img
+
             src="./placeholder.png"
             alt="plachholder-icon"
             id="footer-placeholder-icon"
@@ -57,7 +59,7 @@ const Footer1 = () => {
           <div className="footer-mail">
             <p>
               {" "}
-              <MailOutlined style={{ fontSize: "20px", padding: "5px" }} />
+              <MailOutlined style={{ fontSize: "20px", padding: "5px",color:" #faad80" }} />
               {t("emailContact")}{" "}
             </p>
             <Link to="/ContactU">
@@ -66,7 +68,7 @@ const Footer1 = () => {
                 size="middle"
                 style={{
                   width: "100px",
-                  background: "#F1CCB9",
+                  background: "#faad80",
                   marginRight: "10px",
                 }}
               >
@@ -96,7 +98,7 @@ const Footer1 = () => {
             size="middle"
             style={{
               width: "100px",
-              background: "#F1CCB9",
+              background: "#faad80",
               marginRight: "10px",
             }}
             onClick={handleClick}
@@ -105,12 +107,12 @@ const Footer1 = () => {
           </Button>
         </div>
         <div className="footer-facebook">
-          <FacebookOutlined style={{ fontSize: "20px" }} />
+          <FacebookOutlined style={{ fontSize: "20px",color:"#faad80" }} />
           <p>{t("siteNamefacebook")} </p>
         </div>
       </div>
     </footer>
-    // </Footer>
+    </div>
   );
 };
 export default Footer1;

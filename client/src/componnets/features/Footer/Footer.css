@@ -1,4 +1,8 @@
+
+
 footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -6,6 +10,10 @@ footer {
   font-family: "Varela Round", sans-serif;
   flex-wrap: wrap;
   padding: 10px;
+  background: white;
+  clear: both;
+  position: relative;
+  margin-bottom: 20px;
 }
 .footer-header-container {
   width: 200px;
@@ -15,7 +23,7 @@ footer {
 .footer-header-decortion {
   margin-left: 5px;
   width: 0;
-  border: solid black;
+  border: solid rgb(250, 173, 128);
   height: 25px;
 }
 .about {
@@ -59,7 +67,12 @@ footer {
 }
 .footer-title {
   margin-bottom: 5px;
+  color: rgb(250, 173, 128);
 }
+.footer-placeholder-container{
+  margin-top: 10px;
+}
+
 
 @media only screen and (max-width: 760px) {
   footer {
