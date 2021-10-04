@@ -1,4 +1,3 @@
-
 .aboutus-wrapper {
   background-color: #f5ad88;
 }
@@ -35,8 +34,6 @@
 }
 .target-card-list {
   list-style-type: none;
-  font-size: 12px;    
-  /* -----------------------------------   בני הוסיף למען תרגום חח */
 }
 
 .target-card-container-right-side {
@@ -74,7 +71,7 @@
 }
 .right-cube-staff-buffer {
   margin-top: 20px;
-  background-color: #F2DAC3;
+  background-color: #f2dac3;
   width: 100px;
   height: 25px;
 }

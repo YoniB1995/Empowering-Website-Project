@@ -55,9 +55,9 @@ export default function AppRouter() {
         <Route path='/NewsLettersUserTable' component={NewsLettersUserTable} />
         <Route path='/LoginForm' component={LoginForm} />
         <Route path='/Profile' component={Profile} />
-        <Route path='/Admin/Management'>
+        <ProtectedRoute path='/Admin/Management'>
           <Contect />
-        </Route>
+        </ProtectedRoute>
         <Route component={NotFound} />
 
         <Route path='/Contact' component={Contact} />
