@@ -51,28 +51,32 @@ const NavBar = () => {
       </Link>
 
       <Menu className='navBarLinks' mode='horizontal'>
+
+      
         <Menu.Item className='menu-item'>
           <Button onClick={changingBtnLanguage}> {currentLangCode}</Button>
         </Menu.Item>
+          
+      
 
-        {isLogin && (
-            <Menu.Item className="menu-item" onClick={logoutAdmin}>{t("logout")}</Menu.Item>
-        )}
-
-        {isLogin && (
+        {isLogin && 
           <Link to='/Admin/Management'>
-            <Menu.Item className='menu-item'>דף אדמין</Menu.Item>
+            <Menu.Item className='menu-item'>{t("adminPage")}</Menu.Item>
           </Link>
-        )}
+        }
+
         <Link to='/'>
           <Menu.Item>
             <div className='navbar-left-side'>
               <div className=''></div>
+              {!isLogin &&
               <Link to='/ContactU'>
                 <Menu.Item className='menu-item-contact'>
                   {t('Contact Us')}
                 </Menu.Item>
-              </Link>
+                </Link>
+                }
+           
             </div>
           </Menu.Item>
         </Link>

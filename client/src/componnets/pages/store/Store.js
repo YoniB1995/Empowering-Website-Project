@@ -8,13 +8,16 @@ import { Drawer, Button, Modal } from "antd";
 import CartItem from "../../cart/CartItem";
 import ButtonComponen from "../../features/Button/ButtonComponent";
 import "antd/dist/antd.css";
-import "./commerce.css";
+import "./store.css";
 import { Spin } from "antd";
 import Input from "../../features/Input/Input";
 import ButtonComponent from "../../features/Button/ButtonComponent";
 import CheckOut from "../../CheckOut/CheckOut";
+
+
 const REACT_APP_CHEC_PUBLIC_KEY =
   "pk_332356f9128204a342117237f03a4f7afd9a55c1d788d";
+
 export const commerce = new Commerce(
   "pk_332356f9128204a342117237f03a4f7afd9a55c1d788d",
   true
