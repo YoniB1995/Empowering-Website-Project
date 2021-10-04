@@ -5,39 +5,39 @@ import AppRouter from "./AppRouter/AppRouter";
 import NavBar from "./componnets/features/NavBar/NavBar";
 import Footer from "./componnets/features/Footer/Footer";
 import AuthContextProvider from "./contexts/AuthContextProvider";
-import { Accessibility } from "accessibility/src/main";
+// import { Accessibility } from "accessibility/src/main";
 import { Suspense } from "react";
 
 function App() {
-  useEffect(() => {
-    window.addEventListener(
-      "load",
-      function () {
-        new Accessibility(options);
-      },
-      false
-    );
-  });
+  // useEffect(() => {
+  //   window.addEventListener(
+  //     "load",
+  //     function () {
+  //       new Accessibility(options);
+  //     },
+  //     false
+  //   );
+  // });
 
-  var labels = {
-    resetTitle: "רענן ",
-    closeTitle: "סגור ",
-    menuTitle: "נגישות ",
-    increaseText: "טקסט גדול ",
-    decreaseText: "טקסט קטן ",
-    increaseTextSpacing: "הגדל את מרווח הטקסט ",
-    decreaseTextSpacing: "הקטן את מרווח הטקסט ",
-    invertColors: "הפוך צבעים ",
-    grayHues: "גוונים אפורים ",
-    underlineLinks: "קישורים תחתונים ",
-    bigCursor: "סמן גדול ",
-    readingGuide: "מדריך קריאה ",
-    textToSpeech: "טקסט לדיבור ",
-    speechToText: "דיבור לטקסט ",
-  };
-  var options = { labels: labels };
-  options.textToSpeechLang = "he";
-  options.speechToTextLang = "he";
+  // var labels = {
+  //   resetTitle: "רענן ",
+  //   closeTitle: "סגור ",
+  //   menuTitle: "נגישות ",
+  //   increaseText: "טקסט גדול ",
+  //   decreaseText: "טקסט קטן ",
+  //   increaseTextSpacing: "הגדל את מרווח הטקסט ",
+  //   decreaseTextSpacing: "הקטן את מרווח הטקסט ",
+  //   invertColors: "הפוך צבעים ",
+  //   grayHues: "גוונים אפורים ",
+  //   underlineLinks: "קישורים תחתונים ",
+  //   bigCursor: "סמן גדול ",
+  //   readingGuide: "מדריך קריאה ",
+  //   textToSpeech: "טקסט לדיבור ",
+  //   speechToText: "דיבור לטקסט ",
+  // };
+  // var options = { labels: labels };
+  // options.textToSpeechLang = "he";
+  // options.speechToTextLang = "he";
 
   return (
     <>
@@ -45,7 +45,9 @@ function App() {
         <Router>
           <AuthContextProvider>
               <NavBar />
+              <div className="app-router-body">
               <AppRouter />
+              </div>
               <Footer />
           </AuthContextProvider>
         </Router>

@@ -1,11 +1,9 @@
 .form-button{
-  color: #ffffff;
-  font-weight: bold;
-  background: rgb(245, 173, 136);
+  background: rgb(241, 204, 185);
   width: 100%;
   border: none;
   outline: none;
-  border-radius: 5px;
+  border-radius:30px;
   cursor: pointer;
 }
 

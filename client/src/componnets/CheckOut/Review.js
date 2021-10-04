@@ -1,6 +1,5 @@
 import React from 'react'
 import { Descriptions } from 'antd';
-import ButtonComponent from '../features/Button/ButtonComponent';
 import './checkOut.css'
 
 const Review = ({checkOutToken, backStep}) => {

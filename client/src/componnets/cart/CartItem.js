@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Card } from 'antd';
 // import 'antd/dist/antd.css';
 import './cartItem.css';
-// import Button from '../features/Button/Button';
-
 
 const CartItem = ({ item, handleUpdateCartQuantity, handleRemoveFromCart }) => {
     const { Meta } = Card;
@@ -21,7 +19,6 @@ const CartItem = ({ item, handleUpdateCartQuantity, handleRemoveFromCart }) => {
                     <span type="button" onClick={() => handleUpdateCartQuantity(item.id, item.quantity + 1)}>+</span>
                     <Meta title={item.quantity} />
                     <span type="button" onClick={() => handleUpdateCartQuantity(item.id, item.quantity - 1)}>-</span>
-                    {/* <button style={{ width: 20, height: 20 }} type="button" onClick={() => handleRemoveFromCart(item.id)}>Remove</button> */}
            
                 </div>
             </Card>

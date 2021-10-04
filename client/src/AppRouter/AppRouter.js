@@ -19,7 +19,7 @@ import AddArticle from '../componnets/Forms/AddPlan';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
 import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
 import Contect from '../componnets/pages/Admin/Contect/Contect';
-import CommerceJs from '../componnets/pages/commerce/Commerce';
+import CommerceJs from '../componnets/pages/store/Store'
 import ContactU from '../componnets/pages/ContactUs/ContactUs';
 import NewsLettersUserTable from '../componnets/features/Admin/NewsLetters-User-table';
 import { LoginForm } from '../componnets/features/Forms/LoginForm';
@@ -55,9 +55,9 @@ export default function AppRouter() {
         <Route path='/NewsLettersUserTable' component={NewsLettersUserTable} />
         <Route path='/LoginForm' component={LoginForm} />
         <Route path='/Profile' component={Profile} />
-        <Route path='/Admin/Management'>
+        <ProtectedRoute path='/Admin/Management'>
           <Contect />
-        </Route>
+        </ProtectedRoute>
         <Route component={NotFound} />
 
         <Route path='/Contact' component={Contact} />

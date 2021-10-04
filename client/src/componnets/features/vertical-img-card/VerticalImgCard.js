@@ -7,9 +7,9 @@ const VerticalImgCard = (props) => {
       <div className="vertical-card-img-container">
         <img src={img} alt="vision-vector" id="img-card" />
       </div>
-      <div className="vertical-card-body">
+      <div className="vertical-card-body" style={title=="Goals" || "Vision" ?{display:"flex",flexDirection:"row",fontSize:"15px"}: {display:"flex"} }>
         <div className="header">
-          <div className="header-decoration"></div>
+          <div className="header-decoration" ></div>
           <h3 className="vertical-card-title" style={{color:"black"}}>{title}</h3>
         </div>
         <div className="vertical-card-description">{description}</div>

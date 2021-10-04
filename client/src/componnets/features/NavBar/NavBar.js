@@ -19,6 +19,7 @@ const NavBar = () => {
   const { t } = useTranslation();
   const currentLangCode = cookies.get('i18next') || 'heb';
   const currentLang = lang.find((i) => i.code === currentLangCode);
+  const [btnLanguage, setBtnLanguage] = useState("ENG");
 
   // useEffect(() => {
   //   document.body.dir = currentLang.dir || "rtl";
@@ -29,7 +30,12 @@ const NavBar = () => {
 
   // };
 
+
   const changingBtnLanguage = (e) => {
+    e.target.innerText === "ENG"
+      ? setBtnLanguage("HEB")
+      : setBtnLanguage("ENG");
+
     if (currentLangCode === 'heb') {
       i18next.changeLanguage('en');
     } else {
@@ -51,28 +57,32 @@ const NavBar = () => {
       </Link>
 
       <Menu className='navBarLinks' mode='horizontal'>
+
+      
         <Menu.Item className='menu-item'>
-          <Button onClick={changingBtnLanguage}> {currentLangCode}</Button>
+          <Button onClick={changingBtnLanguage}> {btnLanguage}</Button>
         </Menu.Item>
+          
+      
 
-        {isLogin && (
-            <Menu.Item className="menu-item" onClick={logoutAdmin}>{t("logout")}</Menu.Item>
-        )}
-
-        {isLogin && (
+        {isLogin && 
           <Link to='/Admin/Management'>
-            <Menu.Item className='menu-item'>דף אדמין</Menu.Item>
+            <Menu.Item className='menu-item'>{t("adminPage")}</Menu.Item>
           </Link>
-        )}
+        }
+
         <Link to='/'>
           <Menu.Item>
             <div className='navbar-left-side'>
               <div className=''></div>
+              {!isLogin &&
               <Link to='/ContactU'>
                 <Menu.Item className='menu-item-contact'>
                   {t('Contact Us')}
                 </Menu.Item>
-              </Link>
+                </Link>
+                }
+           
             </div>
           </Menu.Item>
         </Link>

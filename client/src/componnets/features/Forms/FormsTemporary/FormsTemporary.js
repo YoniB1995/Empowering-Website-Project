@@ -65,7 +65,7 @@ const FormsTemporary = () => {
                 marginRight: "5px",
               }}
             />
-            חיבור אדמין
+            התחברות
           </h1>
           <div className="userName-input-conatiner">
             <Form.Item name="username">
@@ -132,7 +132,7 @@ const FormsTemporary = () => {
                 span: 16,
               }}
             >
-              <Checkbox>תזכרו אותי</Checkbox>
+              <Checkbox>תזכור אותי</Checkbox>
             </Form.Item>
           </div>
         </div>
