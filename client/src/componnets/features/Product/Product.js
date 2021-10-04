@@ -13,7 +13,7 @@ const ProductC = ({ product, handleAddToCart }) => {
                 hoverable
                 cover={<img alt="productImg" src={product.media.source} />}
             >
-                <div>
+                <div style={{marginTop:75}}>
                     <Meta title={product.name} />
 
                     <Meta description={product.price.formatted_with_symbol}></Meta>
