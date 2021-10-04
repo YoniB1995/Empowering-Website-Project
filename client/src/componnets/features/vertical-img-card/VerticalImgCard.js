@@ -1,9 +1,18 @@
 import "./vertical-img-card.css";
+import WOW from "wowjs";
+import "animate.css"
+import { useEffect } from "react";
+
 const VerticalImgCard = (props) => {
+  useEffect(() => {
+    new WOW.WOW({
+      live: false,
+    }).init();
+  }, []);
   const { title, img, description } = props;
   console.log(title)
   return (
-    <div className="vertical-card">
+    <div className="vertical-card animate__animated animate__fadeInUp">
       <div className="vertical-card-img-container">
         <img src={img} alt="vision-vector" id="img-card" />
       </div>

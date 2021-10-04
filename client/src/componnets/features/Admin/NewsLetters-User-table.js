@@ -29,25 +29,33 @@ const NewsLettersUserTable = () => {
     <div>
       <h3 style={{ textAlign: "center" }}>משתמשים בניז לייטר</h3>
       <div>
-        <ul>
+        <table>
+          <thead>
+            <tr>
+              <th>מייל</th>
+              <th>סטאטוס</th>
+            </tr>
+          </thead>
           {dataa?.map((data) => {
             return (
-              <div>
-                <li>{data.email_address}</li>
-                <li>{data.status}</li>
-              </div>
+              <tbody>
+                <tr>
+                  <td>{data.email_address}</td>
+                  <td>{data.status}</td>
+                </tr>
+              </tbody>
             );
           })}
-        </ul>
+        </table>
       </div>
 
       <div
         style={{ textAlign: "right", fontSize: "24px", paddingBottom: "10px" }}
       ></div>
 
-      <Table dataSource={dataa.subscribers}>
+      {/* <Table dataSource={dataa.subscribers}>
  
-        {/* <Column render={(text, record) => <UserOutlined />} /> */}
+        <Column render={(text, record) => <UserOutlined />} />
 
         <Column title="Email Address" dataIndex="email_address" key="email_address"
           render={(email_address) => (
@@ -62,9 +70,9 @@ const NewsLettersUserTable = () => {
           )}
         />
         
-        {/* <Column title="כותרת" dataIndex="email" key="email" />
-        <Column title="תאריך הצטרפות" dataIndex="date" key="date" /> */}
-      </Table>
+        <Column title="כותרת" dataIndex="email" key="email" />
+        <Column title="תאריך הצטרפות" dataIndex="date" key="date" />
+      </Table> */}
     </div>
   );
 };
