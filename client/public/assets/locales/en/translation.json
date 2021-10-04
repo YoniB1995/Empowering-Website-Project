@@ -1,5 +1,5 @@
 {"Contact Us":"Contact Us",
-  "Store":"store",
+  "Store":"Store",
   "Donations":"Donations",
   "Programs":"Programs",
   "About us":"About us",
@@ -50,7 +50,7 @@
   "adminPage":"Admin Page",
   "Newsletter":"Newsletter",
   "Cart":"Add To Cart +",
-  "StoreHeader":"Our Store"
-
-  
+  "StoreHeader":"Our Store",
+  "Ourgoals":"Our goals",
+  "team":"Get to know our team"
 }
