@@ -57,13 +57,10 @@ const NavBar = () => {
       </Link>
 
       <Menu className='navBarLinks' mode='horizontal'>
-
-      
+   
         <Menu.Item className='menu-item'>
           <Button onClick={changingBtnLanguage}> {btnLanguage}</Button>
         </Menu.Item>
-          
-      
 
         {isLogin && 
           <Link to='/Admin/Management'>
