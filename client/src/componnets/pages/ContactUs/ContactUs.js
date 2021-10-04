@@ -38,7 +38,7 @@ export default function ContactU() {
       <div className="contact">
         <div className="formDetails">
           <form className="contact-form" onSubmit={handleSubmit}>
-            <h1>{t("contact")}</h1>
+            {/* <h1 style={{fontSize:"20px"}}>{t("contact")}</h1> */}
             <label> {t("Cause of appeal")}</label>
             <Select onSelect={getInquiry} className="select">
               <Option value={t("club member")}>{t("club member")}</Option>

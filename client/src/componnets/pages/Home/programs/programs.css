@@ -42,7 +42,6 @@
   padding: 20px;
 }
 .program-clicked-header {
-  text-align: center;
   color: #d57e7e;
   margin-right: 10px;
 }
@@ -51,7 +50,8 @@
   display: flex;
   width: 300px;
   height: 450px;
-  background: #fefbf3;
+  /* background: #fefbf3; */
+  background: white;
   flex-direction: column;
   justify-content: space-between;
 }

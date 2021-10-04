@@ -48,7 +48,7 @@ const Programs = () => {
         <h3 style={{ color: '#D57E7E', fontSize: '32px' }}>תוכניות</h3>
         <div className='programs-header-decertion'></div>
       </div>
-      <div className='cards-wrapper'>
+      <div className='cards-wrapper '>
         {currentLangCode === 'heb'
           ? programs.map((program, index) => (
               <Card

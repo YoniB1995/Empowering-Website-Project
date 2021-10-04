@@ -122,7 +122,7 @@ const Staff = () => {
               size="large"
               style={{
                 marginRight: "10px",
-                width: "120px",
+                width: "160px",
                 background: "#fdfce5",
               }}
             >
@@ -135,8 +135,10 @@ const Staff = () => {
               size="large"
               style={{
                 marginRight: "10px",
-                width: "120px",
+                width: "160px",
                 background: "#fdfce5",
+                marginRight:"10px",
+
               }}
             >
               {" "}
@@ -151,8 +153,9 @@ const Staff = () => {
               size="middle"
               style={{
                 marginRight: "10px",
-                width: "120px",
+                width: "160px",
                 background: "#fdfce5",
+                marginRight:"10px",
               }}
             >
               {" "}
@@ -164,7 +167,7 @@ const Staff = () => {
               size="middle"
               style={{
                 marginRight: "10px",
-                width: "120px",
+                width: "160px",
                 background: "#fdfce5",
               }}
             >
@@ -262,11 +265,11 @@ const Staff = () => {
                             <h4 style={{ color: "white" }}>
                               {member.fullname}
                             </h4>
-                            <p>{member.role} </p>
+                            <p style={{ color: "rgb(253, 252, 229)"}}>{member.role} </p>
                           </div>
                         }
                         description={
-                          <p style={{ color: "#232323" }}>
+                          <p >
                             {member.description}
                           </p>
                         }
@@ -306,7 +309,7 @@ const Staff = () => {
                             <h4 style={{ color: "white" }}>
                               {member.fullname}
                             </h4>
-                            <p>{member.role} </p>
+                            <p style={{color:"#fdfce5"}}>{member.role} </p>
                           </div>
                         }
                         description={
