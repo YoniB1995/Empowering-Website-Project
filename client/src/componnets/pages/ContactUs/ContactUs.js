@@ -32,9 +32,6 @@ export default function ContactU() {
     setInquiry(selectedValue);
   };
 
-  console.log(inquiry);
-  console.log(email);
-  console.log(content);
 
   return (
     <div className="contactConraier">
@@ -65,7 +62,7 @@ export default function ContactU() {
           </form>
         </div>
         <div className="formImg">
-          <img src="contactUs.jpg"></img>
+          <img src="contactUs.jpg" ></img>
         </div>
       </div>
 
