@@ -44,43 +44,29 @@ const cardEmail = {
         ]
       }
     },
-    "failure": {
+  },
+  "sendCard": {
+    "success": {
       "res": {
-        "statusCode": 404,
+        "statusCode": 200,
         "headers": {
           "content-type": "application/json"
         }
       },
       "body": {
-        "status": "error",
-        "message": "That movie does not exist."
+        "status": "success",
+          "card": {
+              "fullName": "ron moyal",
+              "email":"ron@gmail.com",
+          }
       }
-    }
-  }
+    },
+  
+  },
+  
 };
-//  const cardEmail = {
 
-//     "sendCard": {
-//   "success": {
-//     "res": {
-//       "statusCode": 201,
-//       "headers": {
-//         "content-type": "application/json"
-//       }
-//     },
-//     "body": {
-//       "status": "success",
-//         "card": {
-//             "_id": "614b9fa0df92314c81d69f06",
-//             "fullName": "yoni",
-//             "email":"yoni10@gmail.com",
-//             "__v": 0,
-//         }
-//     }
-//   },
+  
 
-// },
-
-// }
 
 module.exports = cardEmail;
