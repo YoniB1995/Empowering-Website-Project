@@ -1,5 +1,5 @@
 {"Contact Us":"Contact Us",
-  "Store":"store",
+  "Store":"Store",
   "Donations":"Donations",
   "Programs":"Programs",
   "About us":"About us",
@@ -48,7 +48,7 @@
   "Accompanying businesses":"Accompanying and leveraging existing businesses",
   "Purchasing services":"Purchasing intra-community services to expand the number of customers",
   "adminPage":"Admin Page",
-  "Newsletter":"Newsletter"
-
-  
+  "Newsletter":"Newsletter",
+  "Ourgoals":"Our goals",
+  "team":"Get to know our team"
 }

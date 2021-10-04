@@ -79,7 +79,7 @@ const AboutUs = () => {
   return (
     <div className="aboutus-wrapper">
       <div className="targets-header-container">
-        <h3 className="targets-title"> המטרות שלנו</h3>
+        <h3 className="targets-title">{t("Ourgoals")} </h3>
 
         <div className="targets-header-decoration"></div>
       </div>
