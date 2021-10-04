@@ -1,8 +1,8 @@
-.app-router-body{
-  
+.app-router-body {
+  min-height: calc(100% - 228px);
 }
 ._access-icon .material-icons ._access {
- color: tomato;
+  color: tomato;
 }
 .App-logo {
   height: 40vmin;
@@ -29,27 +29,26 @@
 .App-link {
   color: #61dafb;
 }
-li{
+li {
   text-align: right;
   font-family: "Varela Round", sans-serif;
 }
-._access-menu.right{
+._access-menu.right {
   width: 10vw;
   background: #f8f7f5;
   font-family: "Varela Round", sans-serif;
 }
-._access-menu ul li{
+._access-menu ul li {
   color: black !important;
 }
 
-i._access-icon{
+i._access-icon {
   background-color: white !important;
   color: black !important;
   width: 65px;
   height: 45px;
   border-radius: 30px 0px 0px 30px;
 }
-
 
 @keyframes App-logo-spin {
   from {
