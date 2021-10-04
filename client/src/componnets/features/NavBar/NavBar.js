@@ -31,9 +31,9 @@ const NavBar = () => {
   // };
 
   const changingBtnLanguage = (e) => {
-    e.target.innerText === "ENG"
-      ? setBtnLanguage("HEB")
-      : setBtnLanguage("ENG");
+    e.target.innerText === "HEB"
+      ? setBtnLanguage("ENG")
+      : setBtnLanguage("HEB");
 
     if (currentLangCode === "heb") {
       i18next.changeLanguage("en");
