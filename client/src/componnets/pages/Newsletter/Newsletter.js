@@ -13,7 +13,6 @@ const Newsletter = () => {
       .then(res => setCampagins(res.sortedCampagins))
       .catch(err => console.log(err))
   }, [])
-  // console.log(campagins1);
 
   const [visible, setVisible] = useState(false);
   const [iframeSelected, setIframeSelected] = useState({});

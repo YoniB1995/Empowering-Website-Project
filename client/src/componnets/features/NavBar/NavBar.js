@@ -84,9 +84,6 @@ const NavBar = () => {
           <Menu.Item className="menu-item">{t("Store")}</Menu.Item>
         </Link>
 
-        <Link to="/Newsletter">
-          <Menu.Item className="menu-item">{t("Newsletter")}</Menu.Item>
-        </Link>
         <Link to="/AboutUs">
           {" "}
           <Menu.Item className="menu-item">{t("About us")}</Menu.Item>
