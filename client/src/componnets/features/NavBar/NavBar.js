@@ -30,14 +30,13 @@ const NavBar = () => {
 
   // };
 
-
   const changingBtnLanguage = (e) => {
-    e.target.innerText === "ENG"
-      ? setBtnLanguage("HEB")
-      : setBtnLanguage("ENG");
+    e.target.innerText === "HEB"
+      ? setBtnLanguage("ENG")
+      : setBtnLanguage("HEB");
 
-    if (currentLangCode === 'heb') {
-      i18next.changeLanguage('en');
+    if (currentLangCode === "heb") {
+      i18next.changeLanguage("en");
     } else {
       i18next.changeLanguage("heb");
     }
@@ -52,34 +51,32 @@ const NavBar = () => {
     <div className="navBar">
       {isLogin && <Profile />}
 
-      <Link to="./">
+      <Link to="../">
         <Avatar className="logo" src="./logo-main.jpg" alt="logo"></Avatar>
       </Link>
 
-      <Menu className='navBarLinks' mode='horizontal'>
-
-        <Menu.Item className='menu-item'>
+      <Menu className="navBarLinks" mode="horizontal">
+        <Menu.Item className="menu-item">
           <Button onClick={changingBtnLanguage}> {btnLanguage}</Button>
         </Menu.Item>
 
-        {isLogin &&
-          <Link to='/Admin/Management'>
-            <Menu.Item className='menu-item'>{t("adminPage")}</Menu.Item>
+        {isLogin && (
+          <Link to="/Admin/Management">
+            <Menu.Item className="menu-item">{t("adminPage")}</Menu.Item>
           </Link>
-        }
+        )}
 
-        <Link to='/'>
+        <Link to="/">
           <Menu.Item>
-            <div className='navbar-left-side'>
-              <div className=''></div>
-              {!isLogin &&
-                <Link to='/ContactU'>
-                  <Menu.Item className='menu-item-contact'>
-                    {t('Contact Us')}
+            <div className="navbar-left-side">
+              <div className=""></div>
+              {!isLogin && (
+                <Link to="/ContactU">
+                  <Menu.Item className="menu-item-contact">
+                    {t("Contact Us")}
                   </Menu.Item>
                 </Link>
-              }
-
+              )}
             </div>
           </Menu.Item>
         </Link>

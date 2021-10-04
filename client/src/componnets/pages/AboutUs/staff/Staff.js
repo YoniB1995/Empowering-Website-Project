@@ -2,7 +2,7 @@ import { Button, Card } from "antd";
 import "animate.css";
 import "./staff.css";
 import WOW from "wowjs";
-import React,{ useState,useEffect, Children } from "react";
+import React, { useState, useEffect, Children } from "react";
 import { Layout } from "antd";
 import { FilterOutlined } from "@ant-design/icons";
 import {
@@ -10,32 +10,31 @@ import {
   getTeamMemberInHebrew,
 } from "../../../../service/team-service";
 import cookies from "js-cookie";
-import { staffMembers} from './details'
+import { staffMembers } from "./details";
+import { useTranslation } from "react-i18next";
+
 const { Header, Footer, Sider, Content } = Layout;
 
 const { Meta } = Card;
 
-
-
-
 const Staff = () => {
+  const { t } = useTranslation();
   const [teamHebrew, setTeamHebrew] = useState([]);
   const [teamEnglish, setTeamEnglish] = useState([]);
   const [filteredTeamHebrew, setFilteredTeamHebrew] = useState([]);
   const [filteredTeamEnglish, setFilteredTeamEnglish] = useState([]);
   const [isHebrew, setIsHebrew] = useState(true);
 
+
   const currentLangCode = cookies.get("i18next") || "heb";
 
   useEffect(() => {
-  if (currentLangCode === "heb") {
-    setIsHebrew(true)
-  } else {
-    setIsHebrew(false)
-  }
-  }, [currentLangCode])
- 
-
+    if (currentLangCode === "heb") {
+      setIsHebrew(true);
+    } else {
+      setIsHebrew(false);
+    }
+  }, [currentLangCode]);
 
   useEffect(() => {
     getTeamMemberInHebrew()
@@ -52,7 +51,6 @@ const Staff = () => {
       });
   }, []);
 
-
   const filterVolunteersInHebrew = () => {
     const teamFilter = teamHebrew.filter((member) => {
       return member.role === "צוות";
@@ -65,7 +63,6 @@ const Staff = () => {
     });
     setFilteredTeamHebrew(teamFilter);
   };
-
 
   const filterVolunteersInEnlish = () => {
     const teamFilter1 = teamEnglish.filter((member) => {
@@ -80,10 +77,7 @@ const Staff = () => {
     });
     setFilteredTeamEnglish(teamFilter1);
   };
-  
 
- 
-  
   const [clickedIndex, setClickedIndex] = useState({});
   const gridStyle = {
     width: "25%",
@@ -112,7 +106,6 @@ const Staff = () => {
 
   return (
     <div className="staff-wrapper">
-    
       <div className="staff-header-container">
         {isHebrew ? (
           <div className="staff-role-btn-container">
@@ -137,8 +130,7 @@ const Staff = () => {
                 marginRight: "10px",
                 width: "160px",
                 background: "#fdfce5",
-                marginRight:"10px",
-
+                marginRight: "10px",
               }}
             >
               {" "}
@@ -155,7 +147,7 @@ const Staff = () => {
                 marginRight: "10px",
                 width: "160px",
                 background: "#fdfce5",
-                marginRight:"10px",
+                marginRight: "10px",
               }}
             >
               {" "}
@@ -180,7 +172,7 @@ const Staff = () => {
         <div className="staff-header-wrapper">
           <div className="staff-headline">
             <h3 className="hedaer" style={{ color: "white" }}>
-              הכירו את הצוות שלנו
+              {t("team")}
             </h3>
             <div className="staff-header-decoration"></div>
           </div>
@@ -265,14 +257,12 @@ const Staff = () => {
                             <h4 style={{ color: "white" }}>
                               {member.fullname}
                             </h4>
-                            <p style={{ color: "rgb(253, 252, 229)"}}>{member.role} </p>
+                            <p style={{ color: "rgb(253, 252, 229)" }}>
+                              {member.role}{" "}
+                            </p>
                           </div>
                         }
-                        description={
-                          <p >
-                            {member.description}
-                          </p>
-                        }
+                        description={<p>{member.description}</p>}
                       />
                     </Card>
                   </div>
@@ -309,7 +299,7 @@ const Staff = () => {
                             <h4 style={{ color: "white" }}>
                               {member.fullname}
                             </h4>
-                            <p style={{color:"#fdfce5"}}>{member.role} </p>
+                            <p style={{ color: "#fdfce5" }}>{member.role} </p>
                           </div>
                         }
                         description={
@@ -318,7 +308,6 @@ const Staff = () => {
                           </p>
                         }
                       />
-
                     </Card>
                   </div>
                 );

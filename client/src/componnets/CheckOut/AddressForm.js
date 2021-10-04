@@ -39,4 +39,4 @@ const AddressForm = ({ checkOutToken, next }) => {
     </div>
   )
 }
-export default AddressForm
+export default AddressForm;

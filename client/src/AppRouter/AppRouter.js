@@ -25,7 +25,7 @@ import { LoginForm } from '../componnets/features/Forms/LoginForm';
 import Contact from '../componnets/pages/Admin/Contact/Contact';
 import Profile from '../componnets/features/Forms/FormsTemporary/Profile';
 import NotFound from '../componnets/pages/NotFound/NotFound'
-import OurNewsletter from '../componnets/pages/OurNewsletter/OurNewsletter';
+import Ournewsletter from "../componnets/pages/OurNewsletter/OurNewsletter"
 
 
 
@@ -42,8 +42,15 @@ export default function AppRouter() {
         <Route exact path='/' component={Home} />
         <Route path='/Programs' component={Programs} />
         <Route path='/Donations' component={Donations} />
+<<<<<<< HEAD
         <Route path='/Newsletter' component={OurNewsletter} />
+=======
+        <Route path='/Newsletter' component={Ournewsletter} />
+
+>>>>>>> main
         <Route path='/AboutUs' component={AboutUs} />
+        <ProtectedRoute path='/logout' component={Logout} />
+
         <Route path='/Plans' component={Articles} />
         <Route path='/Plan/:id' component={Article} />
         <Route path='/Admin/EditPlans/:id' component={EditArticles} />
@@ -68,7 +75,7 @@ export default function AppRouter() {
           path='/Admin/EditArticles/:id'
           component={EditArticles}
         />
-      </Switch>
-    </div>
+      </Switch >
+    </div >
   );
 }
