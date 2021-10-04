@@ -15,9 +15,9 @@ import Profile from "../Forms/FormsTemporary/Profile";
 import { Redirect } from "react-router";
 
 const NavBar = () => {
-  const { isLogin ,logout} = useContext(AuthContext);
+  const { isLogin, logout } = useContext(AuthContext);
   const { t } = useTranslation();
-  const currentLangCode = cookies.get('i18next') || 'heb';
+  const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
   const [btnLanguage, setBtnLanguage] = useState("ENG");
 
@@ -32,30 +32,60 @@ const NavBar = () => {
 
 
   const changingBtnLanguage = (e) => {
+<<<<<<< HEAD
+    if (currentLangCode === "heb") {
+      i18next.changeLanguage("en");
+=======
     e.target.innerText === "ENG"
       ? setBtnLanguage("HEB")
       : setBtnLanguage("ENG");
 
     if (currentLangCode === 'heb') {
       i18next.changeLanguage('en');
+>>>>>>> 126ff4b7711e8df4031e984cc04e9a2a5a5c47c0
     } else {
-      i18next.changeLanguage('heb');
+      i18next.changeLanguage("heb");
     }
   };
-  
+
   const logoutAdmin = () => {
-    logout()
-    return <Redirect to="/form" />
-  }
+    logout();
+    return <Redirect to="/form" />;
+  };
 
   return (
-    <div className='navBar'>
+    <div className="navBar">
       {isLogin && <Profile />}
 
-      <Link to='./'>
-        <Avatar className='logo' src='./logo-main.jpg' alt='logo'></Avatar>
+      <Link to="./">
+        <Avatar className="logo" src="./logo-main.jpg" alt="logo"></Avatar>
       </Link>
 
+<<<<<<< HEAD
+      <Menu className="navBarLinks" mode="horizontal">
+        <Menu.Item className="menu-item">
+          <Button onClick={changingBtnLanguage}> {currentLangCode}</Button>
+        </Menu.Item>
+
+        {isLogin && (
+          <Menu.Item className="menu-item" onClick={logoutAdmin}>
+            {t("logout")}
+          </Menu.Item>
+        )}
+
+        {isLogin && (
+          <Link to="/Admin/Management">
+            <Menu.Item className="menu-item">דף אדמין</Menu.Item>
+          </Link>
+        )}
+        <Link to="/">
+          <Menu.Item>
+            <div className="navbar-left-side">
+              <div className=""></div>
+              <Link to="/ContactU">
+                <Menu.Item className="menu-item-contact">
+                  {t("Contact Us")}
+=======
       <Menu className='navBarLinks' mode='horizontal'>
    
         <Menu.Item className='menu-item'>
@@ -76,6 +106,7 @@ const NavBar = () => {
               <Link to='/ContactU'>
                 <Menu.Item className='menu-item-contact'>
                   {t('Contact Us')}
+>>>>>>> 126ff4b7711e8df4031e984cc04e9a2a5a5c47c0
                 </Menu.Item>
                 </Link>
                 }
@@ -83,18 +114,16 @@ const NavBar = () => {
             </div>
           </Menu.Item>
         </Link>
-        <Link to='/CommerceJs'>
-          <Menu.Item className='menu-item'>{t('Store')}</Menu.Item>
+        <Link to="/CommerceJs">
+          <Menu.Item className="menu-item">{t("Store")}</Menu.Item>
         </Link>
-        <Link to='/Donations'>
-          <Menu.Item className='menu-item'>{t('Donations')}</Menu.Item>
+
+        <Link to="/Newsletter">
+          <Menu.Item className="menu-item">{t("Newsletter")}</Menu.Item>
         </Link>
-        <Link to='/Programs'>
-          <Menu.Item className='menu-item'>{t('Programs')}</Menu.Item>
-        </Link>
-        <Link to='/AboutUs'>
-          {' '}
-          <Menu.Item className='menu-item'>{t('About us')}</Menu.Item>
+        <Link to="/AboutUs">
+          {" "}
+          <Menu.Item className="menu-item">{t("About us")}</Menu.Item>
         </Link>
       </Menu>
     </div>

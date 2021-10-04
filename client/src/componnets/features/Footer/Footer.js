@@ -4,9 +4,10 @@ import { Input, Button } from "antd";
 import { FacebookOutlined, MailOutlined } from "@ant-design/icons";
 import { addMemberToNewsletter } from "../../../service/newsletter-service";
 import { useTranslation } from "react-i18next";
+import { HomeOutlined } from "@ant-design/icons";
+
 
 import "./Footer.css";
-
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -45,11 +46,7 @@ const Footer = () => {
             <h4 className="footer-title">{t("Contact Us")}</h4>
           </div>
           <div className="footer-placeholder-icon-container">
-            <img
-              src="./placeholder.png"
-              alt="plachholder-icon"
-              id="footer-placeholder-icon"
-            />
+          <HomeOutlined />
             {t("Streetinfo")}
           </div>
           <div className="contact-footer-btn">

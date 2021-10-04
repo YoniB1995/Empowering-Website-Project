@@ -23,8 +23,10 @@ const Copartner = () => {
       </div>
       <div className="copartner-wrapper">
           {partners.map((partner)=>
+      <div className="animate__animated animate__fadeInUp">
         <div className="copartner-logo-container">
         <img className="copartner-logo" src={partner.image} alt={partner.name} />
+        </div>
         </div>
           )}
         
