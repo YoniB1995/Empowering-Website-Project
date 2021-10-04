@@ -62,7 +62,7 @@ const NavBar = () => {
 
         {isLogin && (
           <Link to="/Admin/Management">
-            <Menu.Item className="menu-item">{t("adminPage")}</Menu.Item>
+            <Menu.Item className="menu-item" className="b">{t("adminPage")}</Menu.Item>
           </Link>
         )}
 
@@ -70,13 +70,13 @@ const NavBar = () => {
           <Menu.Item>
             <div className="navbar-left-side">
               <div className=""></div>
-              {!isLogin && (
+              
                 <Link to="/ContactU">
                   <Menu.Item className="menu-item-contact">
                     {t("Contact Us")}
                   </Menu.Item>
                 </Link>
-              )}
+              
             </div>
           </Menu.Item>
         </Link>
