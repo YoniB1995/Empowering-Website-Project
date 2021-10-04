@@ -39,14 +39,8 @@ export const addMemberToNewsletter = async (memberEmail) => {
 };
 
 export const getAllCampagins = () => {
-  const options = {
-    method: "get",
-    body: JSON.stringify(),
-    headers: { "Content-Type": "application/json" },
-  };
   try {
-    return fetch(`${API}/campagin/getCampaignsSorted`, options)
-      .then(res => res.json());
+    return fetch(`${API}/campagin/getCampaignsSorted`)
   } catch (error) {
     console.log(error);
   }
