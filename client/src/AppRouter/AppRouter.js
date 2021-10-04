@@ -26,6 +26,7 @@ import { LoginForm } from '../componnets/features/Forms/LoginForm';
 import Contact from '../componnets/pages/Admin/Contact/Contact';
 import Profile from '../componnets/features/Forms/FormsTemporary/Profile';
 import NotFound from '../componnets/pages/NotFound/NotFound';
+import Ournewsletter from '../componnets/pages/OurNewsletter/OurNewsletter';
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -40,7 +41,7 @@ export default function AppRouter() {
         <Route exact path='/' component={Home} />
         <Route path='/Programs' component={Programs} />
         <Route path='/Donations' component={Donations} />
-        <Route path='/Newsletter' component={Newsletter} />
+        <Route path='/Newsletter' component={Ournewsletter} />
         <Route path='/AboutUs' component={AboutUs} />
         <Route path='/Plans' component={Articles} />
         <Route path='/Plan/:id' component={Article} />

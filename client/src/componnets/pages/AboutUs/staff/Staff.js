@@ -265,11 +265,11 @@ const Staff = () => {
                             <h4 style={{ color: "white" }}>
                               {member.fullname}
                             </h4>
-                            <p>{member.role} </p>
+                            <p style={{ color: "rgb(253, 252, 229)"}}>{member.role} </p>
                           </div>
                         }
                         description={
-                          <p style={{ color: "#232323" }}>
+                          <p >
                             {member.description}
                           </p>
                         }

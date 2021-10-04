@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ArrowDownOutlined } from "@ant-design/icons";
+
 import "./Newsletter.css";
 
 const Newsletter = () => {
@@ -38,7 +40,8 @@ const Newsletter = () => {
           return (
             <>
               <h3 onClick={() => showIframe(campaign.id)}>
-                click {campaign.id}
+                ניזולטר {campaign.id + 1}
+                <ArrowDownOutlined style={{background:"white",width:"30px",height:"30px",borderRadius:"100%"}} />
               </h3>
             </>
           );
