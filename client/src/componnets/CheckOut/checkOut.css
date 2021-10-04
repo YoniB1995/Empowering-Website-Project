@@ -5,6 +5,7 @@
 .checkOutHeader{
     text-align: center;
     font-family: "Varela Round", sans-serif;
+    color: rgb(211, 173, 154) ;
 }
 .ant-descriptions{
 display: flex;
@@ -13,9 +14,23 @@ flex-direction: column;
 flex-wrap: wrap;
 }
 .ant-steps-item-icon{
-    background-color: rgb(241, 204, 185) !important;
+    background-color: rgb(211, 173, 154) !important;
     border: white !important;
 }
 .ant-steps-item-title::after{
     color: black !important;
+}
+.confirmHeader{
+    text-align: center;
+    margin-top: 2%;
+}
+.confirmBtn{
+    color: black;
+    background-color: rgb(250, 173, 128);
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 60px;
+    margin-left: 46%;
+
 }

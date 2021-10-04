@@ -28,13 +28,13 @@ const AddressForm = ({ checkOutToken, next }) => {
 
   };
   return (
-    <div className="adress-container">
-      <form className="adress-form" onSubmit={handleSubmit}  >
+    <div className="adressContainer">
+      <form className="adressForm" onSubmit={handleSubmit}  >
         <label>שם מלא</label>
         <input type="text" name="fullName" className="formInput" onChange={saveFullName} />
         <label>אימייל</label>
         <input type="email" name="email" className="formInput" onChange={setEmailDetails} />
-        <ButtonComponent type="submit" text="הבא" onClick={() => { cardUser(userDetails) }} ></ButtonComponent>
+        <ButtonComponent className="storeBtnForm"  type="submit" text="הבא" onClick={() => { cardUser(userDetails) }} ></ButtonComponent>
       </form>
     </div>
   )
