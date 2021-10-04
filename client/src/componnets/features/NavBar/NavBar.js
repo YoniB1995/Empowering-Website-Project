@@ -19,6 +19,7 @@ const NavBar = () => {
   const { t } = useTranslation();
   const currentLangCode = cookies.get('i18next') || 'heb';
   const currentLang = lang.find((i) => i.code === currentLangCode);
+  const [btnLanguage, setBtnLanguage] = useState("ENG");
 
   // useEffect(() => {
   //   document.body.dir = currentLang.dir || "rtl";
@@ -29,7 +30,12 @@ const NavBar = () => {
 
   // };
 
+
   const changingBtnLanguage = (e) => {
+    e.target.innerText === "ENG"
+      ? setBtnLanguage("HEB")
+      : setBtnLanguage("ENG");
+
     if (currentLangCode === 'heb') {
       i18next.changeLanguage('en');
     } else {
@@ -54,7 +60,7 @@ const NavBar = () => {
 
       
         <Menu.Item className='menu-item'>
-          <Button onClick={changingBtnLanguage}> {currentLangCode}</Button>
+          <Button onClick={changingBtnLanguage}> {btnLanguage}</Button>
         </Menu.Item>
           
       
