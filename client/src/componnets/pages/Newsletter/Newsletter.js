@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getAllCampagins } from "../../../service/newsletter-service";
+
 import './Newsletter.css';
 
 const Newsletter = () => {
+  const [campagins1, setCampagins] = useState([]);
+  const getCampagins = () => {
+    setCampagins(getAllCampagins());
+  }
+  console.log(campagins1, "campagins");
   const campaigns = [
     {
       iframe:
-      'https://us5.campaign-archive.com/?u=4c2830c704079978d3ed5f940&id=a0a46a5859',
+        'https://us5.campaign-archive.com/?u=4c2830c704079978d3ed5f940&id=a0a46a5859',
       id: 0,
     },
     {
@@ -34,7 +41,7 @@ const Newsletter = () => {
   return (
     <>
       <div className='campaign-T'>
-        {campaigns.map((campaign) => {
+        {campagins1.map((campaign) => {
           return (
             <>
               <h3 onClick={() => showIframe(campaign.id)}>
