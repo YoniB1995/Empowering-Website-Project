@@ -1,6 +1,7 @@
 .programs-wrapper {
   display: flex;
   flex-direction: column;
+  background: #F8E2CF;
 }
 .cards-wrapper {
   display: flex;
