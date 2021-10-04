@@ -42,12 +42,8 @@ export default function AppRouter() {
         <Route exact path='/' component={Home} />
         <Route path='/Programs' component={Programs} />
         <Route path='/Donations' component={Donations} />
-<<<<<<< HEAD
-        <Route path='/Newsletter' component={OurNewsletter} />
-=======
         <Route path='/Newsletter' component={Ournewsletter} />
 
->>>>>>> main
         <Route path='/AboutUs' component={AboutUs} />
         <ProtectedRoute path='/logout' component={Logout} />
 
