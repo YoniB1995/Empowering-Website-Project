@@ -7,7 +7,7 @@ import './Product.css';
 const ProductC = ({ product, handleAddToCart }) => {
     const { Meta } = Card;
     return (
-        
+        <div className="productContainer">
             <Card key={product.id}
                 className="productCard"
                 hoverable
@@ -21,7 +21,7 @@ const ProductC = ({ product, handleAddToCart }) => {
                 <hr></hr>
                 <span className="addToCart" onClick={() => handleAddToCart(product.id, 1)}>הוספה לסל+</span>
             </Card>
-
+            </div>
        
     )
 }

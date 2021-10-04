@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Steps } from "antd";
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
-import  { commerce } from "../pages/commerce/Commerce";
+import  { commerce } from "../pages/store/Store";
 import './checkOut.css'
-import ButtonComponent from "../features/Button/ButtonComponent";
 import { Link } from "react-router-dom";
 const { Step } = Steps;
 
@@ -51,7 +50,6 @@ const backStep = ()=>{ setActiveStep ((backActiveStep)=> backActiveStep -1 )};
     setFormData(data);
     nextStep();
   }
-  // console.log(formData);
 
   return (
     <div className="checkOutDiv">
@@ -66,20 +64,3 @@ const backStep = ()=>{ setActiveStep ((backActiveStep)=> backActiveStep -1 )};
 };
 export default CheckOut ;
 
-// return (
-//   <div className="checkOutDiv">
-//     <h1 className="checkOutHeader" >קופה</h1>
-//     <Steps current={activeStep} >
-//       <Step title="פרטי הלקוח" description="אנא מלא את הפרטים לביצוע הרכישה" />
-//       <Step
-//         title="פרטי תשלום"
-//         // subTitle="Left 00:00:08"
-//         description="אנא הכנס את פרטי הכרטיס וחכה לאישור העסקה"
-//       />
-//       {/* <Step title= "סיום התהליך" description="התשלום בוצע בהצלחה" /> */}
-//     </Steps>
-//     {activeStep === Steps.}
-//   </div>
-// );
-// };
-// export default CheckOut ;

@@ -1,8 +1,18 @@
 .adress-form {
-  padding: 20px;
-  margin: 5px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Varela Round", sans-serif;
+  width: 230px;
+  padding: 20px;
+}
+.adress-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width: 60vw;
+  margin-left: 20%;
 }
