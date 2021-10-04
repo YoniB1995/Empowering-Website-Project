@@ -109,7 +109,7 @@ const Programs = () => {
                         <h2 className='program-clicked-header'>
                           {program.title}{' '}
                         </h2>
-                        <p className='program-clicked-description'>
+                        <p className='program-clicked-description-english'>
                           {program.description}
                         </p>
                         <div>
