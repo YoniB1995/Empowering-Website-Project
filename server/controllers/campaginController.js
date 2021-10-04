@@ -18,6 +18,7 @@ const getCampaignsSorted = async (req, res, next) => {
 					archive_url: campagin.archive_url,
 					title: campagin.settings.title,
 					date: campagin.send_time,
+					id: campagin.id
 				};
 			});
 		res.json({ sortedCampagins }).status(200);
