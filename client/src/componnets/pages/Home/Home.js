@@ -9,7 +9,7 @@ import { BackTop } from "antd";
 import { Button } from "antd";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import "./Home.css";
-import Goals from "./goals/Goals";
+import Goals from "./Goals/Goals";
 import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
 import { Link } from "react-router-dom";
@@ -54,7 +54,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="buffer-div">
         <div className="arrow-icon-container">
           <i

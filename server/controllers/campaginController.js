@@ -3,7 +3,7 @@ const ErrorResponse = require("../utilities/errorResponse");
 
 const getCampaignsSorted = async (req, res, next) => {
 	try {
-		const campaignsList = await MailchimpMarketingModel.campagins.list();
+		const campaignsList = await MailchimpMarketingModel.campaigns.list();
 		if (!campaignsList) {
 			next(new ErrorResponse("no campaign found", 301));
 		}
@@ -18,9 +18,10 @@ const getCampaignsSorted = async (req, res, next) => {
 					archive_url: campagin.archive_url,
 					title: campagin.settings.title,
 					date: campagin.send_time,
+					id: campagin.id
 				};
 			});
-		res.json({ campaignsList: campaignsList }).status(200);
+		res.json({ sortedCampagins }).status(200);
 	} catch (e) {
 		next(new ErrorResponse("server error", 500));
 	}

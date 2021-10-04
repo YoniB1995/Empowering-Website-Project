@@ -43,7 +43,7 @@ export default function AppRouter() {
         <Route path='/Programs' component={Programs} />
         <Route path='/Donations' component={Donations} />
         <Route path='/Newsletter' component={Ournewsletter} />
-        
+
         <Route path='/AboutUs' component={AboutUs} />
         <ProtectedRoute path='/logout' component={Logout} />
 
@@ -60,8 +60,8 @@ export default function AppRouter() {
         <Route path='/LoginForm' component={LoginForm} />
         <ProtectedRoute path='/Profile' component={Profile} />
 
-        <ProtectedRoute path='/Admin/Management'component={Contect} />
-        
+        <ProtectedRoute path='/Admin/Management' component={Contect} />
+
         <Route component={NotFound} />
 
         <Route path='/Contact' component={Contact} />
@@ -71,7 +71,7 @@ export default function AppRouter() {
           path='/Admin/EditArticles/:id'
           component={EditArticles}
         />
-      </Switch>
-    </div>
+      </Switch >
+    </div >
   );
 }

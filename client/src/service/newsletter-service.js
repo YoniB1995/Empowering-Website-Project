@@ -38,6 +38,14 @@ export const addMemberToNewsletter = async (memberEmail) => {
   }
 };
 
+export const getAllCampagins = () => {
+  try {
+    return fetch(`${API}/campagin/getCampaignsSorted`)
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const getAllMembers = () => {
   const options = {
     method: "get",
@@ -49,4 +57,6 @@ export const getAllMembers = () => {
   } catch (error) {
     console.log(error);
   }
-};
+
+
+}
