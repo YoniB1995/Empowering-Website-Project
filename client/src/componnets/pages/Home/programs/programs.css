@@ -1,7 +1,6 @@
 .programs-wrapper {
   display: flex;
   flex-direction: column;
-
 }
 .cards-wrapper {
   display: flex;
@@ -56,7 +55,9 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.program-clicked-description {
+.program-clicked-description-english {
+  font-size: 15px;
+  text-align: left;
 }
 
 .img-program-card {
@@ -69,7 +70,7 @@
   .program-card {
     margin-bottom: 20px;
   }
-  .cards-wrapper{
+  .cards-wrapper {
     height: 1600px;
   }
 }

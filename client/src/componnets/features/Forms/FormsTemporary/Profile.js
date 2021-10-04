@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../../contexts/AuthContextProvider";
 // import JSONpretty from "react-json-pretty";
 import { getAllAdmins } from "../../../../service/admin-service";
-import { UserOutlined } from "@ant-design/icons";
+import { UserOutlined, LoginOutlined } from "@ant-design/icons";
 
 import "./Profile.css";
 const Profile = () => {
@@ -28,7 +28,8 @@ const Profile = () => {
         {isToken ? (
           <div className="profile">
             <div className="user-icon-container">
-            <UserOutlined style={{fontSize:"20px",color:"white"}}/>
+              <LoginOutlined style={{ fontSize: "14px", color: "white" }} />
+              {/* <LoginOutlined /> */}
             </div>
             <p>hello</p>
 
