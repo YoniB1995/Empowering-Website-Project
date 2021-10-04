@@ -13,35 +13,19 @@ import AboutUs from '../componnets/pages/AboutUs/AboutUs';
 import Articles from '../componnets/features/Plans/Plans';
 import Article from '../componnets/features/Plan/Plan';
 
-<<<<<<< HEAD
-import FormsTemporary from "../componnets/features/Forms/FormsTemporary/FormsTemporary";
-import AddProduct from "../componnets/Forms/AddProduct/AddProduct";
-import AddArticle from "../componnets/Forms/AddPlan";
-import EditProducts from "../componnets/features/Admin/EditProducts/EditProducts";
-import Logout from "../componnets/features/Forms/FormsTemporary/Logout";
-import Contect from "../componnets/pages/Admin/Contect/Contect";
-import CommerceJs from '../componnets/pages/store/Store'
-import ContactU from "../componnets/pages/ContactUs/ContactUs";
-import NewsLettersUserTable from "../componnets/features/Admin/NewsLetters-User-table";
-import { LoginForm } from "../componnets/features/Forms/LoginForm";
-import Contact from "../componnets/pages/Admin/Contact/Contact";
-import Profile from "../componnets/features/Forms/FormsTemporary/Profile";
-import NotFound from '../componnets/pages/NotFound/NotFound'
-=======
 import FormsTemporary from '../componnets/features/Forms/FormsTemporary/FormsTemporary';
 import AddProduct from '../componnets/Forms/AddProduct/AddProduct';
 import AddArticle from '../componnets/Forms/AddPlan';
 import EditProducts from '../componnets/features/Admin/EditProducts/EditProducts';
 import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
 import Contect from '../componnets/pages/Admin/Contect/Contect';
-import CommerceJs from '../componnets/pages/commerce/Commerce';
+import CommerceJs from '../componnets/pages/store/Store'
 import ContactU from '../componnets/pages/ContactUs/ContactUs';
 import NewsLettersUserTable from '../componnets/features/Admin/NewsLetters-User-table';
 import { LoginForm } from '../componnets/features/Forms/LoginForm';
 import Contact from '../componnets/pages/Admin/Contact/Contact';
 import Profile from '../componnets/features/Forms/FormsTemporary/Profile';
 import NotFound from '../componnets/pages/NotFound/NotFound';
->>>>>>> d1237c5d7bedb5ded91407820c4b8a7e998e80f0
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
