@@ -66,11 +66,7 @@ const getAllMembers = async (req, res, next) => {
 			next(new ErrorResponse("bad request", 301));
 		}
 		try {
-			const subscribredList = members.filter(
-				(member) => member.status === "subscribed"
-			);
-
-			const subscribers = filterMailchimpResponse(subscribredList);
+			const subscribers = filterMailchimpResponse(members);
 			res.status(200).json({ message: "users list", subscribers });
 		} catch (e) {
 			console.log("one of the fields not exist");
