@@ -21,12 +21,18 @@ import Logout from '../componnets/features/Forms/FormsTemporary/Logout';
 import Contect from '../componnets/pages/Admin/Contect/Contect';
 import CommerceJs from '../componnets/pages/store/Store'
 import ContactU from '../componnets/pages/ContactUs/ContactUs';
-import NewsLettersUserTable from '../componnets/features/Admin/NewsLetters-User-table';
 import { LoginForm } from '../componnets/features/Forms/LoginForm';
 import Contact from '../componnets/pages/Admin/Contact/Contact';
 import Profile from '../componnets/features/Forms/FormsTemporary/Profile';
+<<<<<<< HEAD
 import NotFound from '../componnets/pages/NotFound/NotFound';
 import Ournewsletter from '../componnets/pages/OurNewsletter/OurNewsletter';
+=======
+import NotFound from '../componnets/pages/NotFound/NotFound'
+
+
+
+>>>>>>> 126ff4b7711e8df4031e984cc04e9a2a5a5c47c0
 
 export default function AppRouter() {
   const { userClearLocalStorage } = useContext(AuthContext);
@@ -53,12 +59,11 @@ export default function AppRouter() {
         <Route path='/Admin/AddProduct' component={AddProduct} />
         <Route path='/form' component={FormsTemporary} />
 
-        <Route path='/NewsLettersUserTable' component={NewsLettersUserTable} />
         <Route path='/LoginForm' component={LoginForm} />
-        <Route path='/Profile' component={Profile} />
-        <Route path='/Admin/Management'>
-          <Contect />
-        </Route>
+        <ProtectedRoute path='/Profile' component={Profile} />
+
+        <ProtectedRoute path='/Admin/Management'component={Contect} />
+        
         <Route component={NotFound} />
 
         <Route path='/Contact' component={Contact} />

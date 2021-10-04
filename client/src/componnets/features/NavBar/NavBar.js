@@ -19,6 +19,7 @@ const NavBar = () => {
   const { t } = useTranslation();
   const currentLangCode = cookies.get("i18next") || "heb";
   const currentLang = lang.find((i) => i.code === currentLangCode);
+  const [btnLanguage, setBtnLanguage] = useState("ENG");
 
   // useEffect(() => {
   //   document.body.dir = currentLang.dir || "rtl";
@@ -29,9 +30,19 @@ const NavBar = () => {
 
   // };
 
+
   const changingBtnLanguage = (e) => {
+<<<<<<< HEAD
     if (currentLangCode === "heb") {
       i18next.changeLanguage("en");
+=======
+    e.target.innerText === "ENG"
+      ? setBtnLanguage("HEB")
+      : setBtnLanguage("ENG");
+
+    if (currentLangCode === 'heb') {
+      i18next.changeLanguage('en');
+>>>>>>> 126ff4b7711e8df4031e984cc04e9a2a5a5c47c0
     } else {
       i18next.changeLanguage("heb");
     }
@@ -50,6 +61,7 @@ const NavBar = () => {
         <Avatar className="logo" src="./logo-main.jpg" alt="logo"></Avatar>
       </Link>
 
+<<<<<<< HEAD
       <Menu className="navBarLinks" mode="horizontal">
         <Menu.Item className="menu-item">
           <Button onClick={changingBtnLanguage}> {currentLangCode}</Button>
@@ -73,8 +85,32 @@ const NavBar = () => {
               <Link to="/ContactU">
                 <Menu.Item className="menu-item-contact">
                   {t("Contact Us")}
+=======
+      <Menu className='navBarLinks' mode='horizontal'>
+   
+        <Menu.Item className='menu-item'>
+          <Button onClick={changingBtnLanguage}> {btnLanguage}</Button>
+        </Menu.Item>
+
+        {isLogin && 
+          <Link to='/Admin/Management'>
+            <Menu.Item className='menu-item'>{t("adminPage")}</Menu.Item>
+          </Link>
+        }
+
+        <Link to='/'>
+          <Menu.Item>
+            <div className='navbar-left-side'>
+              <div className=''></div>
+              {!isLogin &&
+              <Link to='/ContactU'>
+                <Menu.Item className='menu-item-contact'>
+                  {t('Contact Us')}
+>>>>>>> 126ff4b7711e8df4031e984cc04e9a2a5a5c47c0
                 </Menu.Item>
-              </Link>
+                </Link>
+                }
+           
             </div>
           </Menu.Item>
         </Link>

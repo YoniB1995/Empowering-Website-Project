@@ -12,54 +12,41 @@ export const getAllNewsletter = async (req, res) => {
   }
 };
 
-
 export const getOneNewsletter = async (articleData) => {
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(articleData),
-      headers: { 'Content-Type': 'application/json' },
-    };
-    try {
-      await fetch(`${API}/member/getMembers/id`, options);
-    } catch (error) {
-      console.log(error);
-    }
+  const options = {
+    method: "POST",
+    body: JSON.stringify(articleData),
+    headers: { "Content-Type": "application/json" },
   };
+  try {
+    await fetch(`${API}/member/getMembers/id`, options);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-  export const addMemberToNewsletter = async (memberEmail) => {
-    const options = {
-      method: "POST",
-      body: JSON.stringify({ Email: memberEmail }),
-      headers: { "Content-Type": "application/json" },
-    };
-    try {
-      return fetch(`${API}/mailChimp/createMember`, options);
-    } catch (error) {
-      console.log(error);
-    }
+export const addMemberToNewsletter = async (memberEmail) => {
+  const options = {
+    method: "POST",
+    body: JSON.stringify({ Email: memberEmail }),
+    headers: { "Content-Type": "application/json" },
   };
+  try {
+    return fetch(`${API}/mailChimp/createMember`, options);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-
- 
-
- export const getAllMembers = () => {
-    const options = {
-      method: "get",
-      body: JSON.stringify(),
-      headers: { "Content-Type": "application/json" },
-    };
-    try {
-      return fetch(`${API}/mailChimp/getAllMembers`, options)
-        .then((res) => { return res.json();})
-        .then((res)=>{console.log(res); })
-
-        
-
-    } catch (error) {
-      console.log(error);
-    }
+export const getAllMembers = () => {
+  const options = {
+    method: "get",
+    body: JSON.stringify(),
+    headers: { "Content-Type": "application/json" },
   };
-
-  
-
-  
+  try {
+    return fetch(`${API}/mailChimp/getAllMembers`, options);
+  } catch (error) {
+    console.log(error);
+  }
+};
