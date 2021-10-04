@@ -1,4 +1,4 @@
-const { MailchimpMarketingModel } = require("../models/mailChimpModel");
+const MailchimpMarketingModel = require("../models/mailChimpModel");
 const ErrorResponse = require("../utilities/errorResponse");
 
 const getCampaignsSorted = async (req, res, next) => {
