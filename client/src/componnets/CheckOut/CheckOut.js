@@ -41,16 +41,15 @@ const backStep = ()=>{ setActiveStep ((backActiveStep)=> backActiveStep -1 )};
 
   const Form =()=> activeStep===0 ? <AddressForm checkOutToken={checkoutToken} next={next}/>:<PaymentForm checkOutToken={checkoutToken} backStep={backStep} next={next} timeOut={timeOut}/>  
   const Confirmation =()=>{ return <div className="confDiv">
-    <h1>תודה על רכישתכם</h1>
-   <Link to='/'><button>חזרה לדף הבית</button></Link> 
-   
+    <h1 className="confirmHeader">! תודה על רכישתך</h1>
+    <h4 className="confirmHeader">ברגעים אלו נשלח אלייך מייל עם פרטי ההזמנה</h4>
+   <Link to='/'><button className="confirmBtn">חזרה לדף הבית</button></Link> 
   </div>}
 
   const next = (data)=>{
     setFormData(data);
     nextStep();
   }
-
   return (
     <div className="checkOutDiv">
       <h1 className="checkOutHeader" >קופה</h1>

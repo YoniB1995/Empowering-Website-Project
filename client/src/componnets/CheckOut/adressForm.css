@@ -1,4 +1,4 @@
-.adress-form {
+.adressForm {
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -8,11 +8,19 @@
   width: 230px;
   padding: 20px;
 }
-.adress-container{
+.adressContainer{
   display: flex;
   align-items: center;
   justify-content: center;
   height: 60vh;
   width: 60vw;
   margin-left: 20%;
+}
+.storeBtnForm{
+  width: 100px;
+  background: rgb(250, 173, 128);
+  margin-right: 10px;
+  border: none;
+  border-radius: 30px;
+  margin-top: 5px;
 }

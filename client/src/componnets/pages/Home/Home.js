@@ -14,9 +14,10 @@ import Programs from "./programs/Programs";
 import Copartner from "./Copartners/Copartners";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import Newsletter from "../Newsletter/Newsletter";
 
 const Home = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     new WOW.WOW({
@@ -25,7 +26,6 @@ const Home = () => {
   }, []);
   return (
     <div>
-      
       <div className="home-first-section">
         <ImageSlider />
         <div className="about-us wow animate__bounceInUp">
@@ -48,13 +48,13 @@ const Home = () => {
                   marginTop: "20px",
                 }}
               >
-               {t("readMore")} 
+                {t("readMore")}
               </Button>
             </Link>
           </div>
         </div>
       </div>
-      <div></div>
+      
       <div className="buffer-div">
         <div className="arrow-icon-container">
           <i
@@ -64,26 +64,11 @@ const Home = () => {
         </div>
       </div>
 
-    
-      <div className="newsletter-signup-btn">
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          {/* <Button
-            className="about-us-home-btn"
-            size="large"
-            shape="round"
-            style={{
-              background: "#f5ad88",
-              borderColor: "#f5ad88",
-              color: "white",
-            }}
-          >
-            להרשמה לניוזלטר לחצ\י כאן
-          </Button> */}
-        </div>
-        {/* </div>
-        </div> */}
-      </div>
       <Programs />
+
+      <div className="newsletter-signup-btn">
+        <Newsletter />
+      </div>
       <div className="vision-goals-wrapper">
         <div className="vision-goals-container">
           <div className="vision">
@@ -107,11 +92,9 @@ const Home = () => {
       <Copartner />
 
       <BackTop>
-        
-         <div className="up-arrow">
-          <ArrowUpOutlined style={{fontSize:"24px",color:"white"}} />
-          </div>
-  
+        <div className="up-arrow">
+          <ArrowUpOutlined style={{ fontSize: "24px", color: "white" }} />
+        </div>
       </BackTop>
     </div>
   );
