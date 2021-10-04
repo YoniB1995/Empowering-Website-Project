@@ -8,7 +8,7 @@ import { Drawer, Button, Modal } from "antd";
 import CartItem from "../../cart/CartItem";
 import ButtonComponen from "../../features/Button/ButtonComponent";
 import "antd/dist/antd.css";
-import "./commerce.css";
+import "./store.css";
 import { Spin } from "antd";
 import Input from "../../features/Input/Input";
 import ButtonComponent from "../../features/Button/ButtonComponent";
