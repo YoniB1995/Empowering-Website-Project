@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 const API =
   process.env.NODE_ENV === "production"
-    ? `https://empowering-women-web.herokuapp.com/`
+    ? `https://empowering-women-web.herokuapp.com`
     : "http://localhost:5000";
 
 const getAllProducts = async (req, res) => {

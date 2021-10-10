@@ -1,6 +1,6 @@
-const API = "http://localhost:5000";
-// process.env.NODE_ENV === "production"
-//  ? `https://empowering-women-web.herokuapp.com/`:
+const API = 
+process.env.NODE_ENV === "production"
+ ? `https://empowering-women-web.herokuapp.com`:"http://localhost:5000";
 
 export const getTeamMemberInHebrew = async (req, res) => {
   try {
